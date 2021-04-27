@@ -42,7 +42,7 @@ android {
     sourceSets {
         getByName("main") {
             assets.srcDirs("src/main/assets", "build/ovpnassets")
-
+            java.srcDirs("src/ui/java")
         }
 
         create("ui") {
@@ -169,6 +169,7 @@ dependencies {
 
     implementation("androidx.annotation:annotation:1.2.0")
     implementation("androidx.core:core:$coreVersion")
+    implementation(files("libs/hmdm-1.1.1.aar"))
 
     // Is there a nicer way to do this?
     dependencies.add("uiImplementation", "androidx.constraintlayout:constraintlayout:1.1.3")
