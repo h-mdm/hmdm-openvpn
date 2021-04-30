@@ -109,6 +109,14 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
 
     }
 
+    public fun getResult(): VpnProfile? {
+        return mResult;
+    }
+
+    public fun getEmbeddedPwFile() : String? {
+        return mEmbeddedPwFile;
+    }
+
     private fun userActionSaveProfile(): Boolean {
         if (mResult == null) {
             log(R.string.import_config_error)
@@ -754,7 +762,7 @@ class ConfigConverter : BaseActivity(), FileSelectCallback, View.OnClickListener
         mLogLayout.addView(view, mLogLayout.childCount - 1)
     }
 
-    private fun doImport(inputStream: InputStream) {
+    public fun doImport(inputStream: InputStream) {
         val cp = ConfigParser()
         try {
             val isr = InputStreamReader(inputStream)

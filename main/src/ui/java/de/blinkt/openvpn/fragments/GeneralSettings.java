@@ -5,8 +5,6 @@
 
 package de.blinkt.openvpn.fragments;
 
-import java.io.File;
-
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
@@ -20,12 +18,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
-
 import androidx.preference.CheckBoxPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragmentCompat;
+
+import java.io.File;
 
 import de.blinkt.openvpn.BuildConfig;
 import de.blinkt.openvpn.R;
@@ -111,9 +110,11 @@ public class GeneralSettings extends PreferenceFragmentCompat implements Prefere
         @Override
         public void onResume () {
             super.onResume();
-
-
             VpnProfile vpn = ProfileManager.getAlwaysOnVPN(getActivity());
+            updateAlwaysOnVpnSummary(vpn);
+        }
+
+        private void updateAlwaysOnVpnSummary(VpnProfile vpn) {
             StringBuffer sb = new StringBuffer(getString(R.string.defaultvpnsummary));
             sb.append('\n');
             if (vpn == null)
@@ -121,14 +122,16 @@ public class GeneralSettings extends PreferenceFragmentCompat implements Prefere
             else
                 sb.append(getString(R.string.vpnselected, vpn.getName()));
             mAlwaysOnVPN.setSummary(sb.toString());
-
         }
 
         @Override
         public boolean onPreferenceChange (Preference preference, Object newValue){
             if (preference == mAlwaysOnVPN) {
                 VpnProfile vpn = ProfileManager.get(getActivity(), (String) newValue);
-                mAlwaysOnVPN.setSummary(vpn.getName());
+                updateAlwaysOnVpnSummary(vpn);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    Utils.setAlwaysOnVpn(getContext(), vpn != null);
+                }
             }
             return true;
         }

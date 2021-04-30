@@ -19,11 +19,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.ListFragment;
-
 import android.text.Html;
 import android.text.Html.ImageGetter;
 import android.view.LayoutInflater;
@@ -38,6 +33,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.ListFragment;
 
 import java.util.Collection;
 import java.util.Comparator;

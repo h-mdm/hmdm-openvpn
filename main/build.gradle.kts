@@ -18,8 +18,8 @@ android {
     defaultConfig {
         minSdkVersion(14)
         targetSdkVersion(30)  //'Q'.toInt()
-        versionCode = 176
-        versionName = "0.7.22"
+        versionCode = 1176
+        versionName = "1.7.22"
 
         externalNativeBuild {
             cmake {
@@ -82,6 +82,13 @@ android {
     }
 
     buildTypes {
+        getByName("debug") {
+            if (project.hasProperty("debugSigningByReleaseKeys")) {
+                signingConfig = signingConfigs.getByName("release")
+            } else {
+                signingConfig = android.signingConfigs.getByName("debug")
+            }
+        }
         getByName("release") {
             if (project.hasProperty("icsopenvpnDebugSign")) {
                 logger.warn("property icsopenvpnDebugSign set, using debug signing for release")

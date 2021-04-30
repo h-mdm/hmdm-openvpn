@@ -18,7 +18,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
-import java.util.UUID;
 
 import de.blinkt.openvpn.VpnProfile;
 
@@ -256,6 +255,12 @@ public class ProfileManager {
         String uuid = prefs.getString("alwaysOnVpn", null);
         return get(uuid);
 
+    }
+
+    public static void setAlwaysOnVPN(Context context, VpnProfile vpn) {
+        checkInstance(context);
+        SharedPreferences prefs = Preferences.getDefaultSharedPreferences(context);
+        prefs.edit().putString("alwaysOnVpn", vpn != null ? vpn.getUUIDString() : null).commit();
     }
 
     public static void updateLRU(Context c, VpnProfile profile) {

@@ -6,7 +6,8 @@
 package de.blinkt.openvpn.fragments;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,6 +19,8 @@ import android.os.Build;
 import android.provider.OpenableColumns;
 import android.util.Base64;
 import android.webkit.MimeTypeMap;
+
+import androidx.annotation.RequiresApi;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -296,4 +299,18 @@ public class Utils {
         return prefix + VpnProfile.INLINE_TAG + newData;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public static boolean setAlwaysOnVpn(Context context, boolean set) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            return false;
+        }
+        try {
+            ComponentName cn = new ComponentName("com.hmdm.launcher", "com.hmdm.launcher.AdminReceiver");
+            DevicePolicyManager dpm = (DevicePolicyManager)context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+            dpm.setAlwaysOnVpnPackage(cn, set ? context.getPackageName() : null, true);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

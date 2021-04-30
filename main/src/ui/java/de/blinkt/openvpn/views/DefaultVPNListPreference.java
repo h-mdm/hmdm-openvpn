@@ -10,10 +10,11 @@ import android.util.AttributeSet;
 
 import androidx.preference.ListPreference;
 
+import java.util.Collection;
+
+import de.blinkt.openvpn.R;
 import de.blinkt.openvpn.VpnProfile;
 import de.blinkt.openvpn.core.ProfileManager;
-
-import java.util.Collection;
 
 public class DefaultVPNListPreference extends ListPreference {
     public DefaultVPNListPreference(Context context, AttributeSet attrs) {
@@ -24,10 +25,13 @@ public class DefaultVPNListPreference extends ListPreference {
     private void setVPNs(Context c) {
         ProfileManager pm = ProfileManager.getInstance(c);
         Collection<VpnProfile> profiles = pm.getProfiles();
-        CharSequence[] entries = new CharSequence[profiles.size()];
-        CharSequence[] entryValues = new CharSequence[profiles.size()];;
+        CharSequence[] entries = new CharSequence[profiles.size() + 1];
+        CharSequence[] entryValues = new CharSequence[profiles.size() + 1];;
 
-        int i=0;
+        entries[0] = c.getString(R.string.novpn_selected);
+        entryValues[0] = "";
+
+        int i=1;
         for (VpnProfile p: profiles)
         {
             entries[i]=p.getName();
