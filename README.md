@@ -9,11 +9,17 @@ Settings
 The following application settings could be set up to manage OpenVPN remotely:
 
 **vpn_name** - name of the VPN connection (required)
+
 **vpn_config** - path to the .ovpn file containing an OpenVPN profile relative to the storage (required). Example: vpn_config=/client.ovpn  (the client.ovpn is located at the root directory of the device storage)
+
 **connect** - set to 1 if the VPN connection should start just after loading the app. Available values: 1 and 0
+
 **always_on** - set to 1 to set the VPN profile as "always-on", 0 to clear the always-on profile. Leave this setting empty to keep the always-on setting untouched.
+
 **remove** - comma-separated list of VPN profiles which should be removed
+
 **remove_all** - set to 1 to remove all other VPN profiles
+
 
 Note: new settings are applied only if a new vpn_name is different from the previous one!
 
