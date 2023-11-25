@@ -48,7 +48,6 @@ android {
     sourceSets {
         getByName("main") {
             assets.srcDirs("src/main/assets", "build/ovpnassets")
-            java.srcDirs("src/ui/java")
         }
 
         create("ui") {
