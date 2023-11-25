@@ -245,7 +245,7 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
             return null
         }
 
-        protected fun onPostExecute(v: Void) {
+        protected override fun onPostExecute(v: Void?) {
             if (vpnProfile == null) {
                 MDMService.Log.w(null, "Failed to import VPN profile from " + file.path)
                 return
