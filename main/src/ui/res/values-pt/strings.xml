@@ -27,14 +27,11 @@
     <string name="pkcs12pwquery">Password PKCS12</string>
     <string name="file_select">Selecionar&#8230;</string>
     <string name="file_nothing_selected">É necessário selecionar um ficheiro</string>
-    <string name="useTLSAuth">Usar autenticação TLS</string>
-    <string name="tls_direction">Direção TLS</string>
     <string name="ipv6_dialog_tile">Digite o endereço de IPv6/máscara de rede no formato CIDR (por exemplo, 2000:dd::23 / 64)</string>
     <string name="ipv4_dialog_title">Digite o endereço de IPv4/máscara de rede no formato CIDR (por exemplo, 1.2.3.4/24)</string>
     <string name="ipv4_address">Endereço IPv4</string>
     <string name="ipv6_address">Endereço IPv6</string>
     <string name="custom_option_warning">Insira opções personalizadas para a ligação OpenVPN. Este opções devem ser usadas com precaução. Note-se também que muitas das opções para OpenVPN relacionados com tun não não suportadas propositadamente. Se achar que uma opção importante está falta entre em contato com o autor</string>
-    <string name="auth_username">Utilizador</string>
     <string name="auth_pwquery">Password</string>
     <string name="static_keys_info">Para a configuração estática as chaves de autenticação TLS serão usadas como chaves estáticas</string>
     <string name="configure_the_vpn">Configurar a VPN</string>
@@ -43,7 +40,6 @@
     <string name="duplicate_profile_name">Por favor, digite um nome de perfil que não esteja já em uso</string>
     <string name="profilename">Nome do perfil</string>
     <string name="no_keystore_cert_selected">Tem de selecionar um certificado de utilizador</string>
-    <string name="no_ca_cert_selected">Deve selecionar um certificado</string>
     <string name="no_error_found">Nenhum erro encontrado</string>
     <string name="config_error_found">Erro na configuração</string>
     <string name="ipv4_format_error">Erro ao analisar o endereço IPv4</string>
@@ -69,8 +65,6 @@
     <string name="remote_tlscn_check_title">Verificar nome de host do certificado</string>
     <string name="enter_tlscn_dialog">Especifique a verificação usada para verificar o DN do certificado remoto (por exemplo, C = DE, L = Paderborn, OU = Avian IP Carriers, CN = openvpn.blinkt.de)\n\nEspecifique o DN completo ou o RDN (openvpn.blinkt.de no exemplo) ou um prefixo RDN para verificação. \n\nQuando utilizar o prefixo RDN \"Servidor\" corresponde ao \"Servidor-1\" e ao \"Servidor-2\"\n\nDeixando o campo de texto vazio verificará o RDN contra o nome do host do servidor.\n\nPara mais detalhes, veja a página de utilizador OpenVPN 2.3.1+ sob -verify-x509-name</string>
     <string name="enter_tlscn_title">Assunto do certificado remoto</string>
-    <string name="tls_key_auth">Ativa a autenticação de chave TLS</string>
-    <string name="tls_auth_file">Ficheiro de autenticação TLS</string>
     <string name="pull_on_summary">Solicita endereços IP, rotas e tempo do servidor.</string>
     <string name="pull_off_summary">Nenhuma informação é solicitada do servidor. As configurações precisam ser especificadas abaixo.</string>
     <string name="use_pull">Obter Configurações</string>
@@ -127,7 +121,6 @@
     <string name="no_vpn_support_image">A imagem não suporta a API VPNService, lamentamos :(</string>
     <string name="encryption">Encriptação</string>
     <string name="cipher_dialog_title">Digite o método de encriptação</string>
-    <string name="chipher_dialog_message">Introduzir o algoritmo de cifra utilizado pelo OpenVPN. Deixar vazio para usar o defeito.</string>
     <string name="auth_dialog_message">Digite o resumo de autenticação usado para o OpenVPN. Deixe em branco para usar o resumo padrão.</string>
     <string name="settings_auth">Autenticação/encriptação</string>
     <string name="file_explorer_tab">Explorador de ficheiros</string>
@@ -193,7 +186,6 @@
     <string name="setting_loadtun">Carregar o módulo tun</string>
     <string name="getproxy_error">Erro ao obter definições proxy %s</string>
     <string name="use_system_proxy">Usar a proxy do sistema</string>
-    <string name="onbootrestart">Ligar no arranque</string>
     <string name="ignore">Ignorar</string>
     <string name="restart">Reiniciar</string>
     <string name="restart_vpn_after_change">As alterações de configuração são aplicadas depois de reiniciar a VPN. Reiniciar a VPN agora?</string>
@@ -238,7 +230,6 @@
     <string name="encryption_cipher">Cifra de encriptação</string>
     <string name="packet_auth">Autenticação de pacotes</string>
     <string name="auth_dialog_title">Selecione o método de autenticação de pacotes</string>
-    <string name="built_by">Feito por %s</string>
     <string name="debug_build">compilação de debug</string>
     <string name="official_build">compilação oficial</string>
     <string name="make_selection_inline">Copiar para o perfil</string>

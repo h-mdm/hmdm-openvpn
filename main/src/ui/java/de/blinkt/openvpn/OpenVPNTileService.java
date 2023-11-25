@@ -22,6 +22,7 @@ import de.blinkt.openvpn.core.ConnectionStatus;
 import de.blinkt.openvpn.core.IOpenVPNServiceInternal;
 import de.blinkt.openvpn.core.OpenVPNService;
 import de.blinkt.openvpn.core.ProfileManager;
+import de.blinkt.openvpn.core.VPNLaunchHelper;
 import de.blinkt.openvpn.core.VpnStatus;
 
 
@@ -84,13 +85,7 @@ public class OpenVPNTileService extends TileService implements VpnStatus.StateLi
     @SuppressLint("Override")
     @TargetApi(Build.VERSION_CODES.N)
     void launchVPN(VpnProfile profile, Context context) {
-        Intent startVpnIntent = new Intent(Intent.ACTION_MAIN);
-        startVpnIntent.setClass(context, LaunchVPN.class);
-        startVpnIntent.putExtra(LaunchVPN.EXTRA_KEY, profile.getUUIDString());
-        startVpnIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startVpnIntent.putExtra(LaunchVPN.EXTRA_HIDELOG, true);
-
-        context.startActivity(startVpnIntent);
+          VPNLaunchHelper.startOpenVpn(profile, getBaseContext(), "QuickTile");
     }
 
     @TargetApi(Build.VERSION_CODES.N)
@@ -115,7 +110,7 @@ public class OpenVPNTileService extends TileService implements VpnStatus.StateLi
         VpnProfile vpn;
         Tile t = getQsTile();
         if (level == ConnectionStatus.LEVEL_AUTH_FAILED || level == ConnectionStatus.LEVEL_NOTCONNECTED) {
-            // No VPN connected, use stadnard VPN
+            // No VPN connected, use standard VPN
             vpn = getQSVPN();
             if (vpn == null) {
                 t.setLabel(getString(R.string.novpn_selected));

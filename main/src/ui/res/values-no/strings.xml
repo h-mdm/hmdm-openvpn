@@ -27,14 +27,11 @@
     <string name="pkcs12pwquery">PKCS12 passord</string>
     <string name="file_select">Velg&#8230;</string>
     <string name="file_nothing_selected">Du må velge en fil</string>
-    <string name="useTLSAuth">Bruke TLS-godkjenning</string>
-    <string name="tls_direction">TLS-retning</string>
     <string name="ipv6_dialog_tile">Angi IPv6-adresse/nettmaske i CIDR format (f.eks 2000:dd::23/64)</string>
     <string name="ipv4_dialog_title">Angi IPv6-adresse/nettmaske i CIDR format (f.eks 1.2.3.4/24)</string>
     <string name="ipv4_address">IPv4-adresse</string>
     <string name="ipv6_address">IPv6-adresse</string>
     <string name="custom_option_warning">Angi egendefinerte OpenVPN-alternativer. Bør brukes med forsiktighet. Vær også oppmerksom på at mange av de tun-relaterte OpenVPN-innstillingene ikke støttes i henhold til utformingen av VPNSettings. Hvis du tror at et viktig alternativ mangler kan du kontakte forfatteren</string>
-    <string name="auth_username">Brukernavn</string>
     <string name="auth_pwquery">Passord</string>
     <string name="static_keys_info">For den statiske konfigurasjonen vil TLS Auth Keys-ene bli brukt som statiske nøkler</string>
     <string name="configure_the_vpn">Konfigurer VPN</string>
@@ -43,7 +40,6 @@
     <string name="duplicate_profile_name">Skriv inn et unikt profilnavn</string>
     <string name="profilename">Profilnavn</string>
     <string name="no_keystore_cert_selected">Du må velge et brukersertifikat</string>
-    <string name="no_ca_cert_selected">Du må velge et CA-sertifikat</string>
     <string name="no_error_found">Ingen feil funnet</string>
     <string name="config_error_found">Feil i konfigurasjonen</string>
     <string name="ipv4_format_error">Feil ved analyse av IPv4-adressen</string>
@@ -69,8 +65,6 @@
     <string name="remote_tlscn_check_title">Sjekk av vertsnavn i sertifikat</string>
     <string name="enter_tlscn_dialog">Spesifiser sjekken som brukes for å bekrefte det eksterne sertifikatet DN (f.eks. C = DE, L = Paderborn, OU = Avian IP Carriers, CN = openvpn.blinkt.de)\n\nSpesifiser hele DN eller RDN (openvpn.blinkt.de i eksemplet) eller et RDN-prefiks for bekreftelse.\n\nNår du bruker RDN-prefikset, samsvarer \"Server\" med \"Server-1\" og \"Server-2\"\n\nHvis du lar tekstfeltet være tomt, kontrolleres RDN mot serververtsnavnet.\n\nFor mer informasjon, se OpenVPN 2.3.1+ -håndbok under —verify-x509-name</string>
     <string name="enter_tlscn_title">Emne for ekstern sertifikat</string>
-    <string name="tls_key_auth">Aktiver autentisering med TLS-nøkkel</string>
-    <string name="tls_auth_file">TLS-Auth-fil</string>
     <string name="pull_on_summary">Etterspør IP-adresser, ruter og alternativer for timing fra serveren.</string>
     <string name="pull_off_summary">Serveren etterspør ingen informasjon. Innstillinger må angis nedenfor.</string>
     <string name="use_pull">Trekk innstillinger</string>
@@ -127,7 +121,6 @@
     <string name="no_vpn_support_image">Bildet ditt støtter ikke VPNService API, beklager :(</string>
     <string name="encryption">Kryptering</string>
     <string name="cipher_dialog_title">Angi krypteringsmetode</string>
-    <string name="chipher_dialog_message">Skriv inn krypteringskrypteringsalgoritmen som brukes av OpenVPN. La det stå tomt for å bruke standard kryptering.</string>
     <string name="auth_dialog_message">Skriv inn godkjenningsfordeling som brukes til OpenVPN. La være tom for å bruke standard fordøyelse.</string>
     <string name="settings_auth">Autentisering/kryptering</string>
     <string name="file_explorer_tab">Filutforsker</string>
@@ -178,8 +171,11 @@
     <string name="extracahint">CA-sertifikatet returneres vanligvis fra Android-tasten. Spesifiser et eget sertifikat hvis du får feilbevis for sertifikat.</string>
     <string name="select_file">Velg</string>
     <string name="keychain_nocacert">Ingen CA-sertifikater ble returnert mens du leste fra Android keystore. Autentisering vil sannsynligvis mislykkes.</string>
+    <string name="show_log_summary">Viser loggvinduet ved tilkobling. Loggvinduet er alltid tilgjengelig fra varslingsstatusen.c</string>
     <string name="show_log_window">Vis logg-vindu</string>
     <string name="mobile_info">%10$s %9$s kjører på %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
+    <string name="error_rsa_sign">Error signing with Android keystore key %1$s: %2$s</string>
+    <string name="error_extapp_sign">Feil ved signering med ekstern autentiseringsapp (%3$s): %1$s: %2$s</string>
     <string name="faq_system_dialogs_title">Tilkoblingsvarsel og varslingslyd</string>
     <string name="translationby">Norsk oversettelse av Jonny</string>
     <string name="ipdns">IP og DNS</string>
@@ -196,7 +192,6 @@
     <string name="using_proxy">Benytter proxyen %1$s %2$s</string>
     <string name="use_system_proxy">Bruk systemet proxy</string>
     <string name="use_system_proxy_summary">Bruk global systemkonfigurasjon for HTTP/HTTPS proxy for å koble til.</string>
-    <string name="onbootrestart">Koble til ved oppstart</string>
     <string name="ignore">Ignorer</string>
     <string name="restart">Start på nytt</string>
     <string name="restart_vpn_after_change">Konfigurasjonsendringene vil brukes etter at VPN\'en er startet på nytt. Restarte VPN nå?</string>
@@ -238,7 +233,6 @@
     <string name="encryption_cipher">Kryptering chiffer</string>
     <string name="packet_auth">Pakkegodkjenning</string>
     <string name="auth_dialog_title">Angi pakkeautentiseringsmetode</string>
-    <string name="built_by">bygget av %s</string>
     <string name="debug_build">avlusings-delversjon</string>
     <string name="official_build">offisiell delversjon</string>
     <string name="make_selection_inline">Kopier til profil</string>
@@ -294,7 +288,6 @@
     <string name="enabled_connection_entry">Aktivert</string>
     <string name="pw_request_dialog_title">Trenger %1$s</string>
     <string name="export_config_chooser_title">Eksporter konfigurasjonsfilen</string>
-    <string name="missing_ca_certificate">Manglende CA-sertifikat</string>
     <string name="samsung_broken_title">Samsung telefoner</string>
     <string name="novpn_selected">Ingen VPN valgt.</string>
     <string name="defaultvpn">Standard VPN</string>

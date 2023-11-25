@@ -17,9 +17,9 @@
         <item>Externer Authentifizierungsanbieter</item>
     </string-array>
     <string-array name="tls_directions_entries">
-        <item translatable="false">0</item>
-        <item translatable="false">1</item>
-        <item>Unspezifiziert</item>
+        <item translatable="false">tls-auth - --direction 0</item>
+        <item translatable="false">tls-auth - --direction 1</item>
+        <item>tls-auth --direction nicht spezifiziert</item>
         <item>Verschlüsselung (--tls-crypt)</item>
         <item>TLS Crypt V2</item>
     </string-array>
@@ -34,5 +34,17 @@
         <item>Trennen, Passwort vergessen</item>
         <item>Trennen, Passwort merken</item>
         <item>Fehler Ignorieren, erneut versuchen</item>
+    </string-array>
+    <string-array name="compat_mode">
+        <item>Moderne Voreinstellungen</item>
+        <item>OpenVPN 2.5.x peers</item>
+        <item>OpenVPN 2.4.x peers</item>
+        <item>OpenVPN 2.3.x und ältere peers</item>
+    </string-array>
+    <string-array name="tls_profile_entries">
+        <item>insecure (nicht empfohlen, erlaubt unsichere Kryptographie)</item>
+        <item>legacy (Standardeinstellung)</item>
+        <item>preferred (empfohlen, aber eingeschränkte Kompatibilität)</item>
+        <item>Suite B (nur von vom US-NIST empfohlene elliptische Kurven)</item>
     </string-array>
 </resources>

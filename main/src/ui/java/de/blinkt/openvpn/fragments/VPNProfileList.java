@@ -5,12 +5,18 @@
 
 package de.blinkt.openvpn.fragments;
 
+import static de.blinkt.openvpn.core.ConnectionStatus.LEVEL_WAITING_FOR_USER_INPUT;
+import static de.blinkt.openvpn.core.OpenVPNService.DISCONNECT_VPN;
+import static de.blinkt.openvpn.core.OpenVPNService.EXTRA_CHALLENGE_TXT;
+
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Drawable;
@@ -21,6 +27,8 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.Html;
 import android.text.Html.ImageGetter;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,6 +42,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.ListFragment;
 
@@ -56,10 +67,6 @@ import de.blinkt.openvpn.core.Preferences;
 import de.blinkt.openvpn.core.ProfileManager;
 import de.blinkt.openvpn.core.VpnStatus;
 
-import static de.blinkt.openvpn.core.ConnectionStatus.LEVEL_WAITING_FOR_USER_INPUT;
-import static de.blinkt.openvpn.core.OpenVPNService.DISCONNECT_VPN;
-import static de.blinkt.openvpn.core.OpenVPNService.EXTRA_CHALLENGE_TXT;
-
 
 public class VPNProfileList extends ListFragment implements OnClickListener, VpnStatus.StateListener {
 
@@ -80,6 +87,9 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
     private String mLastStatusMessage;
     private ArrayAdapter<VpnProfile> mArrayadapter;
     private Intent mLastIntent;
+    private VpnProfile defaultVPN;
+    private View mPermissionView;
+    private ActivityResultLauncher<String> mPermReceiver;
 
     @Override
     public void updateState(String state, String logmessage, final int localizedResId, ConnectionStatus level, Intent intent) {
@@ -93,7 +103,7 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
 
     private boolean showUserRequestDialogIfNeeded(ConnectionStatus level, Intent intent) {
         if (level == LEVEL_WAITING_FOR_USER_INPUT) {
-            if (intent.getStringExtra(EXTRA_CHALLENGE_TXT) != null) {
+            if (intent != null && intent.getStringExtra(EXTRA_CHALLENGE_TXT) != null) {
                 PasswordDialogFragment pwInputFrag = PasswordDialogFragment.Companion.newInstance(intent, false);
 
                 pwInputFrag.show(getParentFragmentManager(), "dialog");
@@ -124,6 +134,14 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        setListAdapter();
+
+        registerPermissionReceiver();
+    }
+
+    private void registerPermissionReceiver() {
+        mPermReceiver = registerForActivityResult(new ActivityResultContracts.RequestPermission(),
+                result -> checkForNotificationPermission(requireView()));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)
@@ -219,9 +237,10 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
     @RequiresApi(Build.VERSION_CODES.N_MR1)
     ShortcutInfo createShortcut(VpnProfile profile) {
         Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
-        shortcutIntent.setClass(getActivity(), LaunchVPN.class);
+        shortcutIntent.setClass(requireContext(), LaunchVPN.class);
         shortcutIntent.putExtra(LaunchVPN.EXTRA_KEY, profile.getUUID().toString());
         shortcutIntent.setAction(Intent.ACTION_MAIN);
+        shortcutIntent.putExtra(LaunchVPN.EXTRA_START_REASON, "shortcut");
         shortcutIntent.putExtra("EXTRA_HIDELOG", true);
 
         PersistableBundle versionExtras = new PersistableBundle();
@@ -244,6 +263,7 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
             updateDynamicShortcuts();
         }
         VpnStatus.addStateListener(this);
+        defaultVPN = ProfileManager.getAlwaysOnVPN(requireContext());
     }
 
     @Override
@@ -271,14 +291,22 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
         if (fab_import != null)
             fab_import.setOnClickListener(this);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+            checkForNotificationPermission(v);
+
+
         return v;
 
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        setListAdapter();
+    private void checkForNotificationPermission(View v) {
+        mPermissionView = v.findViewById(R.id.notification_permission);
+        boolean permissionGranted =  (requireActivity().checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED);
+        mPermissionView.setVisibility(permissionGranted ? View.GONE : View.VISIBLE);
+
+        mPermissionView.setOnClickListener((view) -> {
+            mPermReceiver.launch(Manifest.permission.POST_NOTIFICATIONS);
+        });
     }
 
     private void setListAdapter() {
@@ -290,7 +318,8 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
     }
 
     private void populateVpnList() {
-        boolean sortByLRU = Preferences.getDefaultSharedPreferences(getActivity()).getBoolean(PREF_SORT_BY_LRU, false);
+        boolean sortByLRU = Preferences.getDefaultSharedPreferences(requireActivity()).getBoolean(PREF_SORT_BY_LRU, false);
+        getPM().refreshVPNList(requireContext());
         Collection<VpnProfile> allvpn = getPM().getProfiles();
         TreeSet<VpnProfile> sortedset;
         if (sortByLRU)
@@ -307,7 +336,7 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(Menu menu, @NonNull MenuInflater inflater) {
         menu.add(0, MENU_ADD_PROFILE, 0, R.string.menu_add_profile)
                 .setIcon(R.drawable.ic_menu_add)
                 .setAlphabeticShortcut('a')
@@ -352,8 +381,8 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
     }
 
     private boolean startASProfileImport() {
-        ImportASConfig asImportFrag = ImportASConfig.newInstance();
-        asImportFrag.show(requireFragmentManager(), "dialog");
+        ImportRemoteConfig asImportFrag = ImportRemoteConfig.newInstance(null);
+        asImportFrag.show(getParentFragmentManager(), "dialog");
         return true;
     }
 
@@ -483,10 +512,8 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
                 onAddOrDuplicateProfile(profile);
         }
 
-
         if (resultCode != Activity.RESULT_OK)
             return;
-
 
         if (requestCode == START_VPN_CONFIG) {
             String configuredVPN = data.getStringExtra(VpnProfile.EXTRA_PROFILEUUID);
@@ -534,6 +561,7 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
 
         Intent intent = new Intent(getActivity(), LaunchVPN.class);
         intent.putExtra(LaunchVPN.EXTRA_KEY, profile.getUUID().toString());
+        intent.putExtra(LaunchVPN.EXTRA_START_REASON, "main profile list");
         intent.setAction(Intent.ACTION_MAIN);
         startActivity(intent);
     }
@@ -593,30 +621,37 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
             super(context, resource, textViewResourceId);
         }
 
+        @NonNull
         @Override
-        public View getView(final int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, @NonNull ViewGroup parent) {
             View v = super.getView(position, convertView, parent);
 
             final VpnProfile profile = (VpnProfile) getListAdapter().getItem(position);
 
             View titleview = v.findViewById(R.id.vpn_list_item_left);
-            titleview.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startOrStopVPN(profile);
-                }
-            });
+            titleview.setOnClickListener(v1 -> startOrStopVPN(profile));
 
             View settingsview = v.findViewById(R.id.quickedit_settings);
             settingsview.setOnClickListener(view -> editVPN(profile));
 
-            TextView subtitle = (TextView) v.findViewById(R.id.vpn_item_subtitle);
+            TextView subtitle = v.findViewById(R.id.vpn_item_subtitle);
+            SpannableStringBuilder warningText = Utils.getWarningText(requireContext(), profile);
+
+            if (profile == defaultVPN) {
+                if (warningText.length() > 0)
+                    warningText.append(" ");
+                warningText.append(new SpannableString("Default VPN"));
+            }
+
             if (profile.getUUIDString().equals(VpnStatus.getLastConnectedVPNProfile())) {
                 subtitle.setText(mLastStatusMessage);
                 subtitle.setVisibility(View.VISIBLE);
             } else {
-                subtitle.setText("");
-                subtitle.setVisibility(View.GONE);
+                subtitle.setText(warningText);
+                if (warningText.length() > 0)
+                    subtitle.setVisibility(View.VISIBLE);
+                else
+                    subtitle.setVisibility(View.GONE);
             }
 
 
@@ -631,9 +666,9 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
         public Drawable getDrawable(String source) {
             Drawable d = null;
             if ("ic_menu_add".equals(source))
-                d = requireActivity().getResources().getDrawable(R.drawable.ic_menu_add_grey);
+                d = requireActivity().getResources().getDrawable(R.drawable.ic_menu_add_grey, requireActivity().getTheme());
             else if ("ic_menu_archive".equals(source))
-                d = requireActivity().getResources().getDrawable(R.drawable.ic_menu_import_grey);
+                d = requireActivity().getResources().getDrawable(R.drawable.ic_menu_import_grey, requireActivity().getTheme());
 
 
             if (d != null) {

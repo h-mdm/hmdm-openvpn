@@ -1,7 +1,7 @@
 build/
-main/libs/
 main/ovpnlibs/
 main/obj/
+main/keystore/
 main/.cxx/
 .DS_Store
 .navigation
@@ -29,3 +29,4 @@ polaris.yml
 .coverity
 idir
 
+test.local.conf

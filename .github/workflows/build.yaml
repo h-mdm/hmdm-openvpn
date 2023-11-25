@@ -4,6 +4,11 @@ on: [push, pull_request]
 
 jobs:
   build:
+    strategy:
+      fail-fast: false
+      matrix:
+          target: [UiOvpn23, SkeletonOvpn2, UiOvpn2]
+    name: "Release ${{ matrix.target }}"
     runs-on: ubuntu-latest
     steps:
       - name: Use debug signing
@@ -12,5 +17,19 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: true
+      - name: set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: 17
+          cache: 'gradle'
       - name: Build the app
-        run: ./gradlew assembleUiRelease
+        run: ./gradlew assemble${{ matrix.target }}Release
+      - name: Run Unit tests
+        run: ./gradlew test${{ matrix.target }}ReleaseUnitTest
+
+      - name: Archive apk artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-${{matrix.target}}-release-apk
+          path: main/build/outputs/apk/**/*universal*.apk
