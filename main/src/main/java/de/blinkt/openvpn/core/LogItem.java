@@ -15,6 +15,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
+import androidx.annotation.StringRes;
+
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
@@ -165,7 +167,7 @@ public class LogItem implements Parcelable {
                 throw new IndexOutOfBoundsException("String length " + len + " is bigger than remaining bytes " + bb.remaining());
             byte[] utf8bytes = new byte[len];
             bb.get(utf8bytes);
-            mMessage = new String(utf8bytes, "UTF-8");
+            mMessage = new String(utf8bytes, StandardCharsets.UTF_8);
         }
         int numArgs = bb.getInt();
         if (numArgs > 30) {
@@ -207,8 +209,22 @@ public class LogItem implements Parcelable {
 
     private void marschalString(String str, ByteBuffer bb) throws UnsupportedEncodingException {
         byte[] utf8bytes = str.getBytes(StandardCharsets.UTF_8);
-        bb.putInt(utf8bytes.length);
-        bb.put(utf8bytes);
+
+        byte[] elipse = {'.', '.', '.', '[','t','o','o', ' ', 'l','o','n','g',']'};
+
+        int maxStringLength = Math.min(8192, bb.remaining()-128);
+
+        if (utf8bytes.length > maxStringLength)
+        {
+            bb.putInt(maxStringLength + elipse.length);
+            bb.put(utf8bytes, 0, maxStringLength);
+            bb.put(elipse);
+        }
+        else
+        {
+            bb.putInt(utf8bytes.length);
+            bb.put(utf8bytes);
+        }
     }
 
     private String unmarschalString(ByteBuffer bb) throws UnsupportedEncodingException {
@@ -239,7 +255,7 @@ public class LogItem implements Parcelable {
         }
     };
 
-    public LogItem(VpnStatus.LogLevel loglevel, int ressourceId, Object... args) {
+    public LogItem(VpnStatus.LogLevel loglevel, @StringRes int ressourceId, Object... args) {
         mRessourceId = ressourceId;
         mArgs = args;
         mLevel = loglevel;

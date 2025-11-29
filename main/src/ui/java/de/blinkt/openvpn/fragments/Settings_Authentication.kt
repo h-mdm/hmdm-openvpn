@@ -69,6 +69,9 @@ class Settings_Authentication : OpenVpnPreferencesFragment(), Preference.OnPrefe
     }
 
     override fun loadSettings() {
+        if (!this::mExpectTLSCert.isInitialized) {
+            return;
+        }
         mExpectTLSCert.isChecked = mProfile.mExpectTLSCert
         mCheckRemoteCN.isChecked = mProfile.mCheckRemoteCN
         mRemoteCN.setDN(mProfile.mRemoteCN)
@@ -99,6 +102,9 @@ class Settings_Authentication : OpenVpnPreferencesFragment(), Preference.OnPrefe
     }
 
     override fun saveSettings() {
+        if (!this::mExpectTLSCert.isInitialized) {
+            return;
+        }
         mProfile.mExpectTLSCert = mExpectTLSCert.isChecked
         mProfile.mCheckRemoteCN = mCheckRemoteCN.isChecked
         mProfile.mRemoteCN = mRemoteCN.cnText

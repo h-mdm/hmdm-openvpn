@@ -22,7 +22,7 @@ SET(OPENVPN3OSSL ON)
 SET(SSLLIBTYPE STATIC)
 SET(OPENSSL_PATH "openssl")
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 23)
 
 
 #add_subdirectory(lzo)
@@ -63,6 +63,7 @@ if (NOT ${CMAKE_LIBRARY_OUTPUT_DIRECTORY} MATCHES "build/intermediates/cmake/.*s
             openvpn3/client/ovpncli.cpp
             openvpn3/openvpn/openssl/xkey/xkey_provider.c
             openvpn3/openvpn/openssl/xkey/xkey_helper.c
+            openvpn3/openvpn/crypto/data_epoch.cpp
             ovpncli_wrap.cxx)
 
     add_library(ovpn3 SHARED ${ovpn3_SRCS})
@@ -133,6 +134,7 @@ set(openvpn_srcs
         src/openvpn/console.c
         src/openvpn/console_builtin.c
         src/openvpn/crypto.c
+        src/openvpn/crypto_epoch.c
         src/openvpn/crypto_openssl.c
         src/openvpn/crypto_mbedtls.c
         src/openvpn/cryptoapi.c
@@ -163,6 +165,7 @@ set(openvpn_srcs
         src/openvpn/mtu.c
         src/openvpn/mudp.c
         src/openvpn/multi.c
+        src/openvpn/multi_io.c
         src/openvpn/ntlm.c
         src/openvpn/occ.c
         src/openvpn/openvpn.c
@@ -204,6 +207,7 @@ set(openvpn_srcs
         src/openvpn/status.c
         src/openvpn/tls_crypt.c
         src/openvpn/tun.c
+        src/openvpn/tun_afunix.c
         src/openvpn/vlan.c
         src/openvpn/xkey_helper.c
         src/openvpn/xkey_provider.c

@@ -18,6 +18,9 @@ import androidx.viewpager.widget.ViewPager
 import com.hmdm.HeadwindMDM
 import com.hmdm.MDMService
 import de.blinkt.openvpn.LaunchVPN
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import de.blinkt.openvpn.R
 import de.blinkt.openvpn.VpnProfile
 import de.blinkt.openvpn.core.ConfigParser
@@ -39,16 +42,18 @@ import java.io.IOException
 
 
 class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
-    private lateinit var mPager: ViewPager
+    private lateinit var mPager: ViewPager2
     private lateinit var mPagerAdapter: ScreenSlidePagerAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
-
+        val view = layoutInflater.inflate(R.layout.main_activity, null)
 
         // Instantiate a ViewPager and a PagerAdapter.
-        mPager = findViewById(R.id.pager)
-        mPagerAdapter = ScreenSlidePagerAdapter(supportFragmentManager, this)
+        mPager = view.findViewById(R.id.pager)
+        val tablayout: TabLayout = view.findViewById(R.id.tab_layout)
+
+        mPagerAdapter = ScreenSlidePagerAdapter(supportFragmentManager, lifecycle, this)
 
         /* Toolbar and slider should have the same elevation */disableToolbarElevation()
         mPagerAdapter.addTab(R.string.vpn_list_title, VPNProfileList::class.java)
@@ -67,7 +72,14 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
         if (!headwindMDM.isConnected) {
             headwindMDM.connect(this, this)
         }
+        TabLayoutMediator(tablayout, mPager) { tab, position ->
+            tab.text = mPagerAdapter.getPageTitle(position)
+        }.attach()
+
+        setUpEdgeEdgeInsetsListener(view, R.id.root_linear_layout)
+        setContentView(view)
     }
+
 
     private fun disableToolbarElevation() {
         supportActionBar?.elevation = 0f

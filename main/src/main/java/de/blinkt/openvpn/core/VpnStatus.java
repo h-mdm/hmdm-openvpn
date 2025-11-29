@@ -11,6 +11,8 @@ import android.os.Build;
 import android.os.HandlerThread;
 import android.os.Message;
 
+import androidx.annotation.StringRes;
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -24,9 +26,10 @@ import de.blinkt.openvpn.R;
 public class VpnStatus {
     private static final LinkedList<LogItem> logbuffer;
 
-    private static Vector<LogListener> logListener;
-    private static Vector<StateListener> stateListener;
-    private static Vector<ByteCountListener> byteCountListener;
+    private static final Vector<LogListener> logListener;
+    private static final Vector<StateListener> stateListener;
+    private static final Vector<ByteCountListener> byteCountListener;
+    private static final Vector<ProfileNotifyListener> profileListener;
 
     private static String mLaststatemsg = "";
 
@@ -203,6 +206,7 @@ public class VpnStatus {
         stateListener = new Vector<>();
         byteCountListener = new Vector<>();
         trafficHistory = new TrafficHistory();
+        profileListener = new Vector<>();
 
         logInformation();
 
@@ -215,8 +219,11 @@ public class VpnStatus {
 
     public interface StateListener {
         void updateState(String state, String logmessage, int localizedResId, ConnectionStatus level, Intent Intent);
-
         void setConnectedVPN(String uuid);
+    }
+
+    public interface ProfileNotifyListener {
+        void notifyProfileVersionChanged(String uuid, int version, boolean changedInThisProcess);
     }
 
     public interface ByteCountListener {
@@ -274,37 +281,31 @@ public class VpnStatus {
         }
     }
 
+    public synchronized static void addProfileStateListener(ProfileNotifyListener pl) {
+        profileListener.add(pl);
+    }
+
+    public synchronized static void removeProfileStateListener(ProfileNotifyListener pl) {
+        profileListener.remove(pl);
+    }
+
     private static int getLocalizedState(String state) {
-        switch (state) {
-            case "CONNECTING":
-                return R.string.state_connecting;
-            case "WAIT":
-                return R.string.state_wait;
-            case "AUTH":
-                return R.string.state_auth;
-            case "GET_CONFIG":
-                return R.string.state_get_config;
-            case "ASSIGN_IP":
-                return R.string.state_assign_ip;
-            case "ADD_ROUTES":
-                return R.string.state_add_routes;
-            case "CONNECTED":
-                return R.string.state_connected;
-            case "DISCONNECTED":
-                return R.string.state_disconnected;
-            case "RECONNECTING":
-                return R.string.state_reconnecting;
-            case "EXITING":
-                return R.string.state_exiting;
-            case "RESOLVE":
-                return R.string.state_resolve;
-            case "TCP_CONNECT":
-                return R.string.state_tcp_connect;
-            case "AUTH_PENDING":
-                return R.string.state_auth_pending;
-            default:
-                return R.string.unknown_state;
-        }
+        return switch (state) {
+            case "CONNECTING" -> R.string.state_connecting;
+            case "WAIT" -> R.string.state_wait;
+            case "AUTH" -> R.string.state_auth;
+            case "GET_CONFIG" -> R.string.state_get_config;
+            case "ASSIGN_IP" -> R.string.state_assign_ip;
+            case "ADD_ROUTES" -> R.string.state_add_routes;
+            case "CONNECTED" -> R.string.state_connected;
+            case "DISCONNECTED" -> R.string.state_disconnected;
+            case "RECONNECTING" -> R.string.state_reconnecting;
+            case "EXITING" -> R.string.state_exiting;
+            case "RESOLVE" -> R.string.state_resolve;
+            case "TCP_CONNECT" -> R.string.state_tcp_connect;
+            case "AUTH_PENDING" -> R.string.state_auth_pending;
+            default -> R.string.unknown_state;
+        };
 
     }
 
@@ -408,11 +409,11 @@ public class VpnStatus {
         newLogItem(new LogItem(LogLevel.DEBUG, message));
     }
 
-    public static void logInfo(int resourceId, Object... args) {
+    public static void logInfo(@StringRes int resourceId, Object... args) {
         newLogItem(new LogItem(LogLevel.INFO, resourceId, args));
     }
 
-    public static void logDebug(int resourceId, Object... args) {
+    public static void logDebug(@StringRes int resourceId, Object... args) {
         newLogItem(new LogItem(LogLevel.DEBUG, resourceId, args));
     }
 
@@ -486,7 +487,7 @@ public class VpnStatus {
 
     }
 
-    public static void logWarning(int resourceId, Object... args) {
+    public static void logWarning(@StringRes int resourceId, Object... args) {
         newLogItem(new LogItem(LogLevel.WARNING, resourceId, args));
     }
 
@@ -495,11 +496,11 @@ public class VpnStatus {
     }
 
 
-    public static void logError(int resourceId) {
+    public static void logError(@StringRes int resourceId) {
         newLogItem(new LogItem(LogLevel.ERROR, resourceId));
     }
 
-    public static void logError(int resourceId, Object... args) {
+    public static void logError(@StringRes int resourceId, Object... args) {
         newLogItem(new LogItem(LogLevel.ERROR, resourceId, args));
     }
 
@@ -525,4 +526,13 @@ public class VpnStatus {
             bcl.updateByteCount(in, out, diff.getDiffIn(), diff.getDiffOut());
         }
     }
+
+    public static synchronized void notifyProfileVersionChanged(String uuid, int version, boolean changedInThisProcess)
+    {
+        for(ProfileNotifyListener pl:profileListener)
+        {
+            pl.notifyProfileVersionChanged(uuid, version, changedInThisProcess);
+        }
+    }
+
 }

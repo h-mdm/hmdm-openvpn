@@ -66,6 +66,10 @@ class Settings_IP : OpenVpnPreferencesFragment(), Preference.OnPreferenceChangeL
 
 
     override fun loadSettings() {
+        // Since we maybe not have preferences bound yet, check if we actually have them bound.
+        if (!this::mUsePull.isInitialized) {
+            return;
+        }
         if (mProfile.mAuthenticationType == VpnProfile.TYPE_STATICKEYS) mUsePull.isEnabled =
             false else mUsePull.isChecked = mProfile.mUsePull
         mIPv4.text = mProfile.mIPv4Address
@@ -86,6 +90,10 @@ class Settings_IP : OpenVpnPreferencesFragment(), Preference.OnPreferenceChangeL
     }
 
     override fun saveSettings() {
+        // Since we maybe not have preferences bound yet, check if we actually have them bound.
+        if (!this::mUsePull.isInitialized) {
+            return;
+        }
         mProfile.mUsePull = mUsePull.isChecked
         mProfile.mIPv4Address = mIPv4.text
         mProfile.mIPv6Address = mIPv6.text

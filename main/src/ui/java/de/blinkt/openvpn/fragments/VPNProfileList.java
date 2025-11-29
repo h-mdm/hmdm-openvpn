@@ -8,6 +8,7 @@ package de.blinkt.openvpn.fragments;
 import static de.blinkt.openvpn.core.ConnectionStatus.LEVEL_WAITING_FOR_USER_INPUT;
 import static de.blinkt.openvpn.core.OpenVPNService.DISCONNECT_VPN;
 import static de.blinkt.openvpn.core.OpenVPNService.EXTRA_CHALLENGE_TXT;
+import static de.blinkt.openvpn.core.OpenVPNService.EXTRA_START_REASON;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -75,7 +76,7 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
     // Shortcut version is increased to refresh all shortcuts
     final static int SHORTCUT_VERSION = 1;
     private static final int MENU_ADD_PROFILE = Menu.FIRST;
-    private static final int START_VPN_CONFIG = 92;
+    private static final int EDIT_VPN_CONFIG = 92;
     private static final int SELECT_PROFILE = 43;
     private static final int IMPORT_PROFILE = 231;
     private static final int FILE_PICKER_RESULT_KITKAT = 392;
@@ -240,7 +241,7 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
         shortcutIntent.setClass(requireContext(), LaunchVPN.class);
         shortcutIntent.putExtra(LaunchVPN.EXTRA_KEY, profile.getUUID().toString());
         shortcutIntent.setAction(Intent.ACTION_MAIN);
-        shortcutIntent.putExtra(LaunchVPN.EXTRA_START_REASON, "shortcut");
+        shortcutIntent.putExtra(EXTRA_START_REASON, "shortcut");
         shortcutIntent.putExtra("EXTRA_HIDELOG", true);
 
         PersistableBundle versionExtras = new PersistableBundle();
@@ -448,6 +449,7 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
         if (context != null) {
             final EditText entry = new EditText(context);
             entry.setSingleLine();
+            entry.setContentDescription(getString(R.string.name_of_the_vpn_profile));
 
             AlertDialog.Builder dialog = new AlertDialog.Builder(context);
             if (mCopyProfile == null)
@@ -490,6 +492,7 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
     private void addProfile(VpnProfile profile) {
         getPM().addProfile(profile);
         getPM().saveProfileList(getActivity());
+        profile.addChangeLogEntry("empty profile added via main profile list");
         getPM().saveProfile(getActivity(), profile);
         mArrayadapter.add(profile);
     }
@@ -515,10 +518,11 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
         if (resultCode != Activity.RESULT_OK)
             return;
 
-        if (requestCode == START_VPN_CONFIG) {
+        if (requestCode == EDIT_VPN_CONFIG) {
             String configuredVPN = data.getStringExtra(VpnProfile.EXTRA_PROFILEUUID);
 
             VpnProfile profile = ProfileManager.get(getActivity(), configuredVPN);
+            profile.addChangeLogEntry("Profile edited by user");
             getPM().saveProfile(getActivity(), profile);
             // Name could be modified, reset List adapter
             setListAdapter();
@@ -552,7 +556,7 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
         Intent vprefintent = new Intent(getActivity(), VPNPreferences.class)
                 .putExtra(getActivity().getPackageName() + ".profileUUID", profile.getUUID().toString());
 
-        startActivityForResult(vprefintent, START_VPN_CONFIG);
+        startActivityForResult(vprefintent, EDIT_VPN_CONFIG);
     }
 
     private void startVPN(VpnProfile profile) {
@@ -561,7 +565,7 @@ public class VPNProfileList extends ListFragment implements OnClickListener, Vpn
 
         Intent intent = new Intent(getActivity(), LaunchVPN.class);
         intent.putExtra(LaunchVPN.EXTRA_KEY, profile.getUUID().toString());
-        intent.putExtra(LaunchVPN.EXTRA_START_REASON, "main profile list");
+        intent.putExtra(EXTRA_START_REASON, "main profile list");
         intent.setAction(Intent.ACTION_MAIN);
         startActivity(intent);
     }

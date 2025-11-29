@@ -12,23 +12,23 @@ plugins {
 }
 
 android {
-    buildToolsVersion = "33.0.1"
     buildFeatures {
         aidl = true
+        buildConfig = true
     }
     namespace = "de.blinkt.openvpn"
-    compileSdk = 34
+    compileSdk = 35
     //compileSdkPreview = "UpsideDownCake"
 
     // Also update runcoverity.sh
-    ndkVersion = "26.1.10909125"
+    ndkVersion = "28.0.13004108"
 
     defaultConfig {
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 35
         //targetSdkPreview = "UpsideDownCake"
-        versionCode = 1205
-        versionName = "1.7.50"
+        versionCode = 12160
+        versionName = "1.7.61"
         externalNativeBuild {
             cmake {
                 //arguments+= "-DCMAKE_VERBOSE_MAKEFILE=1"
@@ -50,7 +50,10 @@ android {
             assets.srcDirs("src/main/assets", "build/ovpnassets")
         }
 
-        create("ui") {
+        create("appui") {
+            java.srcDirs("src/ui/java")
+            res.srcDirs("src/ui/res")
+            manifest.srcFile("src/ui/AndroidManifest.xml")
         }
 
         create("skeleton") {
@@ -104,7 +107,7 @@ android {
     flavorDimensions += listOf("implementation", "ovpnimpl")
 
     productFlavors {
-        create("ui") {
+        create("appui") {
             dimension = "implementation"
         }
 
@@ -241,23 +244,26 @@ dependencies {
     // https://maven.google.com/web/index.html
     implementation(libs.androidx.annotation)
     implementation(libs.androidx.core.ktx)
-    implementation(files("libs/hmdm-1.1.1.aar"))
+    implementation(files("libs/hmdm-1.1.7.aar"))
 
-    uiImplementation(libs.android.view.material)
-    uiImplementation(libs.androidx.appcompat)
-    uiImplementation(libs.androidx.cardview)
-    uiImplementation(libs.androidx.constraintlayout)
-    uiImplementation(libs.androidx.core.ktx)
-    uiImplementation(libs.androidx.fragment.ktx)
-    uiImplementation(libs.androidx.lifecycle.runtime.ktx)
-    uiImplementation(libs.androidx.lifecycle.viewmodel.ktx)
-    uiImplementation(libs.androidx.preference.ktx)
-    uiImplementation(libs.androidx.recyclerview)
-    uiImplementation(libs.androidx.security.crypto)
-    uiImplementation(libs.androidx.webkit)
-    uiImplementation(libs.kotlin)
-    uiImplementation(libs.mpandroidchart)
-    uiImplementation(libs.square.okhttp)
+    appuiImplementation(libs.android.view.material)
+    appuiImplementation(libs.androidx.activity)
+    appuiImplementation(libs.androidx.activity.ktx)
+    appuiImplementation(libs.androidx.appcompat)
+    appuiImplementation(libs.androidx.cardview)
+    appuiImplementation(libs.androidx.viewpager2)
+    appuiImplementation(libs.androidx.constraintlayout)
+    appuiImplementation(libs.androidx.core.ktx)
+    appuiImplementation(libs.androidx.fragment.ktx)
+    appuiImplementation(libs.androidx.lifecycle.runtime.ktx)
+    appuiImplementation(libs.androidx.lifecycle.viewmodel.ktx)
+    appuiImplementation(libs.androidx.preference.ktx)
+    appuiImplementation(libs.androidx.recyclerview)
+    appuiImplementation(libs.androidx.security.crypto)
+    appuiImplementation(libs.androidx.webkit)
+    appuiImplementation(libs.kotlin)
+    appuiImplementation(libs.mpandroidchart)
+    appuiImplementation(libs.square.okhttp)
 
     testImplementation(libs.androidx.test.core)
     testImplementation(libs.junit)
@@ -266,5 +272,5 @@ dependencies {
     testImplementation(libs.robolectric)
 }
 
-fun DependencyHandler.uiImplementation(dependencyNotation: Any): Dependency? =
-    add("uiImplementation", dependencyNotation)
+fun DependencyHandler.appuiImplementation(dependencyNotation: Any): Dependency? =
+    add("appuiImplementation", dependencyNotation)

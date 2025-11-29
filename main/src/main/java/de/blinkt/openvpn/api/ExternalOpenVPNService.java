@@ -6,7 +6,6 @@
 package de.blinkt.openvpn.api;
 
 import android.annotation.TargetApi;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -14,9 +13,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.VpnService;
 import android.os.Binder;
 import android.os.Build;
@@ -146,13 +142,20 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                 shortVPNIntent.setClass(getBaseContext(), de.blinkt.openvpn.LaunchVPN.class);
                 shortVPNIntent.putExtra(de.blinkt.openvpn.LaunchVPN.EXTRA_KEY, vp.getUUIDString());
                 shortVPNIntent.putExtra(de.blinkt.openvpn.LaunchVPN.EXTRA_HIDELOG, true);
-                shortVPNIntent.putExtra(de.blinkt.openvpn.LaunchVPN.EXTRA_START_REASON, startReason);
+                shortVPNIntent.putExtra(de.blinkt.openvpn.core.OpenVPNService.EXTRA_START_REASON, startReason);
                 shortVPNIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(shortVPNIntent);
             } else {
-                VPNLaunchHelper.startOpenVpn(vp, getBaseContext(), startReason);
+                VPNLaunchHelper.startOpenVpn(vp, getBaseContext(), startReason, true);
             }
 
+        }
+
+        private void updateProfileFromExtras(Bundle extras, VpnProfile vp) {
+            if (extras != null) {
+                vp.mAllowAppVpnBypass = extras.getBoolean(EXTRA_INLINE_PROFILE_ALLOW_VPN_BYPASS, false);
+                VpnStatus.logDebug("got extra " + EXTRA_INLINE_PROFILE_ALLOW_VPN_BYPASS + ", mAllowAppVpnBypass=" + vp.mAllowAppVpnBypass);
+            }
         }
 
         @Override
@@ -180,9 +183,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
 
                 vp.mProfileCreator = callingApp;
 
-                if (extras != null) {
-                    vp.mAllowAppVpnBypass = extras.getBoolean(EXTRA_INLINE_PROFILE_ALLOW_VPN_BYPASS, false);
-                }
+                updateProfileFromExtras(extras, vp);
 
                 /*int needpw = vp.needUserPWInput(false);
                 if(needpw !=0)
@@ -211,6 +212,11 @@ public class ExternalOpenVPNService extends Service implements StateListener {
 
         @Override
         public APIVpnProfile addNewVPNProfile(String name, boolean userEditable, String config) throws RemoteException {
+            return addNewVPNProfileWithExtras(name, userEditable, config, null);
+        }
+
+        @Override
+        public APIVpnProfile addNewVPNProfileWithExtras(String name, boolean userEditable, String config, Bundle extras) throws RemoteException {
             String callingPackage = mExtAppDb.checkOpenVPNPermission(getPackageManager());
 
             ConfigParser cp = new ConfigParser();
@@ -220,8 +226,10 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                 vp.mName = name;
                 vp.mProfileCreator = callingPackage;
                 vp.mUserEditable = userEditable;
+                updateProfileFromExtras(extras, vp);
                 ProfileManager pm = ProfileManager.getInstance(getBaseContext());
                 pm.addProfile(vp);
+                vp.addChangeLogEntry("AIDL API created profile");
                 pm.saveProfile(ExternalOpenVPNService.this, vp);
                 pm.saveProfileList(ExternalOpenVPNService.this);
                 return new APIVpnProfile(vp.getUUIDString(), vp.mName, vp.mUserEditable, vp.mProfileCreator);

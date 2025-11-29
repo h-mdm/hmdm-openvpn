@@ -1,12 +1,8 @@
 package de.blinkt.openvpn.core;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import android.provider.Settings;
 import android.text.TextUtils;
 
 import net.openvpn.ovpn3.ClientAPI_Config;
@@ -20,15 +16,21 @@ import net.openvpn.ovpn3.ClientAPI_OpenVPNClientHelper;
 import net.openvpn.ovpn3.ClientAPI_ProvideCreds;
 import net.openvpn.ovpn3.ClientAPI_Status;
 import net.openvpn.ovpn3.ClientAPI_TransportStats;
+import net.openvpn.ovpn3.DnsAddress;
+import net.openvpn.ovpn3.DnsDomain;
+import net.openvpn.ovpn3.DnsOptions;
+import net.openvpn.ovpn3.DnsOptions_ServersMap;
+import net.openvpn.ovpn3.DnsServer;
 
 import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import de.blinkt.openvpn.R;
 import de.blinkt.openvpn.VpnProfile;
 
 import static de.blinkt.openvpn.VpnProfile.AUTH_RETRY_NOINTERACT;
-
-import androidx.annotation.NonNull;
 
 public class OpenVPNThreadv3 extends ClientAPI_OpenVPNClient implements Runnable, OpenVPNManagement {
     final static long EmulateExcludeRoutes = (1 << 16);
@@ -84,10 +86,56 @@ public class OpenVPNThreadv3 extends ClientAPI_OpenVPNClient implements Runnable
         return true;
     }
 
+
     @Override
-    public boolean tun_builder_add_dns_server(String address, boolean ipv6) {
-        mService.addDNS(address);
-        return true;
+    public boolean tun_builder_set_dns_options(DnsOptions dns)
+    {
+        boolean dnsadded = false;
+        for(DnsDomain domain:dns.getSearch_domains()) {
+            mService.addSearchDomain(domain.getDomain());
+        }
+
+        /* sort dns server if the provided map is not sorted */
+        TreeMap<Integer, DnsServer> sortedDNSServers = new TreeMap<>(dns.getServers());
+
+        for (Map.Entry<Integer, DnsServer> dnsServerEntry: sortedDNSServers.entrySet() ) {
+            DnsServer server = dnsServerEntry.getValue();
+            int prio = dnsServerEntry.getKey();
+
+            if (DnsServer.Security.Yes.equals(server.getDnssec()))
+            {
+                VpnStatus.logInfo(R.string.dnsserver_ignore_dnnsec, prio, server.to_string().trim());
+                continue;
+            }
+
+            if (!DnsServer.Transport.Plain.equals(server.getTransport()) &&
+                    !DnsServer.Transport.Unset.equals(server.getTransport()))
+            {
+                VpnStatus.logInfo(R.string.dnsserver_ignore_tls_doh, prio, server.to_string().trim());
+                continue;
+            }
+
+            for(DnsAddress address: server.getAddresses())
+            {
+                if (address.getPort() == 0 || address.getPort() == 53) {
+                    mService.addDNS(address.getAddress());
+                    dnsadded = true;
+                }
+                else
+                {
+                    VpnStatus.logInfo(R.string.dnsserver_ignore_dnsport,
+                            address.getAddress(), address.getPort(), prio, server.to_string().trim());
+                }
+            }
+            /* We apply only the first DNS priority that works for us, so skip the rest after
+            * applying one */
+            if (dnsadded)
+                return true;
+
+        }
+        VpnStatus.logError(R.string.dnsserver_no_valid_server);
+        stopVPN(false);
+        return false;
     }
 
     @Override
@@ -110,12 +158,6 @@ public class OpenVPNThreadv3 extends ClientAPI_OpenVPNClient implements Runnable
             CIDRIP route = new CIDRIP(address, prefix_length);
             mService.addRoute(route, false);
         }
-        return true;
-    }
-
-    @Override
-    public boolean tun_builder_add_search_domain(String domain) {
-        mService.setDomain(domain);
         return true;
     }
 
@@ -262,7 +304,6 @@ public class OpenVPNThreadv3 extends ClientAPI_OpenVPNClient implements Runnable
     void setUserPW() {
         if (mVp.isUserPWAuth()) {
             ClientAPI_ProvideCreds creds = new ClientAPI_ProvideCreds();
-            creds.setCachePassword(true);
             creds.setPassword(mVp.getPasswordAuth());
             creds.setUsername(mVp.mUsername);
             provide_creds(creds);
@@ -294,7 +335,7 @@ public class OpenVPNThreadv3 extends ClientAPI_OpenVPNClient implements Runnable
     @Override
     public void sendCRResponse(String response) {
         mHandler.post(() -> {
-            post_cc_msg("CR_RESPONSE," + response + "\n");
+            post_cc_msg("CR_RESPONSE," + response);
         });
     }
 
@@ -312,25 +353,30 @@ public class OpenVPNThreadv3 extends ClientAPI_OpenVPNClient implements Runnable
     public void event(ClientAPI_Event event) {
         String name = event.getName();
         String info = event.getInfo();
-        if (name.equals("INFO")) {
-            if (info.startsWith("OPEN_URL:") || info.startsWith("CR_TEXT:")
-                || info.startsWith("WEB_AUTH:")) {
-                mService.trigger_sso(info);
-            } else {
-                VpnStatus.logInfo(R.string.info_from_server, info);
+        switch (name) {
+            case "INFO" -> {
+                if (info.startsWith("OPEN_URL:") || info.startsWith("CR_TEXT:")
+                        || info.startsWith("WEB_AUTH:")) {
+                    mService.trigger_sso(info);
+                } else {
+                    VpnStatus.logInfo(R.string.info_from_server, info);
+                }
             }
-        } else if (name.equals("COMPRESSION_ENABLED") || name.equals(("WARN"))) {
-            VpnStatus.logInfo(String.format(Locale.US, "%s: %s", name, info));
-        } else {
-            VpnStatus.updateStateString(name, info);
+            case "COMPRESSION_ENABLED", "WARN" ->
+                    VpnStatus.logInfo(String.format(Locale.US, "%s: %s", name, info));
+            case "PAUSE" ->
+                    VpnStatus.updateStateString(name, "VPN connection paused", R.string.state_userpause, ConnectionStatus.LEVEL_VPNPAUSED);
+            case "RESUME" ->
+                    VpnStatus.updateStateString(name, "VPN connection resumed", R.string.state_reconnecting, ConnectionStatus.LEVEL_CONNECTING_NO_SERVER_REPLY_YET);
+            default ->
+            {
+                VpnStatus.updateStateString(name, info);
+                VpnStatus.logInfo(String.format("EVENT: %s: %s", name, info));
+            }
         }
-		/* if (event.name.equals("DYNAMIC_CHALLENGE")) {
-			ClientAPI_DynamicChallenge challenge = new ClientAPI_DynamicChallenge();
-			final boolean status = ClientAPI_OpenVPNClient.parse_dynamic_challenge(event.info, challenge);
-
-		} else */
         if (event.getError())
             VpnStatus.logError(String.format("EVENT(Error): %s: %s", name, info));
+
     }
 
     @Override
