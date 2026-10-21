@@ -13,6 +13,7 @@ import android.os.Environment
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
 import com.hmdm.HeadwindMDM
@@ -73,11 +74,15 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
             }
 
         }
-        if (isAndroidTV || minimalUi)
+        // Minimal UI shows only the status page
+        if (isAndroidTV && !minimalUi)
             mPagerAdapter.addTab(R.string.openvpn_log, LogFragment::class.java)
 
-        mPagerAdapter.addTab(R.string.about, AboutFragment::class.java)
+        if (!minimalUi)
+            mPagerAdapter.addTab(R.string.about, AboutFragment::class.java)
         mPager.setAdapter(mPagerAdapter)
+        // A single page needs no tab bar
+        if (minimalUi) tablayout.visibility = View.GONE
 
         val headwindMDM = HeadwindMDM.getInstance()
         if (!headwindMDM.isConnected) {

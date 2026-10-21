@@ -509,4 +509,19 @@
     <string name="local_network_permission_summary">Allows to connect to a VPN server on the local network.</string>
     <string name="openvpn3_different_proxy">OpenVPN 3 C++ implementation does not support different proxy settings per remote</string>
 
+    <string name="minimal_ui_tap_hint">Tap the icon to reconnect</string>
+    <string name="mui_connected_title">Connected</string>
+    <string name="mui_connected_sub">Your connection is secure</string>
+    <string name="mui_connecting_title">Connecting…</string>
+    <string name="mui_connecting_sub">Establishing a secure connection</string>
+    <string name="mui_retry_sub">Retrying in %1$s seconds</string>
+    <string name="mui_nonetwork_title">Waiting for network</string>
+    <string name="mui_nonetwork_sub">Connects automatically when online</string>
+    <string name="mui_notconnected_title">Not connected</string>
+    <string name="mui_authfailed_title">Authentication failed</string>
+    <string name="mui_authfailed_sub">Contact your administrator</string>
+    <string name="mui_paused_title">Paused</string>
+    <string name="mui_paused_sub">Resumes automatically</string>
+    <string name="mui_input_title">Action required</string>
+    <string name="mui_input_sub">Open the notification to continue</string>
 </resources>

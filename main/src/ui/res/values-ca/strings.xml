@@ -194,4 +194,19 @@
     <string name="message_no_user_edit">Aquest perfil ha estat afegit des de una aplicació externa (%s) i s\'ha marcat com a no editable per l\'usuari.</string>
     <string name="crl_file">Llista de certificats revocats</string>
     <string name="Search">Busca</string>
+    <string name="minimal_ui_tap_hint">Toca la icona per tornar a connectar</string>
+    <string name="mui_connected_title">Connectat</string>
+    <string name="mui_connected_sub">La connexió és segura</string>
+    <string name="mui_connecting_title">S\'està connectant…</string>
+    <string name="mui_connecting_sub">S\'està establint una connexió segura</string>
+    <string name="mui_retry_sub">Es tornarà a provar d\'aquí a %1$s segons</string>
+    <string name="mui_nonetwork_title">Esperant la xarxa</string>
+    <string name="mui_nonetwork_sub">Es connectarà automàticament quan hi hagi xarxa</string>
+    <string name="mui_notconnected_title">No connectat</string>
+    <string name="mui_authfailed_title">Ha fallat l\'autenticació</string>
+    <string name="mui_authfailed_sub">Contacta amb l\'administrador</string>
+    <string name="mui_paused_title">En pausa</string>
+    <string name="mui_paused_sub">Es reprendrà automàticament</string>
+    <string name="mui_input_title">Cal una acció</string>
+    <string name="mui_input_sub">Obre la notificació per continuar</string>
 </resources>

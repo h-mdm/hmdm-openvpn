@@ -486,4 +486,19 @@
     <string name="allow_translations_summary">Uygulamanın, topluluk tarafından sağlanan çevirilerle çevrilmesine izin verir. Etkinleştirmek için uygulamanın yeniden başlatılmasını gerektirir.</string>
     <string name="tls_profile">TLS Güvenlik Profili</string>
     <string name="encrypt_profiles">Depolama alanındaki profilleri şifrelemeyi deneyin (Android işletim sistemi tarafından destekleniyorsa)</string>
+    <string name="minimal_ui_tap_hint">Yeniden bağlanmak için simgeye dokunun</string>
+    <string name="mui_connected_title">Bağlandı</string>
+    <string name="mui_connected_sub">Bağlantınız güvenli</string>
+    <string name="mui_connecting_title">Bağlanıyor…</string>
+    <string name="mui_connecting_sub">Güvenli bağlantı kuruluyor</string>
+    <string name="mui_retry_sub">%1$s saniye içinde yeniden denenecek</string>
+    <string name="mui_nonetwork_title">Ağ bekleniyor</string>
+    <string name="mui_nonetwork_sub">Ağ kullanılabilir olduğunda otomatik bağlanır</string>
+    <string name="mui_notconnected_title">Bağlı değil</string>
+    <string name="mui_authfailed_title">Kimlik doğrulama başarısız</string>
+    <string name="mui_authfailed_sub">Yöneticinize başvurun</string>
+    <string name="mui_paused_title">Duraklatıldı</string>
+    <string name="mui_paused_sub">Otomatik olarak devam edecek</string>
+    <string name="mui_input_title">İşlem gerekli</string>
+    <string name="mui_input_sub">Devam etmek için bildirimi açın</string>
 </resources>

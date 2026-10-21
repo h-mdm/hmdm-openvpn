@@ -444,4 +444,19 @@
     <string name="import_from_as">Impordi profiil serverist</string>
     <string name="no_default_vpn_set">Enne selle valiku tegemist palun seadista vaikimisi VPN.</string>
     <string name="open_vpn_settings">Ava VPN\'i seadistused</string>
+    <string name="minimal_ui_tap_hint">Uuesti ühendamiseks puuduta ikooni</string>
+    <string name="mui_connected_title">Ühendatud</string>
+    <string name="mui_connected_sub">Sinu ühendus on turvaline</string>
+    <string name="mui_connecting_title">Ühendamine…</string>
+    <string name="mui_connecting_sub">Turvalise ühenduse loomine</string>
+    <string name="mui_retry_sub">Uus katse %1$s sekundi pärast</string>
+    <string name="mui_nonetwork_title">Võrgu ootamine</string>
+    <string name="mui_nonetwork_sub">Ühendub automaatselt, kui võrk on saadaval</string>
+    <string name="mui_notconnected_title">Pole ühendatud</string>
+    <string name="mui_authfailed_title">Autentimine ebaõnnestus</string>
+    <string name="mui_authfailed_sub">Võta ühendust administraatoriga</string>
+    <string name="mui_paused_title">Peatatud</string>
+    <string name="mui_paused_sub">Jätkub automaatselt</string>
+    <string name="mui_input_title">Vajalik on toiming</string>
+    <string name="mui_input_sub">Jätkamiseks ava teavitus</string>
 </resources>

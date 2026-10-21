@@ -443,4 +443,19 @@
     <string name="external_authenticator">Externe Authenticator</string>
     <string name="configure">Configureren</string>
     <string name="extauth_not_configured">Externe Authneticator niet geconfigureerd</string>
+    <string name="minimal_ui_tap_hint">Tik op het pictogram om opnieuw te verbinden</string>
+    <string name="mui_connected_title">Verbonden</string>
+    <string name="mui_connected_sub">Je verbinding is beveiligd</string>
+    <string name="mui_connecting_title">Verbinden…</string>
+    <string name="mui_connecting_sub">Beveiligde verbinding opzetten</string>
+    <string name="mui_retry_sub">Nieuwe poging over %1$s seconden</string>
+    <string name="mui_nonetwork_title">Wachten op netwerk</string>
+    <string name="mui_nonetwork_sub">Maakt automatisch verbinding zodra er netwerk is</string>
+    <string name="mui_notconnected_title">Niet verbonden</string>
+    <string name="mui_authfailed_title">Verificatie mislukt</string>
+    <string name="mui_authfailed_sub">Neem contact op met je beheerder</string>
+    <string name="mui_paused_title">Gepauzeerd</string>
+    <string name="mui_paused_sub">Wordt automatisch hervat</string>
+    <string name="mui_input_title">Actie vereist</string>
+    <string name="mui_input_sub">Open de melding om verder te gaan</string>
 </resources>

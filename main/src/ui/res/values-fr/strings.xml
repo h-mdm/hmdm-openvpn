@@ -474,4 +474,19 @@
     <string name="allow_translations_summary">Autoriser l\'application à être traduite avec les traductions apportées par la communauté. Nécessite un redémarrage de l\'application pour s\'activer.</string>
     <string name="tls_profile">Profil de sécurité TLS</string>
     <string name="encrypt_profiles">Essayez de chiffrer les profils sur le stockage (si pris en charge par Android OS)</string>
+    <string name="minimal_ui_tap_hint">Touchez l\'icône pour vous reconnecter</string>
+    <string name="mui_connected_title">Connecté</string>
+    <string name="mui_connected_sub">Votre connexion est sécurisée</string>
+    <string name="mui_connecting_title">Connexion…</string>
+    <string name="mui_connecting_sub">Établissement d\'une connexion sécurisée</string>
+    <string name="mui_retry_sub">Nouvelle tentative dans %1$s secondes</string>
+    <string name="mui_nonetwork_title">En attente du réseau</string>
+    <string name="mui_nonetwork_sub">Connexion automatique dès que le réseau est disponible</string>
+    <string name="mui_notconnected_title">Non connecté</string>
+    <string name="mui_authfailed_title">Échec de l\'authentification</string>
+    <string name="mui_authfailed_sub">Contactez votre administrateur</string>
+    <string name="mui_paused_title">En pause</string>
+    <string name="mui_paused_sub">Reprise automatique</string>
+    <string name="mui_input_title">Action requise</string>
+    <string name="mui_input_sub">Ouvrez la notification pour continuer</string>
 </resources>

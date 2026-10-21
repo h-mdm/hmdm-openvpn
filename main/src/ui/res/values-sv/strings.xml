@@ -479,4 +479,19 @@
     <string name="allow_translations_summary">Tillåter att appen översätts med översättningar från gemenskapen. Kräver en omstart av appen för att aktiveras.</string>
     <string name="tls_profile">TLS säkerhetsprofil</string>
     <string name="encrypt_profiles">Försök att kryptera profiler på lagring (om det stöds av Android OS)</string>
+    <string name="minimal_ui_tap_hint">Tryck på ikonen för att återansluta</string>
+    <string name="mui_connected_title">Ansluten</string>
+    <string name="mui_connected_sub">Din anslutning är säker</string>
+    <string name="mui_connecting_title">Ansluter…</string>
+    <string name="mui_connecting_sub">Upprättar en säker anslutning</string>
+    <string name="mui_retry_sub">Försöker igen om %1$s sekunder</string>
+    <string name="mui_nonetwork_title">Väntar på nätverk</string>
+    <string name="mui_nonetwork_sub">Ansluter automatiskt när nätverk finns</string>
+    <string name="mui_notconnected_title">Inte ansluten</string>
+    <string name="mui_authfailed_title">Autentiseringen misslyckades</string>
+    <string name="mui_authfailed_sub">Kontakta din administratör</string>
+    <string name="mui_paused_title">Pausad</string>
+    <string name="mui_paused_sub">Återupptas automatiskt</string>
+    <string name="mui_input_title">Åtgärd krävs</string>
+    <string name="mui_input_sub">Öppna aviseringen för att fortsätta</string>
 </resources>

@@ -478,4 +478,19 @@ Usa il tasto hardware Menù se non è visibile nella GUI.</string>
     <string name="allow_translations_summary">Consente la traduzione dell\'app con le traduzioni fornite dalla community. Richiede il riavvio dell\'app per l\'attivazione.</string>
     <string name="tls_profile">Profilo di sicurezza TLS</string>
     <string name="encrypt_profiles">Prova a criptare i profili sullo spazio di archiviazione (se supportato dal sistema operativo Android)</string>
+    <string name="minimal_ui_tap_hint">Tocca l\'icona per riconnetterti</string>
+    <string name="mui_connected_title">Connesso</string>
+    <string name="mui_connected_sub">La tua connessione è sicura</string>
+    <string name="mui_connecting_title">Connessione in corso…</string>
+    <string name="mui_connecting_sub">Creazione di una connessione sicura</string>
+    <string name="mui_retry_sub">Nuovo tentativo tra %1$s secondi</string>
+    <string name="mui_nonetwork_title">In attesa di rete</string>
+    <string name="mui_nonetwork_sub">Si connetterà automaticamente quando la rete sarà disponibile</string>
+    <string name="mui_notconnected_title">Non connesso</string>
+    <string name="mui_authfailed_title">Autenticazione non riuscita</string>
+    <string name="mui_authfailed_sub">Contatta l\'amministratore</string>
+    <string name="mui_paused_title">In pausa</string>
+    <string name="mui_paused_sub">Riprenderà automaticamente</string>
+    <string name="mui_input_title">Azione richiesta</string>
+    <string name="mui_input_sub">Apri la notifica per continuare</string>
 </resources>

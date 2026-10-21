@@ -483,4 +483,19 @@
     <string name="allow_translations_summary">Engedélyezze az app számára, hogy közösség általi fordításokat használjon. Az aktiváláshoz az alkalmazást újra kell indítani.</string>
     <string name="tls_profile">TSL Biztonsági Profil</string>
     <string name="encrypt_profiles">Próbálja meg titkosítani a tárhelyen lévő profilokat (ha az Android OS által támogatva van)</string>
+    <string name="minimal_ui_tap_hint">Koppintson az ikonra az újracsatlakozáshoz</string>
+    <string name="mui_connected_title">Csatlakozva</string>
+    <string name="mui_connected_sub">A kapcsolat biztonságos</string>
+    <string name="mui_connecting_title">Csatlakozás…</string>
+    <string name="mui_connecting_sub">Biztonságos kapcsolat létrehozása</string>
+    <string name="mui_retry_sub">Újrapróbálkozás %1$s másodperc múlva</string>
+    <string name="mui_nonetwork_title">Várakozás hálózatra</string>
+    <string name="mui_nonetwork_sub">Automatikusan csatlakozik, ha elérhető a hálózat</string>
+    <string name="mui_notconnected_title">Nincs csatlakozva</string>
+    <string name="mui_authfailed_title">Sikertelen hitelesítés</string>
+    <string name="mui_authfailed_sub">Forduljon a rendszergazdához</string>
+    <string name="mui_paused_title">Szüneteltetve</string>
+    <string name="mui_paused_sub">Automatikusan folytatódik</string>
+    <string name="mui_input_title">Művelet szükséges</string>
+    <string name="mui_input_sub">A folytatáshoz nyissa meg az értesítést</string>
 </resources>

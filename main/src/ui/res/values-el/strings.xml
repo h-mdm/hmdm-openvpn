@@ -443,4 +443,19 @@
     <string name="external_authenticator">Εξωτερικός Πιστοποιητής</string>
     <string name="configure">Διαμόρφωση</string>
     <string name="extauth_not_configured">Ο Εξωτερικός Πιστοποιητής δεν έχει ρυθμιστεί</string>
+    <string name="minimal_ui_tap_hint">Πατήστε το εικονίδιο για επανασύνδεση</string>
+    <string name="mui_connected_title">Συνδέθηκε</string>
+    <string name="mui_connected_sub">Η σύνδεσή σας είναι ασφαλής</string>
+    <string name="mui_connecting_title">Σύνδεση…</string>
+    <string name="mui_connecting_sub">Δημιουργία ασφαλούς σύνδεσης</string>
+    <string name="mui_retry_sub">Νέα προσπάθεια σε %1$s δευτερόλεπτα</string>
+    <string name="mui_nonetwork_title">Αναμονή για δίκτυο</string>
+    <string name="mui_nonetwork_sub">Θα συνδεθεί αυτόματα όταν υπάρχει δίκτυο</string>
+    <string name="mui_notconnected_title">Χωρίς σύνδεση</string>
+    <string name="mui_authfailed_title">Αποτυχία ελέγχου ταυτότητας</string>
+    <string name="mui_authfailed_sub">Επικοινωνήστε με τον διαχειριστή</string>
+    <string name="mui_paused_title">Σε παύση</string>
+    <string name="mui_paused_sub">Θα συνεχιστεί αυτόματα</string>
+    <string name="mui_input_title">Απαιτείται ενέργεια</string>
+    <string name="mui_input_sub">Ανοίξτε την ειδοποίηση για να συνεχίσετε</string>
 </resources>

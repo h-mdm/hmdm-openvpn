@@ -475,4 +475,19 @@ OpenVPN dla Androida ostrzeże Cię o tym w logu.<p>Kiedy VPN ustawi serwer DNS 
     <string name="allow_translations_summary">Zezwól na tłumaczenie aplikacji, wykorzystując propozycje użytkowników. Do aktywacji wymaga ponownego uruchomienie aplikacji.</string>
     <string name="tls_profile">Profil bezpieczeństwa TLS</string>
     <string name="encrypt_profiles">Spróbuj zaszyfrować profile w pamięci masowej (jeśli jest to obsługiwane przez system operacyjny Android)</string>
+    <string name="minimal_ui_tap_hint">Dotknij ikony, aby połączyć ponownie</string>
+    <string name="mui_connected_title">Połączono</string>
+    <string name="mui_connected_sub">Twoje połączenie jest bezpieczne</string>
+    <string name="mui_connecting_title">Łączenie…</string>
+    <string name="mui_connecting_sub">Nawiązywanie bezpiecznego połączenia</string>
+    <string name="mui_retry_sub">Ponowna próba za %1$s s</string>
+    <string name="mui_nonetwork_title">Oczekiwanie na sieć</string>
+    <string name="mui_nonetwork_sub">Połączy się automatycznie, gdy sieć będzie dostępna</string>
+    <string name="mui_notconnected_title">Nie połączono</string>
+    <string name="mui_authfailed_title">Uwierzytelnianie nie powiodło się</string>
+    <string name="mui_authfailed_sub">Skontaktuj się z administratorem</string>
+    <string name="mui_paused_title">Wstrzymano</string>
+    <string name="mui_paused_sub">Wznowi się automatycznie</string>
+    <string name="mui_input_title">Wymagane działanie</string>
+    <string name="mui_input_sub">Otwórz powiadomienie, aby kontynuować</string>
 </resources>

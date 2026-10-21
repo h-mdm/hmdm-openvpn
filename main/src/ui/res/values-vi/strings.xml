@@ -478,4 +478,19 @@
     <string name="allow_translations_title">Cho phép các bản dịch do cộng đồng đóng góp</string>
     <string name="allow_translations_summary">Cho phép cái app dụng được dịch với các bản dịch do cộng đồng đóng góp. Yêu cầu khởi động lại ứng dụng để kích hoạt.</string>
     <string name="tls_profile">Hồ sơ bảo mật TLS</string>
+    <string name="minimal_ui_tap_hint">Nhấn vào biểu tượng để kết nối lại</string>
+    <string name="mui_connected_title">Đã kết nối</string>
+    <string name="mui_connected_sub">Kết nối của bạn an toàn</string>
+    <string name="mui_connecting_title">Đang kết nối…</string>
+    <string name="mui_connecting_sub">Đang thiết lập kết nối an toàn</string>
+    <string name="mui_retry_sub">Thử lại sau %1$s giây</string>
+    <string name="mui_nonetwork_title">Đang chờ mạng</string>
+    <string name="mui_nonetwork_sub">Tự động kết nối khi có mạng</string>
+    <string name="mui_notconnected_title">Chưa kết nối</string>
+    <string name="mui_authfailed_title">Xác thực không thành công</string>
+    <string name="mui_authfailed_sub">Hãy liên hệ quản trị viên</string>
+    <string name="mui_paused_title">Đã tạm dừng</string>
+    <string name="mui_paused_sub">Sẽ tự động tiếp tục</string>
+    <string name="mui_input_title">Cần thao tác</string>
+    <string name="mui_input_sub">Mở thông báo để tiếp tục</string>
 </resources>

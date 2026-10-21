@@ -479,4 +479,19 @@
     <string name="allow_translations_summary">للسماح للتطبيق بالترجمة مع الترجمات التي يساهم بها المجتمع. يتطلب إعادة تشغيل التطبيق للتفعيل.</string>
     <string name="tls_profile">ملف تعريف أمان TLS</string>
     <string name="encrypt_profiles">Try to encrypt profiles on storage (if supported by Android OS)</string>
+    <string name="minimal_ui_tap_hint">انقر على الأيقونة لإعادة الاتصال</string>
+    <string name="mui_connected_title">متصل</string>
+    <string name="mui_connected_sub">اتصالك آمن</string>
+    <string name="mui_connecting_title">جارٍ الاتصال…</string>
+    <string name="mui_connecting_sub">جارٍ إنشاء اتصال آمن</string>
+    <string name="mui_retry_sub">إعادة المحاولة خلال %1$s ثانية</string>
+    <string name="mui_nonetwork_title">في انتظار الشبكة</string>
+    <string name="mui_nonetwork_sub">سيتم الاتصال تلقائيًا عند توفر الإنترنت</string>
+    <string name="mui_notconnected_title">غير متصل</string>
+    <string name="mui_authfailed_title">فشلت المصادقة</string>
+    <string name="mui_authfailed_sub">تواصل مع المسؤول</string>
+    <string name="mui_paused_title">متوقف مؤقتًا</string>
+    <string name="mui_paused_sub">يُستأنف تلقائيًا</string>
+    <string name="mui_input_title">مطلوب إجراء</string>
+    <string name="mui_input_sub">افتح الإشعار للمتابعة</string>
 </resources>

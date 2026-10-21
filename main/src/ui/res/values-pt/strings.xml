@@ -292,4 +292,19 @@
     <string name="version_upto">%s e anteriores</string>
     <string name="copy_of_profile">Copiar de %s</string>
     <string name="custom_connection_options">Opções personalizadas</string>
+    <string name="minimal_ui_tap_hint">Toque no ícone para voltar a ligar</string>
+    <string name="mui_connected_title">Ligado</string>
+    <string name="mui_connected_sub">A sua ligação é segura</string>
+    <string name="mui_connecting_title">A ligar…</string>
+    <string name="mui_connecting_sub">A estabelecer uma ligação segura</string>
+    <string name="mui_retry_sub">Nova tentativa dentro de %1$s segundos</string>
+    <string name="mui_nonetwork_title">A aguardar rede</string>
+    <string name="mui_nonetwork_sub">Liga automaticamente quando houver rede</string>
+    <string name="mui_notconnected_title">Não ligado</string>
+    <string name="mui_authfailed_title">Falha na autenticação</string>
+    <string name="mui_authfailed_sub">Contacte o seu administrador</string>
+    <string name="mui_paused_title">Em pausa</string>
+    <string name="mui_paused_sub">Retoma automaticamente</string>
+    <string name="mui_input_title">Ação necessária</string>
+    <string name="mui_input_sub">Abra a notificação para continuar</string>
 </resources>

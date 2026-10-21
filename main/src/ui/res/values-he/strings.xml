@@ -479,4 +479,19 @@
     <string name="allow_translations_summary">מאפשר לתרגם את האפליקציה עם תרגומים שנתרמו על ידי הקהילה. דורש הפעלה מחדש של האפליקציה כדי להפעיל אותה.</string>
     <string name="tls_profile">פרופיל אבטחה של TLS</string>
     <string name="encrypt_profiles">לנסות להצפין פרופילים באחסון (אם נתמך על ידי מערכת ה־Android)</string>
+    <string name="minimal_ui_tap_hint">הקש על הסמל כדי להתחבר מחדש</string>
+    <string name="mui_connected_title">מחובר</string>
+    <string name="mui_connected_sub">החיבור שלך מאובטח</string>
+    <string name="mui_connecting_title">מתחבר…</string>
+    <string name="mui_connecting_sub">יוצר חיבור מאובטח</string>
+    <string name="mui_retry_sub">ניסיון חוזר בעוד %1$s שניות</string>
+    <string name="mui_nonetwork_title">ממתין לרשת</string>
+    <string name="mui_nonetwork_sub">יתחבר אוטומטית כשתהיה רשת</string>
+    <string name="mui_notconnected_title">לא מחובר</string>
+    <string name="mui_authfailed_title">האימות נכשל</string>
+    <string name="mui_authfailed_sub">פנה למנהל המערכת</string>
+    <string name="mui_paused_title">מושהה</string>
+    <string name="mui_paused_sub">ימשיך אוטומטית</string>
+    <string name="mui_input_title">נדרשת פעולה</string>
+    <string name="mui_input_sub">פתח את ההתראה כדי להמשיך</string>
 </resources>

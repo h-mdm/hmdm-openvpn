@@ -479,4 +479,19 @@
     <string name="allow_translations_summary">Використовувати переклад програми наданий спільнотою. Необхідний перезапуск програми.</string>
     <string name="tls_profile">Профіль безпеки TLS</string>
     <string name="encrypt_profiles">Спробуйте зашифрувати профілі на сховищі (якщо підтримується Android)</string>
+    <string name="minimal_ui_tap_hint">Торкніться значка, щоб перепідключитися</string>
+    <string name="mui_connected_title">Підключено</string>
+    <string name="mui_connected_sub">Ваше з’єднання захищене</string>
+    <string name="mui_connecting_title">Підключення…</string>
+    <string name="mui_connecting_sub">Встановлення захищеного з’єднання</string>
+    <string name="mui_retry_sub">Повтор через %1$s с</string>
+    <string name="mui_nonetwork_title">Очікування мережі</string>
+    <string name="mui_nonetwork_sub">Підключиться автоматично, коли з’явиться мережа</string>
+    <string name="mui_notconnected_title">Не підключено</string>
+    <string name="mui_authfailed_title">Помилка автентифікації</string>
+    <string name="mui_authfailed_sub">Зверніться до адміністратора</string>
+    <string name="mui_paused_title">Призупинено</string>
+    <string name="mui_paused_sub">Відновиться автоматично</string>
+    <string name="mui_input_title">Потрібна дія</string>
+    <string name="mui_input_sub">Відкрийте сповіщення, щоб продовжити</string>
 </resources>

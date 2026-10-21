@@ -478,4 +478,19 @@ hacia/de Móvil)</string>
     <string name="allow_translations_title">Permitir traducciones aportadas por la comunidad</string>
     <string name="allow_translations_summary">Permitir que la interfaz de OpenVPN sea colocada en Español con traducciones de parte de la comunidad. Para activar esta opción requieres reiniciar OpenVPN.</string>
     <string name="tls_profile">Perfil de seguridad TLS</string>
+    <string name="minimal_ui_tap_hint">Toca el icono para volver a conectar</string>
+    <string name="mui_connected_title">Conectado</string>
+    <string name="mui_connected_sub">Tu conexión es segura</string>
+    <string name="mui_connecting_title">Conectando…</string>
+    <string name="mui_connecting_sub">Estableciendo una conexión segura</string>
+    <string name="mui_retry_sub">Reintentando en %1$s segundos</string>
+    <string name="mui_nonetwork_title">Esperando red</string>
+    <string name="mui_nonetwork_sub">Se conectará automáticamente cuando haya red</string>
+    <string name="mui_notconnected_title">No conectado</string>
+    <string name="mui_authfailed_title">Error de autenticación</string>
+    <string name="mui_authfailed_sub">Contacta con tu administrador</string>
+    <string name="mui_paused_title">En pausa</string>
+    <string name="mui_paused_sub">Se reanudará automáticamente</string>
+    <string name="mui_input_title">Acción necesaria</string>
+    <string name="mui_input_sub">Abre la notificación para continuar</string>
 </resources>

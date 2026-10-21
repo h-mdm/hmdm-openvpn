@@ -60,6 +60,7 @@ class MinimalUI: Fragment(), VpnStatus.StateListener {
     private lateinit var profileManger: ProfileManager
     private var mService: IOpenVPNServiceInternal? = null
     private lateinit var vpnstatus: TextView
+    private lateinit var vpnhint: TextView
     private lateinit var vpntoggle: CompoundButton
 
     private lateinit var view: View
@@ -233,14 +234,33 @@ class MinimalUI: Fragment(), VpnStatus.StateListener {
         level: ConnectionStatus,
         Intent: Intent?
     ) {
-        val cleanLogMessage = VpnStatus.getLastCleanLogMessage(activity, true)
+        // HMDM: fixed, user-friendly texts per state instead of OpenVPN's raw status line
+        val texts = statusTexts(requireActivity(), level, localizedResId, logmessage)
 
         requireActivity().runOnUiThread {
-            vpnstatus.setText(cleanLogMessage)
+            vpnstatus.text = texts.first
+            vpnhint.text = texts.second
             val connected = level == ConnectionStatus.LEVEL_CONNECTED;
             vpntoggle.isChecked = connected
         }
         mLastConnectionLevel = level;
+    }
+
+    private fun statusTexts(c: Context, level: ConnectionStatus, resId: Int, msg: String?): Pair<String, String> {
+        fun t(title: Int, sub: Int) = Pair(c.getString(title), c.getString(sub))
+        return when (level) {
+            ConnectionStatus.LEVEL_CONNECTED -> t(R.string.mui_connected_title, R.string.mui_connected_sub)
+            ConnectionStatus.LEVEL_NONETWORK -> t(R.string.mui_nonetwork_title, R.string.mui_nonetwork_sub)
+            ConnectionStatus.LEVEL_AUTH_FAILED -> t(R.string.mui_authfailed_title, R.string.mui_authfailed_sub)
+            ConnectionStatus.LEVEL_VPNPAUSED -> t(R.string.mui_paused_title, R.string.mui_paused_sub)
+            ConnectionStatus.LEVEL_WAITING_FOR_USER_INPUT -> t(R.string.mui_input_title, R.string.mui_input_sub)
+            ConnectionStatus.LEVEL_NOTCONNECTED, ConnectionStatus.UNKNOWN_LEVEL ->
+                t(R.string.mui_notconnected_title, R.string.minimal_ui_tap_hint)
+            else -> // LEVEL_START, LEVEL_CONNECTING_*
+                if (resId == R.string.state_waitconnectretry && !msg.isNullOrEmpty())
+                    Pair(c.getString(R.string.mui_connecting_title), c.getString(R.string.mui_retry_sub, msg))
+                else t(R.string.mui_connecting_title, R.string.mui_connecting_sub)
+        }
     }
 
     override fun setConnectedVPN(uuid: String?) {
@@ -254,6 +274,7 @@ class MinimalUI: Fragment(), VpnStatus.StateListener {
         view = inflater.inflate(R.layout.minimalui, container, false)
         vpntoggle = view.findViewById(R.id.vpntoggle)
         vpnstatus = view.findViewById(R.id.vpnstatus)
+        vpnhint = view.findViewById(R.id.minimal_ui_hint)
 
         vpntoggle.setOnClickListener { view ->
             toggleSwitchPressed(view as CompoundButton)

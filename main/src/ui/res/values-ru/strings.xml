@@ -486,4 +486,19 @@ DNS не работает, если сервер DNS не в диапазоне 
     <string name="tls_profile">Профиль безопасности TLS</string>
     <string name="encrypt_profiles">Пробовать шифровать профили в хранилище (если поддерживается ОС Android)</string>
     <string name="missing_notification_permission">Отсутствует разрешение на уведомления. Оно используется для отображения состояния VPN и уведомления о необходимом взаимодействии с пользователем, например, о многофакторной авторизации.\n\nЩелкните по этому сообщению, чтобы предоставить приложению разрешение на уведомления</string>
+    <string name="minimal_ui_tap_hint">Нажмите на значок, чтобы переподключиться</string>
+    <string name="mui_connected_title">Подключено</string>
+    <string name="mui_connected_sub">Ваше соединение защищено</string>
+    <string name="mui_connecting_title">Подключение…</string>
+    <string name="mui_connecting_sub">Установка защищённого соединения</string>
+    <string name="mui_retry_sub">Повтор через %1$s с</string>
+    <string name="mui_nonetwork_title">Ожидание сети</string>
+    <string name="mui_nonetwork_sub">Подключится автоматически при появлении сети</string>
+    <string name="mui_notconnected_title">Не подключено</string>
+    <string name="mui_authfailed_title">Ошибка аутентификации</string>
+    <string name="mui_authfailed_sub">Обратитесь к администратору</string>
+    <string name="mui_paused_title">Приостановлено</string>
+    <string name="mui_paused_sub">Возобновится автоматически</string>
+    <string name="mui_input_title">Требуется действие</string>
+    <string name="mui_input_sub">Откройте уведомление, чтобы продолжить</string>
 </resources>

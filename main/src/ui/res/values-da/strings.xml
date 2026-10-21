@@ -478,4 +478,19 @@
     <string name="allow_translations_summary">Tillader app-oversættelser bidraget af fællesskabet. Kræver en genstart af appen for effektuering.</string>
     <string name="tls_profile">TLS-sikkerhedsprofil</string>
     <string name="encrypt_profiles">Prøv at kryptere lagrede profiler (hvis understøttet af Android OS)</string>
+    <string name="minimal_ui_tap_hint">Tryk på ikonet for at genoprette forbindelsen</string>
+    <string name="mui_connected_title">Forbundet</string>
+    <string name="mui_connected_sub">Din forbindelse er sikker</string>
+    <string name="mui_connecting_title">Opretter forbindelse…</string>
+    <string name="mui_connecting_sub">Opretter en sikker forbindelse</string>
+    <string name="mui_retry_sub">Prøver igen om %1$s sekunder</string>
+    <string name="mui_nonetwork_title">Venter på netværk</string>
+    <string name="mui_nonetwork_sub">Forbinder automatisk, når der er netværk</string>
+    <string name="mui_notconnected_title">Ikke forbundet</string>
+    <string name="mui_authfailed_title">Godkendelse mislykkedes</string>
+    <string name="mui_authfailed_sub">Kontakt din administrator</string>
+    <string name="mui_paused_title">Sat på pause</string>
+    <string name="mui_paused_sub">Genoptages automatisk</string>
+    <string name="mui_input_title">Handling påkrævet</string>
+    <string name="mui_input_sub">Åbn notifikationen for at fortsætte</string>
 </resources>

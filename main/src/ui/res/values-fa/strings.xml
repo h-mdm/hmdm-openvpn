@@ -481,4 +481,19 @@
     <string name="allow_translations_summary">Allows the app to be translated with translations contributed by the community. Requires a restart of the app to activate.</string>
     <string name="tls_profile">TLS Security Profile</string>
     <string name="encrypt_profiles">Try to encrypt profiles on storage (if supported by Android OS)</string>
+    <string name="minimal_ui_tap_hint">برای اتصال دوباره روی نماد ضربه بزنید</string>
+    <string name="mui_connected_title">متصل</string>
+    <string name="mui_connected_sub">اتصال شما امن است</string>
+    <string name="mui_connecting_title">در حال اتصال…</string>
+    <string name="mui_connecting_sub">در حال برقراری اتصال امن</string>
+    <string name="mui_retry_sub">تلاش دوباره تا %1$s ثانیه دیگر</string>
+    <string name="mui_nonetwork_title">در انتظار شبکه</string>
+    <string name="mui_nonetwork_sub">پس از اتصال به اینترنت، خودکار وصل می‌شود</string>
+    <string name="mui_notconnected_title">متصل نیست</string>
+    <string name="mui_authfailed_title">احراز هویت ناموفق بود</string>
+    <string name="mui_authfailed_sub">با مدیر سیستم تماس بگیرید</string>
+    <string name="mui_paused_title">موقتاً متوقف شده</string>
+    <string name="mui_paused_sub">به‌طور خودکار ادامه می‌یابد</string>
+    <string name="mui_input_title">اقدام لازم است</string>
+    <string name="mui_input_sub">برای ادامه، اعلان را باز کنید</string>
 </resources>

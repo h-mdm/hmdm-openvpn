@@ -323,4 +323,19 @@
     <string name="info_from_server">Info fra tjeneren: \'%s\'</string>
     <string name="channel_name_userreq">Brukerinteraksjon er påkrevd</string>
     <string name="configure">Sett opp</string>
+    <string name="minimal_ui_tap_hint">Trykk på ikonet for å koble til igjen</string>
+    <string name="mui_connected_title">Tilkoblet</string>
+    <string name="mui_connected_sub">Tilkoblingen din er sikker</string>
+    <string name="mui_connecting_title">Kobler til…</string>
+    <string name="mui_connecting_sub">Oppretter en sikker tilkobling</string>
+    <string name="mui_retry_sub">Prøver igjen om %1$s sekunder</string>
+    <string name="mui_nonetwork_title">Venter på nettverk</string>
+    <string name="mui_nonetwork_sub">Kobler til automatisk når nettverk er tilgjengelig</string>
+    <string name="mui_notconnected_title">Ikke tilkoblet</string>
+    <string name="mui_authfailed_title">Autentisering mislyktes</string>
+    <string name="mui_authfailed_sub">Kontakt administratoren din</string>
+    <string name="mui_paused_title">Satt på pause</string>
+    <string name="mui_paused_sub">Fortsetter automatisk</string>
+    <string name="mui_input_title">Handling kreves</string>
+    <string name="mui_input_sub">Åpne varselet for å fortsette</string>
 </resources>

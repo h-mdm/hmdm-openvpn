@@ -412,4 +412,19 @@
     <string name="volume_kbyte">%.1f kB</string>
     <string name="volume_mbyte">%.1f MB</string>
     <string name="volume_gbyte">%.1f GB</string>
+    <string name="minimal_ui_tap_hint">Atingeți pictograma pentru a vă reconecta</string>
+    <string name="mui_connected_title">Conectat</string>
+    <string name="mui_connected_sub">Conexiunea este securizată</string>
+    <string name="mui_connecting_title">Se conectează…</string>
+    <string name="mui_connecting_sub">Se stabilește o conexiune securizată</string>
+    <string name="mui_retry_sub">Nouă încercare în %1$s secunde</string>
+    <string name="mui_nonetwork_title">Se așteaptă rețeaua</string>
+    <string name="mui_nonetwork_sub">Se conectează automat când rețeaua este disponibilă</string>
+    <string name="mui_notconnected_title">Neconectat</string>
+    <string name="mui_authfailed_title">Autentificare eșuată</string>
+    <string name="mui_authfailed_sub">Contactați administratorul</string>
+    <string name="mui_paused_title">Întrerupt</string>
+    <string name="mui_paused_sub">Se reia automat</string>
+    <string name="mui_input_title">Acțiune necesară</string>
+    <string name="mui_input_sub">Deschideți notificarea pentru a continua</string>
 </resources>

@@ -481,4 +481,19 @@
     <string name="tls_profile">TLS-Sicherheitsprofil</string>
     <string name="encrypt_profiles">Try to encrypt profiles on storage (if supported by Android OS)</string>
     <string name="missing_notification_permission">Berechtigung für Benachrichtigungen fehlt. Diese wird verwendet, um den Status des VPN anzuzeigen und über erforderliche Benutzerinteraktionen wie eine Multi-Faktor-Autorisierung zu informieren.\n\nKlicken Sie auf diese Nachricht, um der App die Berechtigung zu erteilen</string>
+    <string name="minimal_ui_tap_hint">Auf das Symbol tippen, um neu zu verbinden</string>
+    <string name="mui_connected_title">Verbunden</string>
+    <string name="mui_connected_sub">Ihre Verbindung ist sicher</string>
+    <string name="mui_connecting_title">Verbindung wird hergestellt…</string>
+    <string name="mui_connecting_sub">Sichere Verbindung wird aufgebaut</string>
+    <string name="mui_retry_sub">Neuer Versuch in %1$s Sekunden</string>
+    <string name="mui_nonetwork_title">Warten auf Netzwerk</string>
+    <string name="mui_nonetwork_sub">Verbindet automatisch, sobald ein Netzwerk verfügbar ist</string>
+    <string name="mui_notconnected_title">Nicht verbunden</string>
+    <string name="mui_authfailed_title">Authentifizierung fehlgeschlagen</string>
+    <string name="mui_authfailed_sub">Wenden Sie sich an Ihren Administrator</string>
+    <string name="mui_paused_title">Pausiert</string>
+    <string name="mui_paused_sub">Wird automatisch fortgesetzt</string>
+    <string name="mui_input_title">Aktion erforderlich</string>
+    <string name="mui_input_sub">Öffnen Sie die Benachrichtigung, um fortzufahren</string>
 </resources>

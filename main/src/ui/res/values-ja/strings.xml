@@ -509,4 +509,19 @@ Android 4.4以上はポリシールーティングを使用します。route/ifc
     <string name="allow_translations_title">コミュニティが投稿した翻訳を許可する</string>
     <string name="allow_translations_summary">コミュニティから提供された翻訳を使用してアプリを翻訳できるようにします。有効にするには、アプリを再起動する必要があります。</string>
     <string name="tls_profile">TLSセキュリティプロファイル</string>
+    <string name="minimal_ui_tap_hint">アイコンをタップして再接続</string>
+    <string name="mui_connected_title">接続済み</string>
+    <string name="mui_connected_sub">接続は保護されています</string>
+    <string name="mui_connecting_title">接続しています…</string>
+    <string name="mui_connecting_sub">安全な接続を確立しています</string>
+    <string name="mui_retry_sub">%1$s 秒後に再試行します</string>
+    <string name="mui_nonetwork_title">ネットワークを待機しています</string>
+    <string name="mui_nonetwork_sub">ネットワークに接続すると自動的に接続します</string>
+    <string name="mui_notconnected_title">未接続</string>
+    <string name="mui_authfailed_title">認証に失敗しました</string>
+    <string name="mui_authfailed_sub">管理者に連絡してください</string>
+    <string name="mui_paused_title">一時停止中</string>
+    <string name="mui_paused_sub">自動的に再開します</string>
+    <string name="mui_input_title">操作が必要です</string>
+    <string name="mui_input_sub">続行するには通知を開いてください</string>
 </resources>

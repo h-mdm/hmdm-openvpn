@@ -453,4 +453,19 @@
     <string name="external_authenticator">Pemeriksa Eksternal</string>
     <string name="configure">Konfigurasikan</string>
     <string name="extauth_not_configured">Pemeriksa Eksternal belum dikonfigurasi</string>
+    <string name="minimal_ui_tap_hint">Ketuk ikon untuk menghubungkan kembali</string>
+    <string name="mui_connected_title">Terhubung</string>
+    <string name="mui_connected_sub">Koneksi Anda aman</string>
+    <string name="mui_connecting_title">Menghubungkan…</string>
+    <string name="mui_connecting_sub">Membuat koneksi aman</string>
+    <string name="mui_retry_sub">Mencoba lagi dalam %1$s detik</string>
+    <string name="mui_nonetwork_title">Menunggu jaringan</string>
+    <string name="mui_nonetwork_sub">Terhubung otomatis saat jaringan tersedia</string>
+    <string name="mui_notconnected_title">Tidak terhubung</string>
+    <string name="mui_authfailed_title">Autentikasi gagal</string>
+    <string name="mui_authfailed_sub">Hubungi administrator Anda</string>
+    <string name="mui_paused_title">Dijeda</string>
+    <string name="mui_paused_sub">Dilanjutkan otomatis</string>
+    <string name="mui_input_title">Tindakan diperlukan</string>
+    <string name="mui_input_sub">Buka notifikasi untuk melanjutkan</string>
 </resources>

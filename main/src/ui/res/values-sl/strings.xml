@@ -418,4 +418,19 @@
     <string name="external_authenticator">Zunanji overitelj</string>
     <string name="configure">Nastavi</string>
     <string name="extauth_not_configured">Zunanji avtenfikator ni nastavljen</string>
+    <string name="minimal_ui_tap_hint">Tapnite ikono za ponovno povezavo</string>
+    <string name="mui_connected_title">Povezano</string>
+    <string name="mui_connected_sub">Vaša povezava je varna</string>
+    <string name="mui_connecting_title">Povezovanje…</string>
+    <string name="mui_connecting_sub">Vzpostavljanje varne povezave</string>
+    <string name="mui_retry_sub">Ponoven poskus čez %1$s s</string>
+    <string name="mui_nonetwork_title">Čakanje na omrežje</string>
+    <string name="mui_nonetwork_sub">Samodejno se poveže, ko je omrežje na voljo</string>
+    <string name="mui_notconnected_title">Ni povezano</string>
+    <string name="mui_authfailed_title">Preverjanje pristnosti ni uspelo</string>
+    <string name="mui_authfailed_sub">Obrnite se na skrbnika</string>
+    <string name="mui_paused_title">Začasno ustavljeno</string>
+    <string name="mui_paused_sub">Samodejno se nadaljuje</string>
+    <string name="mui_input_title">Potrebno je dejanje</string>
+    <string name="mui_input_sub">Za nadaljevanje odprite obvestilo</string>
 </resources>

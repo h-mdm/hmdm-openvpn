@@ -465,4 +465,19 @@
     <string name="no_default_vpn_set">Francisco </string>
     <string name="internal_web_view">Brasil </string>
     <string name="use_alwayson_vpn">Por favor, use o recurso Always-On do Android para habilitar a VPN no momento da inicialização.</string>
+    <string name="minimal_ui_tap_hint">Toque no ícone para reconectar</string>
+    <string name="mui_connected_title">Conectado</string>
+    <string name="mui_connected_sub">Sua conexão está segura</string>
+    <string name="mui_connecting_title">Conectando…</string>
+    <string name="mui_connecting_sub">Estabelecendo uma conexão segura</string>
+    <string name="mui_retry_sub">Tentando novamente em %1$s segundos</string>
+    <string name="mui_nonetwork_title">Aguardando rede</string>
+    <string name="mui_nonetwork_sub">Conecta automaticamente quando houver rede</string>
+    <string name="mui_notconnected_title">Não conectado</string>
+    <string name="mui_authfailed_title">Falha na autenticação</string>
+    <string name="mui_authfailed_sub">Entre em contato com o administrador</string>
+    <string name="mui_paused_title">Pausado</string>
+    <string name="mui_paused_sub">Será retomado automaticamente</string>
+    <string name="mui_input_title">Ação necessária</string>
+    <string name="mui_input_sub">Abra a notificação para continuar</string>
 </resources>

@@ -444,4 +444,19 @@
     <string name="external_authenticator">Externý autentifikátor</string>
     <string name="configure">Nastaviť</string>
     <string name="extauth_not_configured">Nie je nakonfigurovaný externý autorizátor</string>
+    <string name="minimal_ui_tap_hint">Ťuknutím na ikonu sa znova pripojíte</string>
+    <string name="mui_connected_title">Pripojené</string>
+    <string name="mui_connected_sub">Vaše pripojenie je zabezpečené</string>
+    <string name="mui_connecting_title">Pripája sa…</string>
+    <string name="mui_connecting_sub">Nadväzuje sa zabezpečené pripojenie</string>
+    <string name="mui_retry_sub">Nový pokus o %1$s s</string>
+    <string name="mui_nonetwork_title">Čaká sa na sieť</string>
+    <string name="mui_nonetwork_sub">Pripojí sa automaticky, keď bude sieť dostupná</string>
+    <string name="mui_notconnected_title">Nepripojené</string>
+    <string name="mui_authfailed_title">Overenie zlyhalo</string>
+    <string name="mui_authfailed_sub">Kontaktujte správcu</string>
+    <string name="mui_paused_title">Pozastavené</string>
+    <string name="mui_paused_sub">Obnoví sa automaticky</string>
+    <string name="mui_input_title">Vyžaduje sa akcia</string>
+    <string name="mui_input_sub">Pokračujte otvorením upozornenia</string>
 </resources>

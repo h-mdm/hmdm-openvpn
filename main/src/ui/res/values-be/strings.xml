@@ -443,4 +443,19 @@
     <string name="external_authenticator">Знешні параметр праверкі сапраўднасці</string>
     <string name="configure">Канфігурацыя</string>
     <string name="extauth_not_configured">Знешні параметр праверкі сапраўднасці не наладжаны</string>
+    <string name="minimal_ui_tap_hint">Націсніце на значок, каб перападключыцца</string>
+    <string name="mui_connected_title">Падключана</string>
+    <string name="mui_connected_sub">Ваша злучэнне абаронена</string>
+    <string name="mui_connecting_title">Падключэнне…</string>
+    <string name="mui_connecting_sub">Усталёўваецца абароненае злучэнне</string>
+    <string name="mui_retry_sub">Паўтор праз %1$s с</string>
+    <string name="mui_nonetwork_title">Чаканне сеткі</string>
+    <string name="mui_nonetwork_sub">Падключыцца аўтаматычна, калі з’явіцца сетка</string>
+    <string name="mui_notconnected_title">Не падключана</string>
+    <string name="mui_authfailed_title">Памылка аўтэнтыфікацыі</string>
+    <string name="mui_authfailed_sub">Звярніцеся да адміністратара</string>
+    <string name="mui_paused_title">Прыпынена</string>
+    <string name="mui_paused_sub">Адновіцца аўтаматычна</string>
+    <string name="mui_input_title">Патрабуецца дзеянне</string>
+    <string name="mui_input_sub">Адкрыйце апавяшчэнне, каб працягнуць</string>
 </resources>

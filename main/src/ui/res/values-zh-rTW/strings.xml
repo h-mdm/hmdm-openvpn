@@ -450,4 +450,19 @@
     <string name="allow_translations_title">允許社群貢獻的翻譯</string>
     <string name="allow_translations_summary">允許使用社群貢獻的翻譯。需要重新啟動應用程式。</string>
     <string name="encrypt_profiles">嘗試加密儲存空間中的設定檔（如果 Android 作業系統支持）</string>
+    <string name="minimal_ui_tap_hint">輕觸圖示以重新連線</string>
+    <string name="mui_connected_title">已連線</string>
+    <string name="mui_connected_sub">您的連線是安全的</string>
+    <string name="mui_connecting_title">正在連線…</string>
+    <string name="mui_connecting_sub">正在建立安全連線</string>
+    <string name="mui_retry_sub">%1$s 秒後重試</string>
+    <string name="mui_nonetwork_title">正在等待網路</string>
+    <string name="mui_nonetwork_sub">網路可用時將自動連線</string>
+    <string name="mui_notconnected_title">未連線</string>
+    <string name="mui_authfailed_title">驗證失敗</string>
+    <string name="mui_authfailed_sub">請聯絡管理員</string>
+    <string name="mui_paused_title">已暫停</string>
+    <string name="mui_paused_sub">將自動繼續</string>
+    <string name="mui_input_title">需要採取動作</string>
+    <string name="mui_input_sub">開啟通知以繼續</string>
 </resources>

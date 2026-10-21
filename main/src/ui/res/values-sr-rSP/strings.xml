@@ -444,4 +444,19 @@
     <string name="external_authenticator">Екстерни проверавач</string>
     <string name="configure">Конфигуришите</string>
     <string name="extauth_not_configured">Спољни проверавач није конфигурисан</string>
+    <string name="minimal_ui_tap_hint">Додирните иконицу да бисте се поново повезали</string>
+    <string name="mui_connected_title">Повезано</string>
+    <string name="mui_connected_sub">Ваша веза је безбедна</string>
+    <string name="mui_connecting_title">Повезивање…</string>
+    <string name="mui_connecting_sub">Успостављање безбедне везе</string>
+    <string name="mui_retry_sub">Нови покушај за %1$s с</string>
+    <string name="mui_nonetwork_title">Чекање на мрежу</string>
+    <string name="mui_nonetwork_sub">Аутоматски ће се повезати када мрежа буде доступна</string>
+    <string name="mui_notconnected_title">Није повезано</string>
+    <string name="mui_authfailed_title">Потврда идентитета није успела</string>
+    <string name="mui_authfailed_sub">Обратите се администратору</string>
+    <string name="mui_paused_title">Паузирано</string>
+    <string name="mui_paused_sub">Аутоматски ће се наставити</string>
+    <string name="mui_input_title">Потребна је радња</string>
+    <string name="mui_input_sub">Отворите обавештење да бисте наставили</string>
 </resources>

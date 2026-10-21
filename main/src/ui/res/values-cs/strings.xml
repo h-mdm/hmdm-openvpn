@@ -419,4 +419,19 @@
     <string name="info_from_server">Informace ze serveru: \'%s\'</string>
     <string name="channel_name_userreq">Vstup od uživatele je nutný</string>
     <string name="configure">Nastavit</string>
+    <string name="minimal_ui_tap_hint">Klepnutím na ikonu se znovu připojíte</string>
+    <string name="mui_connected_title">Připojeno</string>
+    <string name="mui_connected_sub">Vaše připojení je zabezpečené</string>
+    <string name="mui_connecting_title">Připojování…</string>
+    <string name="mui_connecting_sub">Navazování zabezpečeného připojení</string>
+    <string name="mui_retry_sub">Nový pokus za %1$s s</string>
+    <string name="mui_nonetwork_title">Čekání na síť</string>
+    <string name="mui_nonetwork_sub">Připojí se automaticky, jakmile bude k dispozici síť</string>
+    <string name="mui_notconnected_title">Nepřipojeno</string>
+    <string name="mui_authfailed_title">Ověření selhalo</string>
+    <string name="mui_authfailed_sub">Kontaktujte správce</string>
+    <string name="mui_paused_title">Pozastaveno</string>
+    <string name="mui_paused_sub">Obnoví se automaticky</string>
+    <string name="mui_input_title">Vyžadována akce</string>
+    <string name="mui_input_sub">Pokračujte otevřením oznámení</string>
 </resources>

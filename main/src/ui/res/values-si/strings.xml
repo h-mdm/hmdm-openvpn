@@ -473,4 +473,19 @@
     <string name="allow_translations_title">ප්‍රජා දායක පරිවර්තන වලට ඉඩ දෙන්න</string>
     <string name="allow_translations_summary">ප්‍රජාව විසින් දායක වූ පරිවර්තන සමඟින් යෙදුමට පරිවර්තනය කිරීමට ඉඩ දෙන්න. සක්‍රිය කිරීමට යෙදුම නැවත ආරම්භ කිරීම අවශ්‍ය වේ.</string>
     <string name="tls_profile">TLS ආරක්ෂක පැතිකඩ</string>
+    <string name="minimal_ui_tap_hint">නැවත සම්බන්ධ වීමට අයිකනය තට්ටු කරන්න</string>
+    <string name="mui_connected_title">සම්බන්ධයි</string>
+    <string name="mui_connected_sub">ඔබගේ සම්බන්ධතාවය ආරක්ෂිතයි</string>
+    <string name="mui_connecting_title">සම්බන්ධ වෙමින්…</string>
+    <string name="mui_connecting_sub">ආරක්ෂිත සම්බන්ධතාවයක් ස්ථාපිත කරමින්</string>
+    <string name="mui_retry_sub">තත්පර %1$s කින් නැවත උත්සාහ කරයි</string>
+    <string name="mui_nonetwork_title">ජාලය සඳහා රැඳී සිටිමින්</string>
+    <string name="mui_nonetwork_sub">ජාලය ලැබුණු විට ස්වයංක්‍රීයව සම්බන්ධ වේ</string>
+    <string name="mui_notconnected_title">සම්බන්ධ නැත</string>
+    <string name="mui_authfailed_title">සත්‍යාපනය අසාර්ථකයි</string>
+    <string name="mui_authfailed_sub">ඔබගේ පරිපාලක අමතන්න</string>
+    <string name="mui_paused_title">විරාම කර ඇත</string>
+    <string name="mui_paused_sub">ස්වයංක්‍රීයව නැවත ආරම්භ වේ</string>
+    <string name="mui_input_title">ක්‍රියාමාර්ගයක් අවශ්‍යයි</string>
+    <string name="mui_input_sub">ඉදිරියට යාමට දැනුම්දීම විවෘත කරන්න</string>
 </resources>
