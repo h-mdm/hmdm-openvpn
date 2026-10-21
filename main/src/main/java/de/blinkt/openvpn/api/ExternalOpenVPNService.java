@@ -5,7 +5,6 @@
 
 package de.blinkt.openvpn.api;
 
-import android.annotation.TargetApi;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -13,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
 import android.net.VpnService;
 import android.os.Binder;
 import android.os.Build;
@@ -35,14 +35,15 @@ import de.blinkt.openvpn.VpnProfile;
 import de.blinkt.openvpn.core.ConfigParser;
 import de.blinkt.openvpn.core.ConfigParser.ConfigParseError;
 import de.blinkt.openvpn.core.ConnectionStatus;
+import de.blinkt.openvpn.core.GlobalPreferences;
 import de.blinkt.openvpn.core.IOpenVPNServiceInternal;
 import de.blinkt.openvpn.core.OpenVPNService;
+import de.blinkt.openvpn.core.Preferences;
 import de.blinkt.openvpn.core.ProfileManager;
 import de.blinkt.openvpn.core.VPNLaunchHelper;
 import de.blinkt.openvpn.core.VpnStatus;
 import de.blinkt.openvpn.core.VpnStatus.StateListener;
 
-@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
 public class ExternalOpenVPNService extends Service implements StateListener {
 
     private static final int SEND_TOALL = 0;
@@ -109,6 +110,10 @@ public class ExternalOpenVPNService extends Service implements StateListener {
 
     }
 
+    private APIVpnProfile apiVpnProfileFromVpnProfile(VpnProfile vp) {
+	return new APIVpnProfile(vp.getUUIDString(), vp.mName, vp.mUserEditable, vp.mProfileCreator);
+    }
+
     private final IOpenVPNAPIService.Stub mBinder = new IOpenVPNAPIService.Stub() {
 
         @Override
@@ -121,7 +126,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
 
             for (VpnProfile vp : pm.getProfiles()) {
                 if (!vp.profileDeleted)
-                    profiles.add(new APIVpnProfile(vp.getUUIDString(), vp.mName, vp.mUserEditable, vp.mProfileCreator));
+                    profiles.add(apiVpnProfileFromVpnProfile(vp));
             }
 
             return profiles;
@@ -232,7 +237,7 @@ public class ExternalOpenVPNService extends Service implements StateListener {
                 vp.addChangeLogEntry("AIDL API created profile");
                 pm.saveProfile(ExternalOpenVPNService.this, vp);
                 pm.saveProfileList(ExternalOpenVPNService.this);
-                return new APIVpnProfile(vp.getUUIDString(), vp.mName, vp.mUserEditable, vp.mProfileCreator);
+                return apiVpnProfileFromVpnProfile(vp);
             } catch (IOException e) {
                 VpnStatus.logException(e);
                 return null;
@@ -312,6 +317,11 @@ public class ExternalOpenVPNService extends Service implements StateListener {
         @Override
         public void disconnect() throws RemoteException {
             mExtAppDb.checkOpenVPNPermission(getPackageManager());
+            /* HMDM: force-connected - other apps cannot disconnect the VPN */
+            if (GlobalPreferences.getForceConnected()) {
+                VpnStatus.logInfo("Disconnect request from external app ignored (force connected)");
+                return;
+            }
             if (mService != null)
                 mService.stopVPN(false);
         }
@@ -329,6 +339,36 @@ public class ExternalOpenVPNService extends Service implements StateListener {
             if (mService != null)
                 mService.userPause(false);
 
+        }
+
+        @Override
+        public APIVpnProfile getDefaultProfile() throws RemoteException {
+            mExtAppDb.checkOpenVPNPermission(getPackageManager());
+            ProfileManager pm = ProfileManager.getInstance(getBaseContext());
+            SharedPreferences prefs = Preferences.getDefaultSharedPreferences(getBaseContext());
+            String profileUUID = prefs.getString("alwaysOnVpn", null);
+            if (profileUUID == null) {
+                return null;
+            }
+            VpnProfile vp = ProfileManager.get(getBaseContext(), profileUUID);
+            if (vp.checkProfile(getApplicationContext()) != R.string.no_error_found) {
+                VpnStatus.logInfo("Default profile is currently set to unknown UUID " + profileUUID);
+                return null;
+            }
+            APIVpnProfile result = apiVpnProfileFromVpnProfile(vp);
+            return result;
+        }
+
+        @Override
+        public void setDefaultProfile(String profileUUID) throws RemoteException {
+            mExtAppDb.checkOpenVPNPermission(getPackageManager());
+            VpnProfile vp = ProfileManager.get(getBaseContext(), profileUUID);
+            if (vp.checkProfile(getApplicationContext()) != R.string.no_error_found)
+                throw new RemoteException(getString(vp.checkProfile(getApplicationContext())));
+            SharedPreferences prefs = Preferences.getDefaultSharedPreferences(getBaseContext());
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("alwaysOnVpn", vp.getUUIDString());
+            editor.apply();
         }
     };
 

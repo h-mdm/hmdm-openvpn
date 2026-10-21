@@ -151,8 +151,6 @@
     <string name="speed_waiting">Wachten op status bericht&#8230;</string>
     <string name="converted_profile">Geïmporteerd profiel</string>
     <string name="converted_profile_i">Geïmporteerd profiel %d</string>
-    <string name="broken_images">Niet Werkende ROM\'s</string>
-    <string name="broken_images_faq">&lt;p&gt; Officiële HTC-ROM\'s hebben een vreemd routeringsprobleem waardoor verkeer niet door de tunnel kan stromen (zie ook &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/18\"&gt;Issue 18&lt;/a&gt; in de bug-tracker.) &lt;/p&gt;&lt;p&gt; Van de officiële SONY-ROM\'s van Xperia Arc S en Xperia Ray is gemeld dat de VPNService volledig mist van de ROM. (Zie ook &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/29\"&gt;Issue 29&lt;/a&gt; in de bug-tracker.) &lt;/p&gt;&lt;p&gt;Aan aangepaste build-ROM\'s ontbreekt de tun-module of zijn de rechten van /dev/tun mogelijk onjuist. Sommige CM9-ROM\'s hebben de optie \'Eigenaar bevestigen\' onder \'Apparaatspecifieke hacks\' ingeschakeld nodig.&lt;/p&gt;&lt;p&gt;Het belangrijkste is: als uw apparaat een kapotte Android-ROM heeft, moet u dit melden aan uw leverancier. Hoe meer mensen een probleem melden aan de leverancier, des te groter de kans is dat ze het probleem oplossen.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">PKCS12 Bestand Encryptie Sleutel</string>
     <string name="private_key_password">Privé Sleutel Wachtwoord</string>
     <string name="password">Wachtwoord</string>
@@ -176,8 +174,6 @@
     <string name="mobile_info">%10$s %9$s draait op %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Fout bij het ondertekenen met Android keystore sleutel %1$s: %2$s</string>
     <string name="error_extapp_sign">Fout bij ondertekening met externe authenticator-app (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">De VPN-verbindingswaarschuwing die aangeeft dat deze app al het verkeer kan onderscheppen, wordt door het systeem opgelegd om misbruik van de VPNService-API te voorkomen.\nDe VPN-verbindingsmelding (het sleutelsymbool) wordt ook door het Android-systeem opgelegd om een ​​actieve VPN-verbinding te signaleren. Op sommige ROM\'s speelt deze melding een geluid af.\nAndroid heeft deze systeemdialogen voor uw eigen veiligheid geïntroduceerd en ervoor gezorgd dat deze niet kunnen worden omzeild. (Bij sommige ROM\'s bevat dit helaas een meldingsgeluid)</string>
-    <string name="faq_system_dialogs_title">Verbindingswaarschuwing en meldingsgeluid</string>
     <string name="translationby">Nederlandse vertaling door de gebruikers op crowdin.com</string>
     <string name="ipdns">IP en DNS</string>
     <string name="basic">Basis</string>
@@ -216,8 +212,6 @@
     <string name="import_config">Importeer OpenVPN configuratie</string>
     <string name="battery_consumption_title">Batterijverbruik</string>
     <string name="baterry_consumption">In mijn persoonlijke tests zijn de keepalive-pakketten de belangrijkste reden voor een hoog batterijverbruik van OpenVPN. De meeste OpenVPN-servers hebben een configuratierichtlijn zoals \'keepalive 10 60\', waardoor de client en de server elke tien seconden keepalive-pakketten uitwisselen. &lt;p&gt; Hoewel deze pakketten klein zijn en weinig verkeer gebruiken, houden ze het mobiele radionetwerk bezig en verhogen ze het energieverbruik. (Zie ook &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;De Radio Status Machine | Android Ontwikkelaars&lt;/a&gt;) &lt;p&gt; Deze keepalive-instelling kan niet worden gewijzigd op de client. Alleen de systeembeheerder van OpenVPN kan de instelling wijzigen. &lt;p&gt; Helaas kan het gebruik van een keepalive van meer dan 60 seconden met UDP ertoe leiden dat sommige NAT-gateways de verbinding verbreken vanwege een time-out wegens inactiviteit. TCP gebruiken met een lange keep-alive time-out werkt, maar TCP over TCP tunneling presteert extreem slecht bij verbindingen met een hoog pakketverlies. (Zie &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Waarom TCP via TCP een slechte gedachte is&lt;/a&gt;)</string>
-    <string name="faq_tethering">De Android Tethering functie (via WiFi, USB of Bluetooth) en de VPNService API (die gebruikt wordt door deze app) werken niet samen. Zie &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/34\"&gt;issue #34&lt;/a&gt; voor meer informatie</string>
-    <string name="vpn_tethering_title">VPN en Tethering</string>
     <string name="connection_retries">Verbindingspogingen</string>
     <string name="reconnection_settings">Instellingen voor opnieuw verbinden</string>
     <string name="connectretrymessage">Aantal seconden te wachten tussen verbindingspogingen.</string>
@@ -263,7 +257,7 @@
     <string name="rdn">RDN (algemene naam)</string>
     <string name="rdn_prefix">RDN voorvoegsel</string>
     <string name="tls_remote_deprecated">tls-remote (VEROUDERD)</string>
-    <string name="help_translate">U kunt helpen met vertalen door naar https://crowdin.net/project/ics-openvpn/invite te gaan</string>
+    <string name="help_translate">U kunt helpen met vertalen door naar https://crowdin.net/project/ics-openvpn/ te gaan</string>
     <string name="prompt">%1$s probeert %2$s te beheren</string>
     <string name="remote_warning">Door verder te gaan, geeft u de toepassing toestemming om OpenVPN voor Android volledig te beheren en om alle netwerkverkeer te onderscheppen.<b>NIET accepteren, tenzij u de toepassing vertrouwt.</b> Anders loopt u het risico dat uw gegevens worden aangetast door kwaadaardige software.\"</string>
     <string name="remote_trust">Ik vertrouw deze applicatie.</string>
@@ -286,8 +280,6 @@
     <string name="allow_vpn_changes">Verandering aan VPN-profielen toestaan</string>
     <string name="hwkeychain">Hardware Keystore:</string>
     <string name="permission_icon_app">Miniatuur van app die OpenVPN voor Android wilt gebruiken</string>
-    <string name="faq_vpndialog43">"Vanaf Android 4.3 is de VPN-bevestiging beveiligd tegen apps die over andere apps tekenen. Dit betekent dat het dialoogvenster niet reageert op aanrakingen. Als u een app heeft die over andere apps tekent kan dit de oorzaak zijn. Als u een app vind die dit doet, neem dan contact op met de makers van de app. Dit probleem heeft betrekking op alle VPN applicaties op Android 4.3 en later. Zie ook &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\"&gt;Issue 185&lt;a&gt; voor meer details."</string>
-    <string name="faq_vpndialog43_title">VPN-bevestigingsdialoogvenster</string>
     <string name="donatePlayStore">U kunt ook een donatie sturen in de Play Store:</string>
     <string name="thanks_for_donation">Bedankt voor het doneren van %s!</string>
     <string name="logCleared">Logboek gewist.</string>
@@ -303,7 +295,6 @@
     <string name="logview_options">Toon opties</string>
     <string name="unhandled_exception">Niet-afgehandelde uitzondering: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">Als u uw Android-apparaat hebt geroot, kun je de &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; en de &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Dialoog bevestigings module&lt;/a&gt; op eigen risico installeren\"</string>
     <string name="full_licenses">Volledige licenties</string>
     <string name="blocklocal_summary">Netwerken die rechtstreeks zijn verbonden met de lokale interfaces, worden niet via de VPN gerouteerd. Als u deze optie uitschakelt, worden alle verkeer gericht op lokale netwerken omgeleid naar de VPN.</string>
     <string name="blocklocal_title">VPN passeren voor lokale netwerken</string>
@@ -346,27 +337,16 @@
     <string name="faq_androids_clients_title">Verschillen tussen de OpenVPN Android-clients</string>
     <string name="ignore_multicast_route">Multicast-route negeren: %s</string>
     <string name="ab_only_cidr">Android ondersteunt alleen CIDR-routes naar de VPN. Omdat niet-CIDR routes bijna nooit worden gebruikt, zal OpenVPN voor Android een /32 gebruiken voor routes die geen CIDR zijn en een waarschuwing geven.</string>
-    <string name="ab_tethering_44">Tethering werkt terwijl de VPN actief is. De tethered-verbinding maakt GEEN gebruik van de VPN.</string>
-    <string name="ab_kitkat_mss">Vroege KitKat-versie heeft de verkeerde MSS-waarde ingesteld voor TCP-verbindingen (#61948). Probeer de mssfix-optie in te schakelen om deze bug te omzeilen.</string>
     <string name="ab_proxy">Android blijft uw proxy-instellingen gebruiken die zijn opgegeven voor de mobiel/wifi-verbinding wanneer er geen DNS-servers zijn ingesteld. OpenVPN voor Android waarschuwt u hierover in het logboek. <p>Wanneer een VPN een DNS-server instelt, gebruikt Android geen proxy. Er is geen API om een ​​proxy in te stellen voor een VPN-verbinding.</p></string>
     <string name="ab_not_route_to_vpn">Het geconfigureerde client-IP en de IP\'s in het netwerkmask worden niet naar de VPN gerouteerd. OpenVPN werkt om deze bug heen door expliciet een route toe te voegen die overeenkomt met het IP-adres van de client en zijn netmask</string>
-    <string name="ab_persist_tun">Als een tun-apparaat wordt geopend terwijl een ander tun-apparaat actief is, deze wordt gebruikt voor ondersteuning voor persist-tun, crasht het de VPNServices op het apparaat. Opnieuw opstarten is vereist om VPN opnieuw te laten werken. OpenVPN voor Android probeert te voorkomen dat het tun-apparaat opnieuw wordt geopend en als het echt nodig is, sluit het eerst de huidige TUN voordat het nieuwe TUN-apparaat wordt geopend om te voorkomen dat het crasht. Dit kan leiden tot een kort venster waarin pakketten via de niet-VPN-verbinding worden verzonden. Zelfs met deze tijdelijke oplossing crasht de VPNServices soms en is het opnieuw opstarten van het apparaat vereist.</string>
-    <string name="ab_secondary_users">VPN werkt niet helemaal voor secundaire gebruikers.</string>
-    <string name="ab_kitkat_reconnect">"Meerdere gebruikers melden dat de mobiele verbinding/mobiele gegevensverbinding vaak wordt verbroken tijdens het gebruik van de VPN-app. Het gedrag lijkt alleen maar op een combinatie van enkele mobiele providers/apparaten van invloed te zijn en tot nu toe kon geen oorzaak/oplossing voor de bug worden geïdentificeerd."</string>
-    <string name="ab_vpn_reachability_44">Alleen de bestemming kan worden bereikt via de VPN die bereikbaar is zonder VPN. IPv6 VPN\'s werken helemaal niet.</string>
     <string name="ab_only_cidr_title">Niet CIDR-routes</string>
     <string name="ab_proxy_title">Proxy-gedrag voor VPN\'s</string>
     <string name="version_upto">%s en eerder</string>
     <string name="copy_of_profile">Kopie van %s</string>
     <string name="ab_not_route_to_vpn_title">Route naar het geconfigureerde IP-adres</string>
-    <string name="ab_kitkat_mss_title">Verkeerde MSS-waarde voor VPN-verbinding</string>
-    <string name="ab_secondary_users_title">Secundaire tabletgebruikers</string>
     <string name="custom_connection_options_warng">Specificeer aangepaste verbindingsopties. Gebruik voorzichtig</string>
     <string name="custom_connection_options">Aangepaste Opties</string>
     <string name="remove_connection_entry">Verwijder de verbinding</string>
-    <string name="ab_kitkat_reconnect_title">Willekeurige verbroken verbinding met mobiel netwerk</string>
-    <string name="ab_vpn_reachability_44_title">Externe netwerken niet bereikbaar</string>
-    <string name="ab_persist_tun_title">Persistente tun mode</string>
     <string name="version_and_later">%s en hoger</string>
     <string name="tls_cipher_alert_title">Verbindingen mislukken met SSL23_GET_SERVER_HELLO:sslv3 waarschuwing voor handshake</string>
     <string name="tls_cipher_alert">Nieuwere OpenVPN voor Android-versies (0.6.29/maart 2015) gebruiken een veiligere standaard voor de toegestane coderingssuites (tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!KRSA\"). Helaas, het weglaten van de minder veilige cipher suites en export cipher suites, met name het weglaten van cipher suites die geen ondersteuning bieden voor Perfect Forward Secrecy (Diffie-Hellman) veroorzaakt een aantal problemen. Dit wordt meestal veroorzaakt door een goedbedoelde maar slecht uitgevoerde poging om de beveiliging van TLS te verbeteren door tls-cipher op de server in te stellen of door een aantal ingesloten besturingssystemen met uitgeklede SSL (bijv. MikroTik). \nOm dit probleem op te lossen stelt u het tls-cijfer in instellingen op de server naar redelijke standaard zoals tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\". Om het probleem op de client te omzeilen, voegt u de aangepaste optie tls-cipher DEFAULT toe aan de Android-client.</string>
@@ -463,4 +443,19 @@
     <string name="external_authenticator">Externe Authenticator</string>
     <string name="configure">Configureren</string>
     <string name="extauth_not_configured">Externe Authneticator niet geconfigureerd</string>
+    <string name="minimal_ui_tap_hint">Tik op het pictogram om opnieuw te verbinden</string>
+    <string name="mui_connected_title">Verbonden</string>
+    <string name="mui_connected_sub">Je verbinding is beveiligd</string>
+    <string name="mui_connecting_title">Verbinden…</string>
+    <string name="mui_connecting_sub">Beveiligde verbinding opzetten</string>
+    <string name="mui_retry_sub">Nieuwe poging over %1$s seconden</string>
+    <string name="mui_nonetwork_title">Wachten op netwerk</string>
+    <string name="mui_nonetwork_sub">Maakt automatisch verbinding zodra er netwerk is</string>
+    <string name="mui_notconnected_title">Niet verbonden</string>
+    <string name="mui_authfailed_title">Verificatie mislukt</string>
+    <string name="mui_authfailed_sub">Neem contact op met je beheerder</string>
+    <string name="mui_paused_title">Gepauzeerd</string>
+    <string name="mui_paused_sub">Wordt automatisch hervat</string>
+    <string name="mui_input_title">Actie vereist</string>
+    <string name="mui_input_sub">Open de melding om verder te gaan</string>
 </resources>

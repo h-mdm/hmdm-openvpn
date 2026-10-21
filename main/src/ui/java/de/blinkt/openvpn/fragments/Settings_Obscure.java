@@ -27,12 +27,14 @@ public class Settings_Obscure extends OpenVpnPreferencesFragment implements Pref
     private EditTextPreference mMssFixValue;
     private CheckBoxPreference mMssFixCheckBox;
     private CheckBoxPreference mPeerInfo;
+    private CheckBoxPreference mDPC1Protocol;
 
     private CheckBoxPreference mPersistent;
     private ListPreference mConnectRetrymax;
     private EditTextPreference mConnectRetry;
     private EditTextPreference mConnectRetryMaxTime;
     private EditTextPreference mTunMtu;
+
 
     public void onCreateBehaviour(Bundle savedInstanceState) {
 
@@ -42,20 +44,19 @@ public class Settings_Obscure extends OpenVpnPreferencesFragment implements Pref
         mConnectRetryMaxTime = (EditTextPreference) findPreference("connectretrymaxtime");
 
         mPeerInfo = (CheckBoxPreference) findPreference("peerInfo");
+        mDPC1Protocol = findPreference("dpc1protocol");
 
         mConnectRetrymax.setOnPreferenceChangeListener(this);
         mConnectRetrymax.setSummary("%s");
 
         mConnectRetry.setOnPreferenceChangeListener(this);
         mConnectRetryMaxTime.setOnPreferenceChangeListener(this);
-
-
-
     }
 
     protected void loadSettingsBehaviour() {
         mPersistent.setChecked(mProfile.mPersistTun);
         mPeerInfo.setChecked(mProfile.mPushPeerInfo);
+        mDPC1Protocol.setChecked(mProfile.mDpc1protocol);
 
         mConnectRetrymax.setValue(mProfile.mConnectRetryMax);
         onPreferenceChange(mConnectRetrymax, mProfile.mConnectRetryMax);
@@ -74,6 +75,7 @@ public class Settings_Obscure extends OpenVpnPreferencesFragment implements Pref
         mProfile.mPersistTun = mPersistent.isChecked();
         mProfile.mConnectRetry = mConnectRetry.getText();
         mProfile.mPushPeerInfo = mPeerInfo.isChecked();
+        mProfile.mDpc1protocol = mDPC1Protocol.isChecked();
         mProfile.mConnectRetryMaxTime = mConnectRetryMaxTime.getText();
     }
 

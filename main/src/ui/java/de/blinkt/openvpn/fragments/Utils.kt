@@ -34,7 +34,6 @@ import java.util.*
 
 object Utils {
     @JvmStatic
-    @TargetApi(Build.VERSION_CODES.KITKAT)
     fun getFilePickerIntent(c: Context, fileType: FileType?): Intent? {
         val i = Intent(Intent.ACTION_GET_CONTENT)
         i.addCategory(Intent.CATEGORY_OPENABLE)

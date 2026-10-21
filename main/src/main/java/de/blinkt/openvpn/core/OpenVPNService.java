@@ -117,9 +117,9 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
 
     private DeviceStateReceiver mDeviceStateReceiver;
     private boolean mDisplayBytecount = false;
-    private boolean mStarting = false;
+    private volatile boolean mStarting = false;
     private long mConnecttime;
-    private OpenVPNManagement mManagement;
+    private volatile OpenVPNManagement mManagement;
     private final IBinder mBinder = new IOpenVPNServiceInternal.Stub() {
 
         @Override
@@ -162,6 +162,8 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
     private Runnable mOpenVPNThread;
     private HandlerThread mCommandHandlerThread;
     private Handler mCommandHandler;
+    /* Just use a static member as long as this is stateless */
+    private DPC1Protocol accReceiver = new DPC1Protocol();
 
     // From: http://stackoverflow.com/questions/3758606/how-to-convert-byte-size-into-human-readable-format-in-java
     public static String humanReadableByteCount(long bytes, boolean speed, Resources res) {
@@ -247,6 +249,16 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
         endVpnService();
     }
 
+    /* OpenVPN 3 stops asynchronously; ignore a late stop from a client
+     * that has already been replaced by a new connection */
+    public void openvpnStopped(OpenVPNManagement stoppedClient) {
+        if (mStarting || stoppedClient != mManagement) {
+            VpnStatus.logDebug("Ignoring stop of replaced OpenVPN 3 client");
+            return;
+        }
+        endVpnService();
+    }
+
     private boolean isAlwaysActiveEnabled()
     {
         SharedPreferences prefs = Preferences.getDefaultSharedPreferences(this);
@@ -312,7 +324,8 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
         if (status == LEVEL_WAITING_FOR_USER_INPUT && intent != null) {
             PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
             nbuilder.setContentIntent(pIntent);
-        } else {
+        } else if (!GlobalPreferences.getMinimalUi()) {
+            /* minimal UI has no graph page to open */
             nbuilder.setContentIntent(getGraphPendingIntent());
         }
 
@@ -426,7 +439,11 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
         PendingIntent disconnectPendingIntent = PendingIntent.getActivity(this, 0, disconnectVPN, PendingIntent.FLAG_IMMUTABLE);
 
         nbuilder.addAction(R.drawable.ic_menu_close_clear_cancel,
-                getString(R.string.cancel_connection), disconnectPendingIntent);
+                getString(GlobalPreferences.getForceConnected() ? R.string.reconnect : R.string.cancel_connection), disconnectPendingIntent);
+
+        /* do not allow to pause the VPN is force connection is enabled */
+        if (GlobalPreferences.getForceConnected())
+            return;
 
         Intent pauseVPN = new Intent(this, OpenVPNService.class);
         if (mDeviceStateReceiver == null || !mDeviceStateReceiver.isUserPaused()) {
@@ -552,7 +569,6 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
         return START_STICKY;
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     private boolean foregroundNotificationVisible() {
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         StatusBarNotification[] notifications = mNotificationManager.getActiveNotifications();
@@ -718,6 +734,7 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
             mManagement = mOpenVPN3;
         } else {
             processThread = new OpenVPNThread(this, argv, nativeLibraryDirectory, tmpDir);
+            mOpenVPNThread = processThread;
         }
 
         synchronized (mProcessLock) {
@@ -817,6 +834,7 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
             unregisterDeviceStateReceiver(mDeviceStateReceiver);
             mDeviceStateReceiver = null;
         }
+        mCommandHandlerThread.quit();
         // Just in case unregister for state
         VpnStatus.removeStateListener(this);
         VpnStatus.flushLog();
@@ -1413,13 +1431,13 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
     }
 
 
-    private Intent getWebAuthIntent(String url, boolean external, Notification.Builder nbuilder)
+    private Intent getWebAuthIntent(String url, Notification.Builder nbuilder)
     {
         int reason = R.string.openurl_requested;
         nbuilder.setContentTitle(getString(reason));
-
         nbuilder.setContentText(url);
-        Intent intent = VariantConfig.getOpenUrlIntent(this, external);
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         return intent;
@@ -1442,7 +1460,7 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
             case "OPEN_URL": {
                 reason = R.string.openurl_requested;
                 String url = info.split(":", 2)[1];
-                intent = getWebAuthIntent(url, false, nbuilder);
+                intent = getWebAuthIntent(url, nbuilder);
 
                 break;
             }
@@ -1462,8 +1480,7 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
                         break;
                     }
                 }
-
-                intent = getWebAuthIntent(url, external, nbuilder);
+                intent = getWebAuthIntent(url, nbuilder);
                 break;
             }
             case "CR_TEXT":
@@ -1507,5 +1524,23 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
         int notificationId = channel.hashCode();
 
         mNotificationManager.notify(notificationId, notification);
+    }
+
+    void receiveAccMessage(AccMessage accMessage) {
+        if (!mProfile.mDpc1protocol) {
+            VpnStatus.logInfo("Received app custom control message but support disabled in profile");
+            return;
+        }
+
+        if (accMessage.getProtocol().equals("internal:supported_protocols"))
+        {
+            VpnStatus.logDebug("Server reports following app custom protocols to be supported: " + new String(accMessage.getMessage()));
+            return;
+        }
+
+        AccMessage response = accReceiver.processMessage(accMessage);
+        if (response != null){
+            mManagement.sendAccMessage(response);
+        }
     }
 }

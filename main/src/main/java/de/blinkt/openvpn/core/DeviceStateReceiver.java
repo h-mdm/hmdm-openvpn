@@ -108,6 +108,11 @@ public class DeviceStateReceiver extends BroadcastReceiver implements ByteCountL
 
 
     public void userPause(boolean pause) {
+        /* HMDM: force-connected - the VPN can never be paused */
+        if (pause && GlobalPreferences.getForceConnected()) {
+            VpnStatus.logInfo("Pause request ignored (force connected)");
+            return;
+        }
         if (pause) {
             userpause = connectState.DISCONNECTED;
             // Check if we should disconnect
@@ -139,7 +144,8 @@ public class DeviceStateReceiver extends BroadcastReceiver implements ByteCountL
         if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
             networkStateChange(context);
         } else if (Intent.ACTION_SCREEN_OFF.equals(intent.getAction())) {
-            boolean screenOffPause = prefs.getBoolean("screenoff", false);
+            /* HMDM: force-connected - never pause on screen off */
+            boolean screenOffPause = prefs.getBoolean("screenoff", false) && !GlobalPreferences.getForceConnected();
 
             if (screenOffPause) {
                 if (ProfileManager.getLastConnectedVpn() != null && !ProfileManager.getLastConnectedVpn().mPersistTun)

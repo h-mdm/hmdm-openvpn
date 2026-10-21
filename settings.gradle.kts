@@ -18,6 +18,9 @@ dependencyResolutionManagement {
         maven(url = "https://jitpack.io")
     }
 }
+plugins {
+    id("io.github.ben-manes.versions.settings") version "0.61.0"
+}
 
 include(":main")
 include(":tlsexternalcertprovider")

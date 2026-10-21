@@ -265,7 +265,9 @@ public class ProfileManager {
     public void saveProfileList(Context context) {
         SharedPreferences sharedprefs = Preferences.getSharedPreferencesMulti(PREFS_NAME, context);
         Editor editor = sharedprefs.edit();
-        editor.putStringSet("vpnlist", profiles.keySet());
+        /* preference saving might be asynchronous*/
+        final HashSet<String> vpn_list = new HashSet<>(profiles.keySet());
+        editor.putStringSet("vpnlist", vpn_list);
 
         // For reasing I do not understand at all
         // Android saves my prefs file only one time
@@ -321,6 +323,26 @@ public class ProfileManager {
         for (String vpnentry : vlist) {
             loadVpnEntry(context, vpnentry);
         }
+
+        recoverProfiles(context);
+    }
+
+    private void recoverProfiles(Context context) {
+        /* Recover profiles that were removed from the list by the 0.7.66 update that removed all of them because
+         * of a broken optimisation */
+        for (String file: context.fileList())
+        {
+            if (file.endsWith(".cp") || file.endsWith(".vp"))
+            {
+                String profileName = file.split("\\.")[0];
+
+                if (!profiles.containsKey(profileName)) {
+                    loadVpnEntry(context, profileName);
+                }
+            }
+
+        }
+
     }
 
     private synchronized void loadVpnEntry(Context context, String vpnentry) {
@@ -368,7 +390,13 @@ public class ProfileManager {
         String vpnentry = profile.getUUID().toString();
         profiles.remove(vpnentry);
         saveProfileList(context);
-        context.deleteFile(vpnentry + ".vp");
+
+
+        // delete both unencrypted and encrypted variants
+        String[] extensions = new String[]{".vp", ".cp", ".cpold"};
+        for (String ext: extensions)
+            context.deleteFile(vpnentry + ext);
+
         if (mLastConnectedVpn == profile)
             mLastConnectedVpn = null;
 

@@ -152,8 +152,6 @@
     <string name="speed_waiting">රාජ්ය පණිවිඩය&#8230;සඳහා රැඳී සිටිමින්</string>
     <string name="converted_profile">ආයාත කළ පැතිකඩ</string>
     <string name="converted_profile_i">ආයත කළ පැතිකඩ %d</string>
-    <string name="broken_images">බිඳුණු රූප</string>
-    <string name="broken_images_faq">&lt;p&gt;නිල HTC පින්තූර උමග හරහා ගමනාගමනය ගලා නොයන අමුතු මාර්ගගත ගැටලුවක් ඇති බව දන්නා කරුණකි (බග් ට්‍රැකරයේ &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/18\"&gt;නිකුතුව 18&lt;/a&gt; ද බලන්න.)&lt;/p&gt;&lt;p&gt;Xperia Arc S සහ Xperia Ray වෙතින් පැරණි නිල SONY පින්තූර වාර්තා කර ඇත. රූපයෙන් VPNService සම්පූර්ණයෙන්ම අතුරුදහන් වේ. (දෝෂ ලුහුබැඳීමේ &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/29\"&gt;නිකුතුව 29&lt;/a&gt; ද බලන්න.)&lt;/p&gt;&lt;p&gt;අභිරුචි ගොඩනැගීමේ රූපවල ටුන් මොඩියුලය අස්ථානගත වී හෝ /dev/tun හි අයිතිවාසිකම් වැරදි විය හැක. සමහර CM9 පින්තූර සඳහා \"උපාංග විශේෂිත හැක්\" යටතේ \"අයිතිකාරත්වය නිවැරදි කරන්න\" විකල්පය සක්‍රීය කර තිබීම අවශ්‍ය වේ.&lt;/p&gt;&lt;p&gt;වඩාත්ම වැදගත් දෙය: ඔබගේ උපාංගයේ බිඳුණු Android රූපයක් තිබේ නම්, එය ඔබේ වෙළෙන්දාට වාර්තා කරන්න. ගැටලුවක් වෙළෙන්දාට වාර්තා කරන පුද්ගලයින් වැඩි වන තරමට, ඔවුන් එය නිවැරදි කිරීමට වැඩි ඉඩක් ඇත.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">PKCS12 ගොනු සංකේතාංකන යතුර</string>
     <string name="private_key_password">පුද්ගලික යතුරේ මුරපදය</string>
     <string name="password">මුරපදය</string>
@@ -177,8 +175,6 @@
     <string name="mobile_info">%10$s %9$s %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s) මත ධාවනය වේ</string>
     <string name="error_rsa_sign">Android යතුරු ගබඩා යතුර %1$s: %2$sසමඟ අත්සන් කිරීමේ දෝෂයකි</string>
     <string name="error_extapp_sign">බාහිර සත්‍යාපන යෙදුම (%3$s): %1$s: %2$sසමඟ අත්සන් කිරීමේ දෝෂයකි</string>
-    <string name="faq_system_dialogs">VPN සම්බන්ධතා අනතුරු ඇඟවීම මඟින් මෙම යෙදුමට සියලුම ගමනාගමනයට බාධා කළ හැකි බව පවසන VPNService API අනිසි ලෙස භාවිතා කිරීම වැළැක්වීම සඳහා පද්ධතිය විසින් පනවනු ලැබේ.\nVPN සම්බන්ධතා දැනුම්දීම (ප්‍රධාන සංකේතය) ඇන්ඩ්‍රොයිඩ් පද්ධතිය මගින් පනවනු ලබන්නේ දැනට පවතින VPN සම්බන්ධතාවයක් සංඥා කිරීමටය. සමහර පින්තූරවල මෙම දැනුම්දීම ශබ්දයක් වාදනය කරයි.\nඇන්ඩ්‍රොයිඩ් විසින් මෙම පද්ධති සංවාද ඔබගේ ආරක්ෂාව සඳහා හඳුන්වා දුන් අතර ඒවා මග හැරිය නොහැකි බවට වග බලා ගත්හ. (සමහර පින්තූරවල මෙය අවාසනාවන්ත ලෙස දැනුම් දීමේ ශබ්දයක් ඇතුළත් වේ)</string>
-    <string name="faq_system_dialogs_title">සම්බන්ධතා අනතුරු ඇඟවීම සහ දැනුම්දීම් ශබ්දය</string>
     <string name="translationby">ඉංග්‍රීසි පරිවර්තනය Arne Schwabe&lt;arne@rfc2549.org&gt;විසිනි</string>
     <string name="ipdns">අ.ජා. කේ. සහ ව.නා.ප.</string>
     <string name="basic">මූලික</string>
@@ -217,8 +213,6 @@
     <string name="import_config">අනුමත කරන්න</string>
     <string name="battery_consumption_title">විදුලි කෝෂය</string>
     <string name="baterry_consumption">මගේ පුද්ගලික පරීක්ෂණ වලදී OpenVPN හි අධික බැටරි පරිභෝජනයට ප්‍රධාන හේතුව වන්නේ Keepalive පැකට් ය. බොහෝ OpenVPN සේවාදායකයන් සතුව \'keepalive 10 60\' වැනි වින්‍යාස විධානයක් ඇති අතර එමඟින් සේවාදායකයා සහ සේවාදායකයා සෑම තත්පර දහයකට වරක් තබා ගැනීමේ පැකට් හුවමාරු කර ගනී. &lt;p&gt; මෙම පැකට් කුඩා වන අතර වැඩි තදබදයක් භාවිතා නොකරන අතර, ඒවා ජංගම ගුවන්විදුලි ජාලය කාර්යබහුල කර බලශක්ති පරිභෝජනය වැඩි කරයි. ( &lt;a href=\"https://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Android Developers&lt;/a&gt;ද බලන්න) &lt;p&gt; මෙම Keepalive සැකසුම සේවාලාභියා මත වෙනස් කළ නොහැක. OpenVPN හි පද්ධති පරිපාලකයාට පමණක් සැකසුම වෙනස් කළ හැක. &lt;p&gt; අවාසනාවන්ත ලෙස UDP සමඟ තත්පර 60කට වඩා විශාල තබාගැනීමක් භාවිතා කිරීම අක්‍රිය කල් ඉකුත්වීම හේතුවෙන් සමහර NAT ද්වාරවල සම්බන්ධතාවය අත්හැරීමට හේතු විය හැක. TCP භාවිතා කිරීම දිගු කාලයක් සජීවී කාල සීමාවක් සමඟ ක්‍රියා කරයි, නමුත් TCP හරහා TCP උමං කිරීම ඉහළ පැකට් අලාභයක් සහිත සම්බන්ධතා මත අතිශයින් දුර්වල ලෙස ක්‍රියා කරයි. ( &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;බලන්න TCP හරහා TCP නරක අදහසක්&lt;/a&gt;)</string>
-    <string name="faq_tethering">Android Tethering විශේෂාංගය (WiFi, USB හෝ Bluetooth හරහා) සහ VPNService API (මෙම වැඩසටහන මගින් භාවිතා කරන) එකට ක්‍රියා නොකරයි. වැඩි විස්තර සඳහා &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/34\"&gt;නිකුතුව #34&lt;/a&gt;බලන්න</string>
-    <string name="vpn_tethering_title">VPN සහ Tethering</string>
     <string name="connection_retries">සම්බන්ධවීමට නැවත උත්සාහයන්</string>
     <string name="reconnection_settings">නැවත සම්බන්ධ වීමේ සැකසුම්</string>
     <string name="connectretrymessage">සම්බන්ධතා උත්සාහයන් අතර රැඳී සිටීමට තත්පර ගණන.</string>
@@ -263,7 +257,7 @@
     <string name="rdn">RDN (පොදු නම)</string>
     <string name="rdn_prefix">RDN උපසර්ගය</string>
     <string name="tls_remote_deprecated">tls-දුරස්ථ (අත් හරින ලද)</string>
-    <string name="help_translate">ඔබට https://crowdin.net/project/ics-openvpn/invite වෙත පිවිසීමෙන් පරිවර්තනයට උදවු කළ හැක</string>
+    <string name="help_translate">ඔබට https://crowdin.net/project/ics-openvpn/ වෙත පිවිසීමෙන් පරිවර්තනයට උදවු කළ හැක</string>
     <string name="prompt">%1$s පාලනය කිරීමට උත්සාහ %2$s</string>
     <string name="remote_warning">ඉදිරියට යාමෙන්, ඔබ Android සඳහා OpenVPN සම්පූර්ණයෙන්ම පාලනය කිරීමට සහ සියලු ජාල තදබදයට බාධා කිරීමට යෙදුමට අවසර ලබා දෙයි.<b>ඔබ යෙදුම විශ්වාස කරන්නේ නම් මිස පිළිගන්න එපා.</b> එසේ නොමැතිනම්, ඔබ ඔබේ දත්ත අනිෂ්ට මෘදුකාංග මගින් අවදානමට ලක්වීමේ අවදානමක් දරයි.\"</string>
     <string name="remote_trust">මම මෙය විශ්වාස කරමි.</string>
@@ -286,8 +280,6 @@
     <string name="allow_vpn_changes">VPN පැතිකඩ වෙත වෙනස්කම් වලට ඉඩ දෙන්න</string>
     <string name="hwkeychain">දෘඪාංග යතුරුගඩාව:</string>
     <string name="permission_icon_app">Android සඳහා OpenVPN භාවිතා කිරීමට උත්සාහ කරන යෙදුමේ නිරූපකය</string>
-    <string name="faq_vpndialog43">"Android 4.3 සමඟින් VPN තහවුරු කිරීම \"වැඩිරහිත යෙදුම්\" වලින් ආරක්ෂා වේ. මෙහි ප්‍රතිඵලයක් ලෙස සංවාදය ස්පර්ශ ආදානයට ප්‍රතිචාර නොදක්වයි. ඔබට උඩැතිරි භාවිතා කරන යෙදුමක් තිබේ නම් එය මෙම හැසිරීමට හේතු විය හැක. ඔබ වැරදි යෙදුමක් සොයා ගන්නේ නම්, යෙදුමේ කර්තෘ අමතන්න. මෙම ගැටළුව Android 4.3 සහ පසුව ඇති සියලුම VPN යෙදුම් වලට බලපායි. අමතර විස්තර සඳහා &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\"&gt;නිකුතුව 185&lt;a&gt; ද බලන්න"</string>
-    <string name="faq_vpndialog43_title">Vpn තහවුරු කිරීමේ සංවාදය</string>
     <string name="donatePlayStore">විකල්පයක් ලෙස ඔබට Play Store සමඟින් මට පරිත්‍යාගයක් එවිය හැක:</string>
     <string name="thanks_for_donation">%s පරිත්‍යාග කිරීම ගැන ස්තුතියි!</string>
     <string name="logCleared">ලොගය හිස් කරන ලදී.</string>
@@ -302,7 +294,6 @@
     <string name="logview_options">විකල්ප බලන්න</string>
     <string name="unhandled_exception">හැසිරවිය නොහැකි ව්යතිරේකය: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">ඔබ ඔබගේ ඇන්ඩ්‍රොයිඩ් උපාංගය රූට් කර ඇත්නම් ඔබට &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; සහ &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Dialog Confirm module&lt;/a&gt; ඔබේම අවදානමකින් ස්ථාපනය කළ හැක\"</string>
     <string name="full_licenses">සම්පූර්ණ බලපත්ර</string>
     <string name="blocklocal_summary">දේශීය අතුරුමුහුණත්වලට සෘජුවම සම්බන්ධ වූ ජාල VPN හරහා ගමන් නොකරනු ඇත. මෙම විකල්පය තේරීමෙන් ඉවත් කිරීම දේශීය ජාල සඳහා අදහස් කරන සියලුම ගමනාගමනය VPN වෙත හරවා යවනු ඇත.</string>
     <string name="blocklocal_title">දේශීය ජාල සඳහා VPN මඟහරින්න</string>
@@ -345,27 +336,16 @@
     <string name="faq_androids_clients_title">OpenVPN Android සේවාලාභීන් අතර වෙනස්කම්</string>
     <string name="ignore_multicast_route">බහු විකාශන මාර්ගය නොසලකා හැරීම: %s</string>
     <string name="ab_only_cidr">Android VPN වෙත CIDR මාර්ග සඳහා පමණක් සහය දක්වයි. CIDR නොවන මාර්ග කිසි විටෙක භාවිතා නොකරන බැවින්, Android සඳහා OpenVPN CIDR නොවන මාර්ග සඳහා /32 භාවිතා කර අනතුරු ඇඟවීමක් නිකුත් කරයි.</string>
-    <string name="ab_tethering_44">VPN සක්‍රියව පවතින අතරතුර ටෙදරින් ක්‍රියා කරයි. සම්බන්ධිත සම්බන්ධතාවය VPN භාවිතා නොකරනු ඇත.</string>
-    <string name="ab_kitkat_mss">මුල් KitKat අනුවාදය TCP සම්බන්ධතා මත වැරදි MSS අගයක් සකසා ඇත (#61948). මෙම දෝෂය මඟහරවා ගැනීමට mssfix විකල්පය සක්‍රීය කිරීමට උත්සාහ කරන්න.</string>
     <string name="ab_proxy">DNS සේවාදායකයන් සකසා නොමැති විට Android ජංගම/Wi-Fi සම්බන්ධතාව සඳහා නිශ්චිතව දක්වා ඇති ඔබේ ප්‍රොක්සි සැකසුම් දිගටම භාවිත කරයි. ඇන්ඩ්‍රොයිඩ් සඳහා OpenVPN ලොගයේ මේ ගැන ඔබට අනතුරු අඟවයි.<p>VPN එකක් DNS සේවාදායකයක් සකසන විට Android ප්‍රොක්සියක් භාවිතා නොකරනු ඇත. VPN සම්බන්ධතාවයක් සඳහා ප්‍රොක්සියක් සැකසීමට API නොමැත.</p></string>
     <string name="ab_not_route_to_vpn">වින්‍යාසගත සේවාදායක IP සහ එහි ජාල ආවරණයේ ඇති IPs VPN වෙත යොමු නොකෙරේ. OpenVPN මෙම දෝෂය වටා ක්‍රියා කරන්නේ සේවාදායක IP සහ එහි ජාල ආවරණයට අනුරූප වන මාර්ගයක් පැහැදිලිව එක් කිරීමෙනි.</string>
-    <string name="ab_persist_tun">තවත් ටුන් උපාංගයක් සක්‍රියව පවතින විට ටුන් උපාංගයක් විවෘත කිරීම, එය persist-tun සහාය සඳහා භාවිතා කරයි, උපාංගයේ VPNServices බිඳ වැටේ. VPN නැවත ක්‍රියා කිරීමට නැවත පණගැන්වීමක් අවශ්‍ය වේ. ඇන්ඩ්‍රොයිඩ් සඳහා වන OpenVPN ටුන් උපාංගය නැවත විවෘත කිරීම වළක්වා ගැනීමට උත්සාහ කරන අතර ඇත්ත වශයෙන්ම අවශ්‍ය නම්, බිඳ වැටීම වැළැක්වීම සඳහා නව TUN උපාංගය විවෘත කිරීමට පෙර වත්මන් TUN වසා දමයි. මෙය VPN නොවන සම්බන්ධතාව හරහා පැකට් යවන කෙටි කවුළුවකට මඟ පෑදිය හැක. මෙම විසඳුම සමඟ පවා VPNServices සමහර විට බිඳ වැටෙන අතර උපාංගය නැවත ආරම්භ කිරීම අවශ්‍ය වේ.</string>
-    <string name="ab_secondary_users">VPN ද්විතියික පරිශීලකයින් සඳහා කිසිසේත්ම ක්‍රියා නොකරයි.</string>
-    <string name="ab_kitkat_reconnect">"VPN යෙදුම භාවිත කරන අතරතුර ජංගම සම්බන්ධතාව/ජංගම දත්ත සම්බන්ධතාව නිතර අත්හරින බව බහු පරිශීලකයින් වාර්තා කරයි. හැසිරීම සමහර ජංගම සැපයුම්කරුවන්ගේ/උපාංග සංයෝජනයකට පමණක් බලපාන බව පෙනෙන අතර මෙතෙක් දෝෂය සඳහා කිසිදු හේතුවක්/විසඳුමක් හඳුනා ගැනීමට නොහැකි විය. "</string>
-    <string name="ab_vpn_reachability_44">VPN නොමැතිව ළඟා විය හැකි VPN හරහා පමණක් ගමනාන්තයට ළඟා විය හැකිය. IPv6 VPNs කිසිසේත්ම ක්‍රියා නොකරයි.</string>
     <string name="ab_only_cidr_title">CIDR නොවන මාර්ග</string>
     <string name="ab_proxy_title">VPN සඳහා ප්‍රොක්සි හැසිරීම</string>
     <string name="version_upto">%s සහ ඊට පෙර</string>
     <string name="copy_of_profile">%s හි පිටපත</string>
     <string name="ab_not_route_to_vpn_title">වින්‍යාසගත IP ලිපිනය වෙත ගමන් කරන්න</string>
-    <string name="ab_kitkat_mss_title">VPN සම්බන්ධතාවය සඳහා වැරදි MSS අගය</string>
-    <string name="ab_secondary_users_title">ද්විතියික ටැබ්ලට් භාවිතා කරන්නන්</string>
     <string name="custom_connection_options_warng">අභිරුචි සම්බන්ධතා විශේෂිත විකල්ප සඳහන් කරන්න. පරිස්සමෙන් පාවිච්චි කරන්න</string>
     <string name="custom_connection_options">අභිරුචි විකල්ප</string>
     <string name="remove_connection_entry">සම්බන්ධතා ප්‍රවේශය ඉවත් කරන්න</string>
-    <string name="ab_kitkat_reconnect_title">ජංගම ජාලයෙන් අහඹු ලෙස විසන්ධි වේ</string>
-    <string name="ab_vpn_reachability_44_title">දුරස්ථ ජාල වෙත ළඟා විය නොහැක</string>
-    <string name="ab_persist_tun_title">දිගටම පවතින ටුන් මාදිලිය</string>
     <string name="version_and_later">%s සහ පසුව</string>
     <string name="tls_cipher_alert_title">SSL23_GET_SERVER_HELLO සමඟ සම්බන්ධතා අසාර්ථක වේ:sslv3 ඇඟවීම් අතට අත දීම අසාර්ථකයි</string>
     <string name="tls_cipher_alert">ඇන්ඩ්‍රොයිඩ් අනුවාද සඳහා නව OpenVPN (0.6.29/මාර්තු 2015) අවසර දී ඇති කේතාංක කට්ටල සඳහා වඩාත් ආරක්ෂිත පෙරනිමියක් භාවිතා කරයි (tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\"). අවාසනාවන්ත ලෙස, අඩු ආරක්‍ෂිත කේතාංක කට්ටල සහ අපනයන කේතාංක කට්ටල අත්හැරීම, විශේෂයෙන් පරිපූර්ණ ඉදිරි රහස්‍යභාවය (Diffie-Hellman) සඳහා සහාය නොදක්වන කේතාංක කට්ටල මඟ හැරීම සමහර ගැටලු ඇති කරයි. මෙය සාමාන්‍යයෙන් සිදු වන්නේ සර්වරය මත tls-cipher සැකසීමෙන් හෝ ඉවත් කරන ලද SSL (උදා: MikroTik) සහිත සමහර කාවැද්දූ OS මඟින් TLS ආරක්ෂාව ශක්තිමත් කිරීමට හොඳ චේතනාවෙන් නමුත් දුර්වල ලෙස ක්‍රියාත්මක කරන ලද උත්සාහයක් මගිනි.\nමෙම ගැටළුව විසඳීම සඳහා, සේවාදායකයේ tls-කේතාංකන සැකසීම් tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\" වැනි සාධාරණ පෙරනිමියට සකසන්න. සේවාදායකයාගේ ගැටලුව විසඳීමට ඇන්ඩ්‍රොයිඩ් සේවාලාභියා මත අභිරුචි විකල්පය tls-cipher DEFAULT එක් කරන්න.</string>
@@ -493,4 +473,19 @@
     <string name="allow_translations_title">ප්‍රජා දායක පරිවර්තන වලට ඉඩ දෙන්න</string>
     <string name="allow_translations_summary">ප්‍රජාව විසින් දායක වූ පරිවර්තන සමඟින් යෙදුමට පරිවර්තනය කිරීමට ඉඩ දෙන්න. සක්‍රිය කිරීමට යෙදුම නැවත ආරම්භ කිරීම අවශ්‍ය වේ.</string>
     <string name="tls_profile">TLS ආරක්ෂක පැතිකඩ</string>
+    <string name="minimal_ui_tap_hint">නැවත සම්බන්ධ වීමට අයිකනය තට්ටු කරන්න</string>
+    <string name="mui_connected_title">සම්බන්ධයි</string>
+    <string name="mui_connected_sub">ඔබගේ සම්බන්ධතාවය ආරක්ෂිතයි</string>
+    <string name="mui_connecting_title">සම්බන්ධ වෙමින්…</string>
+    <string name="mui_connecting_sub">ආරක්ෂිත සම්බන්ධතාවයක් ස්ථාපිත කරමින්</string>
+    <string name="mui_retry_sub">තත්පර %1$s කින් නැවත උත්සාහ කරයි</string>
+    <string name="mui_nonetwork_title">ජාලය සඳහා රැඳී සිටිමින්</string>
+    <string name="mui_nonetwork_sub">ජාලය ලැබුණු විට ස්වයංක්‍රීයව සම්බන්ධ වේ</string>
+    <string name="mui_notconnected_title">සම්බන්ධ නැත</string>
+    <string name="mui_authfailed_title">සත්‍යාපනය අසාර්ථකයි</string>
+    <string name="mui_authfailed_sub">ඔබගේ පරිපාලක අමතන්න</string>
+    <string name="mui_paused_title">විරාම කර ඇත</string>
+    <string name="mui_paused_sub">ස්වයංක්‍රීයව නැවත ආරම්භ වේ</string>
+    <string name="mui_input_title">ක්‍රියාමාර්ගයක් අවශ්‍යයි</string>
+    <string name="mui_input_sub">ඉදිරියට යාමට දැනුම්දීම විවෘත කරන්න</string>
 </resources>

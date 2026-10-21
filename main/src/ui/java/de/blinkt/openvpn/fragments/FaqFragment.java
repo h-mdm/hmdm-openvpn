@@ -129,19 +129,10 @@ public class FaqFragment extends Fragment {
 
             new FAQEntry(Build.VERSION_CODES.ICE_CREAM_SANDWICH, -1, R.string.faq_androids_clients_title, R.string.faq_android_clients),
 
-
-
-            new FAQEntry(Build.VERSION_CODES.ICE_CREAM_SANDWICH, Build.VERSION_CODES.JELLY_BEAN_MR2, R.string.vpn_tethering_title, R.string.faq_tethering),
-            new FAQEntry(Build.VERSION_CODES.ICE_CREAM_SANDWICH, Build.VERSION_CODES.JELLY_BEAN_MR2, R.string.broken_images, R.string.broken_images_faq),
-
             new FAQEntry(Build.VERSION_CODES.ICE_CREAM_SANDWICH, -1, R.string.battery_consumption_title, R.string.baterry_consumption),
 
 
-            new FAQEntry(Build.VERSION_CODES.ICE_CREAM_SANDWICH, Build.VERSION_CODES.KITKAT, R.string.faq_system_dialogs_title, R.string.faq_system_dialogs),
             new FAQEntry(Build.VERSION_CODES.ICE_CREAM_SANDWICH, -1, R.string.tap_mode, R.string.faq_tap_mode),
-
-            new FAQEntry(Build.VERSION_CODES.JELLY_BEAN_MR2, Build.VERSION_CODES.JELLY_BEAN_MR2, R.string.ab_secondary_users_title, R.string.ab_secondary_users),
-            new FAQEntry(Build.VERSION_CODES.JELLY_BEAN_MR2, -1, R.string.faq_vpndialog43_title, R.string.faq_vpndialog43),
 
             new FAQEntry(Build.VERSION_CODES.ICE_CREAM_SANDWICH, -1, R.string.tls_cipher_alert_title, R.string.tls_cipher_alert),
 
@@ -150,15 +141,9 @@ public class FaqFragment extends Fragment {
             new FAQEntry(Build.VERSION_CODES.ICE_CREAM_SANDWICH, -1, R.string.faq_shortcut, R.string.faq_howto_shortcut),
             new FAQEntry(Build.VERSION_CODES.ICE_CREAM_SANDWICH, -1, R.string.tap_mode, R.string.tap_faq2),
 
-            new FAQEntry(Build.VERSION_CODES.KITKAT, -1, R.string.vpn_tethering_title, R.string.ab_tethering_44),
-            new FAQEntry(Build.VERSION_CODES.KITKAT, -441, R.string.ab_kitkat_mss_title, R.string.ab_kitkat_mss),
             new FAQEntry(Build.VERSION_CODES.ICE_CREAM_SANDWICH, -1, R.string.copying_log_entries, R.string.faq_copying),
 
-            new FAQEntry(Build.VERSION_CODES.KITKAT, -442, R.string.ab_persist_tun_title, R.string.ab_persist_tun),
             new FAQEntry(Build.VERSION_CODES.KITKAT, -1, R.string.faq_routing_title, R.string.faq_routing),
-            new FAQEntry(Build.VERSION_CODES.KITKAT, Build.VERSION_CODES.KITKAT, R.string.ab_kitkat_reconnect_title, R.string.ab_kitkat_reconnect),
-            new FAQEntry(Build.VERSION_CODES.KITKAT, Build.VERSION_CODES.KITKAT, R.string.ab_vpn_reachability_44_title,  R.string.ab_vpn_reachability_44),
-
 
             new FAQEntry(Build.VERSION_CODES.ICE_CREAM_SANDWICH, -1, R.string.ab_only_cidr_title, R.string.ab_only_cidr),
             new FAQEntry(Build.VERSION_CODES.ICE_CREAM_SANDWICH, -1, R.string.ab_proxy_title, R.string.ab_proxy),

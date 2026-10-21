@@ -15,7 +15,6 @@ class CIDRIP {
     public CIDRIP(String ip, String mask) {
         mIp = ip;
         len = calculateLenFromMask(mask);
-
     }
 
     public static int calculateLenFromMask(String mask) {

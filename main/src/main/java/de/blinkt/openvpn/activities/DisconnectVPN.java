@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import de.blinkt.openvpn.LaunchVPN;
 import de.blinkt.openvpn.R;
+import de.blinkt.openvpn.core.GlobalPreferences;
 import de.blinkt.openvpn.core.IOpenVPNServiceInternal;
 import de.blinkt.openvpn.core.OpenVPNService;
 import de.blinkt.openvpn.core.Preferences;
@@ -62,7 +63,8 @@ public class DisconnectVPN extends Activity implements DialogInterface.OnClickLi
         Intent intent = new Intent(this, OpenVPNService.class);
         intent.setAction(OpenVPNService.START_SERVICE);
         SharedPreferences prefs = Preferences.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("disableconfirmation", false)) {
+        /* HMDM: force-connected - never disconnect without the dialog (which has no disconnect button) */
+        if (prefs.getBoolean("disableconfirmation", false) && !GlobalPreferences.getForceConnected()) {
             disconnectPending = true;
             Toast.makeText(this, "Disconnecting VPN", Toast.LENGTH_LONG).show();
         } else {
@@ -82,7 +84,8 @@ public class DisconnectVPN extends Activity implements DialogInterface.OnClickLi
         builder.setTitle(R.string.title_cancel);
         builder.setMessage(R.string.cancel_connection_query);
         builder.setNegativeButton(android.R.string.cancel, this);
-        builder.setPositiveButton(R.string.cancel_connection, this);
+        if (!GlobalPreferences.getForceConnected())
+            builder.setPositiveButton(R.string.cancel_connection, this);
         builder.setNeutralButton(R.string.reconnect, this);
         builder.setOnCancelListener(this);
 

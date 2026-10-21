@@ -16,6 +16,9 @@ import androidx.annotation.NonNull;
 
 import android.system.Os;
 import android.util.Log;
+
+import org.jetbrains.annotations.NotNull;
+
 import de.blinkt.openvpn.R;
 import de.blinkt.openvpn.VpnProfile;
 
@@ -42,6 +45,7 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
     private boolean mWaitingForRelease = false;
     private long mLastHoldRelease = 0;
     private LocalSocket mServerSocketLocal;
+    private int maxAccMessageSize = 1200;
 
     private pauseReason lastPauseReason = pauseReason.noNetwork;
     private PausedStateCallback mPauseCallback;
@@ -310,8 +314,11 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
                 case "INFOMSG":
                     processInfoMessage(argument);
                     break;
+                case "ACC":
+                    processAccMessage(argument);
+                    break;
                 default:
-                    VpnStatus.logWarning("MGMT: Got unrecognized command" + command);
+                    VpnStatus.logWarning("MGMT: Got unrecognized command (" + cmd +"):" + command);
                     Log.i(TAG, "Got unrecognized command" + command);
                     break;
             }
@@ -341,6 +348,16 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
         }
     }
 
+    private void processAccMessage(String argument)
+    {
+        try {
+            @NotNull AccMessage acc = AppCustomControl.parseAccMessage(argument);
+            mOpenVPNService.receiveAccMessage(acc);
+        } catch (Exception e) {
+            VpnStatus.logException("Error parsing ACC message", e);
+        }
+    }
+
     private void processLogMessage(String argument) {
         String[] args = argument.split(",", 4);
         // 0 unix time stamp
@@ -357,24 +374,13 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
 
         Log.d("OpenVPN", argument);
 
-        VpnStatus.LogLevel level;
-        switch (args[1]) {
-            case "I":
-                level = VpnStatus.LogLevel.INFO;
-                break;
-            case "W":
-                level = VpnStatus.LogLevel.WARNING;
-                break;
-            case "D":
-                level = VpnStatus.LogLevel.VERBOSE;
-                break;
-            case "F":
-                level = VpnStatus.LogLevel.ERROR;
-                break;
-            default:
-                level = VpnStatus.LogLevel.INFO;
-                break;
-        }
+        VpnStatus.LogLevel level = switch (args[1]) {
+            case "I" -> VpnStatus.LogLevel.INFO;
+            case "W" -> VpnStatus.LogLevel.WARNING;
+            case "D" -> VpnStatus.LogLevel.VERBOSE;
+            case "F" -> VpnStatus.LogLevel.ERROR;
+            default -> VpnStatus.LogLevel.INFO;
+        };
 
         int ovpnlevel = Integer.parseInt(args[2]) & 0x0F;
         String msg = args[3];
@@ -442,8 +448,21 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
         String proxyname = null;
         boolean proxyUseAuth = false;
 
-        if (mProfile != null && mProfile.mConnections != null && mProfile.mConnections.length > connectionEntryNumber) {
-            Connection connection = mProfile.mConnections[connectionEntryNumber];
+        Vector<Connection> activeConnections = new Vector<>();
+
+        if (mProfile != null && mProfile.mConnections != null)
+        {
+            for (Connection conn: mProfile.mConnections)
+            {
+                if (conn.mEnabled)
+                {
+                    activeConnections.add(conn);
+                }
+            }
+        }
+
+        if (activeConnections.size() > connectionEntryNumber) {
+            Connection connection = activeConnections.get(connectionEntryNumber);
             proxyType = connection.mProxyType;
             proxyname = connection.mProxyName;
             proxyport = connection.mProxyPort;
@@ -745,6 +764,50 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
         managmentCommand("cr-response "  + response + "\n");
     }
 
+    @Override
+    public void sendAccMessage(AccMessage accMessage)
+    {
+        byte[] rawMessage = accMessage.getMessage();
+        boolean needBase64 = false;
+
+        /* check if the message has characters that require base64 */
+        for (byte b:rawMessage)
+        {
+            if (b < 32 || b > 126) {
+                needBase64 = true;
+                break;
+            }
+        }
+
+        int fragmentLength = maxAccMessageSize;
+
+        if (needBase64)
+        {
+            /* include base64 overhead */
+            fragmentLength = maxAccMessageSize * 8 /6;
+        }
+
+        for (int i = 0; i < rawMessage.length; i += fragmentLength)
+        {
+            byte[] msg_slice = Arrays.copyOfRange(rawMessage, i, Math.min(i + fragmentLength, rawMessage.length));
+
+
+            String msgpart;
+            String flags = "";
+            if (needBase64) {
+                msgpart = Base64.getEncoder().encodeToString(msg_slice);
+                flags = "6";
+            }
+            else {
+                msgpart = new String(msg_slice);
+                flags = "A";
+            }
+
+            String cmd = String.format(Locale.US, "acc-msg\n%s\n%s\n%s\nEND\n", accMessage.getProtocol(), flags, msgpart);
+            managmentCommand(cmd);
+        }
+    }
+
     public void signalusr1() {
         mResumeHandler.removeCallbacks(mResumeHoldRunnable);
         if (!mWaitingForRelease)
@@ -798,6 +861,7 @@ public class OpenVpnManagementThread implements Runnable, OpenVPNManagement {
         managmentCommand(signed_string);
         managmentCommand("\nEND\n");
     }
+
 
     @Override
     public void pause(pauseReason reason) {

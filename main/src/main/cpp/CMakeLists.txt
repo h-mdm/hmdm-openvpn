@@ -8,6 +8,9 @@ git_describe(OPENVPN3_GIT "${CMAKE_CURRENT_SOURCE_DIR}/openvpn3" "--tags" "--alw
 message("OpenVPN 2.x version ${OPENVPN2_GIT}")
 message("OpenVPN 3.x version ${OPENVPN3_GIT}")
 
+# Make builds (like F-droid) happy that want reproducible builds
+add_link_options("LINKER:--build-id=none")
+
 # Set mbedtls options
 OPTION(ENABLE_PROGRAMS "" OFF)
 OPTION(USE_SHARED_MBEDTLS_LIBRARY "" OFF)
@@ -128,9 +131,12 @@ set(openvpn_srcs
         src/compat/compat-dirname.c
         src/compat/compat-gettimeofday.c
         src/openvpn/argv.c
+        src/openvpn/acc.c
         src/openvpn/auth_token.c
         src/openvpn/base64.c
         src/openvpn/buffer.c
+        src/openvpn/check_file_access.c
+        src/openvpn/check_file_access.h
         src/openvpn/clinat.c
         src/openvpn/console.c
         src/openvpn/console_builtin.c
@@ -161,21 +167,22 @@ set(openvpn_srcs
         src/openvpn/misc.c
         src/openvpn/mroute.c
         src/openvpn/mss.c
-        src/openvpn/mstats.c
         src/openvpn/mtcp.c
         src/openvpn/mtu.c
         src/openvpn/mudp.c
         src/openvpn/multi.c
         src/openvpn/multi_io.c
-        src/openvpn/ntlm.c
         src/openvpn/occ.c
         src/openvpn/openvpn.c
         src/openvpn/options.c
         src/openvpn/options_parse.c
+        src/openvpn/options_show.c
+        src/openvpn/options_show.h
+        src/openvpn/options_string.c
+        src/openvpn/options_string.h
         src/openvpn/options_util.c
         src/openvpn/otime.c
         src/openvpn/packet_id.c
-        src/openvpn/perf.c
         src/openvpn/ping.c
         src/openvpn/pkcs11.c
         src/openvpn/pkcs11_openssl.c
@@ -195,6 +202,8 @@ set(openvpn_srcs
         src/openvpn/session_id.c
         src/openvpn/shaper.c
         src/openvpn/sig.c
+        src/openvpn/siphash.c
+        src/openvpn/siphash_reference.c
         src/openvpn/socket.c
         src/openvpn/socket_util.c
         src/openvpn/socks.c

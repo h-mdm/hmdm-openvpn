@@ -52,6 +52,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, Hand
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
         v.findViewById(R.id.disconnect).setOnClickListener(this);
+        v.findViewById(R.id.setDefaultProfile).setOnClickListener(this);
         v.findViewById(R.id.getMyIP).setOnClickListener(this);
         v.findViewById(R.id.startembedded).setOnClickListener(this);
         v.findViewById(R.id.addNewProfile).setOnClickListener(this);
@@ -70,6 +71,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, Hand
     private static final int MSG_UPDATE_MYIP = 1;
     private static final int START_PROFILE_EMBEDDED = 2;
     private static final int START_PROFILE_BYUUID = 3;
+    private static final int SET_DEFAULT_PROFILE_BYUUID = 4;
     private static final int ICS_OPENVPN_PERMISSION = 7;
     private static final int PROFILE_ADD_NEW = 8;
     private static final int PROFILE_ADD_NEW_EDIT = 9;
@@ -195,9 +197,12 @@ public class MainFragment extends Fragment implements View.OnClickListener, Hand
 
         try {
             List<APIVpnProfile> list = mService.getProfiles();
+            APIVpnProfile defaultProfile = mService.getDefaultProfile();
+            String defaultUUID = defaultProfile != null ? defaultProfile.mUUID : null;
             String all="List:";
             for(APIVpnProfile vp:list.subList(0, Math.min(5, list.size()))) {
-                all = all + vp.mName + ":" + vp.mUUID + "\n";
+                String suffix = (vp.mUUID.equals(defaultUUID)) ? " (default)" : "";
+                all = all + vp.mName + ":" + vp.mUUID + suffix + "\n";
             }
 
             if (list.size() > 5)
@@ -237,62 +242,58 @@ public class MainFragment extends Fragment implements View.OnClickListener, Hand
             Toast.makeText(getActivity(), "No service connection to OpenVPN for Android. App not installed?", Toast.LENGTH_LONG).show();
             return;
         }
-        switch (v.getId()) {
-            case R.id.startVPN:
-                try {
-                    prepareStartProfile(START_PROFILE_BYUUID);
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case R.id.disconnect:
-                try {
-                    mService.disconnect();
-                } catch (RemoteException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                break;
-            case R.id.getMyIP:
+        int id = v.getId();
+        if (id == R.id.startVPN) {
+            try {
+                prepareStartProfile(START_PROFILE_BYUUID);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        } else if (id == R.id.disconnect) {
+            try {
+                mService.disconnect();
+            } catch (RemoteException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        } else if (id == R.id.setDefaultProfile) {
+            try {
+                prepareStartProfile(SET_DEFAULT_PROFILE_BYUUID);
+            } catch (RemoteException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        } else if (id == R.id.getMyIP) {// Socket handling is not allowed on main thread
+            new Thread() {
 
-                // Socket handling is not allowed on main thread
-                new Thread() {
-
-                    @Override
-                    public void run() {
-                        try {
-                            String myip = getMyOwnIP();
-                            Message msg = Message.obtain(mHandler,MSG_UPDATE_MYIP,myip);
-                            msg.sendToTarget();
-                        } catch (Exception e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
-
+                @Override
+                public void run() {
+                    try {
+                        String myip = getMyOwnIP();
+                        Message msg = Message.obtain(mHandler, MSG_UPDATE_MYIP, myip);
+                        msg.sendToTarget();
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
                     }
-                }.start();
 
-                break;
-            case R.id.startembedded:
-                try {
-                    prepareStartProfile(START_PROFILE_EMBEDDED);
-                } catch (RemoteException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
                 }
-                break;
-
-            case R.id.addNewProfile:
-            case R.id.addNewProfileEdit:
-                int action = (v.getId() == R.id.addNewProfile) ? PROFILE_ADD_NEW : PROFILE_ADD_NEW_EDIT;
-                try {
-                    prepareStartProfile(action);
-                } catch (RemoteException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            default:
-                break;
+            }.start();
+        } else if (id == R.id.startembedded) {
+            try {
+                prepareStartProfile(START_PROFILE_EMBEDDED);
+            } catch (RemoteException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        } else if (id == R.id.addNewProfile || id == R.id.addNewProfileEdit) {
+            int action = (v.getId() == R.id.addNewProfile) ? PROFILE_ADD_NEW : PROFILE_ADD_NEW_EDIT;
+            try {
+                prepareStartProfile(action);
+            } catch (RemoteException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
 
     }
@@ -314,6 +315,12 @@ public class MainFragment extends Fragment implements View.OnClickListener, Hand
             if(requestCode==START_PROFILE_BYUUID)
                 try {
                     mService.startProfile(mStartUUID);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            if(requestCode==SET_DEFAULT_PROFILE_BYUUID)
+                try {
+                    mService.setDefaultProfile(mStartUUID);
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }

@@ -155,8 +155,6 @@
     <string name="speed_waiting">בהמתנה להודעת מצב&#8230;</string>
     <string name="converted_profile">פרופיל מיובא</string>
     <string name="converted_profile_i">פרופיל מיובא %d</string>
-    <string name="broken_images">תמונות מערכת פגומות</string>
-    <string name="broken_images_faq">&lt;p&gt;ידוע כי תמונות רשמיות של HTC כוללות בעיית ניתוב מוזרה הגורמת לתנועה לא לזרום דרך המנהרה (ראה גם &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/18\"&gt;גיליון 18&lt;/a&gt; במעקב אחר באגים.)&lt;/p&gt;&lt;p&gt;תמונות SONY רשמיות ישנות יותר מ-Xperia Arc S ו-Xperia Ray דווחו ל חסר את VPNService לחלוטין מהתמונה. (ראה גם &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/29\"&gt;גיליון 29&lt;/a&gt; במעקב אחר באגים.)&lt;/p&gt;&lt;p&gt;בתמונות בנייה מותאמות אישית, ייתכן שמודול ה-tun חסר או שהזכויות של /dev/tun שגויות. חלק מתמונות CM9 זקוקות לאפשרות \"תקן בעלות\" תחת \"פריצות ספציפיות למכשיר\".&lt;/p&gt;&lt;p&gt;והכי חשוב: אם למכשיר שלך יש תמונת אנדרואיד שבורה, דווח על כך לספק שלך. ככל שיותר אנשים ידווחו על בעיה לספק, כך גדל הסיכוי שהם יפתרו אותה.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">מפתח קובץ הצפנה מסוג PKCS12</string>
     <string name="private_key_password">סיסמת מפתח פרטי</string>
     <string name="password">סיסמה</string>
@@ -180,8 +178,6 @@
     <string name="mobile_info">%10$s %9$s פועל על %3$s %1$s (%2$s), אנדרואיד %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">שגיאה חתימה עם keystore אנדרואיד המפתח %1$ s: %2$ s</string>
     <string name="error_extapp_sign">שגיאה בחתימה עם אפליקציית מאמת חיצונית (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">אזהרת חיבור VPN האומרת כי יישום זה יוכל ליירט את כל התעבורה של המערכת. כדי למנוע ניצול לרעה של חיבור ה-VPNService API.\n VPN ההודעה (סמל מפתח) מוצג גם על-ידי מערכת אנדרואיד כדי לאותת על חיבור VPN מתמשך. על כמה רומים הודעה זו מנגנת צליל. \n אנדרואיד הציג את תיבות דו-שיח אלה לצרכי בטיחות שלך, ודאג כי הם לא יכולים להיות מבוטלים. (על כמה רומים לצערינו זה כולל צליל התראה)</string>
-    <string name="faq_system_dialogs_title">אזהרת חיבור והודעות קול</string>
     <string name="translationby">תרגום לעברית מאת Arne Schwabe&lt;@shopisrael&gt;</string>
     <string name="ipdns">IP ו־DNS</string>
     <string name="basic">בסיסי</string>
@@ -220,8 +216,6 @@
     <string name="import_config">ייבא הגדרות של OpenVPN</string>
     <string name="battery_consumption_title">צריכת סוללה</string>
     <string name="baterry_consumption">בבדיקות האישיות שלי הסיבה העיקרית לצריכת סוללה גבוהה של OpenVPN הן מנות Keepalive. לרוב שרתי OpenVPN יש הנחיית תצורה כמו \'keepalive 10 60\' שגורמת ללקוח ולשרת להחליף מנות Keepalive כל עשר שניות. &lt;p&gt; מנות אלו אמנם קטנות ואינן משתמשות בתעבורה רבה, אך הן מעסיקות את רשת הרדיו הנייד ומגדילות את צריכת האנרגיה. (ראה גם &lt;a href=\"https://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | מפתחי אנדרואיד&lt;/a&gt;) &lt;p&gt; לא ניתן לשנות את ההגדרה Keepalive זו בלקוח. רק מנהל המערכת של OpenVPN יכול לשנות את ההגדרה. &lt;p&gt; לרוע המזל, שימוש ב-Keealive של יותר מ-60 שניות עם UDP עלול לגרום לשערי NAT מסוימים להפסיק את החיבור עקב פסק זמן של חוסר פעילות. השימוש ב-TCP עם פסק זמן ארוך של שמירה על החיים עובד, אבל ביצוע מנהור של TCP על TCP מתפקד בצורה גרועה ביותר בחיבורים עם אובדן מנות גבוה. (ראה &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;מדוע TCP מעל TCP הוא רעיון רע&lt;/a&gt;)</string>
-    <string name="faq_tethering">תכונת ה-Android Tethering (על WiFi, USB או Bluetooth) וממשק ה-API של VPNService (בשימוש על ידי תוכנית זו) אינם פועלים יחד. לפרטים נוספים עיין בגיליון &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/34\"&gt;#34&lt;/a&gt;</string>
-    <string name="vpn_tethering_title">VPN וקשירה</string>
     <string name="connection_retries">ניסיונות חיבור מחדש</string>
     <string name="reconnection_settings">הגדרות חיבור מחדש</string>
     <string name="connectretrymessage">מספר השניות להמתנה בין ניסיונות החיבור.</string>
@@ -267,7 +261,7 @@
     <string name="rdn">RDN (שם נפוץ)</string>
     <string name="rdn_prefix">קידומת RDN</string>
     <string name="tls_remote_deprecated">tls-remote (לא בשימוש עוד)</string>
-    <string name="help_translate">אתה יכול לעזור בתרגום על ידי ביקור בכתובת https://crowdin.net/project/ics-openvpn/invite</string>
+    <string name="help_translate">אתה יכול לעזור בתרגום על ידי ביקור בכתובת https://crowdin.net/project/ics-openvpn/</string>
     <string name="prompt">%1$s ניסיונות לשלוט ב %2$s</string>
     <string name="remote_warning">אם תמשיך, אתה נותן לאפליקציה הרשאה לשלוט לחלוטין ב-OpenVPN עבור אנדרואיד וליירט את כל תעבורת הרשת.<b>אל תאשר אלא אם כן אתה סומך על הבקשה.</b> אחרת, אתה מסתכן שהנתונים שלך ייפגעו על ידי תוכנה זדונית.\"</string>
     <string name="remote_trust">היישומון הזה מהימן.</string>
@@ -290,8 +284,6 @@
     <string name="allow_vpn_changes">אפשר שינויים בפרופילי VPN</string>
     <string name="hwkeychain">מאגר מפתחות חומרה:</string>
     <string name="permission_icon_app">סמל של אפליקציה שמנסה להשתמש ב-OpenVPN עבור אנדרואיד</string>
-    <string name="faq_vpndialog43">"החל מ-Android 4.3 אישור ה-VPN נשמר מפני \"תצוגת מעל אפליקציות\". כתוצאה מכך תיבת הדו-שיח לא מגיבה לקלט מגע. אם יש לך אפליקציה שמשתמשת בתצוגת-על היא עלולה לגרום להתנהגות זו. אם תמצא אפליקציה פוגעת פנה למחבר של האפליקציה. בעיה זו משפיעה על כל יישומי ה-VPN באנדרואיד 4.3 ואילך. ראה גם &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\"&gt;גיליון 185&lt;a&gt; לפרטים נוספים"</string>
-    <string name="faq_vpndialog43_title">דו-שיח אישור VPN</string>
     <string name="donatePlayStore">לחלופין, תוכל לשלוח לי תרומה באמצעות חנות Play:</string>
     <string name="thanks_for_donation">תודה שתרמת %s!</string>
     <string name="logCleared">יומן נוקה.</string>
@@ -307,7 +299,6 @@
     <string name="logview_options">הצגת אפשרויות</string>
     <string name="unhandled_exception">חריג לא מטופל: %1$s \n\n %2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">אם ביצעתה רוט למכשיר האנדרואיד שלך, אתה יכול להתקין את &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; ו &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Dialog confirm module&lt;/a&gt; על אחריותך בלבד\"</string>
     <string name="full_licenses">רישיונות מלאים</string>
     <string name="blocklocal_summary">רשתות המחוברות ישירות לממשקים המקומיים לא ינותבו דרך ה-VPN. ביטול הבחירה באפשרות זו יפנה מחדש את כל התעבורה המיועדת לרשתות מקומיות ל-VPN.</string>
     <string name="blocklocal_title">מעקף VPN עבור רשתות מקומיות</string>
@@ -349,27 +340,16 @@
     <string name="faq_androids_clients_title">הבדלים בין לקוחות OpenVPN Android</string>
     <string name="ignore_multicast_route">התעלמות ממסלול ריבוי שידור: %s</string>
     <string name="ab_only_cidr">אנדרואיד תומך רק בנתיבי CIDR ל-VPN. מכיוון שכמעט אף פעם לא נעשה שימוש במסלולים שאינם CIDR, OpenVPN עבור אנדרואיד ישתמש ב-/32 עבור מסלולים שאינם CIDR ויוציא אזהרה.</string>
-    <string name="ab_tethering_44">שיתוף האינטרנט פועל בזמן שה-VPN פעיל. החיבור המקושר לא ישתמש ב-VPN.</string>
-    <string name="ab_kitkat_mss">גרסה מוקדמת של KitKat הגדירה ערך MSS שגוי בחיבורי TCP (#61948). נסה להפעיל את אפשרות mssfix כדי לעקוף את הבאג הזה.</string>
     <string name="ab_proxy">אנדרואיד תמשיך להשתמש בהגדרות ה-פרוקסי שצוינו עבור חיבור הנייד/וואי-פיי כאשר לא מוגדרים שרתי DNS. OpenVPN עבור אנדרואיד יזהיר אותך על כך ביומן.<p>כאשר VPN מגדיר שרת DNS אנדרואיד לא ישתמש בפרוקסי. אין API להגדיר פרוקסי עבור חיבור VPN.</p></string>
     <string name="ab_not_route_to_vpn">ה-IP של הלקוח המוגדר וכתובות ה-IP במסיכת הרשת שלו אינם מנותבים ל-VPN. OpenVPN עוקף את הבאג הזה על ידי הוספה מפורשת של מסלול התואם ל-IP של הלקוח ולמסכת הרשת שלו</string>
-    <string name="ab_persist_tun">פתיחת מכשיר tun בזמן שהתקן tun אחר פעיל, המשמש לתמיכה ב-persist-tun, קורסת את VPNServices במכשיר. נדרש אתחול כדי לגרום ל-VPN לעבוד שוב. OpenVPN לאנדרואיד מנסה להימנע מפתיחה מחדש של מכשיר ה-tun ובמידת הצורך תחילה סוגר את ה-TUN הנוכחי לפני פתיחת מכשיר ה-TUN החדש כדי להימנע מקריסה. זה עלול להוביל לחלון קצר שבו מנות נשלחות דרך החיבור שאינו VPN. אפילו עם פתרון זה, VPNServices לפעמים קורסים ודורשים אתחול מחדש של המכשיר.</string>
-    <string name="ab_secondary_users">VPN לא עובד בכלל עבור משתמשים משניים.</string>
-    <string name="ab_kitkat_reconnect">"משתמשים מרובים מדווחים שהחיבור הסלולרי/חיבור הנתונים הסלולרי נותק לעתים קרובות בזמן השימוש באפליקציית VPN. נראה שההתנהגות משפיעה רק על שילוב של ספק סלולרי/מכשיר, ועד כה לא ניתן היה לזהות סיבה/מעקף לבאג."</string>
-    <string name="ab_vpn_reachability_44">ניתן להגיע רק ליעד דרך ה-VPN שניתן להגיע אליהם ללא VPN. IPv6 VPNs לא עובדים בכלל.</string>
     <string name="ab_only_cidr_title">מסלולים שאינם CIDR</string>
     <string name="ab_proxy_title">התנהגות פרוקסי עבור VPNs</string>
     <string name="version_upto">%s ומעלה</string>
     <string name="copy_of_profile">עותק של %s</string>
     <string name="ab_not_route_to_vpn_title">נתב אל כתובת ה-IP המוגדרת</string>
-    <string name="ab_kitkat_mss_title">ערך MSS שגוי עבור חיבור VPN</string>
-    <string name="ab_secondary_users_title">משתמשי טאבלט משניים</string>
     <string name="custom_connection_options_warng">ציין אפשרויות ספציפיות לחיבור מותאם אישית. השתמש בזהירות</string>
     <string name="custom_connection_options">אפשרויות מותאמות אישית</string>
     <string name="remove_connection_entry">הסר את רשומת החיבור</string>
-    <string name="ab_kitkat_reconnect_title">ניתוק אקראי מהרשת הסלולרית</string>
-    <string name="ab_vpn_reachability_44_title">לא ניתן להגיע לרשתות מרוחקות</string>
-    <string name="ab_persist_tun_title">מצב tun תמיד</string>
     <string name="version_and_later">%s ואילך</string>
     <string name="tls_cipher_alert_title">חיבורים נכשלים עם SSL23_GET_SERVER_HELLO:כשל בלחיצת יד התראה sslv3</string>
     <string name="tls_cipher_alert">OpenVPN חדשות יותר עבור גרסאות אנדרואיד (0.6.29/מרץ 2015) משתמשות בברירת מחדל מאובטחת יותר עבור חבילות הצופן המותרות (tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\"). למרבה הצער, השמטת חבילות הצופן הפחות מאובטחות וחבילות הצופן הייצוא, במיוחד השמטת חבילות הצופן שאינן תומכות ב-Perfect Forward Secrecy (דיפי-הלמן) גורמת לכמה בעיות. זה נגרם בדרך כלל על ידי ניסיון עם כוונות טובות אך מבוצעות בצורה גרועה לחזק את אבטחת TLS על ידי הגדרת צופן tls בשרת או כמה מערכת הפעלה משובצת עם SSL מופשט (למשל MikroTik).\nכדי לפתור את הבעיה הזו, הגדר את הגדרות ה-tls-cipher בשרת לברירת מחדל סבירה כמו tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\". כדי לעקוף את הבעיה בלקוח הוסף את האפשרות המותאמת אישית tls-cipher DEFAULT בלקוח אנדרואיד.</string>
@@ -499,4 +479,19 @@
     <string name="allow_translations_summary">מאפשר לתרגם את האפליקציה עם תרגומים שנתרמו על ידי הקהילה. דורש הפעלה מחדש של האפליקציה כדי להפעיל אותה.</string>
     <string name="tls_profile">פרופיל אבטחה של TLS</string>
     <string name="encrypt_profiles">לנסות להצפין פרופילים באחסון (אם נתמך על ידי מערכת ה־Android)</string>
+    <string name="minimal_ui_tap_hint">הקש על הסמל כדי להתחבר מחדש</string>
+    <string name="mui_connected_title">מחובר</string>
+    <string name="mui_connected_sub">החיבור שלך מאובטח</string>
+    <string name="mui_connecting_title">מתחבר…</string>
+    <string name="mui_connecting_sub">יוצר חיבור מאובטח</string>
+    <string name="mui_retry_sub">ניסיון חוזר בעוד %1$s שניות</string>
+    <string name="mui_nonetwork_title">ממתין לרשת</string>
+    <string name="mui_nonetwork_sub">יתחבר אוטומטית כשתהיה רשת</string>
+    <string name="mui_notconnected_title">לא מחובר</string>
+    <string name="mui_authfailed_title">האימות נכשל</string>
+    <string name="mui_authfailed_sub">פנה למנהל המערכת</string>
+    <string name="mui_paused_title">מושהה</string>
+    <string name="mui_paused_sub">ימשיך אוטומטית</string>
+    <string name="mui_input_title">נדרשת פעולה</string>
+    <string name="mui_input_sub">פתח את ההתראה כדי להמשיך</string>
 </resources>

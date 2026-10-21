@@ -6,6 +6,7 @@ package de.blinkt.openvpn.activities
 
 import android.content.Intent
 import android.net.Uri
+import android.net.VpnService
 import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
@@ -13,6 +14,7 @@ import android.os.Environment
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
 import com.hmdm.HeadwindMDM
@@ -24,11 +26,11 @@ import com.google.android.material.tabs.TabLayoutMediator
 import de.blinkt.openvpn.R
 import de.blinkt.openvpn.VpnProfile
 import de.blinkt.openvpn.core.ConfigParser
+import de.blinkt.openvpn.core.GlobalPreferences
+import de.blinkt.openvpn.core.Preferences
 import de.blinkt.openvpn.core.ProfileManager
-import de.blinkt.openvpn.fragments.AboutFragment
-import de.blinkt.openvpn.fragments.FaqFragment
-import de.blinkt.openvpn.fragments.GeneralSettings
-import de.blinkt.openvpn.fragments.GraphFragment
+import de.blinkt.openvpn.core.VPNLaunchHelper
+import de.blinkt.openvpn.fragments.*
 import de.blinkt.openvpn.fragments.ImportRemoteConfig.Companion.newInstance
 import de.blinkt.openvpn.fragments.LogFragment
 import de.blinkt.openvpn.fragments.SendDumpFragment
@@ -45,6 +47,7 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
     private lateinit var mPager: ViewPager2
     private lateinit var mPagerAdapter: ScreenSlidePagerAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val view = layoutInflater.inflate(R.layout.main_activity, null)
@@ -55,18 +58,33 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
 
         mPagerAdapter = ScreenSlidePagerAdapter(supportFragmentManager, lifecycle, this)
 
-        /* Toolbar and slider should have the same elevation */disableToolbarElevation()
-        mPagerAdapter.addTab(R.string.vpn_list_title, VPNProfileList::class.java)
-        mPagerAdapter.addTab(R.string.graph, GraphFragment::class.java)
-        mPagerAdapter.addTab(R.string.generalsettings, GeneralSettings::class.java)
-        mPagerAdapter.addTab(R.string.faq, FaqFragment::class.java)
-        if (SendDumpFragment.getLastestDump(this) != null) {
-            mPagerAdapter.addTab(R.string.crashdump, SendDumpFragment::class.java)
+        /* Toolbar and slider should have the same elevation */
+        disableToolbarElevation()
+
+        val minimalUi = GlobalPreferences.getMinimalUi();
+        if (isAndroidTV || minimalUi) {
+            mPagerAdapter.addTab(R.string.minimal_ui, MinimalUI::class.java)
         }
-        if (isAndroidTV)
+        if (!minimalUi) {
+
+            mPagerAdapter.addTab(R.string.vpn_list_title, VPNProfileList::class.java)
+            mPagerAdapter.addTab(R.string.graph, GraphFragment::class.java)
+            mPagerAdapter.addTab(R.string.generalsettings, GeneralSettings::class.java)
+            mPagerAdapter.addTab(R.string.faq, FaqFragment::class.java)
+            if (SendDumpFragment.getLastestDump(this) != null) {
+                mPagerAdapter.addTab(R.string.crashdump, SendDumpFragment::class.java)
+            }
+
+        }
+        // Minimal UI shows only the status page
+        if (isAndroidTV && !minimalUi)
             mPagerAdapter.addTab(R.string.openvpn_log, LogFragment::class.java)
-        mPagerAdapter.addTab(R.string.about, AboutFragment::class.java)
+
+        if (!minimalUi)
+            mPagerAdapter.addTab(R.string.about, AboutFragment::class.java)
         mPager.setAdapter(mPagerAdapter)
+        // A single page needs no tab bar
+        if (minimalUi) tablayout.visibility = View.GONE
 
         val headwindMDM = HeadwindMDM.getInstance()
         if (!headwindMDM.isConnected) {
@@ -124,7 +142,8 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
+        if (!GlobalPreferences.getMinimalUi())
+            menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -156,6 +175,27 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
     }
 
     private fun loadConfigFromMdm() {
+        // Minimal UI can be switched from the Headwind MDM panel ("minimal_ui" = 1)
+        val minimalUi = "1" == MDMService.Preferences.get("minimal_ui", "0")
+        val prefs = Preferences.getDefaultSharedPreferences(this)
+        if (minimalUi != prefs.getBoolean("mdm_minimal_ui", false)) {
+            val editor = prefs.edit().putBoolean("mdm_minimal_ui", minimalUi)
+            if (minimalUi) editor.putBoolean("showlogwindow", false)
+            editor.apply()
+            GlobalPreferences.setMdmMinimalUi(minimalUi)
+            MDMService.Log.i(null, "Minimal UI set to $minimalUi from MDM")
+            runOnUiThread { recreate() }
+            return
+        }
+
+        // "force_connected" = 1: the VPN must always run and cannot be disconnected or paused
+        val forceConnected = "1" == MDMService.Preferences.get("force_connected", "0")
+        if (forceConnected != prefs.getBoolean("mdm_force_connected", false)) {
+            prefs.edit().putBoolean("mdm_force_connected", forceConnected).apply()
+            GlobalPreferences.setMdmForceConnected(forceConnected)
+            MDMService.Log.i(null, "Force connected set to $forceConnected from MDM")
+        }
+
         val vpnName = MDMService.Preferences.get("vpn_name", null)
         val vpnConfig = MDMService.Preferences.get("vpn_config", null)
         val vpnNamesToRemove = MDMService.Preferences.get("remove", "").trim { it <= ' ' }
@@ -163,6 +203,18 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
         val connect = "1" == MDMService.Preferences.get("connect", "0")
         val alwaysOnString = MDMService.Preferences.get("always_on", null)
         val alwaysOn = if (alwaysOnString == null) null else "1" == alwaysOnString
+
+        // Force connected: on every start/config change make sure the default VPN runs.
+        // Same call as OnBootReceiver; the service ignores it if that profile already runs.
+        // Skipped while a new profile is about to be imported: the import connects it.
+        val managedProfile = vpnName?.let { ProfileManager.getInstance(this).getProfileByName(it) }
+        val importPending = vpnName != null && vpnConfig != null && managedProfile == null
+        if (forceConnected && !importPending) {
+            val defaultProfile = ProfileManager.getAlwaysOnVPN(this) ?: managedProfile
+            if (defaultProfile != null) {
+                ensureVpnRunning(defaultProfile)
+            }
+        }
         if (vpnName == null || vpnConfig == null) {
             // Nothing to do - the admin should configure name and configuration file
             MDMService.Log.v(null, "VPN configuration not set")
@@ -202,7 +254,22 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
             MDMService.Log.w(null, "VPN config file doesn't exist: $vpnConfig")
             return
         }
-        loadVPNFromFile(file, vpnName, connect, alwaysOn)
+        loadVPNFromFile(file, vpnName, connect || forceConnected, alwaysOn)
+    }
+
+    private fun ensureVpnRunning(profile: VpnProfile) {
+        if (VpnService.prepare(this) == null) {
+            // VPN permission granted: start like OnBootReceiver, never replace a running VPN
+            VPNLaunchHelper.startOpenVpn(profile, applicationContext, "Headwind MDM force_connected", false)
+        } else {
+            // No VPN permission yet: LaunchVPN asks for it, then connects
+            val intent = Intent(this, LaunchVPN::class.java)
+            intent.putExtra(LaunchVPN.EXTRA_KEY, profile.uuidString)
+            intent.putExtra(LaunchVPN.EXTRA_HIDELOG, true)
+            intent.action = Intent.ACTION_MAIN
+            startActivity(intent)
+        }
+        MDMService.Log.v(null, "Ensure VPN '${profile.name}' is running (force_connected)")
     }
 
     private fun loadVPNFromFile(

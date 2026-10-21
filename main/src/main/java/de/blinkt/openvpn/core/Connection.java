@@ -7,6 +7,8 @@ package de.blinkt.openvpn.core;
 
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.Locale;
 
@@ -53,14 +55,13 @@ public class Connection implements Serializable, Cloneable {
         if (mConnectTimeout != 0)
             cfg += String.format(Locale.US, " connect-timeout  %d\n", mConnectTimeout);
 
-        // OpenVPN 2.x manages proxy connection via management interface
-        if ((isOpenVPN3 || usesExtraProxyOptions()) && mProxyType == ProxyType.HTTP)
-        {
-            cfg+=String.format(Locale.US,"http-proxy %s %s\n", mProxyName, mProxyPort);
-            if (mUseProxyAuth)
-                cfg+=String.format(Locale.US, "<http-proxy-user-pass>\n%s\n%s\n</http-proxy-user-pass>\n", mProxyAuthUser, mProxyAuthPassword);
-        }
-        if (usesExtraProxyOptions() && mProxyType == ProxyType.SOCKS5) {
+
+        // OpenVPN 2.x manages proxy connection via management interface and OpenVPN 3.x
+        // does not support them in <connection> blocks
+        if (!isOpenVPN3)
+            cfg += getHttpProxySettings(false);
+
+        if (usesProxyOptions() && mProxyType == ProxyType.SOCKS5) {
             cfg+=String.format(Locale.US,"socks-proxy %s %s\n", mProxyName, mProxyPort);
         }
 
@@ -73,8 +74,23 @@ public class Connection implements Serializable, Cloneable {
         return cfg;
     }
 
+    @NonNull
+    public String getHttpProxySettings(boolean generate_always) {
+        if ((generate_always || usesExtraProxyOptions()) && mProxyType == ProxyType.HTTP) {
+            String cfg = String.format(Locale.US, "http-proxy %s %s\n", mProxyName, mProxyPort);
+            if (mUseProxyAuth)
+                cfg += String.format(Locale.US, "<http-proxy-user-pass>\n%s\n%s\n</http-proxy-user-pass>\n", mProxyAuthUser, mProxyAuthPassword);
+            return cfg;
+        } else {
+            return "";
+        }
+    }
     public boolean usesExtraProxyOptions() {
         return (mUseCustomConfig && mCustomConfiguration.contains("http-proxy-option "));
+    }
+
+    public boolean usesProxyOptions() {
+        return usesExtraProxyOptions() || mProxyType != ProxyType.NONE;
     }
 
 
@@ -83,7 +99,10 @@ public class Connection implements Serializable, Cloneable {
         return (Connection) super.clone();
     }
 
-    public boolean isOnlyRemote() {
+    public boolean isOnlyRemote(boolean configForOvpn3) {
+        if (configForOvpn3 && mProxyType != ProxyType.NONE) {
+            return false;
+        }
         return TextUtils.isEmpty(mCustomConfiguration) || !mUseCustomConfig;
     }
 

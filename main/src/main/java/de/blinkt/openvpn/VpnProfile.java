@@ -24,7 +24,6 @@ import androidx.annotation.Nullable;
 
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.Pair;
 
 import de.blinkt.openvpn.core.*;
 
@@ -37,13 +36,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.Serial;
 import java.io.Serializable;
 import java.io.StringWriter;
 import java.security.*;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
 import java.util.Collection;
@@ -89,10 +88,9 @@ public class VpnProfile implements Serializable, Cloneable {
     public static final int X509_VERIFY_TLSREMOTE_RDN_PREFIX = 4;
     public static final int AUTH_RETRY_NONE_FORGET = 0;
     public static final int AUTH_RETRY_NOINTERACT = 2;
-    public static final boolean mIsOpenVPN22 = false;
     private static final long serialVersionUID = 7085688938959334563L;
     private static final int AUTH_RETRY_NONE_KEEP = 1;
-    private static final int AUTH_RETRY_INTERACT = 3;
+    public static final int AUTH_RETRY_INTERACT = 3;
     private static final String EXTRA_RSA_PADDING_TYPE = "de.blinkt.openvpn.api.RSA_PADDING_TYPE";
     private static final String EXTRA_SALTLEN = "de.blinkt.openvpn.api.SALTLEN";
     private static final String EXTRA_NEEDS_DIGEST = "de.blinkt.openvpn.api.NEEDS_DIGEST";
@@ -180,15 +178,17 @@ public class VpnProfile implements Serializable, Cloneable {
     public boolean mUseLegacyProvider = false;
     public String mTlSCertProfile = "";
     public long mCreationDate = 0;
+    public boolean mDpc1protocol = false;
 
 
-    class ChangeLogEntry implements Serializable
-    {
+    static class ChangeLogEntry implements Serializable {
+        @Serial
         private static final long serialVersionUID = 6032413096860917402L;
 
         public long time;
         public String message;
     }
+
     public Vector<ChangeLogEntry> changesLog = new Vector<>();
 
 
@@ -218,7 +218,7 @@ public class VpnProfile implements Serializable, Cloneable {
 
         if (escapedString.equals(unescaped) && !escapedString.contains(" ") &&
                 !escapedString.contains("#") && !escapedString.contains(";")
-                && !escapedString.equals("")  && !escapedString.contains("'"))
+                && !escapedString.equals("") && !escapedString.contains("'"))
             return unescaped;
         else
             return '"' + escapedString + '"';
@@ -363,8 +363,7 @@ public class VpnProfile implements Serializable, Cloneable {
         }
 
         mProfileVersion = CURRENT_PROFILE_VERSION;
-        if (changesLog == null)
-        {
+        if (changesLog == null) {
             changesLog = new Vector<>();
         }
     }
@@ -385,8 +384,7 @@ public class VpnProfile implements Serializable, Cloneable {
     /**
      * Adds an changelog/audit entry to the profile. The date of the entry will be the current time
      */
-    public void addChangeLogEntry(String message)
-    {
+    public void addChangeLogEntry(String message) {
         while (changesLog.size() > 50)
             changesLog.removeElementAt(0);
 
@@ -416,6 +414,10 @@ public class VpnProfile implements Serializable, Cloneable {
 
             cfg.append(String.format("setenv IV_GUI_VER %s \n", openVpnEscape(getVersionEnvString(context))));
             cfg.append("setenv IV_SSO openurl,webauth,crtext\n");
+            if (mDpc1protocol)
+            {
+                cfg.append("app-custom-control dpc1:flower\n");
+            }
             String versionString = getPlatformVersionEnvString();
             cfg.append(String.format("setenv IV_PLAT_VER %s\n", openVpnEscape(versionString)));
             String hwaddr = NetworkUtils.getFakeMacAddrFromSAAID(context);
@@ -434,8 +436,7 @@ public class VpnProfile implements Serializable, Cloneable {
 
         if (!configForOvpn3) {
             cfg.append("machine-readable-output\n");
-            if (!mIsOpenVPN22)
-                cfg.append("allow-recursive-routing\n");
+            cfg.append("allow-recursive-routing\n");
 
             // Users are confused by warnings that are misleading...
             cfg.append("ifconfig-nowarn\n");
@@ -468,12 +469,7 @@ public class VpnProfile implements Serializable, Cloneable {
             mConnectRetryMaxTime = "300";
 
 
-        if (!mIsOpenVPN22)
-            cfg.append("connect-retry ").append(mConnectRetry).append(" ").append(mConnectRetryMaxTime).append("\n");
-        else if (mIsOpenVPN22 && !mUseUdp)
-            cfg.append("connect-retry ").append(mConnectRetry).append("\n");
-
-
+        cfg.append("connect-retry ").append(mConnectRetry).append(" ").append(mConnectRetryMaxTime).append("\n");
         cfg.append("resolv-retry 60\n");
 
 
@@ -487,7 +483,7 @@ public class VpnProfile implements Serializable, Cloneable {
             cfg.append(mConnections[0].getConnectionBlock(configForOvpn3));
         } else {
             for (Connection conn : mConnections) {
-                canUsePlainRemotes = canUsePlainRemotes && conn.isOnlyRemote();
+                canUsePlainRemotes = canUsePlainRemotes && conn.isOnlyRemote(configForOvpn3);
             }
 
             if (mRemoteRandom)
@@ -500,6 +496,12 @@ public class VpnProfile implements Serializable, Cloneable {
                     }
                 }
             }
+        }
+        if (configForOvpn3 && mConnections.length >= 1){
+            /* OpenVPN 3 also supports proxy options as global config options, use the ones
+             * from the first entry since we refuse generating config if they are not all
+             * identical */
+            cfg.append(mConnections[0].getHttpProxySettings(true));
         }
 
 
@@ -717,7 +719,7 @@ public class VpnProfile implements Serializable, Cloneable {
 
         }
 
-        if (!TextUtils.isEmpty(mCipher)) {
+        if (!TextUtils.isEmpty(mCipher) && mCompatMode > 0) {
             cfg.append("cipher ").append(mCipher).append("\n");
         }
 
@@ -735,8 +737,7 @@ public class VpnProfile implements Serializable, Cloneable {
         if (mPersistTun) {
             cfg.append("persist-tun\n");
             cfg.append("# persist-tun also enables pre resolving to avoid DNS resolve problem\n");
-            if (!mIsOpenVPN22)
-                cfg.append("preresolve\n");
+            cfg.append("preresolve\n");
         }
 
         if (mPushPeerInfo)
@@ -744,7 +745,7 @@ public class VpnProfile implements Serializable, Cloneable {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean usesystemproxy = prefs.getBoolean("usesystemproxy", true);
-        if (usesystemproxy && !mIsOpenVPN22 && !configForOvpn3 && !usesExtraProxyOptions()) {
+        if ((usesystemproxy || usesProxyOptions()) && !configForOvpn3 && !usesExtraProxyOptions()) {
             cfg.append("# Use system proxy setting\n");
             cfg.append("management-query-proxy\n");
         }
@@ -768,7 +769,6 @@ public class VpnProfile implements Serializable, Cloneable {
                 }
             }
         }
-
 
         return cfg.toString();
     }
@@ -866,6 +866,7 @@ public class VpnProfile implements Serializable, Cloneable {
         }
     }
 
+    @NonNull
     @Override
     protected VpnProfile clone() throws CloneNotSupportedException {
         VpnProfile copy = (VpnProfile) super.clone();
@@ -876,6 +877,9 @@ public class VpnProfile implements Serializable, Cloneable {
             copy.mConnections[i++] = conn.clone();
         }
         copy.mAllowedAppsVpn = (HashSet<String>) mAllowedAppsVpn.clone();
+        copy.changesLog = new Vector<>();
+        copy.mVersion = 1;
+        copy.addChangeLogEntry(String.format(Locale.US, "Cloned from profile '%s', uuid '%s'", mName, getUUIDString()));
         return copy;
     }
 
@@ -988,8 +992,9 @@ public class VpnProfile implements Serializable, Cloneable {
             }
 
             return new String[]{ca, extra, user};
-        } catch (InterruptedException | IOException | KeyChainException | NoCertReturnedException | IllegalArgumentException
-                | CertificateException e) {
+        } catch (InterruptedException | IOException | KeyChainException | NoCertReturnedException |
+                 IllegalArgumentException
+                 | CertificateException e) {
             e.printStackTrace();
             VpnStatus.logError(R.string.keyChainAccessError, e.getLocalizedMessage());
 
@@ -1017,6 +1022,22 @@ public class VpnProfile implements Serializable, Cloneable {
 
     public int checkProfile(Context c) {
         return checkProfile(c, doUseOpenVPN3(c));
+    }
+
+    private boolean proxySettingsIdentical()
+    {
+        if (mConnections.length <= 1)
+        {
+            return true;
+        }
+
+        String proxy = mConnections[0].getHttpProxySettings(true);
+        for (Connection conn: mConnections)
+        {
+            if (!proxy.equals(conn.getHttpProxySettings(true)))
+                return false;
+        }
+        return true;
     }
 
     //! Return an error if something is wrong
@@ -1095,6 +1116,11 @@ public class VpnProfile implements Serializable, Cloneable {
                         || (mCompatMode > 0 && mCompatMode < 20500)
                         && cipher.equals("BF-CBC"))) {
             return R.string.bf_cbc_requires_legacy;
+        }
+
+        if (!proxySettingsIdentical() && useOpenVPN3)
+        {
+            return R.string.openvpn3_different_proxy;
         }
 
         // Everything okay
@@ -1233,8 +1259,7 @@ public class VpnProfile implements Serializable, Cloneable {
             return null;
     }
 
-    private byte[] getExtAppSignedData(Context c, byte[] data, OpenVPNManagement.SignaturePadding padding, String saltlen, String hashalg, boolean needDigest)
-    {
+    private byte[] getExtAppSignedData(Context c, byte[] data, OpenVPNManagement.SignaturePadding padding, String saltlen, String hashalg, boolean needDigest) {
 
         Bundle extra = new Bundle();
         RsaPaddingType paddingType;
@@ -1300,26 +1325,13 @@ public class VpnProfile implements Serializable, Cloneable {
                 return signed_bytes;
             }
         } catch
-        (NoSuchAlgorithmException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException | NoSuchPaddingException | SignatureException | InvalidAlgorithmParameterException
+        (NoSuchAlgorithmException | InvalidKeyException | IllegalBlockSizeException |
+         BadPaddingException | NoSuchPaddingException | SignatureException |
+         InvalidAlgorithmParameterException
                         e) {
             VpnStatus.logError(R.string.error_rsa_sign, e.getClass().toString(), e.getLocalizedMessage());
             return null;
         }
-    }
-
-    private byte[] addPSSPadding(PrivateKey privkey, String digest, byte[] data) throws NoSuchAlgorithmException {
-        /* For < API 23, add padding ourselves */
-        int hashtype = getHashtype(digest);
-
-        MessageDigest msgDigest = MessageDigest.getInstance(digest);
-        byte[] hash = msgDigest.digest(data);
-
-        /*  MSBits = (BN_num_bits(rsa->n) - 1) & 0x7; */
-        int numbits = ((RSAPrivateKey) privkey).getModulus().bitLength();
-
-        int MSBits = (numbits - 1) & 0x7;
-
-        return NativeUtils.addRssPssPadding(hashtype, MSBits, numbits/8, hash);
     }
 
     private int getHashtype(String digest) throws NoSuchAlgorithmException {
@@ -1361,11 +1373,6 @@ public class VpnProfile implements Serializable, Cloneable {
             if (!"digest".equals(saltlen))
                 throw new SignatureException("PSS signing requires saltlen=digest");
 
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                data = addPSSPadding(privkey, hashalg, data);
-                return getKeyChainSignedData(data, OpenVPNManagement.SignaturePadding.NO_PADDING, "none", "none", false);
-            }
-
             sig = Signature.getInstance(hashalg + "withRSA/PSS");
 
             PSSParameterSpec pssspec = null;
@@ -1400,6 +1407,17 @@ public class VpnProfile implements Serializable, Cloneable {
         return false;
     }
 
+    private boolean usesProxyOptions() {
+        if (mUseCustomConfig && mCustomConfigOptions != null && mCustomConfigOptions.contains("http-proxy-option "))
+            return true;
+        for (Connection c : mConnections)
+            if (c.usesProxyOptions())
+                return true;
+
+        return false;
+    }
+
+
     /**
      * The order of elements is important!
      */
@@ -1409,7 +1427,7 @@ public class VpnProfile implements Serializable, Cloneable {
         RSAPSS_PADDING
     }
 
-    static class NoCertReturnedException extends Exception {
+    public static class NoCertReturnedException extends Exception {
         public NoCertReturnedException(String msg) {
             super(msg);
         }
