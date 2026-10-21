@@ -150,7 +150,6 @@
     <string name="speed_waiting">A esperar mensagem de estado...</string>
     <string name="converted_profile">perfil importado</string>
     <string name="converted_profile_i">Perfil importado %d</string>
-    <string name="broken_images">Imagens quebradas</string>
     <string name="pkcs12_file_encryption_key">Chave de crifra de ficheiros PKCS12</string>
     <string name="private_key_password">Senha de chave privada</string>
     <string name="password">Senha</string>
@@ -170,7 +169,6 @@
     <string name="show_log_summary">Mostra a janela de log ao conectar. A janela de log sempre pode ser acessada pelo status da notificação.</string>
     <string name="show_log_window">Mostrar a janela de log</string>
     <string name="mobile_info">%10$s %9$s rodando no %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
-    <string name="faq_system_dialogs_title">Aviso de ligação e som de notificação</string>
     <string name="translationby">Tradução em inglês por Arne Schwabe&lt; arne@rfc2549.org&gt;</string>
     <string name="ipdns">IP e DNS</string>
     <string name="basic">Básico</string>
@@ -200,7 +198,6 @@
     <string name="openvpn_log">OpenVPN Log</string>
     <string name="import_config">Importar configuração OpenVPN</string>
     <string name="battery_consumption_title">Consumo de bateria</string>
-    <string name="vpn_tethering_title">VPN e Tethering</string>
     <string name="connection_retries">Tentativas de ligação</string>
     <string name="reconnection_settings">Configurações de religação</string>
     <string name="connectretrywait">Segundos entre ligações</string>
@@ -290,7 +287,6 @@
     <string name="show_log">Mostrar registo</string>
     <string name="ignore_multicast_route">Ignorar caminho multicast: %s</string>
     <string name="ab_only_cidr">Android apenas suporta rotas CIDR para a VPN. Pelo facto de as rotas não-CIDR quase nunca serem usadas, OpenVPN para Android irá usar uma rota /32 para rotas não-CIDR e emitir um aviso.</string>
-    <string name="ab_secondary_users">VPN não funcionar para utilizadores secundários.</string>
     <string name="ab_only_cidr_title">Rotas não CIDR</string>
     <string name="ab_proxy_title">Comportamento proxy para VPNs</string>
     <string name="version_upto">%s e anteriores</string>

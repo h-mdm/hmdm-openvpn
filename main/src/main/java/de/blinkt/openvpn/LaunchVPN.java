@@ -8,7 +8,6 @@ package de.blinkt.openvpn;
 import static de.blinkt.openvpn.core.OpenVPNService.EXTRA_START_REASON;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
@@ -24,7 +23,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.preference.PreferenceManager;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
@@ -44,6 +42,7 @@ import de.blinkt.openvpn.core.Preferences;
 import de.blinkt.openvpn.core.ProfileManager;
 import de.blinkt.openvpn.core.VPNLaunchHelper;
 import de.blinkt.openvpn.core.VpnStatus;
+import de.blinkt.openvpn.activities.LogWindow;
 
 /**
  * This Activity actually handles two stages of a launcher shortcut's life cycle.
@@ -271,9 +270,8 @@ public class LaunchVPN extends Activity {
     }
 
     void showLogWindow() {
-
         Intent startLW = new Intent();
-        startLW.setComponent(new ComponentName(this, getPackageName() + ".activities.LogWindow"));
+        startLW.setComponent(new ComponentName(this, LogWindow.class));
         startLW.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(startLW);
 
@@ -302,7 +300,6 @@ public class LaunchVPN extends Activity {
         d.show();
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setOnDismissListener(AlertDialog.Builder d) {
         d.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
@@ -320,17 +317,6 @@ public class LaunchVPN extends Activity {
         }
 
         Intent intent = VpnService.prepare(this);
-        // Check if we want to fix /dev/tun
-        SharedPreferences prefs = Preferences.getDefaultSharedPreferences(this);
-        boolean usecm9fix = prefs.getBoolean("useCM9Fix", false);
-        boolean loadTunModule = prefs.getBoolean("loadTunModule", false);
-
-        if (loadTunModule)
-            execeuteSUcmd("insmod /system/lib/modules/tun.ko");
-
-        if (usecm9fix && !mCmfixed) {
-            execeuteSUcmd("chown system /dev/tun");
-        }
 
         if (intent != null) {
             VpnStatus.updateStateString("USER_VPN_PERMISSION", "", R.string.state_user_vpn_permission,

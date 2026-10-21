@@ -154,8 +154,6 @@
     <string name="speed_waiting">Durum iletisi bekleniyor&#8230;</string>
     <string name="converted_profile">içe aktarılan profil</string>
     <string name="converted_profile_i">%d profili içe aktarıldı</string>
-    <string name="broken_images">Bozuk Kalıplar</string>
-    <string name="broken_images_faq">&lt;p&gt;Resmi HTC kalıpları, trafiğin tünelden geçmesini engelleyen garip yönlendirme sorunlarına sahip (Ayrıca hata izleyicisinde bkz. &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/18\"&gt;Issue 18&lt;/a&gt;.)&lt;/p&gt;&lt;p&gt;Daha eski resmi Xperia Arc S ve Xperia Ray SONY kalıpları, VPNService\'in kalıplardan tamamen kaldırdığı bildirildi (Ayrıca hata izleyicisinde bkz. &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/29\"&gt;Issue 29&lt;/a&gt;.)&lt;/p&gt;&lt;p&gt;Özel derleme kalıplarında, tun modülü eksik veya /dev/tun yetkileri hatalı olabilir. Bazı CM9 kalıplarının \"Aygıta bağlı ayarlar (Device specific hacks)\" altında \"İzinleri düzelt (Fix ownership)\" seçeneğini kullanmaları gereklidir.&lt;/p&gt;&lt;p&gt;En önemlisi: Cihazınızda bozuk bir Android kalıbı varsa, üreticinize bildirin. Ne kadar çok kişi bu sorunu üreticiye bildirirse, o kadar düzeltilme şansı olur.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">PKCS12 Dosya Şifreleme Anahtarı</string>
     <string name="private_key_password">Özel Anahtar Parolası</string>
     <string name="password">Parola</string>
@@ -179,8 +177,6 @@
     <string name="mobile_info">%10$s %9$s %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s) üzerinde çalışıyor</string>
     <string name="error_rsa_sign">Android deposu anahtarını %1$s %2$s ile imzalama hatası</string>
     <string name="error_extapp_sign">Harici kimlik doğrulama uygulamasıyla imzalama hatası (%3$s):%1$s:%2$s</string>
-    <string name="faq_system_dialogs">VPN bağlantı uyarısı, VPNService API\'sinin kötüye kullanımını önlemek için bu uygulamanın sistem tarafından oluşturulan tüm trafiği izleyebileceğini söylüyor.\nVPN bağlantı bildirimi (anahtar simgesi) ayrıca giden bir VPN bağlantısı olduğunu belirtmek için Android sistemi tarafından gösteriliyor. Bazı kalıplarda bu bildirim bir ses çalar.\nAndroid bu sistem pencerelerini kendi güvenliğiniz için koydu ve aşılmasını engelledi.</string>
-    <string name="faq_system_dialogs_title">Bağlantı uyarısı ve bildirim sesi</string>
     <string name="translationby">Türkçe Çeviri: Volkan Gezer &lt;volkangezer@gmail.com&gt;</string>
     <string name="ipdns">IP ve DNS</string>
     <string name="basic">Temel</string>
@@ -220,8 +216,6 @@
     <string name="import_config">OpenVPN yapılandırmasını içe aktar</string>
     <string name="battery_consumption_title">Pil tüketimi</string>
     <string name="baterry_consumption">Şahsi testlerimde, OpenVPN\'in yüksek pil tüketiminin sebebi canlı tutma (keepalive) paketleri. Çoğu OpenVPN sunucuları, istemci ve sunucu arasında canlı tutma paketlerini her on saniyede değiştiren \'keepalive 10 60\' benzeri yönergeler bulundurur.&lt;p&gt; Bu paketler çok küçük olduğundan ve çok trafik kullanmadıklarından mobil anten ağını meşgul tutar ve enerji tüketimini arttırırlar. (ayrıca bkz. &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Android Developers&lt;/a&gt;) &lt;p&gt; Bu canlı tutma ayarı istemci tarafından değiştirilemez. Ayarı sadece OpenVPN sistem yöneticisi değiştirebilir. &lt;p&gt; Ne yazık ki, canlı tutma ayarını 60 saniyeden daha fazla tutmak UDP\'nin durağan durum zaman aşımına takıldığından bazı NAT ağ geçitlerinde bağlantıyı bırakmalarına sebep olmaktadır. Uzun canlı tutma zaman aşımları TCP kullanarak mümkün, ancak TCP üzerinden TCP tünelleme, yüksek paket kaybı ile bağlantılarda düşük kalitededir (Bkz. &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Why TCP Over TCP Is A Bad Idea&lt;/a&gt;)</string>
-    <string name="faq_tethering">Android Bağlantı Paylaşma özelliği (WiFi, USB veya Bluetooth üzerinden) ve VPNService API\'si (bu program tarafından kullanılan) birlikte çalışamaz. Daha fazla bilgi için bkz. &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/34\"&gt;issue #34&lt;/a&gt;</string>
-    <string name="vpn_tethering_title">VPN ve Paylaşım</string>
     <string name="connection_retries">Yeniden bağlantı denemesi</string>
     <string name="reconnection_settings">Yeniden bağlanma ayarları</string>
     <string name="connectretrymessage">Bağlantı girişimleri arasında beklenecek saniye sayısı.</string>
@@ -290,8 +284,6 @@
     <string name="allow_vpn_changes">VPN Profillerinin değiştirilmesine izin ver</string>
     <string name="hwkeychain">Donanım Anahtar Deposu:</string>
     <string name="permission_icon_app">Uygulama simgesi Android için OpenVPN kullanmaya çalışıyor</string>
-    <string name="faq_vpndialog43">"Android 4.3\'ten itibaren, VPN onayları \"kaplayan uygulamalara\" karşı güven altına alındı. Bu da pencerenin dokunma girdisine yanıt vermemesiyle sonuçlanır. Kaplamaları kullanan bir uygulamanız varsa, bu davranışa bu uygulama sebep olmuş olabilir. Saldırgan bir uygulama bulursanız, uygulamanın geliştiricisine ulaşın. Bu sorun Android 4.3 ve sonrasındaki tüm VPN uygulamalarını etkilemektedir. Ayrıca ayrıntılar için bkz. &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\"&gt;Issue 185&lt;a&gt;"</string>
-    <string name="faq_vpndialog43_title">VPN Onay Penceresi</string>
     <string name="donatePlayStore">Alternatif olarak Play Store\'dan bağış yapabilirsiniz:</string>
     <string name="thanks_for_donation">%s bağış için teşekkürler!</string>
     <string name="logCleared">Günlük temizlendi.</string>
@@ -307,7 +299,6 @@
     <string name="logview_options">Görünüm seçenekleri</string>
     <string name="unhandled_exception">Kural dışı durum: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed"> Android cihazınız root\'lu ise &lt;a href=\"http://xposed.info/\"&gt;Xposed çalışma çerçevesini&lt;/a&gt; ve &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Pencere onay modülünü&lt;/a&gt; kendi sorumluluğunuzda yükleyebilirsiniz\"</string>
     <string name="full_licenses">Tam lisanslar</string>
     <string name="blocklocal_summary">Doğrudan yerel arabirimlere bağlı ağlar VPN üzerinden yönlendirilmez. Bu seçenekteki işaretin kaldırılması, yerel ağlar için amaçlanmış tüm trafiği VPN\'e yönlendirir.</string>
     <string name="blocklocal_title">Yerel ağlar için VPN\'i yoksay</string>
@@ -350,27 +341,16 @@
     <string name="faq_androids_clients_title">Android için OpenVPN uygulamaları aralarındaki farklar</string>
     <string name="ignore_multicast_route">Multicast yolu yoksayılıyor: %s</string>
     <string name="ab_only_cidr">Android, VPN\'e sadece CIDR rotalarını destekler. CIDR olmayan rotalar neredeyse hiç kullanılmadığından, Android için OpenVPN, rotalar için CIDR olmayan bir /32 kullanacak ve bir uyarı gösterecektir.</string>
-    <string name="ab_tethering_44">Paylaşım sadece VPN etkinken çalışır. Paylaşılan bağlantı VPN\'i KULLANMAYACAKTIR.</string>
-    <string name="ab_kitkat_mss">Önceki KitKat sürümü TCP bağlantılarında MSS değerini yanlış ayarladı (#61948). Bu sorunu geçici olarak çözebilmek için mssfix seçeneğini etkinleştirmeyi deneyin.</string>
     <string name="ab_proxy">Hiçbir DNS sunucusu ayarlanmadığında Android mobil/kablosuz bağlantı için belirtilmiş vekil sunucu ayarlarını kullanmaya devam edecek. Android için OpenVPN, günlüğünde bunu size gösterecek.<p>VPN bir DNS sunucusu ayarladığında, Android vekil sunucuyu kullanmayacak. Bir VPN bağlantısı için vekil sunucu ayarlamak üzere bir API bulunmamaktadır.</p></string>
     <string name="ab_not_route_to_vpn">Yapılandırılan istemci IP ve ağ maskesindeki IP adresleri VPN\'e yönlendirilmemektedir. OpenVPN bu sorunu istemci IP ve ağ maskesine çözümlenen bir rote ekleyerek çözmektedir</string>
-    <string name="ab_persist_tun">Persist-tun desteği için kullanılmak üzere bir tun aygıtı etkin iken başka bir tun aygını açmak cihazdaki VPN hizmetlerinin çökmesine neden olur. VPN\'in tekrar çalışması için yeniden başlatma gereklidir. Android için OpenVPN, tun aygıtını yeniden açmayı önlemeye çalışır, ancak gerçekten gerekli olduğunda çökmeyi önlemek için yeni TUN aygıtı açmadan önce geçerli TUN aygıtını kapatır. Bu VPN olmayan bağlantılar üzerinde paketlerin gönderildiği kısa bir aralığa sebep olabilir. Bu çözüme rağmen VPN hizmetleri hala çökmekte ve aygıtınızın yeniden başlatılmasını gerektirir.</string>
-    <string name="ab_secondary_users">VPN ikincil kullanıcılar için hiç çalışmamaktadır.</string>
-    <string name="ab_kitkat_reconnect">"Birçok kullanıcı mobil bağlantı/mobil veri bağlantısının VPN uygulaması kullanırken koptuğunu bildiriyor. Bu davranış bazı mobil operatörü/cihaz kombinasyonunu etkiliyor gibi görünüyor ve şimdiye kadar bu soruna bir çözüm bulunamadı."</string>
-    <string name="ab_vpn_reachability_44">VPN\'siz ulaşılabilen hedefe sadece VPN üzerinde ulaşılabilir. IPv6 VPN\'leri hiç çalışmıyor.</string>
     <string name="ab_only_cidr_title">CIDR Olmayan Rotalar</string>
     <string name="ab_proxy_title">VPN\'ler için Vekil Sunucu davranışı</string>
     <string name="version_upto">%s ve önceki</string>
     <string name="copy_of_profile">%s kopyası</string>
     <string name="ab_not_route_to_vpn_title">Yapılandırılmış IP adresine yönlendir</string>
-    <string name="ab_kitkat_mss_title">VPN bağlantısı için yanlış MSS değeri</string>
-    <string name="ab_secondary_users_title">İkincil tablet kullanıcıları</string>
     <string name="custom_connection_options_warng">Özel bağlantı seçeneklerini belirtin. Dikkatli kullanın</string>
     <string name="custom_connection_options">Özel Seçenekler</string>
     <string name="remove_connection_entry">Bağlantı girdisini kaldır</string>
-    <string name="ab_kitkat_reconnect_title">Mobil ağda rastgele bağlantı kesilmeleri</string>
-    <string name="ab_vpn_reachability_44_title">Uzak ağlara ulaşılamıyor</string>
-    <string name="ab_persist_tun_title">Kalıcı tun kipi</string>
     <string name="version_and_later">%s ve daha sonrası</string>
     <string name="tls_cipher_alert_title">Bağlantı SSL23_GET_SERVER_HELLO:sslv3 uyarı el sıkışma hatası ile başarısız oluyor</string>
     <string name="tls_cipher_alert">Daha yeni Android için OpenVPN sürümleri (0.6.29/Mart 2015) izin verilen şifreleyici takımları için (tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\") daha güvenli varsayılanı kullanıyor. Ancak, Perfect Forward Secrecy (Diffie-Hellman) desteklemeyen daha az güvenli şifreleyici ve dışa aktarıcı şifreleyici takımlarını yoksaymak bazı sorunlara yol açmaktadır. Bu, genellikle TSL güvenliğini sunucuda veya bazı gömülü işletim sistemlerinde arttırmak için tls-cipher ayarlayarak düşürülen SSL (örn. MikroTik) girişiminin iyi amaçlanması ancak zayıf uygulanmasından dolayı meydana gelir. \nBu sorunu çözmek için sunucuda, kullanışlı bir varsayılan değer yapın. Örneğin: tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\". İstemcide bu sorunun geçici çözümü için, Android istemcide tls-cipher DEFAULT özel seçeneğini ekleyin.</string>

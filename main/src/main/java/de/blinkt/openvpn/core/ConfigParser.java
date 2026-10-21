@@ -84,9 +84,10 @@ public class ConfigParser {
             "route-gateway",
             "route-metric",
             "route-method",
-            "status",
             "script-security",
+            "socket-flags",
             "show-net-up",
+            "status",
             "suppress-timestamps",
             "tap-sleep",
             "tmp-dir",
@@ -744,7 +745,7 @@ public class ConfigParser {
             else if (authretry.get(1).equals("nointeract"))
                 np.mAuthRetry = VpnProfile.AUTH_RETRY_NOINTERACT;
             else if (authretry.get(1).equals("interact"))
-                np.mAuthRetry = VpnProfile.AUTH_RETRY_NOINTERACT;
+                np.mAuthRetry = VpnProfile.AUTH_RETRY_INTERACT;
             else
                 throw new ConfigParseError("Unknown parameter to auth-retry: " + authretry.get(2));
         }

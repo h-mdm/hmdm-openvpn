@@ -48,4 +48,10 @@ public interface OpenVPNManagement {
      * @param response  Base64 encoded response
      */
     void sendCRResponse(String response);
+
+    /**
+     * Sends an ACC message.
+     */
+    void sendAccMessage(AccMessage msg);
 }
+

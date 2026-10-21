@@ -105,7 +105,6 @@
     <string name="speed_waiting">Esperant el missatge d\'estat&#8230;</string>
     <string name="converted_profile">Perfil importat</string>
     <string name="converted_profile_i">Perfil importat %d</string>
-    <string name="broken_images">Imatges trencades</string>
     <string name="private_key_password">Contrasenya de la clau privada</string>
     <string name="password">Contrasenya</string>
     <string name="file_icon">Icona del fitxer</string>
@@ -121,8 +120,7 @@
     <string name="netstatus">Estat de la xarxa %s</string>
     <string name="select_file">Selecciona</string>
     <string name="show_log_window">Mostra la finestra de registre</string>
-    <string name="faq_system_dialogs">L\'advertencia de conexió a una VPN que diu que aquesta aplicació pot interceptar tot el trànsit és imposat per el sistema per prevenir abús del servei de VPN.\nLa notificació de VPN (l\'icona de la clau) també és imposat per el sistema Android per indicar una conexió activa de VPN. En alguns sistemes, aquesta notificació reprodueix un so.\nAndroid va introduïr aquestes notificacions per la vostra seguretat i no es poden evitar. (En alguns sistemes, desafortunadament es reprodueix un so)</string>
-    <string name="translationby">Traducció al catala per Sergi Almacellas 
+    <string name="translationby">Traducció al catala per Sergi Almacellas
 &lt;sergi@koolpi.com&gt;</string>
     <string name="ipdns">IP i DNS</string>
     <string name="basic">Bàsic</string>
@@ -141,7 +139,6 @@
     <string name="openvpn_log">Registre OpenVPN</string>
     <string name="import_config">Importa la configuració OpenVPN</string>
     <string name="battery_consumption_title">Consum de la bateria</string>
-    <string name="vpn_tethering_title">VPN i Tethering</string>
     <string name="connection_retries">Reintents de conexió</string>
     <string name="reconnection_settings">Opcions de reconexió</string>
     <string name="connectretrymessage">Quantitat de segons a esperar abans de intentar una reconexió</string>
@@ -160,7 +157,7 @@
     <string name="add">Afegeix</string>
     <string name="send_config">Envia arxiu de configuració</string>
     <string name="complete_dn">DN complet</string>
-    <string name="help_translate">Podeu ajudar a trsduïr visitant https://crowdin.net/project/ics-openvpn/invite</string>
+    <string name="help_translate">Podeu ajudar a trsduïr visitant https://crowdin.net/project/ics-openvpn/</string>
     <string name="prompt">%1$s intenta controlar %2$s</string>
     <string name="remote_warning">Al continuar, esteu donant la aplicació permisos per controlar completameny OpenVPN per Android i interceptar tot el transit de xarxa.<b>NO acceptis si no confies en la aplicació.</b> Si no, correu el risc que les vostres dades siguin compromeses per programari maliciós</string>
     <string name="remote_trust">Confio en aquesta aplicació</string>

@@ -152,8 +152,6 @@
     <string name="speed_waiting">Ootan olekuteadet&#8230;</string>
     <string name="converted_profile">imporditud profiil</string>
     <string name="converted_profile_i">imporditud profiil %d</string>
-    <string name="broken_images">Probleemsed Androidi püsivara versioonid</string>
-    <string name="broken_images_faq">&lt;p&gt;Ametlikel HTC versioonidel teatakse olevat kummaline marsruutimisprobleem, mille tulemusel ei liigu andmevoog läbi tunneli (Vaata ka &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=18\"&gt;Issue 18&lt;/a&gt; veahalduses.)&lt;/p&gt;&lt;p&gt;Ametlike vanemate SONY Xperia arc S ja Xperia Ray versioonide puhul on raporteeritud ka täielikku VPNService API puudumist. (Vaata ka &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=29\"&gt;Issue 29&lt;/a&gt; veahalduses.)&lt;/p&gt;&lt;p&gt;Kohandatud tarkvaraversioonides võib puududa tun moodul või /dev/tun õigused võivad olla valed. Mõned CM9 versioonid nõuavad \"seadmespetsiifiliste häkkide\" alt \"õiguste parandamise\" valiku kasutamist.&lt;/p&gt;&lt;p&gt;Aga mis kõige olulisem: kui teil juhtub olema vigane tarkvaraversioon, siis teatage sellest oma tarnijale. Mida rohkem kliente tarnijat seadme probleemidest teavitab, seda suurema tõenäosusega tehakse seadme tarkvara ka korda.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">PKCS12 faili krüpteerimisvõti</string>
     <string name="private_key_password">Privaatvõtme salasõna</string>
     <string name="password">Salasõna</string>
@@ -177,8 +175,6 @@
     <string name="mobile_info">%10$s %9$s töötab seadmel %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Viga allkirjastamisel Androidi võtmehoidla võtmega %1$s: %2$s</string>
     <string name="error_extapp_sign">Viga välise autentimisrakendusega allkirjastamisel (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">VPN ühendumisel ilmub ekraanile hoiatus et see programm võib pealt kuulata kogu võrguliiklust. Tegemist on VPNService API süsteemse hoiatusega et hoida ära väärkasutust.\nVPN ühenduse teatis (Võtme sümbol) on samuti VPNService API poolt kuvatav aktiivse VPN ühenduse indikaator. Mõne süsteemitarkvara puhul võib see indikaator anda märku ka heliga.\nNeed teatised on Androidi süsteemile lisatud teie turvalisuse tagamiseks ja samuti on välistatud nende kasutamisest mööda minemine. (Kahjuks tähendab see seda et mõne süsteemitarkvara puhul kaasneb ühendusega alati ka heliteade)</string>
-    <string name="faq_system_dialogs_title">Hoiatused ja helimärguanded ühenduse loomisel</string>
     <string name="translationby">Eesti keelde tõlkis Robert Tiismus</string>
     <string name="ipdns">IP ja DNS</string>
     <string name="basic">Põhilised seaded</string>
@@ -217,8 +213,6 @@
     <string name="import_config">Impordi OpenVPN konfiguratsioon</string>
     <string name="battery_consumption_title">Akukasutus</string>
     <string name="baterry_consumption">Minu isiklike testide põhjal kulutavad akut peamiselt OpenVPN ülalhoide (keepalive) paketid. Enamik OpenVPN serverieid kasutab sarnast direktiivi nagu \'keepalive 10 60\' mis määrab kliendilt serverile ja serverilt kliendile saadetavate keepalive pakettide intervalliks 10 sekundit. &lt;p&gt; Ehkki ülalhoidepaketid on väikesed ja ei põhjusta märgatavat võrguliiklust, ei lase nad mobiilse ühenduse raadiovõrgukiibil lülituda energiasäästurežiimi. (Vaata ka &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Android Developers&lt;/a&gt;) &lt;p&gt; Nimetatud ülalhoidepaketi seadistused ei ole kliendi poolt muudetavad ja neid seadistusi saab muuta ainult OpenVPN serveri süsteemiadministraator. &lt;p&gt; Kahjuks esineb üle 60 sekundi pikkuse keepalive puhul probleeme UDP protokolliga üle mõnede NAT võrguväratite ühenduse aegumise tõttu. TCP protokolliga seda probleemi ei esine, kuid TCP üle TCP tunnel töötab üüratult viletsasti üle kõrge paketikaoga linkide. (Vaata &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Miks TCP üle TCP on halb mõte&lt;/a&gt;)</string>
-    <string name="faq_tethering">Android Tethering (üle WiFi, USB või Bluetoothi) ja VPNService API (mida käesolev programm kasutab) ei ole koos kasutatavad. Täpsemad detailid leiad &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=34\"&gt;issue #34&lt;/a&gt;</string>
-    <string name="vpn_tethering_title">VPN ja tether</string>
     <string name="connection_retries">Ühendumise korduskatseid</string>
     <string name="reconnection_settings">Taasühendusseaded</string>
     <string name="connectretrymessage">Mitu sekundit oodata ühendumiskatsete vahel.</string>
@@ -287,8 +281,6 @@
     <string name="allow_vpn_changes">Luba muudatused VPN profiilides</string>
     <string name="hwkeychain">Riistvaraline võtmehoidla:</string>
     <string name="permission_icon_app">\'OpenVPN Androidile\' üritatakse kasutada programmi ikooni poolt</string>
-    <string name="faq_vpndialog43">"Alates Android 4.3 versioonist kaitstakse VPN kinnitust \"kattuvate programmide\" eest. Selle tulemusena ei reageeri dialoog puutesisendile. Võite sattuda sellisele probleemile kui teil on programm, mis kasutab kattumist. Leides sellise häiriva programmi, teavitage sellest programmi autorit. Nimetatud probleem mõjutab kõiki VPN programme alates Android 4.3 versioonist. Lisadetailid:  &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=185\"&gt; teema 185&lt;/a&gt;"</string>
-    <string name="faq_vpndialog43_title">Android 4.3 (ja hilisemate) VPN kinnitusdialoog</string>
     <string name="donatePlayStore">Võite saata mulle annetusena raha ka Play Store kaudu:</string>
     <string name="thanks_for_donation">Aitäh annetatud %s eest!</string>
     <string name="logCleared">Logi tühjendatud.</string>
@@ -304,7 +296,6 @@
     <string name="logview_options">Kuva valikud</string>
     <string name="unhandled_exception">Käsitlematu erand: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">Kui olete ome Androidiseadme ruutinud, saate paigaldada omal riisikol &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; ja &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Dialoogi kinnitusmooduli&lt;/a&gt;\"</string>
     <string name="full_licenses">Kõik litsentsid</string>
     <string name="blocklocal_summary">Kohaliku liidese külge ühendatud võrkude ühendusi ei suunata üle VPN\'i. Selle valiku keelamisel suunatakse ka kohaliku võrgu andmeliiklus VPN\'i.</string>
     <string name="blocklocal_title">Keela VPN kohalike võrkude jaoks</string>
@@ -347,27 +338,16 @@
     <string name="faq_androids_clients_title">OpenVPN Androidi klientrakenduste erinevused</string>
     <string name="ignore_multicast_route">Eiran multicast marsruuti: %s</string>
     <string name="ab_only_cidr">Android toetab VPN jaoks ainult CIDR marsruute. Kuna mitte-CIDR marsruute ei kasutata peaaegu kunagi, siis kasutab OpenVPN for Android marsruutidele mis ei ole CIDR, maski /32 ja väljastab hoiatuse.</string>
-    <string name="ab_tethering_44">Lõastamine (tethering) töötab ka aktiivse VPN puhul. Lõastatud ühendus EI kasuta VPN kanalit.</string>
-    <string name="ab_kitkat_mss">Varased KitKat versioonid kasutavad TCP ühendustel vale MSS väärtust (#61948). OpenVPN määrab vastuabinõuna automaatselt mssfix valiku.</string>
     <string name="ab_proxy">Kui ühtegi DNS serverit pole määratud, siis jätkab Android mobiilsele/Wi-Fi ühendusele määratud puhverserveri kasutamist. OpenVPN for Android hoiatab sellest logis.<p>Kui VPN seadistab DNS serveri siis Android ei puhverda. VPN puhverserveri määramiseks puudub API.</p></string>
     <string name="ab_not_route_to_vpn">Seadistatud kliendi IP ja selle võrgumaskis sisalduvaid IP-sid ei marsruudita VPN kaudu. OpenVPN lahendab selle probleemi lisades marsruudi kliendi IP ja võrgumaski jaoks</string>
-    <string name="ab_persist_tun">Tun seadme avamine samal ajal kui mõni teine tun seade on aktiivne, mida kasutatakse püsiva-tun tagamiseks, jooksutab seadme VPN teenused kokku. VPN kasutamiseks tuleb seade uuesti käivitada. OpenVPN üritab vältida tun seadme uuestiavamist ja tõsise vajaduse korral sulgeb uue TUN avamisel eelnevalt aktiivse TUN seadme et vältida hangumist. See võib põhjustada lühiajalise akna mille jooksul saadetakse pakette VPN ühendusest mööda. Kuid isegi vaatamata kirjeldatud protsessile võib VPN teenus vahest kokku joosta ja seade vajada uuestikäivitamist.</string>
-    <string name="ab_secondary_users">VPN töötab ainult põhikasutaja jaoks.</string>
-    <string name="ab_kitkat_reconnect">"Mitmed kasutajad on teatanud et mobiilses ühenduses/mobiilses andmesides esineb VPN programmi kasutamisel sagedasi katkestusi. Selline käitumine näib esinevat ainult teatud teenusepakkuja/seadme kombinatsioonide puhul ja seni ei ole põhjust/leevendust leitud. "</string>
-    <string name="ab_vpn_reachability_44">Üle VPN on ligipääsetav ainult aadress, mis on kättesaadav ka ilma VPN ühenduseta. IPv6 VPNid ei tööta üldse.</string>
     <string name="ab_only_cidr_title">Mitte-CIDR marsruudid</string>
     <string name="ab_proxy_title">Puhverserveri käitumine VPN puhul</string>
     <string name="version_upto">%s ja eelnevad</string>
     <string name="copy_of_profile">%s koopia</string>
     <string name="ab_not_route_to_vpn_title">Seadistatud IP aadressi marsruut</string>
-    <string name="ab_kitkat_mss_title">VPN ühenduse vale MSS väärtus</string>
-    <string name="ab_secondary_users_title">Teisesed tahvli kasutajad</string>
     <string name="custom_connection_options_warng">Seadista kohandatavad ühendusespetsiifilised valikud. Kasuta ettevaatlikult</string>
     <string name="custom_connection_options">Kohandatavad valikud</string>
     <string name="remove_connection_entry">Eemalda ühenduse kirje</string>
-    <string name="ab_kitkat_reconnect_title">Pistelised mobiilivõrgu katkestused</string>
-    <string name="ab_vpn_reachability_44_title">Kaugvõrgud on väljaspool ulatust</string>
-    <string name="ab_persist_tun_title">Püsiv tun režiim</string>
     <string name="version_and_later">%s ja hilisem</string>
     <string name="tls_cipher_alert_title">Ühendused nurjuvad teatega SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure</string>
     <string name="tls_cipher_alert">Uuemad OpenVPN for Android versioonid (0.6.29/Märts 2015) kasutavad turvalisemat vaikešifrikoplekti (tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\"). Paraku tekitab nõrgemate šifri- ning eksportšifrikomplektide vältimine, eriti nende šifrikomplektide mis ei toeta Täiuslikku Edastussaladust (Diffie-Hellman), mõningaid probleeme. Probleemid esinevad tavaliselt heade kavatsustega, kuid viletsa teostusega TLS tugevdamise katsetel, valides serveris tls-šifri mõnede kärbitud SSL algoritmiga põim-operatsioonisüsteemidel (n.n. MkroTik).\nProbleemi lahendamiseks seadke serveri tls-šifri parameetrid mõistlikule vaikeväärtusele nagu \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\". Kliendipoolseks lahenduseks lisage Androidi klientseadme tls-šifri kohandatud parameetriks DEFAULT.</string>

@@ -154,8 +154,6 @@
     <string name="speed_waiting">Állapot üzenetre várakozás&#8230;</string>
     <string name="converted_profile">importált profil</string>
     <string name="converted_profile_i">%d profil importálva</string>
-    <string name="broken_images">Működésképtelen image-ek</string>
-    <string name="broken_images_faq">&lt;p&gt;A hivatalos HTC lemezképek köztudottan különös útvonal választási problémákat tartalmaznak, amik azt okozzák, hogy az adatforgalom nem a csatornán kereszül folyik (Lást &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/18\"&gt;Issue 18&lt;/a&gt; a bug tracker-ben.)&lt;/p&gt;&lt;p&gt;Régebbi hivatalos SONY Xperia Arc S és Xperia Ray lemezképekből jelentették, hogy a VPNService teljesen hiányzik. (Lásd &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/29\"&gt;Issue 29&lt;/a&gt; a bug tracker-ben.)&lt;/p&gt;&lt;p&gt;Egyedi fordítású lemezképekben a tun modul hiányozhat vagy a /dev/tun hozzáférési joga lehet nem megfelelő. Néhány CM9 lemezképnél szükséges a \"Fix ownership\" opció engedélyezése a \"Device specific hacks\" alatt.&lt;/p&gt;&lt;p&gt;Legfontosabb: Ha az eszköz Android lemezképe sérült, jelezze a gyártónál. Minél több ember jelent egy esetet a gyártónál, annál esélyesebb hogy javítani fogja.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">PKCS12 Fájltitkosítási kulcs</string>
     <string name="private_key_password">Privát kulcs jelszó</string>
     <string name="password">Jelszó</string>
@@ -179,8 +177,6 @@
     <string name="mobile_info">%10$s %9$s futtatva %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Hiba az Android keystore %1$s: %2$s kulccsal való belépéskor</string>
     <string name="error_extapp_sign">Hiba a külső hitelesítő alkalmazással történő aláíráskor (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">A VPN csatlakozás figyelmeztetés azt jelzi, hogy ez az alkalmazás a rendszer általi teljes forgalmat lehallgathatja a VPNService API visszaélések elkerülése érdekében.\nA VPN csatlakozás értesítés (A kulcs szimbólum) is az Android rendszer jelzése egy kimenő VPN kapcsolatról. Néhány lemezképen ez az értesítés hangot is lejátszik.\nAz android az ön biztonsága érdekében vezette be ezeket a rendszer értesítéseket, és gondoskodott arról, hogy ne lehessen megkerülni. (Néhány lemezképen ez sajnos értesítési hangot is tartalmaz.)</string>
-    <string name="faq_system_dialogs_title">Kapcsolat figyelmeztetés és értesítés hang</string>
     <string name="translationby">A magyar fordítást készítették: kisjuhos, hd_adam, tomygee, Floo19, PettyBlue, ha1dfo, mmisi74, benewfy</string>
     <string name="ipdns">IP és DNS</string>
     <string name="basic">Alapvető</string>
@@ -219,8 +215,6 @@
     <string name="import_config">OpenVPN konfiguráció importálása</string>
     <string name="battery_consumption_title">Akkumulátor használat</string>
     <string name="baterry_consumption">Személyes tesztjeim alapján a magas akkuhasználatot az OpenVPN keepalive csomagjai okozzák. A legtöbb OpenVPN szerver tartalmaz egy konfigurációs direktívát, mint \'keepalive 10 60\' ami a kliens és a szerver között minden 10 másodpercben keepalive csomagok cseréjét eredményezi. &lt;p&gt; Ezek ugyan kis csomagok és nem okoznak nagy adatforgalmat, de lefoglalják a mobil rádiós részét és ezáltal növelik az energia fogyasztást. (Lásd még &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Android Developers&lt;/a&gt;) &lt;p&gt; Ez a keepalive küldés nem változtatható a kliensben. Csak az OpenVPN rendszer adminisztrátor tudja megváltoztatni ezt a beállítást. &lt;p&gt; Sajnos 60 másodpercnél nagyobb keepalive használata UDP kapcsolatnál néhány NAT átjárónál a kapcsolat eldobását okozza inaktivitási időtúllépés miatt. Hosszú keepalive timeout működőképes lehet TCP kapcsolat esetén, de TCP csomagok TCP kapcsolatban tunnel-ezése extrém rossz minőségű kapcsolatot eredményezhet magas csomagvesztésű hálózatokon. (Lásd &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Why TCP Over TCP Is A Bad Idea&lt;/a&gt;)</string>
-    <string name="faq_tethering">Az Android internet megosztás funkció (WiFi-n, USB-n vagy Bluetooth-on) és a VPNService API (amit ez a program használ) nem működnek együtt. További részletekért lást &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/34\"&gt;issue #34&lt;/a&gt;</string>
-    <string name="vpn_tethering_title">VPN és Internetmegosztás</string>
     <string name="connection_retries">Csatlakozás újrapróbálkozások</string>
     <string name="reconnection_settings">Újracsatlakozás beállítások</string>
     <string name="connectretrymessage">Csatlakozási próbálkozások közötti várakozási idő másodpercben.</string>
@@ -289,8 +283,6 @@
     <string name="allow_vpn_changes">VPN Profilok megváltoztatásának engedélyezése</string>
     <string name="hwkeychain">Hardver Kulcstár:</string>
     <string name="permission_icon_app">Az alkalmazás ikonja megpróbálja használni az OpenVPN for Android-ot</string>
-    <string name="faq_vpndialog43">"Android 4.3-tól kezdve a VPN jóváhagyás védett az \"átlapoló alkalmazásoktól\". Ez azt eredményezi, hogy a párbeszéd ablak nem reagál érintésre. Ha olyan alkalmazást futtat, ami átlapolást használ az okozhatja ezt a viselkedést. Ha jogsértő alkalmazást észlel, lépjen kapcsolatba az alkalmazás szerzőjével. Ez a probléma minden VPN alkalmazást érint Android 4.3 és későbbi verziókon. Lásd &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\"&gt;Issue 185&lt;a&gt; további részletekért"</string>
-    <string name="faq_vpndialog43_title">VPN Megerősítés Dialógus</string>
     <string name="donatePlayStore">Esetlegesen, küldhet nekem adományt a Play Store-ral:</string>
     <string name="thanks_for_donation">Köszönöm az adományt %s!</string>
     <string name="logCleared">Napló törölve.</string>
@@ -306,7 +298,6 @@
     <string name="logview_options">Nézet beállításai</string>
     <string name="unhandled_exception">Nem kezelt kivétel: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">Ha root-olta Android eszközét, akkor installálhatja a &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; -öt és a &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Dialog confirm module&lt;/a&gt; -t saját felelősségére</string>
     <string name="full_licenses">Teljes licenszek</string>
     <string name="blocklocal_summary">Azok a hálózatok útvonalai amik közvetlenül a helyi interfészére csatlakoznak nem a VPN-en keresztül fognak vezetni. Az opció kiválasztásának törlésével minden helyi forgalmat a VPN-hez irányíthat.</string>
     <string name="blocklocal_title">VPN megkerülése helyi hálózatokhoz</string>
@@ -349,27 +340,16 @@
     <string name="faq_androids_clients_title">Különbségek az Android OpenVPN kliensek között</string>
     <string name="ignore_multicast_route">Multicast útvonal figyelmen kívül hagyása: %s</string>
     <string name="ab_only_cidr">Az Android csak a CIDR útvonalakat támogatja a VPN-nél. Mivel nem-CIDR útvonalakat majdnem soha sem használnak, ezért az OpenVPN for ANdroid /32-t használ a nem-CIDR útvonalakhoz és figyelmeztetést ad.</string>
-    <string name="ab_tethering_44">Internetmegosztás működik mialatt a VPN aktív. A megosztott kapcsolat NEM fogja használni a VPN-t.</string>
-    <string name="ab_kitkat_mss">A korai KitKat verzió rosszul állítja be az MSS értéket a TCP kapcsolaton (#61948). Próbálja meg engedélyezni az mssfix opciót a hiba kiküszöbölésére.</string>
     <string name="ab_proxy">Az Android továbbra is használni fogja a proxy beállításokat, amik a mobil/WiFi kapcsolathoz vannak megadva ameddig nincs beállítva DNS kiszolgáló. Az OpenVPN for Android erről figyelmeztetni fog a log-ban.<p>Amikor a VPN beállít egy DNS kiszolgálót, az Android nem fogja tovább használni a proxy-t. Nincs API proxy beállításra VPN kapcsolathoz.</p></string>
     <string name="ab_not_route_to_vpn">A konfigurált kliens IP és a hálózati maszkjában levő IP-k útvonala nem a VPN-en keresztül vezet. Az OpenVPN úgy küszöböli ki ezt a hibát, hogy explicit hozzáad egy útvonalat ami a kliens IP és hálózati maszkjának megfelel</string>
-    <string name="ab_persist_tun">Egy tun eszköz megnyitása, mialatt egy másik tun eszköz aktív, ami megmaradó-tun esetén használt, a VPNService összeomlását okozza az eszközön. A VPN újbóli működéséhez újraindítás szükséges. Az OpenVPN for Android megpróbálja elkerülni a tun eszköz újra megnyitását és ha valóban szükséges akkor először lezárja az aktuális TUN-t az új TUN megnyitása előtt az összeomlás elkerülése érdekében. Ez egy rövid ablakoz vezethet ami alatt csomagok továbbítódhatnak nem-VPN kapcsolaton keresztül. A VPNService ennek ellenére néha mégis összeomlik, ami az eszköz újraindítását igényli.</string>
-    <string name="ab_secondary_users">A VPN egyáltalán nem működik másodlagos felhasználóknak.</string>
-    <string name="ab_kitkat_reconnect">"Több felhasználó jelentette, hogy a mobil kapcsolat/mobil adat gyakran megszakad a VPN használata alatt. Ez a viselkedés úgy tűnik csak néhány mobil szolgáltató/eszköz kombinációt érint és eddig nem azonosítottak okot/kiküszöbölést a hibára. "</string>
-    <string name="ab_vpn_reachability_44">Csak azok a célállomások érhetőek el VPN-en, amik VPN nélkül is elérhetőek. Az IPv6 VPN egyáltalán nem működik.</string>
     <string name="ab_only_cidr_title">Nem CIDR Útvonalak</string>
     <string name="ab_proxy_title">Proxy viselkedés a VPN-ekhez</string>
     <string name="version_upto">%s és korábbi</string>
     <string name="copy_of_profile">%s másolata</string>
     <string name="ab_not_route_to_vpn_title">Útvonal a konfigurált IP címhez</string>
-    <string name="ab_kitkat_mss_title">Rossz MSS érték a VPN kapcsolathoz</string>
-    <string name="ab_secondary_users_title">Másodlagos tablet felhasználók</string>
     <string name="custom_connection_options_warng">Határozzon meg egyedi kapcsolat specifikus opciókat. Elővigyázatosan használja</string>
     <string name="custom_connection_options">Egyéni beállítások</string>
     <string name="remove_connection_entry">Kapcsolat bejegyzés eltávolítása</string>
-    <string name="ab_kitkat_reconnect_title">Véletlenszerű lecsatlakozások a mobil hálózatról</string>
-    <string name="ab_vpn_reachability_44_title">Copy of %s</string>
-    <string name="ab_persist_tun_title">Megmaradó tun mód</string>
     <string name="version_and_later">%s і больш познія</string>
     <string name="tls_cipher_alert_title">Kapcsolódás sikertelen SSL23_GET_SERVER_HELLO:sslv3 alert handshake hibával</string>
     <string name="tls_cipher_alert">Újabb OpenVPN for Android verziók (0.6.29/2015 március) biztonságosabb alapértelmezést használnak az engedélyezett rejtjelező kísérletekhez (tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\"). Sajnos a kevésbé biztonságos és export rejtjelező kísérletek kihagyása, különösen azoknak a rejtjelező kísérleteknek a kihagyása amik nem támogatják a Perfect Forward Security-t (Diffie-Hellman), néhány problémát okoz. Ezt általában egy jószándékú de gyengén végrehajtott TLS biztonság fokozás okozza a szerveren vagy néhány beágyazott OS-nél lecsupaszított SSL-el (pl.: MikroTik).\nA probléma megoldásához állítsa a tls-rejtjelezés alapértelmezését ésszerűbbre a szerveren, mint például tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\". A probléma kliensen történő kiküszöböléséhez adja hozzá az Android kliensben az egyedi opciókhoz hogy tls-cipher DEFAULT.</string>

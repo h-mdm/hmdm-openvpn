@@ -151,8 +151,6 @@
     <string name="speed_waiting">Čakám na správu o stave...</string>
     <string name="converted_profile">importovaný profil</string>
     <string name="converted_profile_i">importovaný profil %d</string>
-    <string name="broken_images">Rozbité obrázky</string>
-    <string name="broken_images_faq">&lt;p&gt; Oficiálne HTC obrazy sú známe tým, že majú konkrétne problémy so smerovaním sieťového tok skrz tunel (pozri tiež &lt; href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=18\" &gt; problém 18 &lt;/a&gt; v bug trackeru.)&lt;/p&gt; &lt;p&gt; Staršie oficiálne obrazy SONY Xperia Arc S a Xperia Ray úplne chýbala VPNService. (pozri tiež &lt; href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=29\" &gt; problém 29 &lt;/a&gt; v bug trackeru.)&lt;/p&gt; &lt;p&gt; Na vlastných obrazoch Tun modul môže chýbať alebo mať zle nastavená práva. Niektoré obrazy CM9 potrebujú povolenej \"Opraviť vlastníctva\" v nastavení.&lt;/p&gt; &lt;p&gt;Najdôležitejšie: Ak má zariadenie poškodený Android obraz, oznám to výrobcovia. Čím viac ľudí oznámi problém výrobcovi, tým väčšia je pravdepodobnosť, že to opraví.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">Šifrovací kľúč PKCS12</string>
     <string name="private_key_password">Heslo k súkromnému kľúču</string>
     <string name="password">Heslo</string>
@@ -176,8 +174,6 @@
     <string name="mobile_info">%10$s %9$s spustené na %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Chyba pri podpisovaní kľúčom %1$s: %2$s</string>
     <string name="error_extapp_sign">Chyba vo vlákne s externou autentickosti aplikácie</string>
-    <string name="faq_system_dialogs">VPN varovanie pri pripájaní oznamujúce o možnosti presmerovania všetkého prevádzky je vynútené systémom, aby sa zabránilo zneužitiu VPNService API.\nNotifikace (symbol s kľúčom) je tiež vynútená systémom, aby signalizovala odchádzajúce VPN spojenie. Na niektorých systémoch prehráva notifikácia aj zvuk.\nAndroid zaviedol tieto dialógy pre tvoju osobnú bezpečnosť a uistil sa, že nejdú obísť. (Niekedy to bohužiaľ zahŕňa aj zvuk notifikácia.)</string>
-    <string name="faq_system_dialogs_title">Varovanie pri pripojení a zvuková notifikácia</string>
     <string name="translationby">Slovenský preklad zpracoval mickkymouse &lt;tobiaschannel11@gmail.com&gt;</string>
     <string name="ipdns">IP a DNS</string>
     <string name="basic">Základné</string>
@@ -216,8 +212,6 @@
     <string name="import_config">Importovať OpenVPN nastavenia</string>
     <string name="battery_consumption_title">Spotreba batérie</string>
     <string name="baterry_consumption">V testoch sa ako hlavný dôvod vysokej spotreby batérie ukázali keepalive pakety. Väčšina OpenVPN serverov má v konfigurácii niečo ako \'keepalive 10 60\', čo znamená posielanie paketov každých desať sekúnd. &lt;p&gt; Tieto pakety sú malé a neznamenajú veľký prevádzku, ale udržujú mobilnú sieť aktívna a zvyšujú spotrebu energie. (Pozri tiež &lt;ahref=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Android Developers&lt;/a&gt;)&lt;p&gt; Toto nastavenie sa nedá zmeniť na klientskej strane. Len administrátor OpenVPN môže toto nastavenie zmeniť. &lt;p&gt; Bohužiaľ používanie keepalive hodnôt väčších ako 60 sekúnd spolu s UDP môže spôsobovať problémy s niektorými Naty, ktoré ukončujú po krátkom čase spojenia. Použitie TCP s dlhým keepalive funguje, ale má problém \"TCP cez TCP\" (Pozri &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Prečo je TCP cez TCP zlý nápad&lt;/a&gt;)</string>
-    <string name="faq_tethering">Androidi funkcie tetheringu (cez WiFi, USB, alebo Bluetooth) a VPService API (používajú týmto programom) spolu nepracujú. Viac detailov viď &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=34\"&gt;problem #34&lt;/a&gt;</string>
-    <string name="vpn_tethering_title">Zdieľanie siete VPN</string>
     <string name="connection_retries">Opakované pripojenie</string>
     <string name="reconnection_settings">Nastavenie obnovenia</string>
     <string name="connectretrymessage">Počet sekúnd medzi pokusmi o pripojenie.</string>
@@ -287,8 +281,6 @@
     <string name="allow_vpn_changes">Povoliť zmeny VPN profilov</string>
     <string name="hwkeychain">Hardvérové úložisko:</string>
     <string name="permission_icon_app">Ikona aplikácie snažiaci sa použiť OpenVPN pre Android</string>
-    <string name="faq_vpndialog43">"Počnúc Androidom 4.3, VPN konfirmácia je chránená proti \"prekryvným aplikáciám\". Výsledkom je dialóg nereagujúca na dotyk. Pokiaľ máš aplikáciu používajúci prekryv, môže to spôsobiť toto správanie. Ak nájdeš škodlivú aplikáciu, kontaktuj jej autora. Tento problém ovplyvňuje všetky VPN aplikácie na Androide 4.3 a vyššie. pozri tiež &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=185\"&gt;Problem 185&lt;a&gt; pre ďalšie detaily."</string>
-    <string name="faq_vpndialog43_title">VPN potvrdzovací dialóg na Androide 4.3 a vyššie</string>
     <string name="donatePlayStore">Prípadne ma môžete sponzorovať cez Play Store:</string>
     <string name="thanks_for_donation">Vďaka za sponzorovanie %s!</string>
     <string name="logCleared">Log vyčistený.</string>
@@ -304,7 +296,6 @@
     <string name="logview_options">Zobraziť možnosti</string>
     <string name="unhandled_exception">Neošetrená výnimka: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">Ak máš rootnuté zariadenie, môžeš nainštalovať &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; a &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN potvrdzovací modul&lt;/a&gt; na vlastné nebezpečenstvo\"</string>
     <string name="full_licenses">Plné licencie</string>
     <string name="blocklocal_summary">Sieť môže byť pripojená na lokálne rozhranie nebude možné smerovanými skrze VPN. Odznačením této volby bude přesměrován každý lokálny provoz do VPN.</string>
     <string name="blocklocal_title">Nepoužívať VPN pre lokálne siete</string>
@@ -347,27 +338,16 @@
     <string name="faq_androids_clients_title">Rozdiely medzi OpenVPN klientov pre Android</string>
     <string name="ignore_multicast_route">Ignorovanie trasy multicast: %s</string>
     <string name="ab_only_cidr">Android podporuje iba trasy CIDR k sieti VPN. Pretože trasy, ktoré nie sú CIDR, sa takmer nikdy nepoužívajú, OpenVPN pre Android použije / 32 pre trasy, ktoré nie sú CIDR, a vydá varovanie.</string>
-    <string name="ab_tethering_44">Tethering funguje, keď je VPN aktívna. Zdieľané pripojenie NEPOUŽÍVA VPN.</string>
-    <string name="ab_kitkat_mss">Staršia verzia KitKat nastavila nesprávnu hodnotu MSS na pripojeniach TCP (# 61948). Pokúste sa povoliť možnosť mssfix na obídenie tejto chyby.</string>
     <string name="ab_proxy">Ak nie sú nastavené žiadne servery DNS, systém Android bude naďalej používať vaše nastavenia servera proxy určené pre mobilné pripojenie / pripojenie Wi-Fi. OpenVPN pre Android vás na to upozorní v denníku.<p>Keď VPN nastaví DNS server, Android nebude používať proxy. Neexistuje žiadne rozhranie API na nastavenie servera proxy pre pripojenie VPN.</p></string>
     <string name="ab_not_route_to_vpn">Konfigurovaná adresa IP klienta a adresy IP v jeho sieťovej maske nie sú smerované do VPN. OpenVPN obíde túto chybu tým, že explicitne pridá cestu, ktorá sa zhoduje s IP adresou klienta a jeho sieťovou maskou</string>
-    <string name="ab_persist_tun">Otvorenie tunového zariadenia, zatiaľ čo je aktívne iné tunerové zariadenie, ktoré sa používa na podporu pretrvávajúceho tuningu, zrúti služby VPNS na zariadení. Aby sieť VPN opäť fungovala, je potrebný reštart. OpenVPN pre Android sa snaží vyhnúť sa opätovnému otvoreniu tunového zariadenia a ak je to skutočne potrebné, najskôr zatvorí aktuálny TUN pred otvorením nového TUN zariadenia, aby nedošlo k zlyhaniu. To môže viesť k krátkemu oknu, v ktorom sa pakety odosielajú cez pripojenie iné ako VPN. Aj pri tomto riešení sa niekedy služby VPNS zlyhajú a vyžadujú reštart zariadenia.</string>
-    <string name="ab_secondary_users">VPN pre sekundárnych používateľov vôbec nefunguje.</string>
-    <string name="ab_kitkat_reconnect">„Viacerí používatelia hlásia, že pri používaní aplikácie VPN je často prerušené mobilné pripojenie / mobilné dátové pripojenie. Zdá sa, že správanie ovplyvňuje iba kombináciu mobilných operátorov a zariadení a doteraz sa nedala zistiť príčina / riešenie chyby.“</string>
-    <string name="ab_vpn_reachability_44">Cez VPN je možné dosiahnuť iba cieľ, ktorý je dostupný bez VPN. VPN VPN typu IPv6 vôbec nefungujú.</string>
     <string name="ab_only_cidr_title">Nie-CIDR trasy</string>
     <string name="ab_proxy_title">Proxy správania pre VPN</string>
     <string name="version_upto">%s a staršie</string>
     <string name="copy_of_profile">Kópia %s</string>
     <string name="ab_not_route_to_vpn_title">Trasa k nastavenej IP adrese</string>
-    <string name="ab_kitkat_mss_title">Zlá hodnota MSS pre VPN spojenie</string>
-    <string name="ab_secondary_users_title">Používatelia sekundárnych tabletov</string>
     <string name="custom_connection_options_warng">Zadajte vlastné špecifické možnosti na pripojenie. Používajte opatrne</string>
     <string name="custom_connection_options">Vlastné možnosti</string>
     <string name="remove_connection_entry">Odstrániť položku pripojenie</string>
-    <string name="ab_kitkat_reconnect_title">Náhodné odpájaní od mobilnej siete</string>
-    <string name="ab_vpn_reachability_44_title">Vzdialená sieť nie je dostupná</string>
-    <string name="ab_persist_tun_title">Zotrvať v režime ton</string>
     <string name="version_and_later">%s a neskôr</string>
     <string name="tls_cipher_alert_title">Pripojenie zlyhalo SSL23_GET_SERVER_HELLO:sslv3 upozorniť na zlyhanie handshake</string>
     <string name="tls_cipher_alert">Novšie verzie OpenVPN pre verzie systému Android (0.6.29 / marec 2015) používajú bezpečnejšie predvolené nastavenia povolených šifrovacích balíkov (tls-cipher \"DEFAULT:! EXP:! PSK:! SRP:! KRSA\"). Bohužiaľ, vynechanie menej bezpečných šifrovacích súborov a export šifrovacích súborov, najmä vynechanie šifrovacích súborov, ktoré nepodporujú Perfect Forward Secrecy (Diffie-Hellman), spôsobuje určité problémy. Toto je zvyčajne spôsobené dobre mieneným, ale zle vykonaným pokusom o posilnenie bezpečnosti TLS nastavením tls-šifry na serveri alebo v niektorých zabudovaných OS s odstráneným SSL (napr. MikroTik).\nAk chcete vyriešiť tento problém, nastavte nastavenia tls-šifry na serveri na predvolené predvolené hodnoty, napríklad tls-šifra \"DEFAULT:! EXP:! PSK:! SRP:! KRSA\". Na vyriešenie problému na klientovi pridajte na klientovi Android vlastnú voľbu tls-cipher DEFAULT.</string>

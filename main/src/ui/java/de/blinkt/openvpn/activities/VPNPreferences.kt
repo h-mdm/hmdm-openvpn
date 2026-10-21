@@ -4,7 +4,6 @@
  */
 package de.blinkt.openvpn.activities
 
-import android.annotation.TargetApi
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
@@ -39,7 +38,6 @@ class VPNPreferences : BaseActivity(), VpnStatus.ProfileNotifyListener {
     private lateinit var mPager: ViewPager2
     private lateinit var mPagerAdapter: ScreenSlidePagerAdapter
 
-    @TargetApi(Build.VERSION_CODES.KITKAT)
     protected fun isValidFragment(fragmentName: String): Boolean {
         for (c in validFragments) if (c.name == fragmentName) return true
         return false
@@ -87,6 +85,8 @@ class VPNPreferences : BaseActivity(), VpnStatus.ProfileNotifyListener {
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        checkMinimalUIDisabled()
+
         mProfileUUID = intent.getStringExtra("$packageName.profileUUID")
         if (savedInstanceState != null) {
             val savedUUID = savedInstanceState.getString("$packageName.profileUUID")
@@ -224,5 +224,10 @@ class VPNPreferences : BaseActivity(), VpnStatus.ProfileNotifyListener {
             Toast.makeText(this, R.string.editor_close_profile_changed, Toast.LENGTH_LONG).show();
             finish();
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        VpnStatus.removeProfileStateListener(this)
     }
 }

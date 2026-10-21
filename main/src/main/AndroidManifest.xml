@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK" />
 
     <!-- Used to show all apps in the allowed Apps selection,
          this app needs the list the app in the allow/deny apps over the VPN -->
@@ -138,6 +139,10 @@
                 android:targetActivity=".api.RemoteAction" />
         <activity-alias
                 android:name=".api.ResumeVPN"
+                android:exported="true"
+                android:targetActivity=".api.RemoteAction" />
+        <activity-alias
+                android:name=".api.SetDefaultVPN"
                 android:exported="true"
                 android:targetActivity=".api.RemoteAction" />
 

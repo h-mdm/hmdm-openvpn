@@ -154,8 +154,6 @@
     <string name="speed_waiting">Attente du statut&#8230;</string>
     <string name="converted_profile">"profil importé"</string>
     <string name="converted_profile_i">profil importé %d</string>
-    <string name="broken_images">Images corrompues</string>
-    <string name="broken_images_faq">&lt;&gt;Les ROMs officielles HTC sont connues pour avoir des problèmes de routage entraînant que le trafic ne passe pas par le tunnel VPN. (C.f.: &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=18\"&gt;Issue 18&lt;/a&gt; dans le \"bug tacker\")&lt;/p&gt;&lt;p&gt;Les ROMs officielles de SONY pour le Xperia Arc S et le Xperia Ray ont été signalé comme ne possédant pas le service VPN. Toute autre ROM SONY peut avoir le même problème.  (C.f.: &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=29\"&gt;Issue 29&lt;/a&gt; dans le \"bug tacker\")&lt;/p&gt;&lt;p&gt;Sur les ROM personnalisées le module TUN peut être manquant ou les droits de /dev/tun peuvent être incorrects. Certaines ROM CM9 peuvent nécessiter d\'utiliser l\'option de correction des droits de /dev/tun accessible depuis les \"Options générales\"/&lt;/p&gt;&lt;p&gt;Important: Si votre ROM a un problème, contactez le vendeur, il se peut que qu\'il vous fournisse un patch.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">Fichier avec la clé de chiffrement PKCS12</string>
     <string name="private_key_password">Mot de passe de la clé privée</string>
     <string name="password">Mot de passe</string>
@@ -179,9 +177,6 @@
     <string name="mobile_info">%10$s %9$s fonctionnant sur %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Erreur de signature de la clé %1$s : %2$s par le gestionnaire d\'Android</string>
     <string name="error_extapp_sign">Erreur de signature avec l\'application d\'authentification externe (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">L\'avertissement de connexion au VPN, qui vous informe que cette application peut intercepter tout le trafic, est imposé par le système pour éviter les abus de l\'API du service VPN.\nLa notification de connexion au VPN (le symbole qui ressemble à une clé) est aussi imposée par le système Android pour signaler une connexion VPN en cours de fonctionnement.
-Sur certaines ROM, cette notification joue un son.\nAndroid a introduit ces notifications pour votre propre sécurité et a fait en sorte qu\'elles soient impossibles à contourner</string>
-    <string name="faq_system_dialogs_title">Avertissement de connexion et son de notification</string>
     <string name="translationby">Traduction française par les utilisateurs sur Crowdin</string>
     <string name="ipdns">IP et DNS</string>
     <string name="basic">Base</string>
@@ -220,8 +215,6 @@ Sur certaines ROM, cette notification joue un son.\nAndroid a introduit ces noti
     <string name="import_config">"Importer une configuration OpenVPN"</string>
     <string name="battery_consumption_title">"Consommation de la batterie"</string>
     <string name="baterry_consumption">Lors de mes essais, j\'ai remarqué que les \"keepalive packets\" sont la principale cause d\'une forte consommation de batterie d\'OpenVPN. La plupart des serveurs OpenVPN sont configurés avec la directive \'keepalive 10 60\' qui entraîne l\'échange de \"keepalive packets\" toutes les 10 secondes entre le client et le serveur. &lt;p&gt; Même si ces paquets sont légers et utilisent peu de bande passante, ils sollicitent en permanence l\'interface radio et accroissent la consommation d\'énergie. (Voir aussi : &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt; The Radio State Machine | Android Developers&lt;/a&gt;) &lt;p&gt; Cette directive ne peut pas être modifiée sur le client, et seul l\'administrateur du serveur OpenVPN peut la changer.&lt;p&gt; Malheureusement, utiliser un intervalle de plus de 60 secondes entre les \"keepalive packets\" en UDP peut causer la clôture de la connexion par certaines passerelles NAT. Utiliser TCP avec un long intervalle entre les \"keepalive packets\" fonctionne, mais encapsuler du TCP dans du TCP entraîne une connexion de mauvaise qualité avec un grand nombre de paquets perdus. (Voir &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Why TCP over TCP is a bad idea&lt;/a&gt;)</string>
-    <string name="faq_tethering">La fonctionnalité Partage de connexion Android (sur WiFi, USB ou Bluetooth) et l\'API VPNService (utilisé par ce programme) ne fonctionnent pas ensemble. Pour plus de détails voir &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/34\"&gt;issue #34&lt;/a&gt;</string>
-    <string name="vpn_tethering_title">VPN et Partage</string>
     <string name="connection_retries">Tentatives de connexion</string>
     <string name="reconnection_settings">Paramètres de reconnexion</string>
     <string name="connectretrymessage">Nombre de secondes entre chaque tentative de connexion.</string>
@@ -290,8 +283,6 @@ Sur certaines ROM, cette notification joue un son.\nAndroid a introduit ces noti
     <string name="allow_vpn_changes">Autoriser les modifications des profils VPN</string>
     <string name="hwkeychain">Magasin de clés matérielles :</string>
     <string name="permission_icon_app">Icône de l\'appli essayant d\'utiliser OpenVPN for Android</string>
-    <string name="faq_vpndialog43">"À partir d\'Android 4.3, l\'interface du VPN est protégée contre les \"applications recouvrantes\". Il peut arriver que la boîte de dialogue ne réagisse pas à la saisie tactile. Si vous avez une application qui utilise des superpositions, elle peut causer ce comportement. Si vous trouvez une application fautive, contactez l\'auteur de l\'application. Ce problème affecte toutes les applications VPN sur Android 4.3 et plus. Voir aussi &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=185\"&gt;Issue 185&lt;a&gt; pour plus de détails"</string>
-    <string name="faq_vpndialog43_title">Boite de dialogue du VPN</string>
     <string name="donatePlayStore">Sinon vous pouvez m\'envoyer un don via le Play Store :</string>
     <string name="thanks_for_donation">Merci pour le don %s !</string>
     <string name="logCleared">Journal effacé.</string>
@@ -307,7 +298,6 @@ Sur certaines ROM, cette notification joue un son.\nAndroid a introduit ces noti
     <string name="logview_options">Options d\'affichage</string>
     <string name="unhandled_exception">Exception non gérée : %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s : %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">Si vous avez \"rooté\" votre téléphone Android, vous pouvez installer &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; et &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;le module de confirmation VPN&lt;/a&gt; à vos risques et périls\"</string>
     <string name="full_licenses">Licences complètes</string>
     <string name="blocklocal_summary">Les réseaux directement connectés aux interfaces locales ne seront pas routés via le VPN. Décochez cette option pour rediriger tout le trafic local vers le VPN.</string>
     <string name="blocklocal_title">Contourner le VPN pour les réseaux locaux</string>
@@ -350,27 +340,16 @@ Sur certaines ROM, cette notification joue un son.\nAndroid a introduit ces noti
     <string name="faq_androids_clients_title">Différences entre les clients OpenVPN Android</string>
     <string name="ignore_multicast_route">Ignorer la route multicast : %s</string>
     <string name="ab_only_cidr">Android ne prend en charge que les routes CIDR vers le VPN. Étant donné que les routes non-CIDR ne sont pratiquement jamais utilisées, OpenVPN pour Android utilisera un /32 pour les routes qui ne sont pas CIDR et émettra un avertissement.</string>
-    <string name="ab_tethering_44">Le partage fonctionne tant que le VPN est actif. La connexion partagée n\'utilisera pas le VPN.</string>
-    <string name="ab_kitkat_mss">Les premières versions KitKat définissent une valeur MSS erronée (#61948). Essayez d\'activer l\'option mssfix pour contourner ce bug.</string>
     <string name="ab_proxy">Android va continuer d\'utiliser vos paramètres de proxy spécifiés pour la connexion mobile / Wi-Fi lorsque aucun serveur DNS n\'est défini. OpenVPN pour Android vous avertira à ce sujet dans le journal.<p>Quand un VPN définit un serveur de DNS, Android n\'utilisera pas de proxy. Il n\'y a pas d\'API pour définir un proxy pour une connexion VPN.</p></string>
     <string name="ab_not_route_to_vpn">L\'adresse IP du client, et les adresses IP de ce réseau ne sont pas routées par le VPN. OpenVPN contourne ce problème en ajoutant une route qui correspond à l’adresse IP et au masque de sous-réseau du client</string>
-    <string name="ab_persist_tun">Ouvrir un appareil en mode TUN pendant qu\'un autre appareil en mode TUN est actif, ce qui est requis pour la prise en charge de la persistance TUN, produit un plantage de VPNServices sur l\'appareil. Un redémarrage est nécessaire pour faire fonctionner le VPN à nouveau. OpenVPN pour Android tente d\'éviter de ré-ouvrir l\'appareil en mode TUN , et si cela est indispensable il arrête d\'abord le TUN actuel avant d\'ouvrir le nouveau TUN pour éviter un plantage. Cela peut conduire à une courte période pendant laquelle les paquets sont envoyés hors de la connexion VPN. Même avec cette solution de contournement, VPNServices se bloque parfois et nécessite un redémarrage de l\'appareil.</string>
-    <string name="ab_secondary_users">Le VPN ne fonctionnera pas du tout pour les utilisateurs secondaires.</string>
-    <string name="ab_kitkat_reconnect">"Plusieurs utilisateurs ont signalé des pertes de paquets durant l\'utilisation d\'un VPN sur leur connexion mobile. Ce comportement semble être lié à certains fournisseurs/téléphones, et jusqu\'à présent, nous n\'avons pas pu identifier la cause de ce bug."</string>
-    <string name="ab_vpn_reachability_44">Seule la destination peut être atteinte via le VPN accessible sans VPN. Les VPNs IPv6 ne fonctionnent pas du tout.</string>
     <string name="ab_only_cidr_title">Routes non CIDR</string>
     <string name="ab_proxy_title">Comportement du proxy pour les VPN</string>
     <string name="version_upto">%s et antérieur</string>
     <string name="copy_of_profile">Copie de %s</string>
     <string name="ab_not_route_to_vpn_title">Route vers l\'adresse IP configurée</string>
-    <string name="ab_kitkat_mss_title">Valeur MSS erronée pour la connexion VPN</string>
-    <string name="ab_secondary_users_title">Utilisateurs de tablettes secondaires</string>
     <string name="custom_connection_options_warng">Pour entrer des options de connexion personnalisées. À utiliser avec précaution</string>
     <string name="custom_connection_options">Options personnalisées</string>
     <string name="remove_connection_entry">Supprimer entrée de connexion</string>
-    <string name="ab_kitkat_reconnect_title">Déconnexion aléatoire du réseau mobile</string>
-    <string name="ab_vpn_reachability_44_title">Réseau distant injoignable</string>
-    <string name="ab_persist_tun_title">Mode tun persistant</string>
     <string name="version_and_later">%s et ultérieur</string>
     <string name="tls_cipher_alert_title">Échec de la connexion avec l\'erreur SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure</string>
     <string name="tls_cipher_alert">Les nouvelles versions d\'OpenVPN pour Android (0.6.29 / Mars 2015) utilisent une valeur par défaut plus sécurisée pour les suites cryptographiques autorisées (tls-cipher \"DEFAULT:! EXP:! PSK:! SRP:! KRSA\"). Malheureusement, en omettant les suites cryptographiques moins sécurisées et les suites EXPORT, en particulier l\'omission de suites qui ne prennent pas en charge Perfect Forward Secrecy (Diffie-Hellman) pose certains problèmes. Cela est généralement dû à une tentative bien intentionnée mais mal exécutée de renforcer la sécurité TLS en configurant tls-cipher sur le serveur ou sur certains systèmes d\'exploitation embarqués avec un SSL dépouillé (par exemple MikroTik).\nPour résoudre ce problème, réglez le paramètre tls-cipher sur le serveur à une valeur par défaut raisonnable comme \"DEFAULT:! EXP:! PSK:! SRP:! kRSA\". Pour contourner le problème sur le client, ajoutez l\'option personnalisée tls-cipher DEFAULT sur le client Android.</string>

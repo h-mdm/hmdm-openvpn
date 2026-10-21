@@ -154,8 +154,6 @@
     <string name="speed_waiting">در حال انتظار برای حالت پیام&#8230;</string>
     <string name="converted_profile">پروفایل وارده شده</string>
     <string name="converted_profile_i">پروفایل وارد شده %d</string>
-    <string name="broken_images">تصاویر شکسته</string>
-    <string name="broken_images_faq">&lt;p&gt;Official HTC images are known to have a strange routing problem causing traffic not to flow through the tunnel (See also &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/18\"&gt;Issue 18&lt;/a&gt; in the bug tracker.)&lt;/p&gt;&lt;p&gt;Older official SONY images from Xperia Arc S and Xperia Ray have been reported to be missing the VPNService completely from the image. (See also &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/29\"&gt;Issue 29&lt;/a&gt; in the bug tracker.)&lt;/p&gt;&lt;p&gt;On custom build images the tun module might be missing or the rights of /dev/tun might be wrong. Some CM9 images need the \"Fix ownership\" option under \"Device specific hacks\" enabled.&lt;/p&gt;&lt;p&gt;Most importantly: If your device has a broken Android image, report it to your vendor. The more people who report an issue to the vendor, the more likely they are to fix it.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">PKCS12 کلید رمزگذاری فایل</string>
     <string name="private_key_password">رمز عبور خصوصی کلید</string>
     <string name="password">کلمه عبور</string>
@@ -179,8 +177,6 @@
     <string name="mobile_info">%10$s %9$s در حال اجرا در %3$s %1$s (%2$s)، Android %6$s (%7$s) API %4$d، ABI %5$s، (%8$s)</string>
     <string name="error_rsa_sign">خطایی در هنگام وارد شدن با کلیدی کلید Android %1$s: %2$s</string>
     <string name="error_extapp_sign">خطا در ورود به سیستم با نرم افزار تأیید کننده خارجی (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">اخطار اتصال VPN به شما این را می گوید که این برنامه می تواند تمام سیستم های ترافیکی را تحت کنترل بگیرد تا از سوء استفاده از VPNS سرویس API جلوگیری شود. \n اطلاع رسانی اتصال VPN (نماد کلیدی) نیز توسط سیستم Android برای نشان دادن اتصال VPN در حال انجام است. در برخی از تصاویر این اعلان یک صدا را پخش می کند. \n اندروید این پنجره های سیستم را برای ایمنی خود معرفی کرد و اطمینان داد که نمی توان آنها را دور زد. (در برخی از تصاویر این متاسفانه شامل یک صدای اعلان)</string>
-    <string name="faq_system_dialogs_title">هشدار اتصال و صدای اعلان</string>
     <string name="translationby">ترجمه انگلیسی توسط Arne Schwabe&lt;arne@rfc2549.org&gt;</string>
     <string name="ipdns">IP و DNS</string>
     <string name="basic">پایه</string>
@@ -221,8 +217,6 @@
     <string name="import_config">وارد کردن پیکربندی OpenVPN</string>
     <string name="battery_consumption_title">مصرف باتری</string>
     <string name="baterry_consumption">در آزمایش های شخصی من دلیل اصلی مصرف باتری بالا از OpenVPN بسته های نگهدارنده هستند. اکثر سرورهای OpenVPN دارای یک دستورالعمل پیکربندی مانند \"keepalive 10 60\" هستند که باعث می شود مشتری و سرور هر 10 ثانیه یک بار بسته های نگهداری را تغییر دهند. &lt;p&gt; در حالیکه این بسته ها کوچک هستند و از ترافیک زیادی استفاده نمی کنند، شبکه رادیویی تلفن همراه را مشغول می کنند و مصرف انرژی را افزایش می دهند. (همچنین نگاه کنید به &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt; دستگاه دستگاه رادیویی | Android Developers&lt;/a&gt;) &lt;p&gt; این تنظیم Keepalive را نمی توان در سرویس گیرنده تغییر داد. فقط مدیر سیستم OpenVPN می تواند تنظیمات را تغییر دهد. &lt;p&gt; متاسفانه با استفاده از keepalive بزرگتر از 60 ثانیه با UDP می تواند بعضی از دروازه های NAT را به علت زمان وقوع غیرفعال، قطع کند. با استفاده از TCP با زمان طولانی نگه داشتن زنده کار می کند، اما تونل زدن TCP بیش از TCP در اتصالات با از دست دادن بسته بندی بسیار ضعیف است. (به &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt; چرا TCP بیش از TCP یک Idea&lt;/a&gt; بد است)</string>
-    <string name="faq_tethering">ویژگی Tethering اندروید (بیش از WiFi، USB یا بلوتوث) و API VPNService (که توسط این برنامه استفاده می شود) با یکدیگر کار نمی کنند. برای جزئیات بیشتر &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/34\"&gt;issue # 34&lt;/a&gt; را ببینید;</string>
-    <string name="vpn_tethering_title">VPN و Tethering</string>
     <string name="connection_retries">اتصال دوباره انجام می شود</string>
     <string name="reconnection_settings">تنظیمات اتصال مجدد</string>
     <string name="connectretrymessage">تعداد ثانیه ها برای متوقف کردن تلاش اتصال.</string>
@@ -291,8 +285,6 @@
     <string name="allow_vpn_changes">اجازه تغییرات در پروفایل VPN</string>
     <string name="hwkeychain">سخت افزار Keystore:</string>
     <string name="permission_icon_app">نماد برنامه تلاش برای استفاده از OpenVPN برای آندروید</string>
-    <string name="faq_vpndialog43">"با شروع از Android 4.3 تأیید VPN در برابر\" برنامه های Overlaying \"محافظت می شود.این نتیجه منجر به محاوره ای می شود که به ورودی لمس واکنش نشان نمی دهد.اگر شما یک برنامه ای دارید که از پوشش ها استفاده می کند ممکن است این رفتار را ایجاد کند. از این برنامه است.این مشکل بر تمامی برنامه های VPN در اندروید 4.3 و بالاتر تأثیر می گذارد. همچنین برای جزئیات بیشتر &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\"&gt;Issue 185&lt;a&gt; "</string>
-    <string name="faq_vpndialog43_title">گفتگوی تایید Vpn</string>
     <string name="donatePlayStore">به طور خلاصه شما می توانید با فروشگاه Play Donation را به من بدهید:</string>
     <string name="thanks_for_donation">متشکرم برای اهدای %s!</string>
     <string name="logCleared">لاگ پاک شد.</string>
@@ -308,7 +300,6 @@
     <string name="logview_options">نمایش گزینه ها</string>
     <string name="unhandled_exception">استثنا ناامن: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">اگر دستگاه اندرویدی خود را ریشه کرده باشید می توانید &lt;a href=\"http://xposed.info/\"&gt; بستن framework&lt;/a&gt; را نصب کنید و &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Dialog را تایپ کنید ماژول &lt;/a&gt; به خطر افتادن شما \"</string>
     <string name="full_licenses">مجوزهای کامل</string>
     <string name="blocklocal_summary">شبکه هایی که به طور مستقیم به واسط های محلی متصل می شوند بر روی VPN مسیریابی نمی شوند. لغو انتخاب این گزینه تمام ترافیک شبکه های محلی را به VPN هدایت می کند.</string>
     <string name="blocklocal_title">دور زدن VPN برای شبکه های محلی</string>
@@ -351,27 +342,16 @@
     <string name="faq_androids_clients_title">تفاوت بین مشتریان OpenVPN اندروید</string>
     <string name="ignore_multicast_route">نادیده گرفتن مسیر چندرسانه ای: %s</string>
     <string name="ab_only_cidr">اندروید تنها از مسیرهای CIDR به VPN پشتیبانی می کند. از آنجایی که مسیرهای غیر CIDR تقریبا هرگز استفاده نمی شود، OpenVPN برای اندروید از 32/32 برای مسیرهایی استفاده می کند که CIDR نیستند و هشدار را صادر می کنند.</string>
-    <string name="ab_tethering_44">VPN در حال فعال است. اتصال متصل به VPN از VPN استفاده نخواهد کرد.</string>
-    <string name="ab_kitkat_mss">نسخه کیت کت اولیه مقدار ارزش اشتباه MSS را در اتصالات TCP (# 61948) تنظیم می کند. سعی کنید گزینه mssfix را فعال کنید تا این اشکال حل شود.</string>
     <string name="ab_proxy">آندروید با استفاده از تنظیمات پروکسی خود را مشخص شده برای اتصال تلفن همراه / Wi-Fi را حفظ خواهد کرد زمانی که هیچ سرور DNS تنظیم نشده است. OpenVPN برای Android در مورد این در log.<p> هنگامی که یک VPN یک سرور DNS را تنظیم می کند، آندروید از پروکسی استفاده نمی کند. هیچ API برای تنظیم یک پروکسی برای اتصال VPN وجود ندارد. 123._4_1_</p>321</string>
     <string name="ab_not_route_to_vpn">IP سرویس گیرنده پیکربندی و IP ها در ماسک شبکه خود را به VPN هدایت نمی کنند. OpenVPN در مورد این اشکال با صراحت اضافه کردن یک مسیر که corrosponds به IP سرویس گیرنده و mask آن</string>
-    <string name="ab_persist_tun">باز کردن یک دستگاه صدای زنگ در حالی که دستگاه دیگری tun فعال است، که برای پشتیبانی persistent tun استفاده می شود، سرویس VPNS را بر روی دستگاه خراب می کند. مجددا راه اندازی مجدد می شود تا مجددا کار VPN انجام شود. OpenVPN برای آندروید تلاش می کند تا از بازگشایی دستگاه tun جلوگیری کند و اگر واقعا نیاز باشد، ابتدا TUN فعلی را قبل از باز شدن دستگاه جدید TUN برای جلوگیری از سقوط، بسته می کند. این ممکن است منجر به یک پنجره کوتاه که در آن بسته ها بر روی اتصال غیر VPN ارسال شوند. حتی با این راهکار VPNS سرویس ها گاهی اوقات سقوط می کنند و نیاز به راه اندازی مجدد دستگاه دارند.</string>
-    <string name="ab_secondary_users">VPN برای کاربران ثانویه کار نمی کند.</string>
-    <string name="ab_kitkat_reconnect">"کاربران چندگانه گزارش می دهند که اتصال داده های تلفن همراه / داده های تلفن همراه در هنگام استفاده از برنامه VPN غالبا کاهش می یابد. به نظر می رسد که رفتار به تنها برخی از ترکیبی از سرویس دهنده / دستگاه تلفن همراه تاثیر می گذارد و تاکنون هیچ علت / راه حل برای شناسایی اشکال وجود نداشته است."</string>
-    <string name="ab_vpn_reachability_44">تنها مقصد را می توان از طریق VPN که بدون VPN قابل دسترسی است رسیده است. VPN های IPv6 همگی کار نمی کنند.</string>
     <string name="ab_only_cidr_title">مسیرهای غیر CIDR</string>
     <string name="ab_proxy_title">رفتار پروکسی برای VPN ها</string>
     <string name="version_upto">%s و قبل از آن</string>
     <string name="copy_of_profile">کپی از %s</string>
     <string name="ab_not_route_to_vpn_title">مسیر به آدرس IP پیکربندی شده</string>
-    <string name="ab_kitkat_mss_title">مقدار MSS برای اتصال VPN نامعتبر است</string>
-    <string name="ab_secondary_users_title">کاربران تبلت ثانویه</string>
     <string name="custom_connection_options_warng">گزینه های خاص اتصال سفارشی را مشخص کنید. با دقت استفاده کنید</string>
     <string name="custom_connection_options">گزینه های سفارشی</string>
     <string name="remove_connection_entry">حذف اتصال ورودی</string>
-    <string name="ab_kitkat_reconnect_title">تصادفی از شبکه تلفن همراه قطع می شود</string>
-    <string name="ab_vpn_reachability_44_title">شبکه های از راه دور قابل دسترسی نیست</string>
-    <string name="ab_persist_tun_title">حالت مداوم را ادامه دهید</string>
     <string name="version_and_later">%s و بعدا</string>
     <string name="tls_cipher_alert_title">اتصالات با SSL23_GET_SERVER_HELLO: sslv3 هشدار شکست خوردن دستکاری</string>
     <string name="tls_cipher_alert">جدیدتر OpenVPN برای نسخه های آندروید (0.6.29 / مارس 2015) از پیش فرض امن تر برای سوئیت های مجاز رمز (tls-cipher \"DEFAULT:! EXP:! PSK:! SRP:! kRSA\") استفاده می شود. متأسفانه، حذف کردن سوئیت های امنیتی کمتری و صادر کردن سوئیت های سری، به ویژه حذف مجموعه سوپرمارکت هایی که از تضعیف کامل Perfect Forward پشتیبانی نمی کنند (Diffie-Hellman) باعث مشکلات خاصی می شود. این معمولا توسط تلاش خوبی انجام شده اما به اجرا گذاشته شده به منظور تقویت امنیت TLS با تنظیم tls-cipher در سرور یا برخی از سیستم عامل های جاسازی شده با SSL خالی شده (به عنوان مثال MikroTik) ناشی می شود. \n برای حل این مشکل مشکل، تنظیم tls-رمز تنظیمات سرور به صورت پیش فرض معقول مانند tls-cipher \"DEFAULT:! EXP!! PSK:! SRP:! kRSA\". برای کنار آمدن با مشکل در سرویس گیرنده، گزینه tls-cipher DEFAULT سفارشی را در سرویس گیرنده Android اضافه کنید.</string>

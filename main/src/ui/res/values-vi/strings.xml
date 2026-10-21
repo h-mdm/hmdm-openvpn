@@ -154,8 +154,6 @@
     <string name="speed_waiting">Đang chờ tin nhắn trạng thái&#8230;</string>
     <string name="converted_profile">hồ sơ đã nhập</string>
     <string name="converted_profile_i">hồ sơ đã nhập %d</string>
-    <string name="broken_images">Ảnh bị hỏng</string>
-    <string name="broken_images_faq">&lt;p&gt;Thông tin chính thức của HTC có một số vấn đề định tuyến đường truyền xảy ra khi không lưu thông được (Xem thêm &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=18\"&gt;Issue 18&lt;/a&gt; trong báo cáo theo dõi lỗi).&lt;/p&gt;&lt;p&gt;Thông tin chính thức từ Sony dòng Xperia Arc S và Xperia Ray đã được báo cáo về việc mất kết nối với dịch vụ VPN. (Xem thêm &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=29\"&gt;Issue 29&lt;/a&gt; trong báo cáo theo dõi lỗi.)&lt;/p&gt;&lt;p&gt;Một số bản dựng tùy chỉnh cho tun module có thể bị thiếu /dev/tun hoặc có thể sai. Một vài ROM CM9 cần phải \"Sửa tùy chọn chủ sở hữu\" bên dưới \"Sự xâm nhập thiết bị cụ thể\" được bật.&lt;/p&gt;&lt;p&gt;Quan trọng nhất, nếu thiết bị của bạn hỏng ROM Android, hãy báo cáo cho nhà phát triển. Càng nhiều người báo cáo vấn đề đến nhà phát triển thì càng có nhiều khả năng họ sẽ sửa lỗi đó.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">Tập tin khóa mã hóa PKCS12</string>
     <string name="private_key_password">Khóa mật khẩu riêng tư</string>
     <string name="password">Mật khẩu</string>
@@ -179,8 +177,6 @@
     <string name="mobile_info">%10$s%9$s đang chạy trên %3$s%1$s(%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Lỗi đăng ký với khóa lưu trữ Android %1$s: %2$s</string>
     <string name="error_extapp_sign">Lỗi khi ký với ứng dụng xác thực bên ngoài (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">Các kết nối VPN đang cảnh báo bạn rằng ứng dụng này có thể chặn tất cả lưu lượng được đặt bởi hệ thống để chặn tình trạng lạm dụng VPN API. \nThông báo kết nối VPN (Biểu tượng chìa khóa) cũng được đặt bởi hệ thống Android để báo hiệu một kết nối VPN đang hoạt động. Với một số trường hợp thông báo này sẽ phát một âm thanh. \nAndroid giới thiệu những đoạn hội thoại này vì sự an toàn của bạn và chắn chắn rằng chúng không thể bị xâm nhập phá hoại. (Trên một số trường hợp thật không may không bao gồm âm thanh thông báo)</string>
-    <string name="faq_system_dialogs_title">Cảnh báo kết nối và thông báo âm thanh</string>
     <string name="translationby">Phiên dịch tiếng Việt bởi Tojido Takarin&lt;tojidotakarin@gmail.com&gt;</string>
     <string name="ipdns">IP và DNS</string>
     <string name="basic">Cơ bản</string>
@@ -219,8 +215,6 @@
     <string name="import_config">Nhập cấu hình OpenVPN</string>
     <string name="battery_consumption_title">Mức tiêu thụ pin</string>
     <string name="baterry_consumption">Trong các lần thử nghiệm của tôi thì lý do chính ở việc tiêu thụ pin cao của OpenVPN là do các gói dữ liệu trực tuyến liên tục. Hầu hết các máy chủ OpenVPN có một chỉ thị cấu hình như \'trực tuyến liên tục 10 60\' mà nguyên nhân của máy trạm và máy chủ trao đổi với nhau các gói dữ liệu trực tuyến này mỗi 10 giây. &lt;p&gt; Trong khi các gói dữ liệu nhỏ và không sử dụng nhiều lưu lượng truy cập. (Xem thêm &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Nhà phát triển Android&lt;/a&gt;) &lt;p&gt; Gói dữ liệu trực tuyến này không thể thay đổi trên máy trạm. Chỉ quản trị viên hệ thống của OpenVPN mới có thể thay đổi. &lt;p&gt; Không may là nếu sử dụng các gói dữ liệu trực tuyến này hơn 60 giây với UDP có thể gây ra hiện tượng các cổng NAT thả các kết nối do chờ một thời gian mà không hoạt động. Sử dụng TCP với một thời gian dài không hoạt động, nhưng thông lượng TCP qua cấu hình TCP thực hiện rất kém trên kết nối với độ mất mát gói cao. (Xem &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Tại sao TCP qua TCP lại là một ý kiến tồi?&lt;/a&gt;)</string>
-    <string name="faq_tethering">Các tính năng Android Tethering (thông qua Wifi, USB hoặc Bluetooth) và các dịch vụ VPN API (được sử dụng bởi chương trình này) không làm việc cùng nhau. Để biết thêm chi tiết xin xem tại &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=34\"&gt;issue #34&lt;/a&gt;</string>
-    <string name="vpn_tethering_title">VPN và Tethering</string>
     <string name="connection_retries">Thử lại kết nối</string>
     <string name="reconnection_settings">Thiết lập kết nối lại</string>
     <string name="connectretrymessage">Số giây đợi trong khi cố gắng kết nối.</string>
@@ -289,8 +283,6 @@
     <string name="allow_vpn_changes">Cho phép thay đổi Hồ sơ VPN</string>
     <string name="hwkeychain">Khóa lưu trữ phần cứng:</string>
     <string name="permission_icon_app">Biểu tượng của ứng dụng đang cố gắng sử dụng OpenVPN cho Android</string>
-    <string name="faq_vpndialog43">"Bắt đầu với Android 4.3, việc xác nhận VPN được hiểu như là xác nhận \"ứng dụng nền tảng\". Kết quả này trên hộp thoại không nhận việc nhập liệu vào. Nếu bạn tìm thấy ứng dụng sử dụng nền có thể gây ra vấn đề này, nó là vi phạm và hãy liên hệ với tác giả. Vấn đề này ảnh hưởng đến tất cả ứng dụng VPN trên Android 4.3 và cao hơn. Xem thêm &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=185\"&gt;Issue 185&lt;a&gt; để biết thêm chi tiết"</string>
-    <string name="faq_vpndialog43_title">Hộp thoại xác nhận VPN</string>
     <string name="donatePlayStore">Ngoài ra, bạn có thể gửi tài trợ cho tôi bằng CH Play:</string>
     <string name="thanks_for_donation">Cảm ơn bạn đã tài trợ %s!</string>
     <string name="logCleared">Xóa Bản ghi.</string>
@@ -306,7 +298,6 @@
     <string name="logview_options">Xem tùy chọn</string>
     <string name="unhandled_exception">Tùy chọn ngoại lệ: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">Nếu bạn đã root thiết bị Android bạn có thể cài đặt &lt;href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; và &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;Hộp thoại xác nhận VPN module&lt;/a&gt; để xác nhận nguy cơ\"</string>
     <string name="full_licenses">Giấy phép đầy đủ</string>
     <string name="blocklocal_summary">Mạng kết nối trực tiếp đến giao diện địa phương sẽ không định tuyến qua VPN. Bỏ tùy chọn này sẽ chuyển hướng tất cả lưu lượng truy cập cho mạng nội bộ đến VPN.</string>
     <string name="blocklocal_title">Bỏ qua VPN cho mạng địa phương</string>
@@ -349,27 +340,16 @@
     <string name="faq_androids_clients_title">Sự khác nhau giữa các máy trạm OpenVPN Android</string>
     <string name="ignore_multicast_route">Bỏ qua định tuyến đa luồng: %s</string>
     <string name="ab_only_cidr">Android chỉ hỗ trợ định tuyến CIDR cho VPN. Kể từ khi định tuyến không phải CIDR hầu như không dùng nữa, OpenVPN cho Android sẽ sử dụng một định tuyến /32  mà không phải là CIDR và cảnh báo sự cố.</string>
-    <string name="ab_tethering_44">Tethering hoạt động trong khi VPN đang kích hoạt. Các kết nối Tetherd sẽ KHÔNG sử dụng VPN.</string>
-    <string name="ab_kitkat_mss">Các phiên bản trước KitKat thiết lập giá trị MSS trên kết nối TCP (#61948). OpenVPN sẽ tự động kích hoạt tùy chỉnh mssfix để xử lý lỗi này.</string>
     <string name="ab_proxy">Android sẽ sử dụng cấu hình proxy của bạn để kết nối điện thoại/Wifi khi không có máy chủ DNS được đặt. OpenVPN cho Android sẽ cảnh báo bạn về điều này trong bản ghi.<p>Khi VPN thiết đặt máy chủ DNS Android sẽ không kèm proxy. Không có API nào thiết đặt cho proxy trong kết nối VPN.</p></string>
     <string name="ab_not_route_to_vpn">Cấu hình IP của máy trạm và IP trong mặt nạ mạng thì không định tuyến đến VPN. OpenVPN hoạt động bởi sự cố này bằng cách thêm định tuyến mà chuyển đến địa chỉ IP máy trạm và mặt nạ mạng của nó</string>
-    <string name="ab_persist_tun">Mở một thiết bị tun khi một thiết bị tun khác đang hoạt động, có thể dùng để hỗ trợ tun, sự cố trên dịch vụ VPN. Cần khởi động lại để VPN hoạt động. OpenVPN cho Android cố gắng mở lại thiết bị tun và thực sự cần thiết để đóng TUN hiện tại trước khi mở TUN mới để tránh sự cố. Điều này có thể dẫn đến một cửa sổ nơi các gói tin được gửi qua kết nối không dây VPN. Ngay cả việc giải quyết dịch vụ VPN này thỉnh thoảng vẫn gặp sự cố và cần phải khởi động lại thiết bị.</string>
-    <string name="ab_secondary_users">VPN không làm việc cho tất cả người dùng phổ thông.</string>
-    <string name="ab_kitkat_reconnect">"Nhiều người dùng báo cáo rằng kết nối của di động/dữ liệu di động thỉnh thoảng bị gián đoạn trong khi sử dụng VPN. Các lỗi này dường như chỉ ảnh hưởng bởi một số nhà cung cấp dịch vụ di động/bản chất của thiết bị và cho đến nay chưa xác định được nguyên nhân gây lỗi."</string>
-    <string name="ab_vpn_reachability_44">Chỉ có nguồn đích mới có thể truy cập vượt qua VPN mà không cần VPN. IPv6 không hoạt động cho tất cả.</string>
     <string name="ab_only_cidr_title">Không định tuyến CIDR</string>
     <string name="ab_proxy_title">Proxy chuyển tiếp cho VPN</string>
     <string name="version_upto">%s và trước đó</string>
     <string name="copy_of_profile">Bản sao của %s</string>
     <string name="ab_not_route_to_vpn_title">Định tuyến đến cấu hình địa chỉ IP</string>
-    <string name="ab_kitkat_mss_title">Giá trị MSS sai cho kết nối VPN</string>
-    <string name="ab_secondary_users_title">Người sử dụng máy tính bảng thứ cấp</string>
     <string name="custom_connection_options_warng">Xác định kết nối tùy chỉnh cụ thể. Dùng cẩn thận</string>
     <string name="custom_connection_options">Cấu hình tùy chỉnh</string>
     <string name="remove_connection_entry">Gỡ bỏ mục kết nối</string>
-    <string name="ab_kitkat_reconnect_title">Ngẫu nhiên ngắt kết nối từ mạng di động</string>
-    <string name="ab_vpn_reachability_44_title">Mạng từ xa không khả dụng</string>
-    <string name="ab_persist_tun_title">Chế độ tun cố định</string>
     <string name="version_and_later">%s và sau</string>
     <string name="tls_cipher_alert_title">Kết nối thất bại với lỗi cảnh báo SSL23_GET_SERVER_HELLO:sslv3</string>
     <string name="tls_cipher_alert">Phiên bản OpenVPN cho Android mới hơn (0.6.29/tháng 3 năm 2015) sử dụng nhiều bảo mật mặc định trên những bộ mã hóa được cho phép (tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\"). Thật không may, việc bỏ qua những mã hóa kém an toàn và xuất các mã hóa, đặc biệt là các thiếu sót của bộ mã hóa không hỗ trợ Perfect Forward Secrecy (Diffie-Hellman) nên gây ra một vài vấn đề. Điều này là ý định tốt nhưng nó thực hiện tăng cường bảo mật TLS kém hơn bằng cách thiết lập mật mã-tls trên máy chủ hoặc một số hệ điều hành với SSL hạ thấp (ví dụ MikroTik).\n Để khắc phục lỗi này, đặt cài đặt mật mã-tls mặc định trên máy chủ một cách hợp lý như mật mã-tls \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\". Để làm việc xung quanh vấn đề trên máy trạm, hãy thêm tùy chọn tùy chỉnh mật mã-tls MẶC ĐỊNH trên máy trạm Android.</string>

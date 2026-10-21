@@ -154,8 +154,6 @@
     <string name="speed_waiting">Menunggu pesan status&#8230;</string>
     <string name="converted_profile">Profil yang diambil</string>
     <string name="converted_profile_i">profil yang diambil %d</string>
-    <string name="broken_images">Gambar rusak</string>
-    <string name="broken_images_faq">Image HTC yang resmi diketahui memiliki masalah routing yang ganjilyang menyebabkan trafik data tidak melalui tunnel (Lihat di &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=18\"&gt;Issue 18&lt;/a&gt; di bagian bug tracker.))&lt;/p&gt;&lt;p&gt; Image SONY resmi yang lama dari Xperia Arc S and Xperia Ray telah dilaporkan tidak memiliki VPNService dalam Imagenya.  (Lihat juga  &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=29\"&gt;Issue 29&lt;/a&gt; di bagian bug tracker.))&lt;/p&gt;&lt;p&gt;Pada image yang dibuat non resmi, modul TUN mungkin tak ada atau hak /dev/tun mungkin salah. Beberapa image CM9 memerlukan pilihan \"Fix ownership\" di bagian \"Device specific hacks\" diaktfikan. .&lt;/p&gt;&lt;p&gt; Lebih penting lagi, jika device anda memiliki image android yang lengkap, laporkan pada vendor anda. Semakin banyak laporan masuk, semakin tinggi kemungkinan vendor melakukan perbaikan.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">Berkas kunci enkripsi PKCS12</string>
     <string name="private_key_password">Sandi kunci pribadi</string>
     <string name="password">Sandi</string>
@@ -179,8 +177,6 @@
     <string name="mobile_info">%10$s %9$s berjalan pada %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Kesalahan masuk dengan kunci Android keystore %1$s: %2$s</string>
     <string name="error_extapp_sign">Kesalahan masuk dengan aplikasi autentikator eksternal (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">Peringatan sambungan VPN yang memberitahukan Anda bahwa aplikasi ini dapat mencegat semua lalu lintas dikeluarkan oleh sistem untuk mencegah penyalahgunaan dari sambungan VPNService API.\nPemberitahuan sambungan VPN (simbol kunci) juga dikeluarkan oleh sistem Android untuk memberitahu VPN yang sedang berlangsung. Pada beberapa gambar pemberitahuan ini memainkan suara. \nAndroid memperkenalkan sistem dialog ini untuk keselamatan Anda sendiri dan memastikan bahwa mereka tidak membuat masalah. (Pada beberapa gambar sayangnya ini termasuk peringatan suara)</string>
-    <string name="faq_system_dialogs_title">Peringatan sambungan dan pemberitahuan melalui suara</string>
     <string name="translationby">Terjemah Bahasa Indonesia oleh Dayro</string>
     <string name="ipdns">IP dan  DNS</string>
     <string name="basic">Dasar</string>
@@ -219,8 +215,6 @@
     <string name="import_config">Ambil konfigurasi VPN</string>
     <string name="battery_consumption_title">Konsumsi baterai</string>
     <string name="baterry_consumption">Berdasarkan tes pribadi, alasan utama tingginya konsumsi baterai oleh OpenVPN adalah paket keepalive. Sebagian besar server OpenVPN memiliki parameter konfigurasi seperti \'keepalive 10 60\' yang membuat klien dan server bertukar paket keepalive setiap 10 detik. &lt;p&gt; Dengan kecilnya paket ini dan tidak memakai trafik terlalu banyak, mereka menjaga jaringan radio mobile tetap sibuk dan meningkatkan konsumsi energi.  (See also &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Android Developers&lt;/a&gt;) &lt;p&gt; Seting keepalive ini tidak bisa dirubah di klien. Hanya Admin sistem OpenVPN yang dapat merubah seting ini. &lt;p&gt;  Sayangnya membuat keepalive lebih besar dari 60 detik tanpa UDP dapat membuat beberapa gateway NAT memutus koneksi karena anggapan tidak ada aktifitas pada periode tertentu (timeout). Memakai TCP dengan waktu timeout lebih lama dapat bekerja, tapi membuat tunnel TCP di jalur TCP menyebabkan koneksi yang buruk dan tingginya angka kehilangan paket data ((See &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Why TCP Over TCP Is A Bad Idea&lt;/a&gt;)</string>
-    <string name="faq_tethering">Fitur penggandengan Android (melalui WiFi, USB atau Bluetooth) dan API VPNService (digunakan oleh program ini) tidak bekerja bersama-sama. Untuk keterangan lanjut lihat &lt; href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=34\" &gt; mengeluarkan #34 &lt;/a&gt;</string>
-    <string name="vpn_tethering_title">VPN dan penarikan</string>
     <string name="connection_retries">Mengulang koneksi</string>
     <string name="reconnection_settings">Pengaturan rekoneksi</string>
     <string name="connectretrymessage">Jumlah detik untuk menunggu antar usaha koneksi</string>
@@ -289,8 +283,6 @@
     <string name="allow_vpn_changes">Memungkinkan perubahan Profil VPN</string>
     <string name="hwkeychain">Hardware Keystore:</string>
     <string name="permission_icon_app">Ikon aplikasi mencoba menggunakan OpenVPN untuk Android</string>
-    <string name="faq_vpndialog43">"Dimulai dengan Android 4.3 konfirmasi VPN dijaga terhadap\" overlay apps \". Hal ini menyebabkan dialog tidak bereaksi menyentuh input. Jika Anda memiliki sebuah aplikasi yang menggunakan lapisan itu dapat menyebabkan perilaku ini. Jika Anda menemukan kontak aplikasi menyinggung penulis app. Masalah ini mempengaruhi semua aplikasi VPN di Android 4.3 dan kemudian. Lihat juga &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\"&gt; Issue 185 &lt;a&gt; untuk rincian tambahan "</string>
-    <string name="faq_vpndialog43_title">VPN Konfirmasi Dialog</string>
     <string name="donatePlayStore">Atau Anda dapat mengirimkan saya donasi dengan Play Store:</string>
     <string name="thanks_for_donation">Terima kasih untuk menyumbangkan %s!</string>
     <string name="logCleared">Log dibersihkan.</string>
@@ -306,7 +298,6 @@
     <string name="logview_options">Lihat pilihan</string>
     <string name="unhandled_exception">Tertangani pengecualian: %1$s \ n \ n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s \ n \ n%2$s</string>
-    <string name="faq_system_dialog_xposed">Jika Anda telah berakar perangkat Android Anda Anda dapat menginstal <a href="http://xposed.info/"> Xposed kerangka </a> dan <a href = "http://repo.xposed.info/ modul / de.blinkt.vpndialogxposed "> VPN Dialog mengkonfirmasi modul </a> risiko Anda sendiri\"</string>
     <string name="full_licenses">Lisensi penuh</string>
     <string name="blocklocal_summary">Jaringan langsung terhubung ke antarmuka lokal tidak akan diarahkan melalui VPN. Tidak memilih opsi ini akan mengarahkan semua lalu lintas menjorok untuk jaringan lokal ke VPN.</string>
     <string name="blocklocal_title">Bypass VPN for local networks</string>
@@ -349,27 +340,16 @@
     <string name="faq_androids_clients_title">Perbedaan antara klien OpenVPN Android</string>
     <string name="ignore_multicast_route">Mengabaikan rute multicast: %s</string>
     <string name="ab_only_cidr">Android hanya mendukung rute CIDR ke VPN. Sejak non-CIDR rute yang hampir tidak pernah digunakan, OpenVPN untuk Android akan menggunakan / 32 untuk rute yang tidak CIDR dan mengeluarkan peringatan.</string>
-    <string name="ab_tethering_44">Penarikan bekerja sementara VPN aktif. Ditambatkan sambungan tidak akan menggunakan VPN.</string>
-    <string name="ab_kitkat_mss">Versi KitKat awal menetapkan nilai MSS salah pada TCP koneksi (# 61948). OpenVPN untuk secara otomatis mengaktifkan mssfix pilihan untuk solusi bug ini.</string>
     <string name="ab_proxy">Android akan tetap menggunakan pengaturan proxy Anda ditentukan untuk mobile koneksi / Wi-Fi ketika tidak ada server DNS diatur. OpenVPN untuk Android akan memperingatkan Anda tentang hal ini dalam log. <p> Ketika VPN menetapkan server DNS Android tidak akan proxy. Tidak ada API untuk mengatur proxy untuk koneksi VPN. </p></string>
     <string name="ab_not_route_to_vpn">IP klien dikonfigurasi dan IP di topeng jaringan tidak diteruskan ke VPN. OpenVPN bekerja di sekitar bug ini dengan secara eksplisit menambahkan rute yang corrosponds ke IP klien dan netmask nya</string>
-    <string name="ab_persist_tun">Membuka perangkat tun saat perangkat tun lain sedang aktif, yang digunakan untuk dukungan bertahan-tun, crash VPNServices pada perangkat. A reboot diperlukan untuk membuat pekerjaan VPN lagi. OpenVPN untuk Android mencoba untuk menghindari membuka kembali perangkat tun dan jika benar-benar diperlukan pertama menutup TUN saat sebelum membuka perangkat TUN baru untuk menghindari crash. Hal ini dapat menyebabkan jendela pendek di mana paket dikirim melalui koneksi non-VPN. Bahkan dengan solusi ini VPNServices kadang-kadang crash dan memerlukan reboot perangkat.</string>
-    <string name="ab_secondary_users">VPN tidak bekerja sama sekali bagi pengguna sekunder.</string>
-    <string name="ab_kitkat_reconnect">"Beberapa pengguna melaporkan bahwa koneksi mobile / koneksi data mobile sering menjatuhkan saat menggunakan aplikasi VPN. Perilaku tampaknya hanya mempengaruhi beberapa kombinasi perangkat mobile provider / dan sejauh ini tidak ada penyebab / solusi untuk bug dapat diidentifikasi."</string>
-    <string name="ab_vpn_reachability_44">Hanya tujuan yang bisa dicapai melalui VPN yang bisa dijangkau tanpa VPN. VPN IPv6 tidak bekerja sama sekali.</string>
     <string name="ab_only_cidr_title">Rute non CIDR</string>
     <string name="ab_proxy_title">Tindakan Proxy untuk VPN</string>
     <string name="version_upto">%s dan sebelumnya</string>
     <string name="copy_of_profile">Salinan dari %s</string>
     <string name="ab_not_route_to_vpn_title">Alihkan ke alamat IP yang telah ditentukan</string>
-    <string name="ab_kitkat_mss_title">Nilai MSS yang salah untuk koneksi VPN</string>
-    <string name="ab_secondary_users_title">Pengguna tablet sekunder</string>
     <string name="custom_connection_options_warng">Tentukan pengaturan untuk koneksi khusus . Gunakan dengan hati-hati</string>
     <string name="custom_connection_options">Pilihan buatan</string>
     <string name="remove_connection_entry">Hapus entri koneksi</string>
-    <string name="ab_kitkat_reconnect_title">Terputus acak dari jaringan selular</string>
-    <string name="ab_vpn_reachability_44_title">Rangkaian remote tak terjangkau</string>
-    <string name="ab_persist_tun_title">Modus terowongan bertahan</string>
     <string name="version_and_later">%s dan yang lebih baru</string>
     <string name="tls_cipher_alert_title">Sambungan gagal dengan peringatan kegagalan jabat tangan SSL23_GET_SERVER_HELLO:sslv3</string>
     <string name="tls_cipher_alert">Dyankoclok</string>

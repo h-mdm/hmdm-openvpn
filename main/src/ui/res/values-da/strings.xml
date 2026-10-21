@@ -154,8 +154,6 @@
     <string name="speed_waiting">Venter på statusmeddelelse&#8230;</string>
     <string name="converted_profile">importeret profil</string>
     <string name="converted_profile_i">importeret profil %d</string>
-    <string name="broken_images">Ødelagt Image</string>
-    <string name="broken_images_faq">&lt;p&gt;Official HTC-afbildning er kendte for at have et mærkelig routing-problem, som betyder, at trafikafvikling ikke sker gennem tunnelen (se også &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/18\"&gt;Problem 18&lt;/a&gt; i fejlsporingen.)&lt;/p&gt;&lt;p&gt;Ældre officielle SONY-afbildninger fra Xperia Arc S og Xperia Ray er blevet rapporteret for helt at mangle VPNService i afbildningen (se også &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/29\"&gt;Problem 29&lt;/a&gt; i fejlsporingen.)&lt;/p&gt;&lt;p&gt;På tilpassede afbildningsversioner kan tun-modulet mangle eller rettigheder for /dev/tun kan være forkerte. Visse CM9-afbildninger behøver aktivering af valgmuligheden \"Korrigér ejerskab\" under \"Enhedsspecifikke hacks\" .&lt;/p&gt;&lt;p&gt;Og vigtigst: Hvis din enhed har en ødelagt Android-afbildning, så rapportér venligst dette til din salgskanal. Jo flere personer, der rapporterer et problem til salgskanalen, jo større er chancen for, at problemet bliver rettet.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">PKCS12 fil-krypterings-nøgle</string>
     <string name="private_key_password">Private Key adgangskode</string>
     <string name="password">Adgangskode</string>
@@ -179,8 +177,6 @@
     <string name="mobile_info">%10$s %9$s kører på %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Fejl under signering med Android keystore nøgle %1$s: %2$s</string>
     <string name="error_extapp_sign">Fejl under signering med ekstern autorisations-app (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">VPN forbindelses advarslen der fortæller dig at denne app kan aflytte al din internettrafik er pålagt af systemet for at undgå misbrug af VPNService API\'en.\nVPN-forbindelses-notifikationen (nøglesymbolet) er også pålagt af Android systemet for at signalere en aktiv VPN forbindelse. På nogle Images afspiller denne notifikation en lyd.\nAndroid introducerede system dialoger for din sikkerhed og sørgede for at de ikke kunne omgås.</string>
-    <string name="faq_system_dialogs_title">Forbindelsesadvarsel og notifikationslyd</string>
     <string name="translationby">Dansk oversættelse af</string>
     <string name="ipdns">IP og DNS</string>
     <string name="basic">Grundlæggende</string>
@@ -219,8 +215,6 @@
     <string name="import_config">Importér OpenVPN konfiguration</string>
     <string name="battery_consumption_title">Batteriforbrug</string>
     <string name="baterry_consumption">I mine personlige tests er hovedårsagen til OpenVPNs høje batteriforbrug keepalive-pakker. De fleste OpenVPN-servere har en konfigurationsregel såsom \'keepalive 10 60\', som får klienten og serveren til at udveksle keepalive-pakker hvert tiende sekund. &lt;p&gt; Selvom disse pakker er små og ikke udgør megen trafik, holder de mobilradioenetværk beskæftiget og øger dermed strømforbruget (se evt. &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt; Radio State Machine | Android Developers&lt;/a&gt;) &lt;p&gt;. Denne keepalive-indstilling kan ikke ændres på klienten, men kun systemadministratoren for OpenVPN kan ændre denne. &lt;p&gt; Ved at benytte et keepalive-niveau længere end 60 sekunder med UDP kan visse NAT-gateways droppe forbindelsen grundet en inaktivitets-timeout. Brug af TCP med en høj keepalive-tid fungerer, men tunnelering af TCP over TCP udviser en ekstrem ringe ydelse på forbindelser med højt pakketab (se &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Why TCP over TCP is a bad idea&lt;/a&gt;).</string>
-    <string name="faq_tethering">Funktionen Android Tethering (via Wi.Fi, USB eller Bluetooth) og VPN-tjeneste-API\'et (som benyttes af denne app) fungerer ikke sammen. For yderligere oplysninger, se venligst &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/34\"&gt;problem #34&lt;/a&gt;</string>
-    <string name="vpn_tethering_title">VPN og Tethering</string>
     <string name="connection_retries">Forbindelses-forsøg</string>
     <string name="reconnection_settings">Gentilslutningindstillinger</string>
     <string name="connectretrymessage">Antal sekunder at vente mellem forbindelsesforsøg.</string>
@@ -289,8 +283,6 @@
     <string name="allow_vpn_changes">Tillad ændringer til VPN-profiler</string>
     <string name="hwkeychain">Hardware keystore:</string>
     <string name="permission_icon_app">En app prøver at bruge OpenVPN til Androids ikon</string>
-    <string name="faq_vpndialog43">"Fra og med Android 4.3 er VPN-bekræftelsen beskyttet mod \"overlejrede apps\". Dette resulterer i, at dialogen ikke reagerer på berøringsinput. Har du en app, der benytter overlejring, kan det forårsage denne adfærd. Finder du en app, der overtrædende overlejringsbeskyttelsen, skal du kontakte app-udvikleren. Problemet påvirker alle VPN-apps på Android 4.3 og senere. Se også &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\"&gt;Issue 185&lt;a&gt; for yderligere oplysninger"</string>
-    <string name="faq_vpndialog43_title">VPN bekræftelses dialog</string>
     <string name="donatePlayStore">Alternativt kan du sende mig en donation med Play Butik:</string>
     <string name="thanks_for_donation">Tak for donationen %s!</string>
     <string name="logCleared">Log ryddet.</string>
@@ -306,7 +298,6 @@
     <string name="logview_options">Indstillinger for visning</string>
     <string name="unhandled_exception">Ubehandlet undtagelse: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">Hvis du har rootet din androidenhed kan du installere &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; og &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Dialog confirm module&lt;/a&gt; på din egen risiko</string>
     <string name="full_licenses">Fulde licenser</string>
     <string name="blocklocal_summary">Netværk forbundet direkte til det lokale interface vil ikke blive dirigeret gennem VPN\'en. Fravælges denne indstilling vil alt trafik til lokale netværk dirigeres gennem VPN\'en.</string>
     <string name="blocklocal_title">Undgå brug af VPN for lokale netværk</string>
@@ -349,27 +340,16 @@
     <string name="faq_androids_clients_title">Forskelle mellem OpenVPN Android-klienter</string>
     <string name="ignore_multicast_route">Ignorerer multicast-rute: %s</string>
     <string name="ab_only_cidr">Android understøtter kun CIDR-ruter til VPN. Da ikke-CIDR-ruter næsten aldrig benyttes, vil OpenVPN for Android benytte en /32 til ruter, som ikke er CIDR, og udstede en advarsel.</string>
-    <string name="ab_tethering_44">Tøjring fungerer, mens VPN\'en er aktiv. Den kablede forbindelse benytter IKKE VPN\'en.</string>
-    <string name="ab_kitkat_mss">Tidlige KitKat-versioner indstiller den forkerte MSS-værdi på TCP-forbindelser (#61948). Prøv at aktivere mssfix-indstillingen for at løse denne fejl.</string>
     <string name="ab_proxy">Android vil fortsat bruge de proxyindstillinger, som er angivet til mobil/Wi-Fi-forbindelsen, når ingen DNS-servere er opsat. OpenVPN for Android vil advare dig om dette i loggen.<p>Når en VPN indstiller en DNS-server vil Android ikke benytte en proxy. Der er intet API indstilling af en proxy for en VPN-forbindelse.</p></string>
     <string name="ab_not_route_to_vpn">Den opsatte klient-IP og IP\'erne i netværksmasken bliver ikke sendt til VPN\'en. OpenVPN kompenserer for denne fejl ved udtrykkeligt at tilføje en rute, der korresponderer med klientens IP og dens netmaske</string>
-    <string name="ab_persist_tun">Åbning af en tun-enhed, mens en anden tun-enhed, der benyttes til vedvarende tun-understøttelse, er aktiv, medfører fejl i VPN-tjenesten på enheden. En genstart er nødvendig for at gøre VPN funktionel igen. OpenVPN for Android forsøger at undgå at genåbne tun-enheden, og hvis det virkelig er nødvendigt, lukkes først den nuværende TUN, inden den nye TUN-enhed åbnes for at undgå nedbrud. Dette kan medføre et kort interval, hvori pakker sendes over en ikke-VPN-forbindelse. Selv med denne løsning går VPN-tjenesten somme tider ned og kræver genstart af enheden.</string>
-    <string name="ab_secondary_users">VPN fungerer slet ikke for sekundære brugere.</string>
-    <string name="ab_kitkat_reconnect">"Flere brugere rapporterer, at mobilforbindelse/-dataforbindelse ofte droppes under brug af VPN-app\'en. Denne adfærd synes kun at påvirke visse kombinationer af mobiludbydere/enheder, og indtil nu har ingen årsag/løsning på fejlen kunnet identificeres."</string>
-    <string name="ab_vpn_reachability_44">Kun destinationer, der også kan nås uden VPN, kan nås via VPN. IPv6 VPN\'er virker slet ikke.</string>
     <string name="ab_only_cidr_title">Ikke-CIDR-ruter</string>
     <string name="ab_proxy_title">Proxy-adfærd for VPN\'er</string>
     <string name="version_upto">%s og tidligere</string>
     <string name="copy_of_profile">Kopi af %s</string>
     <string name="ab_not_route_to_vpn_title">Rute til den konfigurerede IP-adresse</string>
-    <string name="ab_kitkat_mss_title">Forkert MSS-værdi for VPN-forbindelse</string>
-    <string name="ab_secondary_users_title">Sekundære tabletbrugere</string>
     <string name="custom_connection_options_warng">Angiv tilpassede tilslutningsspecifikke indstillinger. Brug med omtanke</string>
     <string name="custom_connection_options">Tilpassede indstillinger</string>
     <string name="remove_connection_entry">Fjern forbindelsesindgang</string>
-    <string name="ab_kitkat_reconnect_title">Tilfældige afbrydelser fra mobiltnetværk</string>
-    <string name="ab_vpn_reachability_44_title">Eksterne netværk kan ikke nås</string>
-    <string name="ab_persist_tun_title">Fortsæt Tun tilstand</string>
     <string name="version_and_later">%s og senere</string>
     <string name="tls_cipher_alert_title">Forbindelser fejler SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure</string>
     <string name="tls_cipher_alert">Nyere OpenVPN for Android-versioner (0.6.29/marts 2015) benytter en mere sikker standard for de tilladte chiffer-pakker (tls-chiffer \"DEFAULT:! EXP:! PSK:! SRP:! KRSA\"). Uheldigvis afstedkommer udeladelse af de mindre sikre chiffer-pakker og eksportchiffer-pakker, især udeladelsen af ​​chiffer-pakker, som ikke understøtter Perfect Forward Secrecy (Diffie-Hellman), visse problemer. Dette skyldes normalt et velment, men dårligt udført, forsøg på at styrke TLS-sikkerhed ved at opsætte tls-chiffer på serveren eller nogle indlejrede operativsystemer med fjernet SSL (f.eks. MikroTik).\nFor at løse dette problem bør tls-cipher-indstillinger på serverensættes til en rimelig standard såsom tls-chiffer \"DEFAULT:! EXP:! PSK:! SRP:! kRSA\". For at løse problemet på klienten kan den tilpassede indstilling tls-chiffer DEFAULT tilføjes på Android-klienten.</string>

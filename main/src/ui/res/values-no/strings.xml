@@ -151,8 +151,6 @@
     <string name="speed_waiting">Venter på tilstands melding&#8230;</string>
     <string name="converted_profile">importert profil</string>
     <string name="converted_profile_i">importert profilen %d</string>
-    <string name="broken_images">Ødelagte bilder</string>
-    <string name="broken_images_faq">&lt;p&gt;Offisielle HTC-bilder er kjent for å ha et underlig ruteproblem som fører til at trafikk ikke strømmer gjennom tunnelen (se også &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/18\"&gt;utgave 18&lt;/a&gt; i bug tracker.)&lt;/p&gt;&lt;p&gt;Eldre offisielle SONY-bilder fra Xperia Arc S og Xperia Ray har blitt rapportert å mangler VPNService helt fra bildet. (Se også &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/29\"&gt;utgave 29&lt;/a&gt; i bug tracker.)&lt;/p&gt;&lt;p&gt;På tilpassede byggebilder kan tun-modulen mangle, eller rettighetene til / dev / tun kan være feil. Noen CM9-bilder trenger alternativet \"Fastsett eierskap\" under \"Enhetsspesifikke hacks\" aktivert.&lt;/p&gt;&lt;p&gt;Viktigst: Hvis enheten din har et ødelagt Android-bilde, må du rapportere det til leverandøren. Jo flere som rapporterer et problem til leverandøren, desto større sannsynlighet er det for å ordne det.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">PKCS12 Filkrypteringsnøkkel</string>
     <string name="private_key_password">Privat nøkkel passord</string>
     <string name="password">Passord</string>
@@ -176,7 +174,6 @@
     <string name="mobile_info">%10$s %9$s kjører på %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Error signing with Android keystore key %1$s: %2$s</string>
     <string name="error_extapp_sign">Feil ved signering med ekstern autentiseringsapp (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs_title">Tilkoblingsvarsel og varslingslyd</string>
     <string name="translationby">Norsk oversettelse av Jonny</string>
     <string name="ipdns">IP og DNS</string>
     <string name="basic">Grunnleggende</string>
@@ -280,7 +277,6 @@
     <string name="show_log">Vis loggboken</string>
     <string name="version_upto">%s og tidligere</string>
     <string name="copy_of_profile">Kopi av %s</string>
-    <string name="ab_secondary_users_title">Sekundære nettbrettbrukere</string>
     <string name="custom_connection_options">Egendefinerte valg</string>
     <string name="version_and_later">%s og senere</string>
     <string name="Search">Søk</string>

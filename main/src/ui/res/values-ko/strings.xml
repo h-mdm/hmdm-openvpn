@@ -151,8 +151,6 @@
     <string name="speed_waiting">상태 메시지를 기다리는 중&#8230;</string>
     <string name="converted_profile">가져온 프로파일</string>
     <string name="converted_profile_i">가져온 프로파일 %d</string>
-    <string name="broken_images">깨진 이미지</string>
-    <string name="broken_images_faq">&lt;p&gt;공식 HTC 이미지에서는 이상한 라우팅 문제로 트래픽이 터널로 통과하지 않는 경우가 있는 것으로 알려져 있습니다. (버그 추적기의 &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=18\"&gt;문제 18&lt;/a&gt; 참조.)&lt;/p&gt;&lt;p&gt;Xperia Arc S 와 Xperia Ray의 오래된 공식 SONY 이미지에서는 VPNService 자체가 전혀 없는 것으로 보고되었습니다. (버그 추적기의 &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=29\"&gt;문제 29&lt;/a&gt; 참조.)&lt;/p&gt;&lt;p&gt;커스텀 빌드 이미지에서는 tun 모듈 자체가 없거나 /dev/tun의 권한이 틀려 있기도 합니다. 일부 CM9 이미지는 \"기기별 해킹\" 아래에 있는 \"소유권 고치기\" 옵션을 사용해야 합니다.&lt;/p&gt;&lt;p&gt;가장 중요한 부분: 만약 깨진 이미지를 사용하는 경우라면 해당 공급 업체에 보고해야 합니다. 업체에 문제를 보고하는 사람들이 많아야 수정될 가능성도 높아집니다.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">PKCS12 파일 암호화 키</string>
     <string name="private_key_password">개인 키 암호</string>
     <string name="password">암호</string>
@@ -176,8 +174,6 @@
     <string name="mobile_info">%3$s %1$s (%2$s)에서 %10$s %9$s 작동, 안드로이드 %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">안드로이드 키 저장소 키로 서명 오류 %1$s: %2$s</string>
     <string name="error_extapp_sign">외부 인증 애플 리 케이 션 (%3$s) 서명 오류: %1$s: %2$s</string>
-    <string name="faq_system_dialogs">시스템에서는 VPN 연결 경고를 통해 당신에게 본 앱이 모든 트래픽을 가로챌 수 있다는 점을 알리게 되어 있는데 이는 VPNService API가 남용되는 것을 막기 위함입니다.\nVPN 연결 알림 (열쇠 기호) 또한 안드로이드 시스템에서 부과하는 부분이며 이는 VPN 연결을 알리는 신호입니다. 어떤 이미지에서는 이 알림이 소리를 내기도 합니다.\n안드로이드는 당신의 안전을 위해서 이 대화창을 도입했으며 회피할 수 없게 하였습니다. (어떤 이미지에서는 유감스럽게도 알림 소리 또한 포함됩니다.)</string>
-    <string name="faq_system_dialogs_title">연결 경고 및 알림 소리</string>
     <string name="translationby">한국어 번역 (주)기가드 안규태&lt;ktdann@gmail.com></string>
     <string name="ipdns">IP와 DNS</string>
     <string name="basic">기본</string>
@@ -216,8 +212,6 @@
     <string name="import_config">OpenVPN 구성 가져오기</string>
     <string name="battery_consumption_title">배터리 소모</string>
     <string name="baterry_consumption">제 개인적인 테스트에서 Openvpn의 높은 배터리 소비에 대한 주요 이유는 keepalive 패킷 때문이었습니다. 대부분의 OpenVPN 서버 설정에는 \'keepalive 10 60\' 와 같은 문구가 있는데 이는 클라이언트에서 서버로 서버에서 클라이언트로 keepalive 패킷을 10 초마다 보냅니다. &lt;p&gt;이러한 패킷은 작고 많은 트래픽을 사용하지 않습니다만 이들은 모바일 라디오 네트워크를 계속 유지하게 만들게 되고 따라서 에너지 소비가 증가합니다. (참조 &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Android Developers&lt;/a&gt;) &lt;p&gt;이 keepalive 설정을 클라이언트에서 변경할 수 없습니다. OpenVPN의 시스템 관리자만 설정을 변경할 수 있습니다. &lt;p&gt;불행히도 udp를 사용할 때 keepalive값을 60 초 이상으로 하면 일부의 NAT 게이트웨이에서는 비활성 타임아웃 때문에 연결을 끊어버리게 됩니다. TCP와 긴 keepalive 만료기간을 함께 사용할 수는 있지만 패킷 손실이 높은 연결 구간에서는 TCP over TCP의 성능이 매우 저조합니다. (참조 &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;왜 TCP를 통한 TCP는 안 좋은 방법인가&lt;/a&gt;)</string>
-    <string name="faq_tethering">안드로이드의 (WiFi, USB 또는 블루투스를 통한) 테더링 기능과 (이 프로그램에서 사용되는) VPNService API 는 함께 작동하지 않습니다. 자세한 내용은 &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=34\"&gt;문제 #34&lt;/a&gt;를 참조하십시오</string>
-    <string name="vpn_tethering_title">VPN과 테더링</string>
     <string name="connection_retries">연결 재시도</string>
     <string name="reconnection_settings">다시 연결 설정</string>
     <string name="connectretrymessage">연결 시도 사이에 대기하는 초 단위 시간입니다.</string>
@@ -286,8 +280,6 @@
     <string name="allow_vpn_changes">VPN 프로파일 변경을 허용</string>
     <string name="hwkeychain">하드웨어 키 저장소:</string>
     <string name="permission_icon_app">OpenVPN for Android를 사용하려고 하는 앱의 아이콘</string>
-    <string name="faq_vpndialog43">"안드로이드 4.3부터는 VPN 확인이 \"오버레이하는 앱\"으로부터 보호받습니다. 이 경우 대화창이 터치 입력에 반응하지 않게 됩니다. 사용하는 앱 중에서 오버레이를 사용하는 경우 이러한 문제가 발생될 수 있습니다. 문제의 앱을 발견하면 그 앱의 제작자에게 연락하십시오. 이 문제는 안드로이드 4.3과 이상의 버전에서 모든 VPN 앱에 영향을 줍니다. 상세한 사항은 &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=185\"&gt;문제 185&lt;a&gt; 참조"</string>
-    <string name="faq_vpndialog43_title">VPN 확인 대화창</string>
     <string name="donatePlayStore">또는 당신은 플레이 스토어에서 나에게 기부금을 보낼 수 있습니다:</string>
     <string name="thanks_for_donation">%s를 기부해 주셔서 감사합니다!</string>
     <string name="logCleared">로그가 삭제되었습니다.</string>
@@ -303,7 +295,6 @@
     <string name="logview_options">옵션 보기</string>
     <string name="unhandled_exception">처리되지 않은 예외: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">만약 당신의 안드로이드 기기가 루팅되어 있다면 &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt;와 &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Dialog confirm module&lt;/a&gt;을 자신의 책임 하에 설치할 수 있습니다.</string>
     <string name="full_licenses">전체 라이선스</string>
     <string name="blocklocal_summary">로컬 네트워크에 직접 연결된 인터페이스는 VPN을 통해 접속하지 않습니다. 이 옵션의 선택을 취소하면 로컬 네트워크의 모든 트래픽이 VPN으로 리디렉션됩니다.</string>
     <string name="blocklocal_title">로컬 네트워크에선 VPN 우회</string>
@@ -346,27 +337,16 @@
     <string name="faq_androids_clients_title">안드로이드 OpenVPN 클라이언트 간의 차이</string>
     <string name="ignore_multicast_route">멀티캐스트 경로 무시​​: %s</string>
     <string name="ab_only_cidr">Android는 VPN에 대한 CIDR 경로만 지원합니다. 비 CIDR 경로는 거의 사용되지 않기 때문에 OpenVPN for Android는 CIDR이 아닌 경로에 /32를 사용하고 경고를 보냅니다.</string>
-    <string name="ab_tethering_44">테더링은 VPN이 활성화되어있는 동안 작동합니다. 테더링된 연결은 VPN을 사용하지 않을 것입니다.</string>
-    <string name="ab_kitkat_mss">초기 킷캣 버전은 TCP 연결에서 잘못된 MSS 값을 설정합니다(# 61948). 이 버그를 우회하려면 MSS 재정의 옵션을 활성화하십시오.</string>
     <string name="ab_proxy">Android는 DNS 서버가 설정되지 않은 경우 모바일/Wi-Fi 연결에 지정된 프록시 설정을 계속 사용합니다. OpenVPN for Android는 로그에 이에 대해 경고할 것입니다. <p>VPN이 DNS 서버를 설정할 때 안드로이드는 프록시를 사용하지 않을 것입니다. VPN 연결을 위한 프록시를 설정하는 API는 없습니다.</p></string>
     <string name="ab_not_route_to_vpn">구성된 클라이언트 IP와 해당 네트워크 마스크에 있는 IP들은 VPN으로 라우팅되지 않습니다. OpenVPN은 클라이언트 IP와 넷마스크에 해당하는 경로를 명시적으로 추가함으로써 이 버그를 우회합니다.</string>
-    <string name="ab_persist_tun">지속적인 TUN 지원에 사용되는 다른 TUN 장치가 활성화된 상태에서 한 TUN 장치를 열면 기기의 VPNServices가 죽습니다. VPN을 다시 작동 시키려면 재부팅해야 합니다. OpenVPN for Android는 TUN 장치를 다시 열지 않으려고 시도합니다. 정말 필요하면 충돌이 발생하지 않도록 새로운 TUN 장치를 열기 전에 먼저 현재 TUN을 닫습니다. 이 경우 짧은 순간 VPN이 아닌 연결을 통해 패킷이 전송될 수 있습니다. 이 우회 방법으로도 VPNServices가 죽고 기기를 재부팅해야 하는 경우가 있습니다.</string>
-    <string name="ab_secondary_users">VPN은 부차적인 사용자에게는 전혀 작동하지 않습니다.</string>
-    <string name="ab_kitkat_reconnect">"여러 사용자가 VPN 앱을 사용하는 동안 모바일 연결/모바일 데이터 연결이 자주 끊어지는 것으로 보고합니다. 이 반응은 일부 모바일 공급자/기기 조합에만 영향을 미치는 것으로 보이며 지금까지 버그에 대한 원인/해결 방법을 알 수 없습니다."</string>
-    <string name="ab_vpn_reachability_44">VPN 없이 도달할 수 있는 목적지만 VPN을 통해서 도달할 수 있습니다. IPv6 VPN은 전혀 작동하지 않습니다.</string>
     <string name="ab_only_cidr_title">비 CIDR 경로</string>
     <string name="ab_proxy_title">VPN을 위한 프록시 동작</string>
     <string name="version_upto">%s 및 이전 버전</string>
     <string name="copy_of_profile">%s의 사본</string>
     <string name="ab_not_route_to_vpn_title">구성된 IP 주소로의 경로</string>
-    <string name="ab_kitkat_mss_title">VPN 연결에 대한 잘못된 MSS 값</string>
-    <string name="ab_secondary_users_title">부차적인 태블릿 사용자들</string>
     <string name="custom_connection_options_warng">사용자 지정 연결별 옵션을 지정하십시오. 조심해서 사용하십시오.</string>
     <string name="custom_connection_options">사용자 지정 옵션</string>
     <string name="remove_connection_entry">연결 항목 제거</string>
-    <string name="ab_kitkat_reconnect_title">모바일 네트워크에서 임의 연결 해제</string>
-    <string name="ab_vpn_reachability_44_title">원격 네트워크에 도달할 수 없음</string>
-    <string name="ab_persist_tun_title">지속적인 TUN 모드</string>
     <string name="version_and_later">%s 및 이후 버전</string>
     <string name="tls_cipher_alert_title">SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure로 연결 실패</string>
     <string name="tls_cipher_alert">새로운 OpenVPN for Android 버전들(0.6.29/2015년 3월)은 허용된 암호화 스위트(tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\")에 더 안전한 기본값을 사용합니다. 안타깝게도 보안 수준이 낮은 암호화 스위트와 수출용 암호화 스위트를 생략하면, 특히 완벽 전달 보안(Diffie-Hellman)을 지원하지 않는 암호화 스위트를 생략하면 몇 가지 문제가 발생합니다. 이것은 보통 불필요한 요소를 제거한 SSL(예: MikroTik)을 쓰는 서버나 몇 임베디드 OS에서 tls-cipher을설정하여 TLS 보안을 강화하려는 좋은 의도를 가지고 했으나 불완전하게 실행됨으로써 발생합니다.\n이 문제를 해결하려면 서버에서 tls-cipher 설정을 tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\"와 같은 적절한 기본값으로 설정하십시오. 클라이언트에서 문제를 우회하려면 안드로이드 클라이언트의 tls-cipher DEFAULT 사용자 정의 옵션을 추가하십시오.</string>

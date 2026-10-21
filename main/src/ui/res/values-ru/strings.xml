@@ -154,8 +154,6 @@
     <string name="speed_waiting">Ожидание сообщения о состоянии&#8230;</string>
     <string name="converted_profile">импортируемая конфигурация</string>
     <string name="converted_profile_i">импортируемая конфигурация %d</string>
-    <string name="broken_images">Сломанные прошивки</string>
-    <string name="broken_images_faq">&lt;p&gt;Известно, что официальные прошивки HTC имеют странные проблемы с маршрутизацией, приводящей к тому, что трафик не идёт через туннель (см. &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/18\"&gt;Issue 18&lt;/a&gt; в баг-трекере).&lt;/p&gt;&lt;p&gt;Также сообщалось, что в старых официальных прошивках SONY от Xperia Arc S и Xperia Ray полностью отсутствует сервис VPNService (см. &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/29\"&gt;Issue 29&lt;/a&gt; в баг-трекере).&lt;/p&gt;&lt;p&gt;В некоторых неофициальных прошивках модуль tun может отсутствовать, или файл устройства /dev/tun может иметь неправильные права. Некоторые прошивки CM9 могут требовать исправления прав на /dev/tun в настройках «Хаки для данного устройства».&lt;/p&gt;&lt;p&gt;И самое главное: если у вас прошивка с указанными проблемами, сообщите об этом производителю устройства. Чем больше пользователей сообщит о проблеме, тем больше шансов, что производитель её исправит.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">Ключ шифрования файла PKCS12</string>
     <string name="private_key_password">Пароль закрытого ключа</string>
     <string name="password">Пароль</string>
@@ -179,8 +177,6 @@
     <string name="mobile_info">%10$s %9$s работает на %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Ошибка подписи с использованием ключа из хранилища Android %1$s: %2$s</string>
     <string name="error_extapp_sign">Ошибка подписи с помощью внешнего приложения аутентификации (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">Предупреждение о подключении к VPN говорит о том что приложение может перехватывать весь сетевой трафик. Оно показывается системой Android автоматически для предотвращения злоупотреблений с использованием VPNService API.\nУведомление о VPN подключении (символ ключа) также формируется системой Android для индикации подключения к сети через VPN. В некоторых прошивках оно сопровоздается звуком. Система использует предупреждения и уведомления для вашей безопасности и их нельзя обойти (к сожалению, на некоторых прошивках это относится и к звуку уведомления).</string>
-    <string name="faq_system_dialogs_title">Предупреждение о подключении и звук уведомления</string>
     <string name="translationby">Русский перевод от RusFox &lt;horonitel@gmail.com&gt; и многих других</string>
     <string name="ipdns">IP и DNS</string>
     <string name="basic">Основной</string>
@@ -224,8 +220,6 @@ API VPNService не позволяет указывать сети, которы
     <string name="import_config">Импортировать конфигурацию OpenVPN</string>
     <string name="battery_consumption_title">Потребление батареи</string>
     <string name="baterry_consumption">В моих тестах главным источником высокого потребления электроэнергии батареи были пакеты keepalive. Большинство OpenVPN-серверов содержат директиву вроде «keepalive 10 60», которая заставляет клиент и сервер обмениваться keepalive-пакетами каждые 10 секунд. &lt;p&gt; Хоть эти пакеты и маленькие, и не расходуют много трафика, они заставляют радиомодуль всё время работать, что повышает расход энергии. (см. &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Android Developers&lt;/a&gt;) &lt;p&gt; Настройки keepalive не могут быть изменены на клиенте, это может сделать только системный администратор OpenVPN. &lt;p&gt; К сожалению, использование keepalive более, чем 60 секунд с UDP, может привести к тому, что некоторые шлюзы NAT будут обрывать соединение из-за отсутствия активности. Использование TCP с большим keepalive-таймаутом будет работать, но производительность туннелирования TCP через TCP в сетях с высокими потерями пакетов крайне низкая (см. &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Why TCP Over TCP Is A Bad Idea&lt;/a&gt;)</string>
-    <string name="faq_tethering">Функция раздачи интернета в Android (через WiFi, USB или Bluetooth) и VPNService API (используемое этим приложением) не работают вместе. Подробней в &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/34\"&gt;проблеме №34&lt;/a&gt;.</string>
-    <string name="vpn_tethering_title">VPN и раздача интернета</string>
     <string name="connection_retries">Попытки переподключения</string>
     <string name="reconnection_settings">Настройки переподключения</string>
     <string name="connectretrymessage">Количество секунд между попытками подключения.</string>
@@ -271,7 +265,7 @@ API VPNService не позволяет указывать сети, которы
     <string name="rdn">RDN (обычное имя)</string>
     <string name="rdn_prefix">Префикс RDN</string>
     <string name="tls_remote_deprecated">tls-remote (УСТАРЕЛО)</string>
-    <string name="help_translate">Вы можете помочь с переводом, посетив https://crowdin.net/project/ics-openvpn/invite</string>
+    <string name="help_translate">Вы можете помочь с переводом, посетив https://crowdin.net/project/ics-openvpn/</string>
     <string name="prompt">%1$s пытается контролировать %2$s</string>
     <string name="remote_warning">Продолжая, вы даёте приложению «OpenVPN для Android» разрешение на полный контроль и перехват всего сетевого трафика. <b> Не продолжайте, если не доверяете этому приложению. </b> В противном случае вы рискуете подвергнуть свои данные риску компрометации вредоносным ПО.</string>
     <string name="remote_trust">Я доверяю этому приложению.</string>
@@ -294,8 +288,6 @@ API VPNService не позволяет указывать сети, которы
     <string name="allow_vpn_changes">Разрешить изменение конфигураций VPN</string>
     <string name="hwkeychain">Аппаратное хранилище ключей:</string>
     <string name="permission_icon_app">Значок приложения, пытающегося использовать «OpenVPN для Android»</string>
-    <string name="faq_vpndialog43">"Начиная с Android 4.3, диалог подтверждения VPN-соединения защищён от приложений, «накладывающихся поверх экрана». Это приводит к тому, что диалоговое окно подтверждения не реагирует на сенсорные нажатия. Если вам попадётся приложение, использующее наложения и вызывающее такое поведение, свяжитесь с автором этого приложения. Эта проблема затрагивает все VPN приложения на Android 4.3 и более поздних версиях. Смотрите также &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\"&gt;Issue 185&lt;a&gt; для получения дополнительных сведений"</string>
-    <string name="faq_vpndialog43_title">Диалог подтверждения VPN</string>
     <string name="donatePlayStore">В качестве альтернативы вы можете сделать пожертвование в Play Store:</string>
     <string name="thanks_for_donation">Спасибо за донат %s!</string>
     <string name="logCleared">Журнал очищен.</string>
@@ -313,7 +305,6 @@ API VPNService не позволяет указывать сети, которы
 
 %2$s\"</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">Если на вашем устройстве есть root, можете установить &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; и &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;модуль автоматического подтверждения диалога подключения VPN&lt;/a&gt; на свой страх и риск.</string>
     <string name="full_licenses">Полные тексты лицензий</string>
     <string name="blocklocal_summary">Сети, напрямую подключённые к локальным интерфейсам, не будут маршрутизироваться через VPN. Отмена выбора этого параметра приведёт к перенаправлению всего трафика, предназначенного для локальных сетей, в частности VPN.</string>
     <string name="blocklocal_title">Обход VPN для локальных сетей</string>
@@ -356,27 +347,16 @@ API VPNService не позволяет указывать сети, которы
     <string name="faq_androids_clients_title">Различия между клиентами OpenVPN для Android</string>
     <string name="ignore_multicast_route">Игнорирование многоадресной маршрутизации: %s</string>
     <string name="ab_only_cidr">Android поддерживает только CIDR-маршруты к VPN. Поскольку маршруты без CIDR почти никогда не используются, «OpenVPN для Android» будет использовать /32 для маршрутов без CIDR и выдавать предупреждение.</string>
-    <string name="ab_tethering_44">Вы можете раздавать интернет при активном VPN, но это соединение НЕ будет использовать VPN.</string>
-    <string name="ab_kitkat_mss">Ранние версии KitKat устанавливают неправильное значение MSS для TCP-соединений (#61948). Попробуйте включить функцию mssfix, чтобы обойти эту ошибку.</string>
     <string name="ab_proxy">Android будет продолжать использовать настройки прокси, указанные для мобильного/WiFi-соединения, когда не установлен DNS-сервер. «OpenVPN для Android» предупредит вас об этом в журнале.<p>Когда VPN установит DNS-сервер, Android прекратит использовать прокси. Для установки прокси для VPN-соединения нет API.</p></string>
     <string name="ab_not_route_to_vpn">Сконфигурированный IP-адрес клиента и IP-адреса в его маске сети не маршрутизируются в VPN. OpenVPN обходит эту ошибку, явно добавляя маршрут, который соответствует IP-адресу клиента и его маске сети.</string>
-    <string name="ab_persist_tun">Открытие туннеля, когда туннель уже активен, для его постоянного удержания, может привести к ошибке и VPNServices закроется на устройстве. Для возобновления работы VPN требуется перезагрузка. «OpenVPN для Android» пытается избежать установки второго туннеля, и, если это действительно нужно, сначала закроет текущий туннель, перед открытием нового, чтобы избежать сбоя приложения. Это может привести к небольшому интервалу, в котором передача пакетов происходит по обычному (не VPN) соединению. Даже с этими ухищрениями VPNServices иногда даёт сбой и требует перезагрузки устройства.</string>
-    <string name="ab_secondary_users">VPN вообще не работает для вторичных пользователей.</string>
-    <string name="ab_kitkat_reconnect">Некоторые пользователи сообщают, что мобильная связь/мобильная передача данных часто обрывается, когда используется VPN-приложение. Такое поведение, влияет только на некоторые комбинации провайдеров/устройств, и, пока что, не удалось определить причину/обходной путь для решения этой ошибки.</string>
-    <string name="ab_vpn_reachability_44">Через VPN могут работать только те адреса, которые доступны без VPN. IPv6 VPN не работают вообще.</string>
     <string name="ab_only_cidr_title">Маршрутизация без CIDR</string>
     <string name="ab_proxy_title">Поведение прокси для VPN</string>
     <string name="version_upto">%s и ранее</string>
     <string name="copy_of_profile">Копия %s</string>
     <string name="ab_not_route_to_vpn_title">Маршрутизация на настроенный IP-адрес</string>
-    <string name="ab_kitkat_mss_title">Неправильное значение MSS для VPN-подключения</string>
-    <string name="ab_secondary_users_title">Дополнительные пользователи планшетов</string>
     <string name="custom_connection_options_warng">Укажите индивидуальные параметры подключения. Используйте с осторожностью</string>
     <string name="custom_connection_options">Пользовательские параметры</string>
     <string name="remove_connection_entry">Удалить запись о подключении</string>
-    <string name="ab_kitkat_reconnect_title">Случайные отключения от мобильной сети</string>
-    <string name="ab_vpn_reachability_44_title">Удалённые сети недоступны</string>
-    <string name="ab_persist_tun_title">Постоянный режим туннеля</string>
     <string name="version_and_later">%s и позднее</string>
     <string name="tls_cipher_alert_title">Сбой соединения с SSL23_GET_SERVER_HELLO:ошибка рукопожатия sslv3</string>
     <string name="tls_cipher_alert">Новые версии «OpenVPN для Android» (0.6.29/март 2015 года) используют более безопасные настройки по умолчанию для разрешённых наборов шифров (tls-cipher «DEFAULT:!EXP:!PSK:!SRP:!kRSA»). К сожалению, прекращение использования менее безопасных и экспортных наборов шифров, а особенно тех наборов шифров, которые не поддерживают Perfect Forward Secrecy (Diffie-Hellman), приводит к некоторым проблемам. Обычно это происходит из-за благонамеренной, но плохо реализованной попытки усиления безопасности TLS путём установки tls-cipher на сервере или некоторых встроенных ОС с урезанным SSL (например, MikroTik).

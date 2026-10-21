@@ -4,6 +4,7 @@
  */
 package de.blinkt.openvpn.fragments
 
+import android.Manifest
 import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.DialogInterface
@@ -15,6 +16,8 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.appcompat.app.AlertDialog
 import androidx.preference.CheckBoxPreference
 import androidx.preference.ListPreference
@@ -32,27 +35,22 @@ import java.io.File
 
 class GeneralSettings : PreferenceFragmentCompat(), Preference.OnPreferenceClickListener,
     DialogInterface.OnClickListener, Preference.OnPreferenceChangeListener {
+    private lateinit var mPermReceiver: ActivityResultLauncher<String>
     private lateinit var mExtapp: ExternalAppDatabase
     private lateinit var mAlwaysOnVPN: ListPreference
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.general_settings)
+        registerPermissionReceiver()
+        checkForLocalNetworkAccessPermission()
+
         val devHacks = findPreference<PreferenceCategory>("device_hacks") as PreferenceCategory
         mAlwaysOnVPN = findPreference("alwaysOnVpn")!!
         mAlwaysOnVPN.onPreferenceChangeListener = this
-        val loadtun = findPreference<Preference>("loadTunModule")!!
-        if (!isTunModuleAvailable) {
-            loadtun.isEnabled = false
-            devHacks.removePreference(loadtun)
-        }
-        val cm9hack = findPreference<Preference>("useCM9Fix") as CheckBoxPreference
-        if (!cm9hack.isChecked && Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            devHacks.removePreference(cm9hack)
-        }
         val useInternalFS =
             findPreference<Preference>("useInternalFileSelector") as CheckBoxPreference
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.CINNAMON_BUN) {
             devHacks.removePreference(useInternalFS)
         }
 
@@ -129,7 +127,7 @@ class GeneralSettings : PreferenceFragmentCompat(), Preference.OnPreferenceClick
         updateAlwaysOnVpnSummary(vpn)
     }
 
-    fun updateAlwaysOnVpnSummary(vpn: VpnProfile) {
+    fun updateAlwaysOnVpnSummary(vpn: VpnProfile?) {
         val sb = StringBuffer(getString(R.string.defaultvpnsummary))
         sb.append('\n')
         if (vpn == null) sb.append(getString(R.string.novpn_selected)) else sb.append(
@@ -139,6 +137,33 @@ class GeneralSettings : PreferenceFragmentCompat(), Preference.OnPreferenceClick
             )
         )
         mAlwaysOnVPN.summary = sb.toString()
+    }
+
+    private fun registerPermissionReceiver() {
+        mPermReceiver = registerForActivityResult<String, Boolean>(
+            RequestPermission()
+        ) { result: Boolean? -> checkForLocalNetworkAccessPermission() }
+    }
+
+    private fun checkForLocalNetworkAccessPermission() {
+        val local_network_preference = findPreference<CheckBoxPreference>("local_network")!!
+        var permissionGranted = true
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CINNAMON_BUN)
+            permissionGranted =
+                (requireActivity().checkSelfPermission(Manifest.permission.ACCESS_LOCAL_NETWORK) == PackageManager.PERMISSION_GRANTED)
+
+        local_network_preference.isChecked = permissionGranted
+        if (permissionGranted)
+            local_network_preference.isEnabled = false
+
+        local_network_preference.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+            if ( (newValue as Boolean)) {
+                mPermReceiver.launch(Manifest.permission.ACCESS_LOCAL_NETWORK)
+                true
+            } else {
+                false
+            }
+        }
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {

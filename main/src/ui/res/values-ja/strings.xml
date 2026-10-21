@@ -159,9 +159,6 @@ SDカード上のデータは本質的に無防備です。すべてのアプリ
     <string name="speed_waiting">状態メッセージを待っています。</string>
     <string name="converted_profile">インポートされたプロファイル</string>
     <string name="converted_profile_i">インポートされたプロファイル %d</string>
-    <string name="broken_images">壊れたファームウェア</string>
-    <string name="broken_images_faq">&lt;p&gt;HTCの公式ファームウェアにはトンネルにトラフィックを流すことができない奇妙なルーティングの問題を抱えています。 (バグトラッカーを参照 &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/18\"&gt;Issue 18&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;古いSONY、Xperia Arc SとXperia RayのファームウェアはVPNServiceが完全に欠落していると報告されています。(バグトラッカーを参照 &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/29\"&gt;Issue 29&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;カスタムビルドされたファームウェアにおいてtunモジュールがなかったり、あるいは権限が間違っている場合があります。いくつかのCM9では
-\"Device specific hacks(デバイス固有のhack)\"を有効にして\"Fix ownership(所有権を修正)\"オプションを使用する必要があります。&lt;/p&gt;&lt;p&gt;とても重要なこと: もしあなたがファームウェアの不完全なAndroidデバイスを所有していたら、メーカーに報告してください。より多くの人が問題を報告すれば、彼らが修正することでしょう。&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">PKCS12ファイルの暗号化キー</string>
     <string name="private_key_password">秘密鍵のパスワード</string>
     <string name="password">パスワード</string>
@@ -185,10 +182,6 @@ SDカード上のデータは本質的に無防備です。すべてのアプリ
     <string name="mobile_info">%10$s %9$s は次の環境で実行中です %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Androidキーストアに保存されたキー %1$s: %2$sの署名エラーです</string>
     <string name="error_extapp_sign">外部認証アプリ(%3$s)による署名エラー: %1$s: %2$s</string>
-    <string name="faq_system_dialogs">VPN接続の警告は、このアプリケーションがVPNService APIを悪用してすべての通信を傍受できることを、システムがあなたに知らせるものです。\n
-VPN接続通知(鍵の形)は、VPN接続が稼働中であることをAndroidが知らせています。いくつかのシステムではこの通知で音を鳴らします。\n
-Androidはあなた自身の安全性のために、これらを迂回できないようにしています。(いくつかのシステムでは、遺憾ながら音も伴います)</string>
-    <string name="faq_system_dialogs_title">接続時の警告と通知音</string>
     <string name="translationby">日本語翻訳 高橋正希＠埼玉 &lt;tools@artin.nu&gt;</string>
     <string name="ipdns">IPとDNS</string>
     <string name="basic">基本設定</string>
@@ -255,8 +248,6 @@ Android 4.4以上はポリシールーティングを使用します。route/ifc
     <string name="baterry_consumption">個人的な検証では、OpenVPNがバッテリを多く消費する主な原因はkeepaliveパケットです。 
 大部分のOpenVPNサーバは\'keepalive 10 60\'のような設定を持っており、これは10秒ごとにサーバとクライアントで相互にkeepaliveパケットを送信しあうことを意味します。 &lt;p&gt;これらのパケットは小さく多くの帯域は使用しませんが、モバイル回線機能を常に稼動させ続け電力消費を増大させます。 &lt;p&gt;
 (参考 &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Android Developers&lt;/a&gt;)&lt;p&gt;このkeepalive設定はクライアント側からは変更できません。OpenVPNのシステム管理者のみが変更可能です。 &lt;p&gt; 残念なことに、60秒より大きな間隔のUDP keepaliveはいくつかのNATゲートウェイにおいては接続状態が維持できず、それより短い時間でタイムアウトします(検証では60秒)。 TCP keepaliveと長いタイムアウト時間の使用は、動作はしますがTCP over TCP問題を引き起こします。(詳細は&lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;なぜTCP over TCPは悪いアイディアなのか&lt;/a&gt;を参照)</string>
-    <string name="faq_tethering">Androidのテザリング機能(WiFi, USB, Bluetooth経由)とVPNService API(このプログラムから使用する機能)は同時に利用できません。詳細については&lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=34\"&gt;issue #34&lt;/a&gt;を参照</string>
-    <string name="vpn_tethering_title">VPNとテザリング</string>
     <string name="connection_retries">接続の再試行回数</string>
     <string name="reconnection_settings">再接続の設定</string>
     <string name="connectretrymessage">再接続を試行する際の間隔(秒)</string>
@@ -325,8 +316,6 @@ Android 4.4以上はポリシールーティングを使用します。route/ifc
     <string name="allow_vpn_changes">VPNプロファイルの変更を許可する</string>
     <string name="hwkeychain">ハードウェアのキーストア：</string>
     <string name="permission_icon_app">OpenVPN for Androidを使用しようと試みるアプリのアイコン</string>
-    <string name="faq_vpndialog43">Android 4.3で使用した場合、VPN確認画面はオーバーレイ(常に画面全体を覆う表示)を使用するアプリから保護されます。この結果、ダイアログはタッチ操作に反応しなくなります。もしあなたがオーバーレイを使用したアプリを使っていたらこの挙動に遭遇するでしょう。もしあなたがこういった無作法なアプリを見つけたら、そのアプリの作者に連絡しましょう。この問題はAndroid 4.3以降でVPNアプリケーションすべてに影響します。詳細は &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\"&gt;Issue 185&lt;a&gt; を参照してください。</string>
-    <string name="faq_vpndialog43_title">VPN確認ダイアログ</string>
     <string name="donatePlayStore">ほかの手段として、Play Storeで私に寄付できます。</string>
     <string name="thanks_for_donation">%s の寄付をお寄せいただきありがとうございます！</string>
     <string name="logCleared">ログがクリアされました。</string>
@@ -342,7 +331,6 @@ Android 4.4以上はポリシールーティングを使用します。route/ifc
     <string name="logview_options">オプションを表示</string>
     <string name="unhandled_exception">未処理の例外: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">もしあなたがデバイスをroot化しているのであれば、 &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt;と&lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Dialog confirm module&lt;/a&gt; を自己責任においてインストールできます</string>
     <string name="full_licenses">完全なライセンス告知</string>
     <string name="blocklocal_summary">ローカルインターフェイスに直接接続されているネットワークはVPNを経由しません。
 このオプションを外すとローカルネットワーク宛のすべての通信をVPNにリダイレクトします。</string>
@@ -386,27 +374,16 @@ Android 4.4以上はポリシールーティングを使用します。route/ifc
     <string name="faq_androids_clients_title">Android用OpenVPNクライアント間の違い</string>
     <string name="ignore_multicast_route">マルチキャストされた経路を無視します: %s</string>
     <string name="ab_only_cidr">AndroidはVPNへの経路としてCIDRのみサポートします。非CIDR経路はほとんど使用されないため、OpenVPN for Androidは非CIDR経路に/32を使用し、警告を発します。</string>
-    <string name="ab_tethering_44">テザリングはVPNが接続中でも有効です。ただしテザリングした通信はVPNを使用できません。</string>
-    <string name="ab_kitkat_mss">初期のKitKatはTCP接続において間違ったMSS値を使用します。(#61948). このバグを回避するにはmssfixオプションの有効化を試してください。</string>
     <string name="ab_proxy">AndroidはDNSサーバの設定がされていない場合、モバイル/WiFiのプロキシ設定を使用し続けます。OpenVPN for Androidはこれについてログにて警告します。<p>VPNがDNSサーバを設定した場合、Androidはプロキシを使用しなくなります。VPNでプロキシを使用するよう設定するAPIは存在しません。</p></string>
     <string name="ab_not_route_to_vpn">設定されたクライアントIPとネットマスクに含まれるIPアドレスはVPNを経由しません。OpenVPNは明示的に経路を追加することでこのバグを回避します。</string>
-    <string name="ab_persist_tun">ほかのTUNデバイスが使用されている間に、永続的なTUNデバイス機能のためにTUNデバイスを開こうとするとデバイス上のVPNServiceがクラッシュします。VPNが再び動作するためにはデバイスの再起動が必要です。OpenVPN for Androidはクラッシュを避けるため、新しいTUNデバイスを開く前に現在のTUNデバイスを閉じます。これは短期間、パケットが非VPN接続に送信される原因になります。この回避策があっても、VPNServiceは時々クラッシュし、デバイスの再起動が必要になります。</string>
-    <string name="ab_secondary_users">VPNはほかのユーザーに対しては動作しません。</string>
-    <string name="ab_kitkat_reconnect">"複数のユーザが、VPNアプリ使用中にモバイル接続が頻繁に欠落すると報告しています。この挙動は特定のプロバイダ／デバイスの組み合わせでのみ発生すると思われ、これまでのところこのバグに対する原因や回避策は特定されていません。"</string>
-    <string name="ab_vpn_reachability_44">VPNなしでも到達可能なネットワークにのみVPN経由で到達できる場合。IPv6 VPN は動作しません。</string>
     <string name="ab_only_cidr_title">CIDR形式ではない経路</string>
     <string name="ab_proxy_title">VPNとプロキシの挙動</string>
     <string name="version_upto">%sおよびそれ以前</string>
     <string name="copy_of_profile">%sのコピー</string>
     <string name="ab_not_route_to_vpn_title">設定されたIPアドレスへの経路</string>
-    <string name="ab_kitkat_mss_title">VPN接続に不正なMSS値</string>
-    <string name="ab_secondary_users_title">タブレットの複数ユーザー</string>
     <string name="custom_connection_options_warng">カスタム指定の接続オプションを設定します。慎重に利用してください</string>
     <string name="custom_connection_options">カスタムオプション</string>
     <string name="remove_connection_entry">接続先設定を削除します</string>
-    <string name="ab_kitkat_reconnect_title">モバイルネットワークが突発的に切断される</string>
-    <string name="ab_vpn_reachability_44_title">リモートネットワークに到達できません</string>
-    <string name="ab_persist_tun_title">持続的なTUNモード</string>
     <string name="version_and_later">%s以降</string>
     <string name="tls_cipher_alert_title">SSL23_GET_SERVER_HELLO:sslv3 alert handshake failureで接続が失敗する</string>
     <string name="tls_cipher_alert">OpenVPN for Androidの新しいバージョン(0.6.29/March 2015)は、暗号化スイートが許す限りよりセキュアなデフォルトを使用します(tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\")。 残念なことに、欠陥のある暗号化スイートあるいは輸出用暗号化スイート、特にPerfect Forward Secrecy (Diffie-Hellman)に欠陥がある暗号化スイートでは問題を生じます。これらは通常、サーバのtls-cipherの設定や最小限のSSLを実装した組み込みOS(例えば MikroTik)で、よりTLSセキュリティを強化しようとした善意での、しかし不完全な試みにより生じます\nこの問題を解決するには、サーバ側で tls-cipher に \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\" のような妥当なデフォルトを設定します。この問題のクライアント側の回避策としては、カスタムオプションに tls-cipher DEFAULT を追加します。</string>

@@ -24,11 +24,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import de.blinkt.openvpn.R
 import de.blinkt.openvpn.VpnProfile
 import de.blinkt.openvpn.core.ConfigParser
+import de.blinkt.openvpn.core.GlobalPreferences
 import de.blinkt.openvpn.core.ProfileManager
-import de.blinkt.openvpn.fragments.AboutFragment
-import de.blinkt.openvpn.fragments.FaqFragment
-import de.blinkt.openvpn.fragments.GeneralSettings
-import de.blinkt.openvpn.fragments.GraphFragment
+import de.blinkt.openvpn.fragments.*
 import de.blinkt.openvpn.fragments.ImportRemoteConfig.Companion.newInstance
 import de.blinkt.openvpn.fragments.LogFragment
 import de.blinkt.openvpn.fragments.SendDumpFragment
@@ -45,6 +43,7 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
     private lateinit var mPager: ViewPager2
     private lateinit var mPagerAdapter: ScreenSlidePagerAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val view = layoutInflater.inflate(R.layout.main_activity, null)
@@ -55,16 +54,27 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
 
         mPagerAdapter = ScreenSlidePagerAdapter(supportFragmentManager, lifecycle, this)
 
-        /* Toolbar and slider should have the same elevation */disableToolbarElevation()
-        mPagerAdapter.addTab(R.string.vpn_list_title, VPNProfileList::class.java)
-        mPagerAdapter.addTab(R.string.graph, GraphFragment::class.java)
-        mPagerAdapter.addTab(R.string.generalsettings, GeneralSettings::class.java)
-        mPagerAdapter.addTab(R.string.faq, FaqFragment::class.java)
-        if (SendDumpFragment.getLastestDump(this) != null) {
-            mPagerAdapter.addTab(R.string.crashdump, SendDumpFragment::class.java)
+        /* Toolbar and slider should have the same elevation */
+        disableToolbarElevation()
+
+        val minimalUi = GlobalPreferences.getMinimalUi();
+        if (isAndroidTV || minimalUi) {
+            mPagerAdapter.addTab(R.string.minimal_ui, MinimalUI::class.java)
         }
-        if (isAndroidTV)
+        if (!minimalUi) {
+
+            mPagerAdapter.addTab(R.string.vpn_list_title, VPNProfileList::class.java)
+            mPagerAdapter.addTab(R.string.graph, GraphFragment::class.java)
+            mPagerAdapter.addTab(R.string.generalsettings, GeneralSettings::class.java)
+            mPagerAdapter.addTab(R.string.faq, FaqFragment::class.java)
+            if (SendDumpFragment.getLastestDump(this) != null) {
+                mPagerAdapter.addTab(R.string.crashdump, SendDumpFragment::class.java)
+            }
+
+        }
+        if (isAndroidTV || minimalUi)
             mPagerAdapter.addTab(R.string.openvpn_log, LogFragment::class.java)
+
         mPagerAdapter.addTab(R.string.about, AboutFragment::class.java)
         mPager.setAdapter(mPagerAdapter)
 
@@ -124,7 +134,8 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
+        if (!GlobalPreferences.getMinimalUi())
+            menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 

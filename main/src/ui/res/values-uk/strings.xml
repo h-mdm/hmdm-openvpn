@@ -154,8 +154,6 @@
     <string name="speed_waiting">Очікування повідомлення стану&#8230;</string>
     <string name="converted_profile">імпортований профіль</string>
     <string name="converted_profile_i">імпортований профіль: %d</string>
-    <string name="broken_images">Пошкоджені зображення</string>
-    <string name="broken_images_faq">&lt;p&gt; Відомо, що офіційні прошивки HTC мають дивні проблеми з маршрутизацією, викликані тим, що трафік не йде через тунель (див. також &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=18\"&gt;Issue 18&lt;/a&gt; в баг-трекері) &lt;/p&gt; &lt;p&gt; Також повідомлялося, що в офіційних прошивках SONY для Xperia arc S і Xperia Ray повністю відсутній сервіс VPNService. Також інші прошивки від Sony можуть мати такі ж проблеми. (див. також &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=29\"&gt;Issue 29&lt;/a&gt; в баг-трекері) &lt;/p&gt; &lt;p&gt; У деяких вбудованих прошивках модуль tun може бути відсутнім або мати не правильні права файлу-пристрою /dev/tun. Деякі CM9 прошивки можуть вимагати виправлення власника в головних налаштуваннях. &lt;/p&gt; &lt;p&gt; Важлива інформація: Якщо у вас прошивка із зазначеними проблемами, повідомте про це виробнику пристрою. Чим більше користувачів повідомить про проблему виробнику, тим більше шансів, що цей виробник зволить прибрати свої недоробки. &lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">PKCS12 Ключ шифрування файлу</string>
     <string name="private_key_password">Пароль закритого ключа</string>
     <string name="password">Пароль</string>
@@ -179,8 +177,6 @@
     <string name="mobile_info">%10$s %9$s працює на %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Помилка підпису з використанням ключа із сховища Андроїд %1$s: %2$s</string>
     <string name="error_extapp_sign">Помилка підпису із зовнішнім програмою автентифікації (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">Попередження VPN з\'єднання повідомляє вам, що цей додаток може перехоплювати весь мережевий трафік, і повідомляється системою попереджень VPNService API. \nСповіщення про VPN з\'єднання (символ \"Ключа\") також формується системою Android для сигналізації про вихідне VPN з\'єднання. У деяких прошивках це сповіщення супроводжується сигналом. \nAndroid використовує ці cповіщення для вашої власної безпеки і їх не можна обійти. (На жаль, на деяких прошивках також  сповіщення супроводжується звуком)</string>
-    <string name="faq_system_dialogs_title">Повідомлення про підключення та звук сповіщеня</string>
     <string name="translationby">Переклад українською виконано спільнотою</string>
     <string name="ipdns">IP-адреса та DNS</string>
     <string name="basic">Основне</string>
@@ -219,8 +215,6 @@
     <string name="import_config">Імпорт конфігурації OpenVPN</string>
     <string name="battery_consumption_title">Споживання акумулятора</string>
     <string name="baterry_consumption">У моїх особистих тестах основна причина високого споживання батареї OpenVPN є підтримуючі пакети. Більшість OpenVPN сервера мають директиви конфігурації, як \"залишайся в живих 10 60\", які перекладаються як підтримуючий пакет від клієнта до сервера і від сервера до клієнта кожні десять секунд. &lt;p&gt; Хоча ці пакети є невеликими і не використовують багато трафіку, вони тримають мережі мобільного радіозв\'язку зайнятими і збільшвють споживання енергії. (Див. також &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;Радіо State Machine | Android Developers &lt;/a&gt;) &lt;p&gt; Цей параметр надсилання пакетів не може бути змінений на клієнті. Тільки системний адміністратор OpenVPN може змінити настройки. &lt;p&gt; На жаль, використання цього параметру більше 60 секунд з UDP має проблеми з деякими шлюзами NAT, які закінчуються стан підключення після короткого тайм-ауту (60 с в моїх тестах). Використання TCP з довгими затримками працює, але має проблему TCP над TCP. (Див. &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt; Чому TCP над TCP є поганим середовищем&lt;/a&gt;)</string>
-    <string name="faq_tethering">Функція транзитного з\'єднання на Android (через WiFi, USB або Bluetooth) та VPNService API (використовуване цією програмою) не працюють разом. Детальніше в &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=34\"&gt; Issue 34 &lt;/a&gt;</string>
-    <string name="vpn_tethering_title">VPN і тетерінг</string>
     <string name="connection_retries">Спроб підключення</string>
     <string name="reconnection_settings">Налаштування перепідключення</string>
     <string name="connectretrymessage">Кількість секунд очікування між спробами підключення.</string>
@@ -289,8 +283,6 @@
     <string name="allow_vpn_changes">Дозволити зміни в профілі VPN</string>
     <string name="hwkeychain">Апаратне сховище ключів:</string>
     <string name="permission_icon_app">Іконка програми, яка намагається використовувати \"OpenVPN for Android\"</string>
-    <string name="faq_vpndialog43">"Починаючи з Android 4.3, запит підтвердження VPN-з\'єднання захищено від програм, які \"накладаються поверх екрану\". Це призводить до того, що діалогове вікно підтвердження не реагує на сенсорні натискання. Якщо у вас є програма, що використовує накладення, то це може викликати таке поведінку. Якщо ви виявите де-небудь таку програмe, зв\'яжіться з автором програми Ця проблема зачіпає всі VPN програми на Android 4.3 та пізніших версіях Дивіться також &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=185\"&gt;Issue 185&lt;a&gt; для отримання додаткової інформації"</string>
-    <string name="faq_vpndialog43_title">Вікно підтвердження VPN</string>
     <string name="donatePlayStore">Крім того, ви можете надіслати мені пожертвування через Play Store:</string>
     <string name="thanks_for_donation">Дякуємо за пожертвування %s!</string>
     <string name="logCleared">Журнал очищено.</string>
@@ -306,7 +298,6 @@
     <string name="logview_options">Подивитися налаштування</string>
     <string name="unhandled_exception">Невідома помилка: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">Якщо на Вашому пристрої встановлені root права, Ви можете встановити &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; та  &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Dialog confirm module&lt;/a&gt;  на свій страх і ризик\"</string>
     <string name="full_licenses">Повні ліцензії</string>
     <string name="blocklocal_summary">Мережі, безпосередньо доступні через локальний інтерфейс  не направлятимуться на VPN. Відключіть цю опцію щоб направити увесь трафік через VPN.</string>
     <string name="blocklocal_title">Не використовувати VPN для локальних мереж</string>
@@ -349,27 +340,16 @@
     <string name="faq_androids_clients_title">Відмінності між клієнтами OpenVPN для Android</string>
     <string name="ignore_multicast_route">Ігнорувати multicast маршрут:%s</string>
     <string name="ab_only_cidr">Android підтримує тільки CIDR маршрути для VPN. Так, не-CIDR маршрути майже ніколи не використовуються, OpenVPN for Android використовує /32 для маршрутів, які не є CIDR і видає попередження.</string>
-    <string name="ab_tethering_44">Загальний доступ до підключення (WiFi точки/модему) працює як VPN активний, але НЕ використовує VPN.</string>
-    <string name="ab_kitkat_mss">Рання версія KitKat встановлюе невірне значення MSS з\'єднань TCP (#61948). OpenVPN активує опцію mssfix щоб обійти цю проблему.</string>
     <string name="ab_proxy">Android буде продовжувати використовувати налаштування проксі-сервера для мобільного зв\'язку/Wi-Fi, коли немає встановленого DNS-сервера. OpenVPN for Android попередить вас про це в журналі.<p>Коли VPN встановить DNS-сервер Android не буде використовувати проксі-сервер. Зараз немає API для використання проксі-серверу для VPN-підключення.</p></string>
     <string name="ab_not_route_to_vpn">Налаштований клієнтом IP і IP-адреси в цій мережевій масці не направляються до VPN. OpenVPN обробляє цю помилку явно додаючи маршрут, який відповідає IP клієнта і його маскою мережі</string>
-    <string name="ab_persist_tun">Відкриття tun пристрію поки інший tun пристрій активний, який використовує persist-tun, приводе до аварії VPNServices на пристрої. Потрібне перезавантаження, щоб VPN запрацював знову. OpenVPN for Android намагається уникнути повторне відкриття tun пристрію, а якщо дійсно необхідно в першу чергу закриває поточний TUN перед відкриттям нового TUN пристрої, щоб уникнути помилки. Це може призвести до виникнення короткого вікна, в якому пакети пересилаються по мережі без VPN. Навіть це тимчасове рішення іноді призводить до краху VPNServices і вимагає перезавантаження пристрою.</string>
-    <string name="ab_secondary_users">VPN не працює для других користувачів.</string>
-    <string name="ab_kitkat_reconnect">"Декілька користувачів повідомили, що мобільний зв\'язок/мобільні дані часто відключається, коли VPN активний. Поведінка, здається, впливає тільки для комбінації деякіх провайдерів/пристріїв і досі ні причини, ні рішення для цієї помилки не визначені. "</string>
-    <string name="ab_vpn_reachability_44">Тільки призначення, які досяжні без VPN, також доступні по VPN. IPv6 VPN не працює взагалі.</string>
     <string name="ab_only_cidr_title">Несумісні CIDR маршрути</string>
     <string name="ab_proxy_title">Поведінка проксі для VPN</string>
     <string name="version_upto">%s і раніше</string>
     <string name="copy_of_profile">Копія %s</string>
     <string name="ab_not_route_to_vpn_title">Шлях до налаштованого VPN IP адреса</string>
-    <string name="ab_kitkat_mss_title">Невірне значення MSS для VPN підключення</string>
-    <string name="ab_secondary_users_title">Другі користувачі планшету</string>
     <string name="custom_connection_options_warng">Визначені параметри користувача при з\'єднанні. Будьте обережні!</string>
     <string name="custom_connection_options">Власні налаштовування</string>
     <string name="remove_connection_entry">Видалити запис підключення</string>
-    <string name="ab_kitkat_reconnect_title">Випадкове відключення від мережі мобільного зв\'язку</string>
-    <string name="ab_vpn_reachability_44_title">Віддалені мережі недоступні</string>
-    <string name="ab_persist_tun_title">Зберігати tun режим</string>
     <string name="version_and_later">%s і подальше</string>
     <string name="tls_cipher_alert_title">Підключення не вдається з \"SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure\"</string>
     <string name="tls_cipher_alert">Новіші версії OpenVPN для Android (0.6.29 / березень 2015 р.) використовують більш безпечниі налаштування за промовчанням для дозволених шифрованих наборів (tls-шифр \"DEFAULT:! EXP:! PSK:! SRP:! KRSA\"). На жаль, виключення менш безпечних та експортних наборів шифрів, особливо тих, які не підтримують Perfect Forward Secrecy (Diffie-Hellman), викликають певні проблеми. Це, як правило, зумовлене добромисною, але погано виконаною спробою посилити захист TLS встановленням tls-cipher на сервері або деяких вбудованих ОС із урізаним SSL (наприклад, MikroTik).\nЩоб вирішити цю проблему, встановіть tls-cipher налаштування на сервері на розумні за промовчанням, як tls-cipher \"DEFAULT:! EXP:! PSK:! SRP:! kRSA\". Щоб вирішити проблему у клієнта, додайте користувацький параметр tls-cipher DEFAULT на клієнті Android.</string>

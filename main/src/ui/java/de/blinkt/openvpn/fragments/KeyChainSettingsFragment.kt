@@ -5,7 +5,6 @@
 
 package de.blinkt.openvpn.fragments
 
-import android.annotation.TargetApi
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.ActivityNotFoundException
@@ -17,15 +16,14 @@ import android.os.Message
 import android.security.KeyChain
 import android.security.KeyChainException
 import android.security.keystore.KeyInfo
+import android.security.keystore.KeyProperties
 import android.text.TextUtils
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import de.blinkt.openvpn.R
 import de.blinkt.openvpn.VpnProfile
-import de.blinkt.openvpn.api.ExternalCertificateProvider
 import de.blinkt.openvpn.core.ExtAuthHelper
 import de.blinkt.openvpn.core.X509Utils
 import java.security.KeyFactory
@@ -42,20 +40,47 @@ internal abstract class KeyChainSettingsFragment : Settings_Fragment(), View.OnC
     private lateinit var mExtAliasName: TextView
     private lateinit var mExtAuthSpinner: Spinner
 
-    private val isInHardwareKeystore: Boolean
-        @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+    private val inHardwareKeystore: String
         @Throws(KeyChainException::class, InterruptedException::class)
         get() {
-            val key: PrivateKey = KeyChain.getPrivateKey(requireActivity().applicationContext, mProfile.mAlias) ?: return false
+            val key: PrivateKey = KeyChain.getPrivateKey(requireActivity().applicationContext, mProfile.mAlias) ?: return ""
+
+            val c = context ?: return ""
 
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
                 val keyFactory = KeyFactory.getInstance(key.getAlgorithm(), "AndroidKeyStore")
                 val keyInfo = keyFactory.getKeySpec(key, KeyInfo::class.java)
-                return keyInfo.isInsideSecureHardware()
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    when (keyInfo.securityLevel) {
+                        KeyProperties.SECURITY_LEVEL_TRUSTED_ENVIRONMENT -> {
+                            return getString(R.string.trusted_environment)
+                        }
+                        KeyProperties.SECURITY_LEVEL_STRONGBOX -> {
+                            return c.getString(R.string.hwkeychain)
+                        }
+
+                        KeyProperties.SECURITY_LEVEL_UNKNOWN_SECURE -> {
+                            return getString(R.string.unknown_but_secure)
+                        }
+                        else -> {
+                            return ""
+                        }
+                    }
+
+                }
+                else {
+                    if (keyInfo.isInsideSecureHardware())
+                        return c.getString(R.string.hwkeychain)
+                    return ""
+                }
 
             } else {
                 val algorithm = key.algorithm
-                return KeyChain.isBoundKeyAlgorithm(algorithm)
+                if (KeyChain.isBoundKeyAlgorithm(algorithm))
+                    return c.getString(R.string.hwkeychain)
+                else
+                    return ""
             }
         }
 
@@ -97,7 +122,6 @@ internal abstract class KeyChainSettingsFragment : Settings_Fragment(), View.OnC
         }.start()
     }
 
-
     protected fun setCertificate(external: Boolean) {
         object : Thread() {
             override fun run() {
@@ -118,11 +142,8 @@ internal abstract class KeyChainSettingsFragment : Settings_Fragment(), View.OnC
                         val certChain = KeyChain.getCertificateChain(requireActivity().applicationContext, mProfile.mAlias)
                         if (certChain != null) {
                             cert = certChain[0]
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                                run {
-                                    if (isInHardwareKeystore)
-                                        certstr += getString(R.string.hwkeychain)
-                                }
+                            run {
+                                certstr += inHardwareKeystore
                             }
                         }
                     }

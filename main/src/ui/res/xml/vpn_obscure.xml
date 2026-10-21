@@ -17,6 +17,11 @@
             android:key="peerInfo"
             android:summary="@string/pushpeerinfosummary"
             android:title="@string/pushpeerinfo" />
+
+        <CheckBoxPreference
+                android:key="dpc1protocol"
+                android:summary="@string/dpc1protocolsummary"
+                android:title="@string/dpc1protocol" />
     </PreferenceCategory>
 
     <CheckBoxPreference

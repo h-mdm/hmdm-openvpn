@@ -151,8 +151,6 @@
     <string name="speed_waiting">Čakanje na sporočilo stanja &#8230;</string>
     <string name="converted_profile">uvoženi profil</string>
     <string name="converted_profile_i">uvoženi profil %d</string>
-    <string name="broken_images">Pokvarjeni odtisi</string>
-    <string name="broken_images_faq">&lt;p&gt;Uradni HTC-jevi odtisi imajo znano čudno težavo pri usmerjanju, ki povzroča, da promet ne teče skozi tunel (glejte &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=18\"&gt;Težavo 18&lt;/a&gt; v sledilniku hroščev.)&lt;/p&gt;&lt;p&gt;Za starejše uradne Sonyjeve odtise iz Xperie Arc S in Xperie Ray je bilo sporočeno, da jim v celoti manjka storitev VPN (glejte &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=18\"&gt;Težavo 18&lt;/a&gt; v sledilniku hroščev.)&lt;/p&gt;&lt;p&gt;V odtisih izgrajenih po meri lahko manjka modul TUN ali so dovoljenja za /dev/tun napačna. Nekateri odtisi CM9 potrebujejo omogočeno možnost \"Popravi lastništvo\" v \"Prilagoditvah za naprave\".&lt;/p&gt;&lt;p&gt;Najbolj pomembno: če ima vaša naprava pokvarjen odtis Android, ga prijavite svojemu proizvajalcu. Več ljudi kot prijavi težavo proizvajalcu, bolj verjetno je, da jo bodo popravili.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">Ključ za šifriranje datoteke PKCS12</string>
     <string name="private_key_password">Geslo zasebnega ključa</string>
     <string name="password">Geslo</string>
@@ -176,8 +174,6 @@
     <string name="mobile_info">%10$s %9$s se izvaja na %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Napaka pri podpisu s ključem Androidove shrambe ključev %1$s: %2$s</string>
     <string name="error_extapp_sign">Napaka pri podpisu z zunanjo aplikacijo za preverjanje pristnosti (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">Opozorilo o povezavi VPN, ki vam sporoča, da lahko ta naprava prestreže ves promet, vsili sistem, da prepreči zlorabo API-ja storitve VPN.\nObvestilo o povezavi VPN (simbol ključa) tudi vsili sistem Android, da nakaže tekočo povezavo VPN. V nekaterih odtisih to obvestilo predvaja zvok.\nAndroid je vpeljal ta sistemska pogovorna okna zaradi vaše varnosti in je poskrbel, da se jih ne da zaobiti (v nekaterih odtisih to na žalost vključuje zvok obvestila).</string>
-    <string name="faq_system_dialogs_title">Opozorilo o povezavi in zvok obvestila</string>
     <string name="translationby">Angleški prevod: Arne Schwabe&lt;arne@rfc2549.org&gt;</string>
     <string name="ipdns">IP in DNS</string>
     <string name="basic">Osnovno</string>
@@ -215,8 +211,6 @@
     <string name="import_config">Uvozi nastavitve OpenVPN</string>
     <string name="battery_consumption_title">Poraba baterije</string>
     <string name="baterry_consumption">V mojih osebnih preizkusih so bili glaven vzrok za visoko porabo baterije OpenVPN-a dejavni paketi. Večina strežnikov OpenVPN ima smernico nastavitev, kot je \'ohrani dejavnost 10 60\', ki povzroči, da si odjemalec in strežnik izmenjata dejavne pakete vsakih 10 sekund. &lt;p&gt;Medtem, ko so ti paketi majhni in ne uporabijo veliko prometa, ohranijo mobilno radijsko omrežje dejavno in povečajo porabo energije (glejte tudi &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Razvijalci Androida&lt;/a&gt;).&lt;p&gt; Te nastavitve ohranjanja dejavnosti odjemalec ne more spremeniti. Spremeni jo lahko samo sistemski skrbnik OpenVPN-a.&lt;p&gt; Na žalost uporaba ohranjanja dejavnosti večje od 60-ih sekund z UDP-jem lahko povzroči, da nekatera vrata NAT prekinejo povezavo zaradi časovne omejitve nedejavnosti. Uporaba TCP-ja z dolgo časovno omejitvijo ohranjanja dejavnosti deluje, vendar se tuneliranje TCP-ja preko TCP-ja izkaže za zelo neučinkovito ob povezavah z visoko izgubo paketov (glejte &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Why TCP Over TCP Is A Bad Idea&lt;/a&gt;).</string>
-    <string name="faq_tethering">Androidova značilnost deljenja mobilnega interneta (preko omrežja Wi-Fi, USB-ja ali Bluetootha) in API storitve VPN (ki ga uporablja ta program) skupaj ne delujeta. Za več podrobnosti glejte &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=34\"&gt;Težavo 34&lt;/a&gt;.</string>
-    <string name="vpn_tethering_title">VPN in deljenje mobilnega interneta</string>
     <string name="connection_retries">Ponovni poizkusi povezave</string>
     <string name="reconnection_settings">Nastavitve ponovne povezave</string>
     <string name="connectretrymessage">Št. sekund čakanja med poizkusi povezave.</string>
@@ -284,8 +278,6 @@
     <string name="allow_vpn_changes">Dovoli spremembe profilov VPN</string>
     <string name="hwkeychain">Strojna shramba ključev:</string>
     <string name="permission_icon_app">Ikona programa poizkuša uporabiti OpenVPN za Android</string>
-    <string name="faq_vpndialog43">\"Z začetkom v Androidu 4.3 je potrditev VPN zaščitena proti \"prekrivajočimi programi\". To povzroči, da se pogovorna okna ne odzovejo na vnos z dotikom. Če imate program, ki uporablja prekrivanja, lahko povzroči to vedenje. Če najdete tak program, navežite stik z avtorjem programa. Ta težava vpliva na vse programe VPN na Androidu 4.3 ali kasnejših. Za dodatne podrobnosti glejte tudi &lt;a href=\"http://code.google.com/p/ics-openvpn/issues/detail?id=185\"&gt;Težavo 185&lt;a&gt;\".</string>
-    <string name="faq_vpndialog43_title">Potrditev pogovornega okna VPN</string>
     <string name="donatePlayStore">Lahko pa mi darujete s trgovino Play:</string>
     <string name="thanks_for_donation">Hvala, da ste darovali %s!</string>
     <string name="logCleared">Dnevnik počiščen.</string>
@@ -301,7 +293,6 @@
     <string name="logview_options">Možnosti pogleda</string>
     <string name="unhandled_exception">Neobravnavana izjema: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">Če imate na svoji napravi skrbniški dostop, lahko na svojo odgovornost namestite &lt;a href=\"http://xposed.info/\"&gt;ogrodje Xposed&lt;/a&gt; in &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;Modul za potrditev pog. okna VPN&lt;/a&gt;.</string>
     <string name="full_licenses">Polna dovoljenja</string>
     <string name="blocklocal_summary">Omrežja, ki so neposredno povezana s krajevnimi vmesniki, ne bodo usmerjena preko VPN-a. Odstranitev izbire te možnosti bo preusmerila ves promet namenjen krajevnim omrežjem v VPN.</string>
     <string name="blocklocal_title">Zaobidi VPN za kraj. omr.</string>
@@ -344,27 +335,16 @@
     <string name="faq_androids_clients_title">Razlike med Androidovimi odjemalci OpenVPN</string>
     <string name="ignore_multicast_route">Preziranje poti večsmernega oddajanja: %s</string>
     <string name="ab_only_cidr">Android podpira samo poti CIDR v VPN. Ker se druge poti skoraj nikoli ne uporabljajo, bo OpenVPN za Android za te poti uporabil /32 in izdal opozorilo.</string>
-    <string name="ab_tethering_44">Deljenje mobilnega interneta deluje, ko je VPN dejaven. Deljena povezava NE bo uporabila VPN-a.</string>
-    <string name="ab_kitkat_mss">Zgodnja različica KitKata je nastavila napačno vrednost MSS ob povezavah TCP (#61948). OpenVPN bo samodejno omogočil možnost mssfix, da zaobide ta hrošč.</string>
     <string name="ab_proxy">Android bo še naprej uporabljal nastavitve posredniškega strežnika, ki so določene za mobilno povezavo/Wi-Fi, ko ni nastavljenih strežnikov DNS. OpenVPN za Android vas bo o tem opozoril v dnevniku.<p>Ko VPN nastavi strežnik DNS, Android ne bo uporabil posredniškega strežnika. API, ki nastavi posredniški strežnik za povezavo VPN, ne obstaja.</p></string>
     <string name="ab_not_route_to_vpn">IP nastavljenega odjemalca in IP-ji v njegovi maski omrežja se ne usmerijo v VPN. OpenVPN zaobide tega hrošča z izrecnim dodajanjem poti, ki ustreza IP-ju odjemalca in njegovi maski omrežja.</string>
-    <string name="ab_persist_tun">Odpiranje naprave TUN, ko je dejavna druga naprava, kar se uporablja za podporo vztrajnega TUN-a, sesuje storitve VPN na napravi. Za ponovno delovanje VPN-a je zahtevan ponovni zagon. OpenVPN za Android bo poizkusil ponovno odpreti napravo TUN in če je zelo potrebno, pred tem zaprl trenutni TUN, da se izogne sesutju. To lahko privede do kratkega postanka, kjer se paketi pošljejo preko običajne povezave. Tudi pri tem zaobidenju se storitve VPN včasih sesujejo in je zahtevan ponovni zagon naprave.</string>
-    <string name="ab_secondary_users">VPN sploh ne deluje za sekundarne uporabnike.</string>
-    <string name="ab_kitkat_reconnect">"Več uporabnikov poroča, da se ob uporabi programa VPN mobilna povezava/podatki pogosto prekinejo. Videti je, da se to nanaša samo na nekatere kombinacije mobilnih ponudnikov/naprav in do sedaj za ta hrošč še ni bilo odkritega vzroka/zaobidenja."</string>
-    <string name="ab_vpn_reachability_44">Preko VPN-a so dosegljivi samo cilji, ki so dosegljivi tudi brez njega. VPN-i IPv6 sploh ne delujejo.</string>
     <string name="ab_only_cidr_title">Poti brez načina CIDR</string>
     <string name="ab_proxy_title">Vedenje posredniškega strežnika za VPN-e</string>
     <string name="version_upto">%s in prejšnji</string>
     <string name="copy_of_profile">Kopija %s</string>
     <string name="ab_not_route_to_vpn_title">Pot do nastavljenega naslova IP</string>
-    <string name="ab_kitkat_mss_title">Napačna vrednost MSS za povezavo VPN</string>
-    <string name="ab_secondary_users_title">Sekundarni uporabniki tabilc</string>
     <string name="custom_connection_options_warng">Določite možnosti za povezave po meri. Uporabljajte previdno.</string>
     <string name="custom_connection_options">Možnosti po meri</string>
     <string name="remove_connection_entry">Odstrani vnos povezave</string>
-    <string name="ab_kitkat_reconnect_title">Naključne prekinitve mobilnega omrežja</string>
-    <string name="ab_vpn_reachability_44_title">Oddaljena omrežja niso dosegljiva</string>
-    <string name="ab_persist_tun_title">Vztrajaj v načinu TUN</string>
     <string name="version_and_later">%s in kasnejši</string>
     <string name="tls_cipher_alert_title">Povezava je spodletela z opozorilom izmenjave signalov SSL23_GET_SERVER_HELLO:sslv3</string>
     <string name="tls_cipher_alert">Novejše različice OpenVPN-a za Android (0.6.29/marec 2015) uporabljajo bolj varne privzete vrednosti za dovoljene šifrirne pakete (tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\"). Na žalost izpuščanje manj varnih šifrirnih paketov in šifrirnih paketov za izvoz, posebno izpuščanje šifrirnih paketov, ki ne podpirajo vnaprejšnje varnosti (Diffie-Hellman), povzroča težave. To običajno povzroči dobronamerni vendar slabo izvedeni poizkus ojačanja varnosti TLS-a z nastavljanjem možnosti tls-cipher na strežniku ali vstavljenih OS-ih z okrnjenim SSL-om (npr. MikroTik).\nZa razrešitev te težave na strežniku nastavite možnosti tls-cipher na razumljive privzete vrednosti, kot je tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\". Za zaobidenje te težave na odjemalcu dodajte možnost po meri tls-cipher DEFAULT na odjemalcu Android.</string>

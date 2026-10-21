@@ -152,8 +152,6 @@
     <string name="speed_waiting">等待狀態訊息...</string>
     <string name="converted_profile">已匯入設定檔</string>
     <string name="converted_profile_i">已匯入設定檔 %d</string>
-    <string name="broken_images">已損毀的系統</string>
-    <string name="broken_images_faq">&lt;p&gt;HTC 官方系統已知有一個奇怪的路由問題會造成流量不會透過管道傳輸（參見問題追蹤系統中的 &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/18\"&gt;Issue 18&lt;/a&gt;）有回報表示 Xperia Arc S 和 Xperia Ray 較舊的 SONY 系統完全缺少了 VPNService （參見問題追蹤系統中的 &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/29\"&gt;Issue 29&lt;/a&gt;）&lt;/p&gt;&lt;p&gt;在自行構建的系統中，可能會缺少 TUN 模組，或是 /dev/tun 的權限可能是錯的。部分 CM9 系統需要啟用「針對特定裝備的調整」下的「修正擁有者權限」選項。&lt;/p&gt;&lt;p&gt;最重要的是，若您的裝置的系統有問題，請回報給您的廠商。一個問題有越多人回報給廠商，他們越有可能去解決這個問題。&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">PKCS12 檔加密金鑰</string>
     <string name="private_key_password">私密金鑰密碼</string>
     <string name="password">密碼</string>
@@ -177,8 +175,6 @@
     <string name="mobile_info">%10$s %9$s 在 %3$s %1$s（%2$s），Android %6$s（%7$s）API %4$d，ABI %5$s，（%8$s）上執行</string>
     <string name="error_rsa_sign">以 Android 金鑰庫金鑰簽章時發生錯誤 %1$s：%2$s</string>
     <string name="error_extapp_sign">使用外部身份驗證程式進行簽章時發生錯誤（%3$s）：%1$s：%2$s</string>
-    <string name="faq_system_dialogs">VPN 連線警告會告訴您這個應用程式可以攔截所有網路流量，這個警告是由系統自動顯示的，以防止 VPNService API 的不當使用。\nVPN 連線通知（鑰匙符號）也是由 Android 系統自動顯示，以提示目前存在 VPN 連線。在部分系統上這些通知會發出音效。\nAndroid 為了您自身的安全而採用這些機制，並確保它們不會被規避掉。（不幸的是部分系統會發出提示音效）</string>
-    <string name="faq_system_dialogs_title">連線警告和通知時發出音效</string>
     <string name="translationby">來自在 Crowdin 上社群的繁體中文翻譯&lt;arne@rfc2549.org&gt;</string>
     <string name="ipdns">IP 和 DNS</string>
     <string name="basic">基本</string>
@@ -217,8 +213,6 @@
     <string name="import_config">匯入 OpenVPN 設定</string>
     <string name="battery_consumption_title">電池消耗</string>
     <string name="baterry_consumption">在我個人的測試中，OpenVPN 造成高耗電的主要原因是 keepalive 封包。大多數的 OpenVPN 伺服器都會有一個類似「keepalive 10 60」的設定，這會導致用戶端和伺服器每十秒交流一次 keepalive 封包。&lt;p&gt; 這些封包雖然都很小且不太占用流量，但它們會令行動網路持續忙碌，並增加耗電。（參見 &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Android Developers&lt;/a&gt;）&lt;p&gt; 這個 keepalive 設定不能從用戶端上更改。只有 OpenVPN 的系統管理員可以更改這個設定。&lt;p&gt; 不幸的是，在 UDP 下將 keepalive 設定為大於 60 秒，可能會導致一些 NAT 閘道由於連線不活躍時間過長而將其中斷。在 TCP 下使用較長的 keepalive 逾時設定可以運作，但 TCP over TCP tunneling 在高封包丟失率的連線上表現很差。（參見  &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Why TCP Over TCP Is A Bad Idea&lt;/a&gt;）</string>
-    <string name="faq_tethering">網路共用功能（透過 Wi-Fi、USB 或藍牙）和 VPNService API（此程式使用的）無法一起運作。更多細節請見 &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/34\"&gt;issue #34&lt;/a&gt;</string>
-    <string name="vpn_tethering_title">VPN 與網路共用</string>
     <string name="connection_retries">連線重試次數</string>
     <string name="reconnection_settings">重新連線設定</string>
     <string name="connectretrymessage">連線重試間的等待秒數。</string>
@@ -287,8 +281,6 @@
     <string name="allow_vpn_changes">允許更改 VPN 設定檔</string>
     <string name="hwkeychain">硬體金鑰庫︰</string>
     <string name="permission_icon_app">嘗試使用 OpenVPN for Android 的應用程式的圖示</string>
-    <string name="faq_vpndialog43">「從 Android 4.3 開始，VPN 確認對話框會被「顯示在其他應用程式上層」的程式覆蓋，這會導致對話框對觸控輸入沒有反應。若您有應用程式會「顯示在其他應用程式上層」，它可能會造成這種行為。若您發現有發生問題的應用程式，請聯絡該應用程式的作者。這個問題影響 Android 4.3 （含）之後版本的所有 VPN 應用程式。其它細節參見 &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\"&gt;Issue 185&lt;a&gt;」</string>
-    <string name="faq_vpndialog43_title">VPN 確認對話框</string>
     <string name="donatePlayStore">或是您可以透過 Play 商店捐款給我：</string>
     <string name="thanks_for_donation">感謝捐款給 %s！</string>
     <string name="logCleared">紀錄已清除。</string>
@@ -304,7 +296,6 @@
     <string name="logview_options">查看選項</string>
     <string name="unhandled_exception">未處理的異常：%1$s \n\n %2$s</string>
     <string name="unhandled_exception_context">%3$s：%1$s \n\n %2$s</string>
-    <string name="faq_system_dialog_xposed">如果您的 Android 裝置已取得 root 權限，您可以自行承擔風險安裝 &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; and the &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Dialog confirm module&lt;/a&gt;</string>
     <string name="full_licenses">完整授權</string>
     <string name="blocklocal_summary">直接連接到本機介面的網路將不會從 VPN 通過。取消選擇此選項將會把所有本機網路的流量導向 VPN。</string>
     <string name="blocklocal_title">令區域網路繞過 VPN</string>
@@ -347,27 +338,16 @@
     <string name="faq_androids_clients_title">OpenVPN Android 用戶端之間的差異</string>
     <string name="ignore_multicast_route">忽略多播路由：%s</string>
     <string name="ab_only_cidr">Android 的 VPN 只支援 CIDR 路由。由於非 CIDR 路由幾乎不會被用到，OpenVPN for Android 對於非 CIDR 路由將使用 /32 並顯示警告。</string>
-    <string name="ab_tethering_44">VPN 啟用時，網路共用仍可運作。網路共用的連線不會使用 VPN。</string>
-    <string name="ab_kitkat_mss">早期的 Android 4.4（KitKat）版本，對於 TCP 連線設定了錯誤的最大分段大小值（MSS）（#61948）。可嘗試開啟 mssfix 選項來迴避這個問題。</string>
     <string name="ab_proxy">Android 在沒有設定 DNS 伺服器時，會繼續使用行動網路/Wi-Fi 連線中的 Proxy 設定。OpenVPN for Android 會對此在紀錄中做出警告。<p>Android 在有設定 DNS 伺服器時不會使用 Proxy。沒有 API 可以為 VPN 連線設定 Proxy。</p></string>
     <string name="ab_not_route_to_vpn">設定好的客戶端 IP，以及在其子網路遮罩底下的 IP 不會被路由到 VPN。OpenVPN 明確地新增一個對應到客戶端 IP 和其子網路遮罩的路由，以迴避這個問題。</string>
-    <string name="ab_persist_tun">在其它「保持 TUN 通道」的 TUN 裝置啟用時，開啟另一個 TUN 裝置會讓裝置上的 VPNServices 當掉，需要重開機才能讓 VPN 重新運作。OpenVPN for Android 會避免重新開啟 TUN 裝置，若真的需要則會在開啟新 TUN 裝置前先把當前的 TUN 裝置關閉，以避免當掉。這可能會導致封包有一小段時間透過非 VPN 連線傳送。即使用了這個方法迴避問題，VPNServices 有時候仍然會當掉，而需要將裝置重開機。</string>
-    <string name="ab_secondary_users">VPN 對於二級使用者不起任何作用。</string>
-    <string name="ab_kitkat_reconnect">「許多使用者回報，在使用 VPN 應用程式時，行動連線/行動數據連線經常被中斷。這個情況似乎只影響到部分行動供應商/裝置的組合，目前尚未找到原因和解決方案。」</string>
-    <string name="ab_vpn_reachability_44">透過 VPN 只能連線到沒有 VPN 才能連線到的目標位址。IPv6 VPN 完全無法運作。</string>
     <string name="ab_only_cidr_title">非 CIDR 路由</string>
     <string name="ab_proxy_title">VPN 的 Proxy 行為</string>
     <string name="version_upto">%s 及更早版本</string>
     <string name="copy_of_profile">%s 的副本</string>
     <string name="ab_not_route_to_vpn_title">路由到設定的 IP 位址</string>
-    <string name="ab_kitkat_mss_title">VPN 連線錯誤的最大分段大小 (MSS) 值</string>
-    <string name="ab_secondary_users_title">平板二級使用者</string>
     <string name="custom_connection_options_warng">指定自訂連線的特定選項，請小心使用</string>
     <string name="custom_connection_options">自訂選項</string>
     <string name="remove_connection_entry">刪除連線項目</string>
-    <string name="ab_kitkat_reconnect_title">隨機從行動網路斷線</string>
-    <string name="ab_vpn_reachability_44_title">遠端網路無法連線</string>
-    <string name="ab_persist_tun_title">保持 TUN 模式</string>
     <string name="version_and_later">%s 及更高版本</string>
     <string name="tls_cipher_alert_title">連線失敗，SSL23_GET_SERVER_HELLO:sslv3 警告交握失敗</string>
     <string name="tls_cipher_alert">新版的 OpenVPN for Android（0.6.29/2015 年 3 月）對於允許的加密套件（cipher suite）使用了更安全的預設值（tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\"）。不幸的是，不支援較不安全的加密套件以及美國出口密碼套件（export cipher suite），尤其是不支援那些不支援完全前向保密（Perfect Forward Secrecy）（Diffie–Hellman）的加密套件會造成一些問題。這通常是因為一個為了增強 TLS 安全性而立意良善但實效糟糕的嘗試，或是一些帶有精簡版 SSL 的嵌入式作業系統（例如 MikroTik）而造成的。\n要解決這個問題，請將伺服器上的 tls-cipher 設定值設為一個合理的預設值，如「tls-cipher \"DEFAULT:!EXP:!PSK:!SRP:!kRSA\"」。要在 Android 客戶端上迴避這個問題，請在自訂選項裡加入「tls-cipher DEFAULT」。</string>

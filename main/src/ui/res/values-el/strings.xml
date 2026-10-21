@@ -151,8 +151,6 @@
     <string name="speed_waiting">Αναμονή για κατάσταση μηνύματος&#8230;</string>
     <string name="converted_profile">εισαγόμενο προφίλ</string>
     <string name="converted_profile_i">εισαγόμενο προφίλ %d</string>
-    <string name="broken_images">Κατεστραμμένες εικόνες</string>
-    <string name="broken_images_faq">&lt;p&gt;Τα επίσημα αρχεία ειδώλου της HTC είναι γνωστό πως έχουν ένα περίεργο πρόβλημα δρομολόγησης που προκαλεί πρόβλημα στη ροή της κίνησης μέσω του καναλιού (Δείτε επίσης στο &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/18\"&gt;Issue 18&lt;/a&gt; στον bug tracker.)&lt;/p&gt;&lt;p&gt;Παλιότερα επίσημα αρχεία ειδώλου της SONY για Xperia Arc S και Xperia Ray έχει αναφερθεί πως δεν περιλαμβάνουν καθόλου το VPNService στο αρχείο ειδώλου. (Δείτε επίσης στο &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/29\"&gt;Issue 29&lt;/a&gt; στον bug tracker.)&lt;/p&gt;&lt;p&gt;Σε προσαρμοσμένα αρχεία ειδώλου το πρόσθετο tun μπορει να λείπει ή τα δικαιώματα του /dev/tun να είναι λάθος. Μερικά αρχεία ειδώλου CM9 χρειάζονται να ενεργοποιήσετε την επιλογή \"Διόρθωση δικαιωμάτων ιδιοκτησίας\" στην ενότητα \"Hacks Συγκεκριμένης Συσκευής\".&lt;/p&gt;&lt;p&gt;Σημαντικό: αν η συσκευή σας έχει χαλασμένο αρχείο ειδώλου, αναφέρετέ το στον κατασκευαστή του ειδώλου. Όσο περισσότεροι αναφέρουν το πρόβλημα στον κατασκευαστή, τόσο περισσότερες οι πιθανότητες να το φτιάξει.&lt;/p&gt;</string>
     <string name="pkcs12_file_encryption_key">Κλειδί κρυπτογράφισης αρχείου PKCS12</string>
     <string name="private_key_password">Κωδικός πρόσβασης ιδιωτικού κλειδιού</string>
     <string name="password">Κωδικός πρόσβασης</string>
@@ -176,8 +174,6 @@
     <string name="mobile_info">%10$s%9$s εκτελείται σε %3$s%1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
     <string name="error_rsa_sign">Σφάλμα υπογραφής με το κλειδί %1$s: %2$s του Android keystore</string>
     <string name="error_extapp_sign">Σφάλμα υπογραφής με εξωτερική εφαρμογή πιστοποίησης (%3$s): %1$s: %2$s</string>
-    <string name="faq_system_dialogs">Η προειδοποίηση της σύνδεσης VPN που λέει πως η εφαρμογή μπορεί να υποκλέψει κίνηση δεδομένων, έχει επιβληθεί από το σύστημα για αποτροπή κατάχρησης του VPNService API.\nΗ ειδοποίηση σύνδεσης του VPN (το σύμβολο με το κλειδί) έχει επίσης επιβληθεί από το σύστημα Android για να σηματοδοτεί ενεργές συνδέσεις VPN. Σε κάποια αρχεία ειδώλου αυτή η ειδοποίηση αναπαράγει και ήχο.\nΤο Android πρόσθεσε αυτούς τους διαλόγους συστήματος για την δικιά σας ασφάλεια και σιγουρεύτηκε πως δεν θα μπορούν να παρακαμφθούν. (Σε μερικά αρχεία ειδώλου δυστυχώς ούτε καν ο ήχος ειδοποίησης)</string>
-    <string name="faq_system_dialogs_title">Προειδοποίηση σύνδεσης και ήχος ειδοποίησης</string>
     <string name="translationby">Αγγλική μετάφραση από τον Arne Schwabe&lt;arne@rfc2549.org&gt;</string>
     <string name="ipdns">IP και DNS</string>
     <string name="basic">Βασικά</string>
@@ -216,8 +212,6 @@
     <string name="import_config">Εισαγωγή ρυθμίσεων OpenVPN</string>
     <string name="battery_consumption_title">Κατανάλωση μπαταρίας</string>
     <string name="baterry_consumption">Στις προσωπικές μου δοκιμές ο κύριος λόγος για την υψηλή κατανάλωση μπαταρίας του OpenVPN είναι τα πακέτα keepalive. Οι περισσότεροι διακομιστές OpenVPN έχουν μια επιλογή ρύθμισης, όπως η \'keepalive 10 60\', η οποία έχει σαν αποτέλεσμα την ανταλλαγή πακέτων keepalive μεταξύ της συσκευής-πελάτη και του διακομιστή κάθε 10 δευτερόλεπτα. &lt;p&gt; Ενώ αυτά τα πακέτα είναι μικρά και δεν χρησιμοποιούν μεγάλη κίνηση, διατηρούν το δίκτυο κινητής τηλεφωνίας απασχολημένο και αυξάνουν την κατανάλωση ενέργειας. (Δείτε επίσης &lt;a href=\"http://developer.android.com/training/efficient-downloads/efficient-network-access.html#RadioStateMachine\"&gt;The Radio State Machine | Android Developers&lt;/a&gt;) &lt;p&gt; Αυτή η ρύθμιση keepalive δεν μπορεί να αλλάξει στη συσκευή-πελάτη. Μόνο ο διαχειριστής του συστήματος OpenVPN μπορεί να αλλάξει τη ρύθμιση. &lt;p&gt; Δυστυχώς, χρησιμοποιώντας ένα keepalive μεγαλύτερο από 60 δευτερόλεπτα με το UDP μπορεί να προκαλέσει κάποιες πύλες NAT να ρίξουν τη σύνδεση λόγω λήξης του χρονικού ορίου. Χρησιμοποιώντας το TCP με μεγάλο keepalive δουλεύει, αλλά το tunneling TCP πάνω από TCP έχει πολύ κακή απόδοση σύνδεσης και προκαλεί υψηλή απώλεια πακέτων. (Βλ. &lt;a href=\"http://sites.inka.de/bigred/devel/tcp-tcp.html\"&gt;Why TCP Over TCP Is A Bad Idea&lt;/a&gt;)</string>
-    <string name="faq_tethering">Η λειτουργία Tethering του Android (μέσω WiFi, USB ή Bluetooth) και το VPNService API (που χρησιμοποιείται από αυτό το πρόγραμμα) δεν μπορούν να δουλέψουν παράλληλα. Για περισσότερες πληροφορίες δείτε στο &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/34\"&gt;issue #34&lt;/a&gt;</string>
-    <string name="vpn_tethering_title">VPN και Tethering</string>
     <string name="connection_retries">Επαναλήψεις σύνδεσης</string>
     <string name="reconnection_settings">Ρυθμίσεις επανασύνδεσης</string>
     <string name="connectretrymessage">Αριθμός σε δευτερόλεπτα για αναμονή ανάμεσα στις απόπειρες σύνδεσης.</string>
@@ -286,8 +280,6 @@
     <string name="allow_vpn_changes">Επέτρεξε αλλαγές στα προφίλ VPN</string>
     <string name="hwkeychain">Κλειδοθήκη υλικού:</string>
     <string name="permission_icon_app">Το εικονίδιο της εφαρμογής που προσπαθεί να χρησιμοποιήσει το OpenVPN για Android</string>
-    <string name="faq_vpndialog43">"Ξεκινώντας με το Android 4.3, η επιβεβαίωση VPN προστατεύεται από την \"επικάλυψη εφαρμογών\", με αποτέλεσμα το παράθυρο διαλόγου να μην αντιδρά με την είσοδο αφής της εφαρμογής. Αν αντιμετωπίζετε πρόβλημα με την εφαρμογή επικοινωνήστε με τον ιδιοκτήτη της εφαρμογης. Αυτό επηρεάζει όλες τις εφαρμογές VPN από Android 4.3 και πάνω. Δείτε επίσης &lt;a href=\"https://github.com/schwabe/ics-openvpn/issues/185\"&gt;Έκδοση 185&lt;a&gt; για περισσότερες λεπτομέρειες "</string>
-    <string name="faq_vpndialog43_title">Επιβεβαίωση Διασύνδεσης Vpn</string>
     <string name="donatePlayStore">Εναλλακτικά, μπορείτε να κάνετε δωρεά μέσω του Play Store:</string>
     <string name="thanks_for_donation">Ευχαριστούμε για την δωρεά %s!</string>
     <string name="logCleared">Έγινε εκκαθάριση της καταγραφής.</string>
@@ -303,7 +295,6 @@
     <string name="logview_options">Προβολή επιλογών</string>
     <string name="unhandled_exception">Ανεπίλυτη εξαίρεση: %1$s\n\n%2$s</string>
     <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
-    <string name="faq_system_dialog_xposed">Αν έχετε μια συσκευή Android με root μπορείτε να εγκαταστήσετε το &lt;a href=\"http://xposed.info/\"&gt;Xposed framework&lt;/a&gt; και το &lt;a href=\"http://repo.xposed.info/module/de.blinkt.vpndialogxposed\"&gt;VPN Dialog confirm module&lt;/a&gt; με δικό σας ρίσκο\"</string>
     <string name="full_licenses">Πλήρης άδειες</string>
     <string name="blocklocal_summary">Δίκτυα που συνδέονται άμεσα με τις τοπικές διασυνδέσεις δεν θα δρομολογούνται μέσω του VPN. Κατάργηση αυτής της επιλογής θα ανακατευθύνει όλη την κυκλοφορία που προοριζόταν για τα τοπικά δίσκτυα, στο VPN.</string>
     <string name="blocklocal_title">Παράκαμψη VPN για τοπικά δίκτυα</string>
@@ -346,27 +337,16 @@
     <string name="faq_androids_clients_title">Διαφορές μεταξύ των πελατών OpenVPN Android</string>
     <string name="ignore_multicast_route">Αγνόηση πολλαπλής διαδρομής: %s</string>
     <string name="ab_only_cidr">Το Android υποστηρίζει μόνο CIDR δρομολογήσεις στο VPN. Δεδομένου ότι οι μη-CIDR διαδρομές σχεδόν ποτέ δεν χρησιμοποιούνται, το OpenVPN για το Android θα χρησιμοποιήσει ένα /32 για δομολογήσεις που δεν είναι CIDR και θα εμφανίσει μια προειδοποίηση.</string>
-    <string name="ab_tethering_44">Το tethering λειτουργεί ενώ το VPN είναι ενεργό. Η tethered σύνδεση ΔΕΝ θα χρησιμοποιήσει το VPN.</string>
-    <string name="ab_kitkat_mss">Οι πρώιμες εκδόσεις KitKat είχαν ορισμένη λάθος την τιμή MSS στις συνδέσεις TCP (# 61948). Προσπαθήστε να ενεργοποιήσετε την επιλογή mssfix για να επιλύσετε αυτό το σφάλμα.</string>
     <string name="ab_proxy">Το Android θα συνεχίσει να χρησιμοποιεί τις ρυθμίσεις διακομιστή μεσολάβησης που έχουν οριστεί για τη σύνδεση δεδομένων/ Wi-Fi όταν δεν έχουν οριστεί διακομιστές DNS. Το OpenVPN για το Android, θα σας προειδοποιήσει σχετικά με αυτό στο αρχείο καταγραφής.<p>Όταν ένα VPN ορίζει ένα διακομιστή DNS, το Android δεν χρησιμοποιεί διακομιστή μεσολάβησης. Δεν υπάρχει API που να ορίζει διακομιστή μεσολάβησης σε μία σύνδεση VPN.</p></string>
     <string name="ab_not_route_to_vpn">Η ρυθμισμένη IP του πελάτη και οι διευθύνσεις IP στη μάσκα δικτύου του δεν δρομολογούνται μέσω του VPN. To OpenVPN ξεπερνά αυτό το bug προσθέτοντας αποκλειστικά μια δρομολόγηση που αντιστοιχεί στην IP και στη μάσκα δικτύου του πελάτη</string>
-    <string name="ab_persist_tun">Το άνοιγμα μιας συσκευής tun ενώ μια άλλη συσκευή tun είναι ενεργή και χρησιμοποιείται για υποστήριξη persist-tun, κρασάρει τα VPNServices στη συσκευή. Χρειάζεται επανεκκίνηση για να μπορέσει να δουλέψει ξανά το VPN. Το OpenVPN για Android προσπαθεί να αποφύγει το εκ νέου άνοιγμα της συσκευής tun και αν χρειάζεται πραγματικά, πρώτα κλείνει την τρέχουσα συσκευή TUN πριν ανοίξει μια νέα, για αποφυγή κρασαρίσματος. Αυτό μπορεί να έχει σαν αποτέλεσμα ένα μικρό χρονικό διάστημα που τα πακέτα θα στέλνονται χωρίς τη χρήση της σύνδεσης VPN. Ακόμη και έτσι, όμως, τα VPNServices μερικές φορές κρασάρουν και χρειάζεται επανεκκίνηση της συσκευής σας.</string>
-    <string name="ab_secondary_users">Το VPN δεν λειτουργεί καθόλου για τους δευτερεύοντες χρήστες.</string>
-    <string name="ab_kitkat_reconnect">"Πολλοί χρήστες αναφέρουν ότι η σύνδεση κινητής τηλεφωνίας/σύνδεση δεδομένων κινητής τηλεφωνίας διακόπτεται συχνά κατά τη χρήση της εφαρμογής VPN. Η συμπεριφορά φαίνεται να επηρεάζει μόνο ορισμένους συνδυασμούς παροχέα / συσκευής κινητής τηλεφωνίας και μέχρι στιγμής δεν έχει μπορέσει να εντοπιστεί καμία αιτία / λύση για το bug."</string>
-    <string name="ab_vpn_reachability_44">Μόνο προορισμοί που είναι προσβάσιμοι χωρίς VPN μπορούν να προσπελαστούν μέσω του VPN. Το IPv6 VPN δεν λειτουργεί καθόλου.</string>
     <string name="ab_only_cidr_title">Δρομολογήσεις όχι CIDR</string>
     <string name="ab_proxy_title">Συμπεριφορά του διακομιστή μεσολάβησης για τα VPN</string>
     <string name="version_upto">%s και νεώτερο</string>
     <string name="copy_of_profile">Αντίγραφο του %s</string>
     <string name="ab_not_route_to_vpn_title">Δρομολόγηση στη ρυθμισμένη διεύθυνση IP</string>
-    <string name="ab_kitkat_mss_title">Λανθασμένη τιμή MSS για τη σύνδεση VPN</string>
-    <string name="ab_secondary_users_title">Δευτερεύοντες χρήστες tablet</string>
     <string name="custom_connection_options_warng">Οορίστε προσαρμοσμένες επιλογές σύνδεσης. Χρησιμοποιήστε με προσοχή</string>
     <string name="custom_connection_options">Προσαρμοσμένες Επιλογές</string>
     <string name="remove_connection_entry">Διαγράψτε την καταχώρηση σύνδεσης</string>
-    <string name="ab_kitkat_reconnect_title">Τυχαίες αποσυνδέσεις από το δίκτυο κινητής τηλεφωνίας</string>
-    <string name="ab_vpn_reachability_44_title">Τα απομακρυσμένα δίκτυα δεν είναι προσβάσιμα</string>
-    <string name="ab_persist_tun_title">Λειτουργία επιμονής tun</string>
     <string name="version_and_later">%s και νεώτερο</string>
     <string name="tls_cipher_alert_title">Η σύνδεση αποτυχάνει με σφάλμα SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure</string>
     <string name="tls_cipher_alert">Οι νεότερες εκδόσεις OpenVPN για Android (0.6.29 / Μάρτιος 2015) χρησιμοποιούν μια πιο ασφαλή προεπιλογή για τις επιτρεπόμενες σουίτες κρυπτογράφησης (tls-cipher \"DEFAULT:! EXP:! PSK:! SRP:! KRSA\"). Δυστυχώς, η παράλειψη των λιγότερο ασφαλών cipher suites και η εξαγωγή cipher suites, ειδικά η παράλειψη των cipher suites που δεν υποστηρίζουν το Perfect Forward Secrecy (Diffie-Hellman) δημιουργεί ορισμένα προβλήματα. Αυτό συνήθως προκαλούταν από μια καλοπροαίρετη αλλά κακώς εκτελεσμένη προσπάθεια ενίσχυσης της ασφάλειας TLS, θέτοντας tls-cipher στον διακομιστή ή σε ορισμένα ενσωματωμένα λειτουργικά συστήματα με απογυμνωμένο SSL (π.χ. MikroTik).\nΓια να επιλύσετε αυτό το πρόβλημα το πρόβλημα, ορίστε τις ρυθμίσεις tls-cipher στο διακομιστή σε λογική προεπιλογή όπως tls-cipher \"DEFAULT:! EXP:! PSK:! SRP:! KRSA\". Για να επιλύσετε το πρόβλημα στον πελάτη, προσθέστε την προσαρμοσμένη επιλογή tls-cipher DEFAULT στον πελάτη Android.</string>
