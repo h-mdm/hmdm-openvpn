@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import de.blinkt.openvpn.LaunchVPN;
 import de.blinkt.openvpn.VpnProfile;
+import de.blinkt.openvpn.core.GlobalPreferences;
 import de.blinkt.openvpn.core.IOpenVPNServiceInternal;
 import de.blinkt.openvpn.core.OpenVPNService;
 import de.blinkt.openvpn.core.Preferences;
@@ -107,7 +108,9 @@ public class RemoteAction extends Activity {
 
         switch (component.getShortClassName()) {
             case ".api.DisconnectVPN":
-                mService.stopVPN(false);
+                /* HMDM: force-connected - other apps cannot disconnect the VPN */
+                if (!GlobalPreferences.getForceConnected())
+                    mService.stopVPN(false);
                 break;
             case ".api.PauseVPN":
                 mService.userPause(true);

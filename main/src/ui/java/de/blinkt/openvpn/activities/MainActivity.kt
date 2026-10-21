@@ -6,6 +6,7 @@ package de.blinkt.openvpn.activities
 
 import android.content.Intent
 import android.net.Uri
+import android.net.VpnService
 import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
@@ -28,6 +29,7 @@ import de.blinkt.openvpn.core.ConfigParser
 import de.blinkt.openvpn.core.GlobalPreferences
 import de.blinkt.openvpn.core.Preferences
 import de.blinkt.openvpn.core.ProfileManager
+import de.blinkt.openvpn.core.VPNLaunchHelper
 import de.blinkt.openvpn.fragments.*
 import de.blinkt.openvpn.fragments.ImportRemoteConfig.Companion.newInstance
 import de.blinkt.openvpn.fragments.LogFragment
@@ -186,6 +188,14 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
             return
         }
 
+        // "force_connected" = 1: the VPN must always run and cannot be disconnected or paused
+        val forceConnected = "1" == MDMService.Preferences.get("force_connected", "0")
+        if (forceConnected != prefs.getBoolean("mdm_force_connected", false)) {
+            prefs.edit().putBoolean("mdm_force_connected", forceConnected).apply()
+            GlobalPreferences.setMdmForceConnected(forceConnected)
+            MDMService.Log.i(null, "Force connected set to $forceConnected from MDM")
+        }
+
         val vpnName = MDMService.Preferences.get("vpn_name", null)
         val vpnConfig = MDMService.Preferences.get("vpn_config", null)
         val vpnNamesToRemove = MDMService.Preferences.get("remove", "").trim { it <= ' ' }
@@ -193,6 +203,18 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
         val connect = "1" == MDMService.Preferences.get("connect", "0")
         val alwaysOnString = MDMService.Preferences.get("always_on", null)
         val alwaysOn = if (alwaysOnString == null) null else "1" == alwaysOnString
+
+        // Force connected: on every start/config change make sure the default VPN runs.
+        // Same call as OnBootReceiver; the service ignores it if that profile already runs.
+        // Skipped while a new profile is about to be imported: the import connects it.
+        val managedProfile = vpnName?.let { ProfileManager.getInstance(this).getProfileByName(it) }
+        val importPending = vpnName != null && vpnConfig != null && managedProfile == null
+        if (forceConnected && !importPending) {
+            val defaultProfile = ProfileManager.getAlwaysOnVPN(this) ?: managedProfile
+            if (defaultProfile != null) {
+                ensureVpnRunning(defaultProfile)
+            }
+        }
         if (vpnName == null || vpnConfig == null) {
             // Nothing to do - the admin should configure name and configuration file
             MDMService.Log.v(null, "VPN configuration not set")
@@ -232,7 +254,22 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
             MDMService.Log.w(null, "VPN config file doesn't exist: $vpnConfig")
             return
         }
-        loadVPNFromFile(file, vpnName, connect, alwaysOn)
+        loadVPNFromFile(file, vpnName, connect || forceConnected, alwaysOn)
+    }
+
+    private fun ensureVpnRunning(profile: VpnProfile) {
+        if (VpnService.prepare(this) == null) {
+            // VPN permission granted: start like OnBootReceiver, never replace a running VPN
+            VPNLaunchHelper.startOpenVpn(profile, applicationContext, "Headwind MDM force_connected", false)
+        } else {
+            // No VPN permission yet: LaunchVPN asks for it, then connects
+            val intent = Intent(this, LaunchVPN::class.java)
+            intent.putExtra(LaunchVPN.EXTRA_KEY, profile.uuidString)
+            intent.putExtra(LaunchVPN.EXTRA_HIDELOG, true)
+            intent.action = Intent.ACTION_MAIN
+            startActivity(intent)
+        }
+        MDMService.Log.v(null, "Ensure VPN '${profile.name}' is running (force_connected)")
     }
 
     private fun loadVPNFromFile(

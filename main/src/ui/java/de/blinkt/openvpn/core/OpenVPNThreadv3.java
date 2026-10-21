@@ -386,8 +386,13 @@ public class OpenVPNThreadv3 extends ClientAPI_OpenVPNClient implements Runnable
             }
             case "COMPRESSION_ENABLED", "WARN" ->
                     VpnStatus.logInfo(String.format(Locale.US, "%s: %s", name, info));
-            case "PAUSE" ->
+            case "PAUSE" -> {
+                /* force connected: user/screen-off pause is impossible, so a pause means no network */
+                if (GlobalPreferences.getForceConnected())
+                    VpnStatus.updateStateString(name, "VPN connection paused", R.string.state_nonetwork, ConnectionStatus.LEVEL_NONETWORK);
+                else
                     VpnStatus.updateStateString(name, "VPN connection paused", R.string.state_userpause, ConnectionStatus.LEVEL_VPNPAUSED);
+            }
             case "RESUME" ->
                     VpnStatus.updateStateString(name, "VPN connection resumed", R.string.state_reconnecting, ConnectionStatus.LEVEL_CONNECTING_NO_SERVER_REPLY_YET);
             default ->

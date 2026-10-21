@@ -35,6 +35,7 @@ import de.blinkt.openvpn.VpnProfile;
 import de.blinkt.openvpn.core.ConfigParser;
 import de.blinkt.openvpn.core.ConfigParser.ConfigParseError;
 import de.blinkt.openvpn.core.ConnectionStatus;
+import de.blinkt.openvpn.core.GlobalPreferences;
 import de.blinkt.openvpn.core.IOpenVPNServiceInternal;
 import de.blinkt.openvpn.core.OpenVPNService;
 import de.blinkt.openvpn.core.Preferences;
@@ -316,6 +317,11 @@ public class ExternalOpenVPNService extends Service implements StateListener {
         @Override
         public void disconnect() throws RemoteException {
             mExtAppDb.checkOpenVPNPermission(getPackageManager());
+            /* HMDM: force-connected - other apps cannot disconnect the VPN */
+            if (GlobalPreferences.getForceConnected()) {
+                VpnStatus.logInfo("Disconnect request from external app ignored (force connected)");
+                return;
+            }
             if (mService != null)
                 mService.stopVPN(false);
         }

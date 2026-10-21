@@ -38,9 +38,16 @@ public class GlobalPreferences {
         return mdmMinimalUi || (instance != null && instance.minimalUi);
     }
 
+    /* Set from the Headwind MDM panel ("force_connected"), saved as "mdm_force_connected" */
+    static volatile boolean mdmForceConnected = false;
+
+    public static void setMdmForceConnected(boolean value) {
+        mdmForceConnected = value;
+    }
+
     static public boolean getForceConnected()
     {
-        return getInstance().forceConnected;
+        return mdmForceConnected || (instance != null && instance.forceConnected);
     }
 
     static public boolean getAllowInitialImport() { return getInstance().initialImport; }

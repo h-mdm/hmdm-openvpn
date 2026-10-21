@@ -54,8 +54,12 @@ The following application settings could be set up to manage OpenVPN remotely:
 
 **remove_all** - set to 1 to remove all other VPN profiles
 
+**minimal_ui** - set to 1 to show the minimal UI: a single status page with the connection state and one button, no profile list or settings. Applied immediately.
 
-Note: new settings are applied only if a new vpn_name is different from the previous one!
+**force_connected** - set to 1 to keep the VPN permanently on: the default VPN (always-on profile, otherwise *vpn_name*) is started every time the app starts if it is not running, and it cannot be disconnected or paused (notification, quick settings tile, other apps via the API, screen-off pause). Applied immediately. Best combined with minimal_ui=1.
+
+
+Note: new profile settings are applied only if a new vpn_name is different from the previous one! (minimal_ui and force_connected are applied immediately.)
 
 FAQ
 -----

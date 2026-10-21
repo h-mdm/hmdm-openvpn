@@ -19,6 +19,7 @@ import android.service.quicksettings.TileService;
 import android.widget.Toast;
 
 import de.blinkt.openvpn.core.ConnectionStatus;
+import de.blinkt.openvpn.core.GlobalPreferences;
 import de.blinkt.openvpn.core.IOpenVPNServiceInternal;
 import de.blinkt.openvpn.core.OpenVPNService;
 import de.blinkt.openvpn.core.ProfileManager;
@@ -54,6 +55,9 @@ public class OpenVPNTileService extends TileService implements VpnStatus.StateLi
     }
 
     private void clickAction(VpnProfile bootProfile) {
+        /* HMDM: force-connected - the tile can connect, never disconnect */
+        if (VpnStatus.isVPNActive() && GlobalPreferences.getForceConnected())
+            return;
         if (VpnStatus.isVPNActive()) {
             Intent intent = new Intent(this, OpenVPNService.class);
             intent.setAction(OpenVPNService.START_SERVICE);
