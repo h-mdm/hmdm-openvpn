@@ -442,7 +442,7 @@ public class OpenVPNThreadv3 extends ClientAPI_OpenVPNClient implements Runnable
     @Override
     public void stop() {
         super.stop();
-        mService.openvpnStopped();
+        mService.openvpnStopped(this);
     }
 
     @Override

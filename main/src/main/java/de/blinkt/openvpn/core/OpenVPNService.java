@@ -117,9 +117,9 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
 
     private DeviceStateReceiver mDeviceStateReceiver;
     private boolean mDisplayBytecount = false;
-    private boolean mStarting = false;
+    private volatile boolean mStarting = false;
     private long mConnecttime;
-    private OpenVPNManagement mManagement;
+    private volatile OpenVPNManagement mManagement;
     private final IBinder mBinder = new IOpenVPNServiceInternal.Stub() {
 
         @Override
@@ -246,6 +246,16 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
 
     // Similar to revoke but do not try to stop process
     public void openvpnStopped() {
+        endVpnService();
+    }
+
+    /* OpenVPN 3 stops asynchronously; ignore a late stop from a client
+     * that has already been replaced by a new connection */
+    public void openvpnStopped(OpenVPNManagement stoppedClient) {
+        if (mStarting || stoppedClient != mManagement) {
+            VpnStatus.logDebug("Ignoring stop of replaced OpenVPN 3 client");
+            return;
+        }
         endVpnService();
     }
 
@@ -723,6 +733,7 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
             mManagement = mOpenVPN3;
         } else {
             processThread = new OpenVPNThread(this, argv, nativeLibraryDirectory, tmpDir);
+            mOpenVPNThread = processThread;
         }
 
         synchronized (mProcessLock) {
