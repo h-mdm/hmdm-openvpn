@@ -41,6 +41,7 @@ import de.blinkt.openvpn.core.PasswordCache;
 import de.blinkt.openvpn.core.Preferences;
 import de.blinkt.openvpn.core.ProfileManager;
 import de.blinkt.openvpn.core.VPNLaunchHelper;
+import de.blinkt.openvpn.core.GlobalPreferences;
 import de.blinkt.openvpn.core.VpnStatus;
 import de.blinkt.openvpn.activities.LogWindow;
 
@@ -250,7 +251,7 @@ public class LaunchVPN extends Activity {
                     SharedPreferences prefs = Preferences.getDefaultSharedPreferences(this);
                     boolean showLogWindow = prefs.getBoolean("showlogwindow", true);
 
-                    if (!mhideLog && showLogWindow)
+                    if (!mhideLog && showLogWindow && !GlobalPreferences.getMinimalUi())
                         showLogWindow();
                     ProfileManager.updateLRU(this, mSelectedProfile);
                     VPNLaunchHelper.startOpenVpn(mSelectedProfile, getBaseContext(), mSelectedProfileReason, true);

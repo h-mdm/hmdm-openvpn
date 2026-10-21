@@ -324,7 +324,8 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
         if (status == LEVEL_WAITING_FOR_USER_INPUT && intent != null) {
             PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
             nbuilder.setContentIntent(pIntent);
-        } else {
+        } else if (!GlobalPreferences.getMinimalUi()) {
+            /* minimal UI has no graph page to open */
             nbuilder.setContentIntent(getGraphPendingIntent());
         }
 

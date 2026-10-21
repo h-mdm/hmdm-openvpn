@@ -62,6 +62,16 @@ class ScreenSlidePagerAdapter(fm: FragmentManager, lc: Lifecycle, c: Context) :
         return mTabs.size
     }
 
+    /* Stable ids per fragment class, so the pages are rebuilt correctly when the
+     * activity is recreated with a different set of tabs (minimal UI on/off) */
+    override fun getItemId(position: Int): Long {
+        return mTabs[position].fragmentClass.name.hashCode().toLong()
+    }
+
+    override fun containsItem(itemId: Long): Boolean {
+        return mTabs.any { it.fragmentClass.name.hashCode().toLong() == itemId }
+    }
+
     fun addTab(@StringRes name: Int, fragmentClass: Class<out Fragment>) {
         mTabs.add(Tab(fragmentClass, res.getString(name)))
     }

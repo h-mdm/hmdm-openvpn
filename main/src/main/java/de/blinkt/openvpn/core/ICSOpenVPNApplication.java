@@ -47,6 +47,8 @@ public class ICSOpenVPNApplication extends Application {
         mStatus.init(getApplicationContext());
 
         createFirstLaunchSetting();
+        GlobalPreferences.setMdmMinimalUi(
+                Preferences.getDefaultSharedPreferences(this).getBoolean("mdm_minimal_ui", false));
 
         AppRestrictions.getInstance(this).checkRestrictions(this);
     }

@@ -25,6 +25,7 @@ import de.blinkt.openvpn.R
 import de.blinkt.openvpn.VpnProfile
 import de.blinkt.openvpn.core.ConfigParser
 import de.blinkt.openvpn.core.GlobalPreferences
+import de.blinkt.openvpn.core.Preferences
 import de.blinkt.openvpn.core.ProfileManager
 import de.blinkt.openvpn.fragments.*
 import de.blinkt.openvpn.fragments.ImportRemoteConfig.Companion.newInstance
@@ -167,6 +168,19 @@ class MainActivity : BaseActivity(), HeadwindMDM.EventHandler {
     }
 
     private fun loadConfigFromMdm() {
+        // Minimal UI can be switched from the Headwind MDM panel ("minimal_ui" = 1)
+        val minimalUi = "1" == MDMService.Preferences.get("minimal_ui", "0")
+        val prefs = Preferences.getDefaultSharedPreferences(this)
+        if (minimalUi != prefs.getBoolean("mdm_minimal_ui", false)) {
+            val editor = prefs.edit().putBoolean("mdm_minimal_ui", minimalUi)
+            if (minimalUi) editor.putBoolean("showlogwindow", false)
+            editor.apply()
+            GlobalPreferences.setMdmMinimalUi(minimalUi)
+            MDMService.Log.i(null, "Minimal UI set to $minimalUi from MDM")
+            runOnUiThread { recreate() }
+            return
+        }
+
         val vpnName = MDMService.Preferences.get("vpn_name", null)
         val vpnConfig = MDMService.Preferences.get("vpn_config", null)
         val vpnNamesToRemove = MDMService.Preferences.get("remove", "").trim { it <= ' ' }

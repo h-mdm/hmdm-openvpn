@@ -16,6 +16,7 @@ public class GlobalPreferences {
 
     GlobalPreferences(boolean minimalUi, boolean forceConnected, boolean initialImport)
     {
+        this.minimalUi = minimalUi;
         this.forceConnected = forceConnected;
         this.initialImport = initialImport;
     }
@@ -25,9 +26,16 @@ public class GlobalPreferences {
         instance = new GlobalPreferences(minimalUi, forceConnected, initialImport);
     }
 
+    /* Set from the Headwind MDM panel ("minimal_ui"), saved as "mdm_minimal_ui" */
+    static volatile boolean mdmMinimalUi = false;
+
+    public static void setMdmMinimalUi(boolean value) {
+        mdmMinimalUi = value;
+    }
+
     static public boolean getMinimalUi()
     {
-        return getInstance().minimalUi;
+        return mdmMinimalUi || (instance != null && instance.minimalUi);
     }
 
     static public boolean getForceConnected()
